@@ -33418,7 +33418,7 @@ function useViewTransitionState(to, opts) {
 
 // app/javascript/components/Home.jsx
 var import_react = __toESM(require_react());
-var Home_default = () => /* @__PURE__ */ import_react.default.createElement("div", { className: "" }, "Hello World");
+var Home_default = () => /* @__PURE__ */ import_react.default.createElement("div", { className: "" }, "Testing Hello World!");
 
 // app/javascript/routes/index.jsx
 var routes_default = /* @__PURE__ */ import_react2.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react2.default.createElement(Routes, null, /* @__PURE__ */ import_react2.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react2.default.createElement(Home_default, null) })));

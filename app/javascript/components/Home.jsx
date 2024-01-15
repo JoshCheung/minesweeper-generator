@@ -3,6 +3,6 @@ import { Link } from "react-router-dom";
 
 export default () => (
   <div className="">
-    Hello World
+    Testing Hello World!
   </div>
 );
