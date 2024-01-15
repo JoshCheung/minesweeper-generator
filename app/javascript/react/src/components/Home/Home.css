@@ -1,0 +1,21 @@
+.home-container {
+    height: 100vh;
+    background-color: blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.home-form-container {
+    display: flex;
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    justify-content: center;
+}
+
+.board-list-container {
+    display: flex;
+    width: 25%;
+    height: 100%;
+    background-color: rgb(164, 213, 255);
+}

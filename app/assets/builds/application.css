@@ -1,0 +1,52 @@
+/* app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.css */
+.form-container {
+  width: 400px;
+  max-width: 400px;
+  background-color: rgb(234, 234, 234);
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 25px;
+  padding: 24px;
+}
+.input-form-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  display: flex;
+  padding: 8px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.button-container {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+/* app/javascript/react/src/components/Home/Home.css */
+.home-container {
+  height: 100vh;
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+}
+.home-form-container {
+  display: flex;
+  width: 75%;
+  height: 100%;
+  background-color: white;
+  justify-content: center;
+}
+.board-list-container {
+  display: flex;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(164, 213, 255);
+}
+
+/* app/javascript/react/src/components/App.css */
+/*# sourceMappingURL=/assets/application.css.map */

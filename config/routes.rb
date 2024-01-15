@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   root 'homepage#index'
+  namespace :api do
+    namespace :v1 do
+      get 'boards/index'
+      post 'boards/create'
+      get 'boards/show'
+    end
+  end
+  resources :boards
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
