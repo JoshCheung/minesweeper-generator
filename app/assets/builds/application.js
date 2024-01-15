@@ -11,8 +11,8 @@ var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
 };
 var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
+  for (var name2 in all)
+    __defProp(target, name2, { get: all[name2], enumerable: true });
 };
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
@@ -597,8 +597,8 @@ __export(src_exports, {
 function createConsumer(url = getConfig("url") || internal_default.default_mount_path) {
   return new Consumer(url);
 }
-function getConfig(name) {
-  const element = document.head.querySelector(`meta[name='action-cable-${name}']`);
+function getConfig(name2) {
+  const element = document.head.querySelector(`meta[name='action-cable-${name2}']`);
   if (element) {
     return element.getAttribute("content");
   }
@@ -830,20 +830,20 @@ var require_react_development = __commonJS({
         {
           Object.freeze(emptyObject);
         }
-        function Component2(props, context, updater) {
+        function Component(props, context, updater) {
           this.props = props;
           this.context = context;
           this.refs = emptyObject;
           this.updater = updater || ReactNoopUpdateQueue;
         }
-        Component2.prototype.isReactComponent = {};
-        Component2.prototype.setState = function(partialState, callback) {
+        Component.prototype.isReactComponent = {};
+        Component.prototype.setState = function(partialState, callback) {
           if (typeof partialState !== "object" && typeof partialState !== "function" && partialState != null) {
             throw new Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");
           }
           this.updater.enqueueSetState(this, partialState, callback, "setState");
         };
-        Component2.prototype.forceUpdate = function(callback) {
+        Component.prototype.forceUpdate = function(callback) {
           this.updater.enqueueForceUpdate(this, callback, "forceUpdate");
         };
         {
@@ -852,7 +852,7 @@ var require_react_development = __commonJS({
             replaceState: ["replaceState", "Refactor your code to use setState instead (see https://github.com/facebook/react/issues/3236)."]
           };
           var defineDeprecationWarning = function(methodName, info) {
-            Object.defineProperty(Component2.prototype, methodName, {
+            Object.defineProperty(Component.prototype, methodName, {
               get: function() {
                 warn("%s(...) is deprecated in plain JavaScript React classes. %s", info[0], info[1]);
                 return void 0;
@@ -867,7 +867,7 @@ var require_react_development = __commonJS({
         }
         function ComponentDummy() {
         }
-        ComponentDummy.prototype = Component2.prototype;
+        ComponentDummy.prototype = Component.prototype;
         function PureComponent(props, context, updater) {
           this.props = props;
           this.context = context;
@@ -876,7 +876,7 @@ var require_react_development = __commonJS({
         }
         var pureComponentPrototype = PureComponent.prototype = new ComponentDummy();
         pureComponentPrototype.constructor = PureComponent;
-        assign(pureComponentPrototype, Component2.prototype);
+        assign(pureComponentPrototype, Component.prototype);
         pureComponentPrototype.isPureReactComponent = true;
         function createRef() {
           var refObject = {
@@ -1218,7 +1218,7 @@ var require_react_development = __commonJS({
           }
           return ReactElement(element.type, key, ref, self2, source, owner, props);
         }
-        function isValidElement2(object) {
+        function isValidElement(object) {
           return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
         }
         var SEPARATOR = ".";
@@ -1283,7 +1283,7 @@ var require_react_development = __commonJS({
                 return c;
               });
             } else if (mappedChild != null) {
-              if (isValidElement2(mappedChild)) {
+              if (isValidElement(mappedChild)) {
                 {
                   if (mappedChild.key && (!_child || _child.key !== mappedChild.key)) {
                     checkKeyStringCoercion(mappedChild.key);
@@ -1371,12 +1371,12 @@ var require_react_development = __commonJS({
           }) || [];
         }
         function onlyChild(children) {
-          if (!isValidElement2(children)) {
+          if (!isValidElement(children)) {
             throw new Error("React.Children.only expected to receive a single React element child.");
           }
           return children;
         }
-        function createContext3(defaultValue) {
+        function createContext(defaultValue) {
           var context = {
             $$typeof: REACT_CONTEXT_TYPE,
             // As a workaround to support multiple concurrent renderers, we categorize
@@ -1563,7 +1563,7 @@ var require_react_development = __commonJS({
           }
           return lazyType;
         }
-        function forwardRef2(render) {
+        function forwardRef(render) {
           {
             if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
               error2("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1592,10 +1592,10 @@ var require_react_development = __commonJS({
               get: function() {
                 return ownName;
               },
-              set: function(name) {
-                ownName = name;
+              set: function(name2) {
+                ownName = name2;
                 if (!render.name && !render.displayName) {
-                  render.displayName = name;
+                  render.displayName = name2;
                 }
               }
             });
@@ -1643,10 +1643,10 @@ var require_react_development = __commonJS({
               get: function() {
                 return ownName;
               },
-              set: function(name) {
-                ownName = name;
+              set: function(name2) {
+                ownName = name2;
                 if (!type.name && !type.displayName) {
-                  type.displayName = name;
+                  type.displayName = name2;
                 }
               }
             });
@@ -1662,7 +1662,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher;
         }
-        function useContext3(Context2) {
+        function useContext(Context2) {
           var dispatcher = resolveDispatcher();
           {
             if (Context2._context !== void 0) {
@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState3(initialState) {
+        function useState(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1684,11 +1684,11 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useReducer(reducer, initialArg, init);
         }
-        function useRef3(initialValue) {
+        function useRef(initialValue) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect3(create, deps) {
+        function useEffect(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -1696,15 +1696,15 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useInsertionEffect(create, deps);
         }
-        function useLayoutEffect3(create, deps) {
+        function useLayoutEffect(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useLayoutEffect(create, deps);
         }
-        function useCallback3(callback, deps) {
+        function useCallback(callback, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useCallback(callback, deps);
         }
-        function useMemo3(create, deps) {
+        function useMemo(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useMemo(create, deps);
         }
@@ -1814,7 +1814,7 @@ var require_react_development = __commonJS({
         }
         var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
         var prefix;
-        function describeBuiltInComponentFrame(name, source, ownerFn) {
+        function describeBuiltInComponentFrame(name2, source, ownerFn) {
           {
             if (prefix === void 0) {
               try {
@@ -1824,7 +1824,7 @@ var require_react_development = __commonJS({
                 prefix = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix + name2;
           }
         }
         var reentry = false;
@@ -1927,8 +1927,8 @@ var require_react_development = __commonJS({
             }
             Error.prepareStackTrace = previousPrepareStackTrace;
           }
-          var name = fn ? fn.displayName || fn.name : "";
-          var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+          var name2 = fn ? fn.displayName || fn.name : "";
+          var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
           {
             if (typeof fn === "function") {
               componentFrameCache.set(fn, syntheticFrame);
@@ -1941,8 +1941,8 @@ var require_react_development = __commonJS({
             return describeNativeComponentFrame(fn, false);
           }
         }
-        function shouldConstruct(Component3) {
-          var prototype = Component3.prototype;
+        function shouldConstruct(Component2) {
+          var prototype = Component2.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
@@ -2043,9 +2043,9 @@ var require_react_development = __commonJS({
         }
         function getDeclarationErrorAddendum() {
           if (ReactCurrentOwner.current) {
-            var name = getComponentNameFromType(ReactCurrentOwner.current.type);
-            if (name) {
-              return "\n\nCheck the render method of `" + name + "`.";
+            var name2 = getComponentNameFromType(ReactCurrentOwner.current.type);
+            if (name2) {
+              return "\n\nCheck the render method of `" + name2 + "`.";
             }
           }
           return "";
@@ -2102,11 +2102,11 @@ var require_react_development = __commonJS({
           if (isArray(node)) {
             for (var i = 0; i < node.length; i++) {
               var child = node[i];
-              if (isValidElement2(child)) {
+              if (isValidElement(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement2(node)) {
+          } else if (isValidElement(node)) {
             if (node._store) {
               node._store.validated = true;
             }
@@ -2117,7 +2117,7 @@ var require_react_development = __commonJS({
                 var iterator = iteratorFn.call(node);
                 var step;
                 while (!(step = iterator.next()).done) {
-                  if (isValidElement2(step.value)) {
+                  if (isValidElement(step.value)) {
                     validateExplicitKey(step.value, parentType);
                   }
                 }
@@ -2142,8 +2142,8 @@ var require_react_development = __commonJS({
               return;
             }
             if (propTypes) {
-              var name = getComponentNameFromType(type);
-              checkPropTypes(propTypes, element.props, "prop", name, element);
+              var name2 = getComponentNameFromType(type);
+              checkPropTypes(propTypes, element.props, "prop", name2, element);
             } else if (type.PropTypes !== void 0 && !propTypesMisspellWarningShown) {
               propTypesMisspellWarningShown = true;
               var _name = getComponentNameFromType(type);
@@ -2440,15 +2440,15 @@ var require_react_development = __commonJS({
         var createElement$1 = createElementWithValidation;
         var cloneElement$1 = cloneElementWithValidation;
         var createFactory = createFactoryWithValidation;
-        var Children2 = {
+        var Children = {
           map: mapChildren,
           forEach: forEachChildren,
           count: countChildren,
           toArray,
           only: onlyChild
         };
-        exports.Children = Children2;
-        exports.Component = Component2;
+        exports.Children = Children;
+        exports.Component = Component;
         exports.Fragment = REACT_FRAGMENT_TYPE;
         exports.Profiler = REACT_PROFILER_TYPE;
         exports.PureComponent = PureComponent;
@@ -2456,29 +2456,29 @@ var require_react_development = __commonJS({
         exports.Suspense = REACT_SUSPENSE_TYPE;
         exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
         exports.cloneElement = cloneElement$1;
-        exports.createContext = createContext3;
+        exports.createContext = createContext;
         exports.createElement = createElement$1;
         exports.createFactory = createFactory;
         exports.createRef = createRef;
-        exports.forwardRef = forwardRef2;
-        exports.isValidElement = isValidElement2;
+        exports.forwardRef = forwardRef;
+        exports.isValidElement = isValidElement;
         exports.lazy = lazy;
         exports.memo = memo;
         exports.startTransition = startTransition;
         exports.unstable_act = act;
-        exports.useCallback = useCallback3;
-        exports.useContext = useContext3;
+        exports.useCallback = useCallback;
+        exports.useContext = useContext;
         exports.useDebugValue = useDebugValue;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect3;
+        exports.useEffect = useEffect;
         exports.useId = useId;
         exports.useImperativeHandle = useImperativeHandle;
         exports.useInsertionEffect = useInsertionEffect;
-        exports.useLayoutEffect = useLayoutEffect3;
-        exports.useMemo = useMemo3;
+        exports.useLayoutEffect = useLayoutEffect;
+        exports.useMemo = useMemo;
         exports.useReducer = useReducer;
-        exports.useRef = useRef3;
-        exports.useState = useState3;
+        exports.useRef = useRef;
+        exports.useState = useState;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React7 = require_react();
+        var React3 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React7.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React3.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -3025,7 +3025,7 @@ var require_react_dom_development = __commonJS({
         var HostPortal = 4;
         var HostComponent = 5;
         var HostText = 6;
-        var Fragment3 = 7;
+        var Fragment = 7;
         var Mode = 8;
         var ContextConsumer = 9;
         var ContextProvider = 10;
@@ -3178,19 +3178,19 @@ var require_react_dom_development = __commonJS({
           }
           return false;
         }
-        function shouldIgnoreAttribute(name, propertyInfo, isCustomComponentTag) {
+        function shouldIgnoreAttribute(name2, propertyInfo, isCustomComponentTag) {
           if (propertyInfo !== null) {
             return propertyInfo.type === RESERVED;
           }
           if (isCustomComponentTag) {
             return false;
           }
-          if (name.length > 2 && (name[0] === "o" || name[0] === "O") && (name[1] === "n" || name[1] === "N")) {
+          if (name2.length > 2 && (name2[0] === "o" || name2[0] === "O") && (name2[1] === "n" || name2[1] === "N")) {
             return true;
           }
           return false;
         }
-        function shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag) {
+        function shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag) {
           if (propertyInfo !== null && propertyInfo.type === RESERVED) {
             return false;
           }
@@ -3205,7 +3205,7 @@ var require_react_dom_development = __commonJS({
               if (propertyInfo !== null) {
                 return !propertyInfo.acceptsBooleans;
               } else {
-                var prefix2 = name.toLowerCase().slice(0, 5);
+                var prefix2 = name2.toLowerCase().slice(0, 5);
                 return prefix2 !== "data-" && prefix2 !== "aria-";
               }
             }
@@ -3213,11 +3213,11 @@ var require_react_dom_development = __commonJS({
               return false;
           }
         }
-        function shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag) {
+        function shouldRemoveAttribute(name2, value, propertyInfo, isCustomComponentTag) {
           if (value === null || typeof value === "undefined") {
             return true;
           }
-          if (shouldRemoveAttributeWithWarning(name, value, propertyInfo, isCustomComponentTag)) {
+          if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo, isCustomComponentTag)) {
             return true;
           }
           if (isCustomComponentTag) {
@@ -3237,15 +3237,15 @@ var require_react_dom_development = __commonJS({
           }
           return false;
         }
-        function getPropertyInfo(name) {
-          return properties.hasOwnProperty(name) ? properties[name] : null;
+        function getPropertyInfo(name2) {
+          return properties.hasOwnProperty(name2) ? properties[name2] : null;
         }
-        function PropertyInfoRecord(name, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
+        function PropertyInfoRecord(name2, type, mustUseProperty, attributeName, attributeNamespace, sanitizeURL2, removeEmptyString) {
           this.acceptsBooleans = type === BOOLEANISH_STRING || type === BOOLEAN || type === OVERLOADED_BOOLEAN;
           this.attributeName = attributeName;
           this.attributeNamespace = attributeNamespace;
           this.mustUseProperty = mustUseProperty;
-          this.propertyName = name;
+          this.propertyName = name2;
           this.type = type;
           this.sanitizeURL = sanitizeURL2;
           this.removeEmptyString = removeEmptyString;
@@ -3264,13 +3264,13 @@ var require_react_dom_development = __commonJS({
           "suppressHydrationWarning",
           "style"
         ];
-        reservedProps.forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        reservedProps.forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             RESERVED,
             false,
             // mustUseProperty
-            name,
+            name2,
             // attributeName
             null,
             // attributeNamespace
@@ -3280,9 +3280,9 @@ var require_react_dom_development = __commonJS({
           );
         });
         [["acceptCharset", "accept-charset"], ["className", "class"], ["htmlFor", "for"], ["httpEquiv", "http-equiv"]].forEach(function(_ref) {
-          var name = _ref[0], attributeName = _ref[1];
-          properties[name] = new PropertyInfoRecord(
-            name,
+          var name2 = _ref[0], attributeName = _ref[1];
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             STRING,
             false,
             // mustUseProperty
@@ -3295,13 +3295,13 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ["contentEditable", "draggable", "spellCheck", "value"].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             BOOLEANISH_STRING,
             false,
             // mustUseProperty
-            name.toLowerCase(),
+            name2.toLowerCase(),
             // attributeName
             null,
             // attributeNamespace
@@ -3310,13 +3310,13 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ["autoReverse", "externalResourcesRequired", "focusable", "preserveAlpha"].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             BOOLEANISH_STRING,
             false,
             // mustUseProperty
-            name,
+            name2,
             // attributeName
             null,
             // attributeNamespace
@@ -3352,13 +3352,13 @@ var require_react_dom_development = __commonJS({
           "seamless",
           // Microdata
           "itemScope"
-        ].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             BOOLEAN,
             false,
             // mustUseProperty
-            name.toLowerCase(),
+            name2.toLowerCase(),
             // attributeName
             null,
             // attributeNamespace
@@ -3377,13 +3377,13 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             BOOLEAN,
             true,
             // mustUseProperty
-            name,
+            name2,
             // attributeName
             null,
             // attributeNamespace
@@ -3398,13 +3398,13 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             OVERLOADED_BOOLEAN,
             false,
             // mustUseProperty
-            name,
+            name2,
             // attributeName
             null,
             // attributeNamespace
@@ -3421,13 +3421,13 @@ var require_react_dom_development = __commonJS({
           // NOTE: if you add a camelCased prop to this list,
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
-        ].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             POSITIVE_NUMERIC,
             false,
             // mustUseProperty
-            name,
+            name2,
             // attributeName
             null,
             // attributeNamespace
@@ -3436,13 +3436,13 @@ var require_react_dom_development = __commonJS({
             false
           );
         });
-        ["rowSpan", "start"].forEach(function(name) {
-          properties[name] = new PropertyInfoRecord(
-            name,
+        ["rowSpan", "start"].forEach(function(name2) {
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             NUMERIC,
             false,
             // mustUseProperty
-            name.toLowerCase(),
+            name2.toLowerCase(),
             // attributeName
             null,
             // attributeNamespace
@@ -3533,9 +3533,9 @@ var require_react_dom_development = __commonJS({
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
         ].forEach(function(attributeName) {
-          var name = attributeName.replace(CAMELIZE, capitalize2);
-          properties[name] = new PropertyInfoRecord(
-            name,
+          var name2 = attributeName.replace(CAMELIZE, capitalize2);
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             STRING,
             false,
             // mustUseProperty
@@ -3558,9 +3558,9 @@ var require_react_dom_development = __commonJS({
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
         ].forEach(function(attributeName) {
-          var name = attributeName.replace(CAMELIZE, capitalize2);
-          properties[name] = new PropertyInfoRecord(
-            name,
+          var name2 = attributeName.replace(CAMELIZE, capitalize2);
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             STRING,
             false,
             // mustUseProperty
@@ -3579,9 +3579,9 @@ var require_react_dom_development = __commonJS({
           // you'll need to set attributeName to name.toLowerCase()
           // instead in the assignment below.
         ].forEach(function(attributeName) {
-          var name = attributeName.replace(CAMELIZE, capitalize2);
-          properties[name] = new PropertyInfoRecord(
-            name,
+          var name2 = attributeName.replace(CAMELIZE, capitalize2);
+          properties[name2] = new PropertyInfoRecord(
+            name2,
             STRING,
             false,
             // mustUseProperty
@@ -3644,14 +3644,14 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function getValueForProperty(node, name, expected, propertyInfo) {
+        function getValueForProperty(node, name2, expected, propertyInfo) {
           {
             if (propertyInfo.mustUseProperty) {
               var propertyName = propertyInfo.propertyName;
               return node[propertyName];
             } else {
               {
-                checkAttributeStringCoercion(expected, name);
+                checkAttributeStringCoercion(expected, name2);
               }
               if (propertyInfo.sanitizeURL) {
                 sanitizeURL("" + expected);
@@ -3664,7 +3664,7 @@ var require_react_dom_development = __commonJS({
                   if (value === "") {
                     return true;
                   }
-                  if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+                  if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
                     return value;
                   }
                   if (value === "" + expected) {
@@ -3673,7 +3673,7 @@ var require_react_dom_development = __commonJS({
                   return value;
                 }
               } else if (node.hasAttribute(attributeName)) {
-                if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+                if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
                   return node.getAttribute(attributeName);
                 }
                 if (propertyInfo.type === BOOLEAN) {
@@ -3681,7 +3681,7 @@ var require_react_dom_development = __commonJS({
                 }
                 stringValue = node.getAttribute(attributeName);
               }
-              if (shouldRemoveAttribute(name, expected, propertyInfo, false)) {
+              if (shouldRemoveAttribute(name2, expected, propertyInfo, false)) {
                 return stringValue === null ? expected : stringValue;
               } else if (stringValue === "" + expected) {
                 return expected;
@@ -3691,17 +3691,17 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function getValueForAttribute(node, name, expected, isCustomComponentTag) {
+        function getValueForAttribute(node, name2, expected, isCustomComponentTag) {
           {
-            if (!isAttributeNameSafe(name)) {
+            if (!isAttributeNameSafe(name2)) {
               return;
             }
-            if (!node.hasAttribute(name)) {
+            if (!node.hasAttribute(name2)) {
               return expected === void 0 ? void 0 : null;
             }
-            var value = node.getAttribute(name);
+            var value = node.getAttribute(name2);
             {
-              checkAttributeStringCoercion(expected, name);
+              checkAttributeStringCoercion(expected, name2);
             }
             if (value === "" + expected) {
               return expected;
@@ -3709,22 +3709,22 @@ var require_react_dom_development = __commonJS({
             return value;
           }
         }
-        function setValueForProperty(node, name, value, isCustomComponentTag) {
-          var propertyInfo = getPropertyInfo(name);
-          if (shouldIgnoreAttribute(name, propertyInfo, isCustomComponentTag)) {
+        function setValueForProperty(node, name2, value, isCustomComponentTag) {
+          var propertyInfo = getPropertyInfo(name2);
+          if (shouldIgnoreAttribute(name2, propertyInfo, isCustomComponentTag)) {
             return;
           }
-          if (shouldRemoveAttribute(name, value, propertyInfo, isCustomComponentTag)) {
+          if (shouldRemoveAttribute(name2, value, propertyInfo, isCustomComponentTag)) {
             value = null;
           }
           if (isCustomComponentTag || propertyInfo === null) {
-            if (isAttributeNameSafe(name)) {
-              var _attributeName = name;
+            if (isAttributeNameSafe(name2)) {
+              var _attributeName = name2;
               if (value === null) {
                 node.removeAttribute(_attributeName);
               } else {
                 {
-                  checkAttributeStringCoercion(value, name);
+                  checkAttributeStringCoercion(value, name2);
                 }
                 node.setAttribute(_attributeName, "" + value);
               }
@@ -3879,7 +3879,7 @@ var require_react_dom_development = __commonJS({
         }
         var ReactCurrentDispatcher = ReactSharedInternals.ReactCurrentDispatcher;
         var prefix;
-        function describeBuiltInComponentFrame(name, source, ownerFn) {
+        function describeBuiltInComponentFrame(name2, source, ownerFn) {
           {
             if (prefix === void 0) {
               try {
@@ -3889,7 +3889,7 @@ var require_react_dom_development = __commonJS({
                 prefix = match && match[1] || "";
               }
             }
-            return "\n" + prefix + name;
+            return "\n" + prefix + name2;
           }
         }
         var reentry = false;
@@ -3992,8 +3992,8 @@ var require_react_dom_development = __commonJS({
             }
             Error.prepareStackTrace = previousPrepareStackTrace;
           }
-          var name = fn ? fn.displayName || fn.name : "";
-          var syntheticFrame = name ? describeBuiltInComponentFrame(name) : "";
+          var name2 = fn ? fn.displayName || fn.name : "";
+          var syntheticFrame = name2 ? describeBuiltInComponentFrame(name2) : "";
           {
             if (typeof fn === "function") {
               componentFrameCache.set(fn, syntheticFrame);
@@ -4011,8 +4011,8 @@ var require_react_dom_development = __commonJS({
             return describeNativeComponentFrame(fn, false);
           }
         }
-        function shouldConstruct(Component2) {
-          var prototype = Component2.prototype;
+        function shouldConstruct(Component) {
+          var prototype = Component.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
@@ -4181,7 +4181,7 @@ var require_react_dom_development = __commonJS({
               return "DehydratedFragment";
             case ForwardRef:
               return getWrappedName$1(type, type.render, "ForwardRef");
-            case Fragment3:
+            case Fragment:
               return "Fragment";
             case HostComponent:
               return type;
@@ -4520,16 +4520,16 @@ var require_react_dom_development = __commonJS({
               node.defaultValue = initialValue;
             }
           }
-          var name = node.name;
-          if (name !== "") {
+          var name2 = node.name;
+          if (name2 !== "") {
             node.name = "";
           }
           {
             node.defaultChecked = !node.defaultChecked;
             node.defaultChecked = !!node._wrapperState.initialChecked;
           }
-          if (name !== "") {
-            node.name = name;
+          if (name2 !== "") {
+            node.name = name2;
           }
         }
         function restoreControlledState(element, props) {
@@ -4538,16 +4538,16 @@ var require_react_dom_development = __commonJS({
           updateNamedCousins(node, props);
         }
         function updateNamedCousins(rootNode, props) {
-          var name = props.name;
-          if (props.type === "radio" && name != null) {
+          var name2 = props.name;
+          if (props.type === "radio" && name2 != null) {
             var queryRoot = rootNode;
             while (queryRoot.parentNode) {
               queryRoot = queryRoot.parentNode;
             }
             {
-              checkAttributeStringCoercion(name, "name");
+              checkAttributeStringCoercion(name2, "name");
             }
-            var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name) + '][type="radio"]');
+            var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name2) + '][type="radio"]');
             for (var i = 0; i < group.length; i++) {
               var otherNode = group[i];
               if (otherNode === rootNode || otherNode.form !== rootNode.form) {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React7.Children.forEach(props.children, function(child) {
+                React3.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -4983,23 +4983,23 @@ var require_react_dom_development = __commonJS({
             isUnitlessNumber[prefixKey(prefix2, prop)] = isUnitlessNumber[prop];
           });
         });
-        function dangerousStyleValue(name, value, isCustomProperty) {
+        function dangerousStyleValue(name2, value, isCustomProperty) {
           var isEmpty = value == null || typeof value === "boolean" || value === "";
           if (isEmpty) {
             return "";
           }
-          if (!isCustomProperty && typeof value === "number" && value !== 0 && !(isUnitlessNumber.hasOwnProperty(name) && isUnitlessNumber[name])) {
+          if (!isCustomProperty && typeof value === "number" && value !== 0 && !(isUnitlessNumber.hasOwnProperty(name2) && isUnitlessNumber[name2])) {
             return value + "px";
           }
           {
-            checkCSSPropertyStringCoercion(value, name);
+            checkCSSPropertyStringCoercion(value, name2);
           }
           return ("" + value).trim();
         }
         var uppercasePattern = /([A-Z])/g;
         var msPattern = /^ms-/;
-        function hyphenateStyleName(name) {
-          return name.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-");
+        function hyphenateStyleName(name2) {
+          return name2.replace(uppercasePattern, "-$1").toLowerCase().replace(msPattern, "-ms-");
         }
         var warnValidStyle = function() {
         };
@@ -5017,61 +5017,61 @@ var require_react_dom_development = __commonJS({
               return character.toUpperCase();
             });
           };
-          var warnHyphenatedStyleName = function(name) {
-            if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+          var warnHyphenatedStyleName = function(name2) {
+            if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
               return;
             }
-            warnedStyleNames[name] = true;
+            warnedStyleNames[name2] = true;
             error2(
               "Unsupported style property %s. Did you mean %s?",
-              name,
+              name2,
               // As Andi Smith suggests
               // (http://www.andismith.com/blog/2012/02/modernizr-prefixed/), an `-ms` prefix
               // is converted to lowercase `ms`.
-              camelize2(name.replace(msPattern$1, "ms-"))
+              camelize2(name2.replace(msPattern$1, "ms-"))
             );
           };
-          var warnBadVendoredStyleName = function(name) {
-            if (warnedStyleNames.hasOwnProperty(name) && warnedStyleNames[name]) {
+          var warnBadVendoredStyleName = function(name2) {
+            if (warnedStyleNames.hasOwnProperty(name2) && warnedStyleNames[name2]) {
               return;
             }
-            warnedStyleNames[name] = true;
-            error2("Unsupported vendor-prefixed style property %s. Did you mean %s?", name, name.charAt(0).toUpperCase() + name.slice(1));
+            warnedStyleNames[name2] = true;
+            error2("Unsupported vendor-prefixed style property %s. Did you mean %s?", name2, name2.charAt(0).toUpperCase() + name2.slice(1));
           };
-          var warnStyleValueWithSemicolon = function(name, value) {
+          var warnStyleValueWithSemicolon = function(name2, value) {
             if (warnedStyleValues.hasOwnProperty(value) && warnedStyleValues[value]) {
               return;
             }
             warnedStyleValues[value] = true;
-            error2(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name, value.replace(badStyleValueWithSemicolonPattern, ""));
+            error2(`Style property values shouldn't contain a semicolon. Try "%s: %s" instead.`, name2, value.replace(badStyleValueWithSemicolonPattern, ""));
           };
-          var warnStyleValueIsNaN = function(name, value) {
+          var warnStyleValueIsNaN = function(name2, value) {
             if (warnedForNaNValue) {
               return;
             }
             warnedForNaNValue = true;
-            error2("`NaN` is an invalid value for the `%s` css style property.", name);
+            error2("`NaN` is an invalid value for the `%s` css style property.", name2);
           };
-          var warnStyleValueIsInfinity = function(name, value) {
+          var warnStyleValueIsInfinity = function(name2, value) {
             if (warnedForInfinityValue) {
               return;
             }
             warnedForInfinityValue = true;
-            error2("`Infinity` is an invalid value for the `%s` css style property.", name);
+            error2("`Infinity` is an invalid value for the `%s` css style property.", name2);
           };
-          warnValidStyle = function(name, value) {
-            if (name.indexOf("-") > -1) {
-              warnHyphenatedStyleName(name);
-            } else if (badVendoredStyleNamePattern.test(name)) {
-              warnBadVendoredStyleName(name);
+          warnValidStyle = function(name2, value) {
+            if (name2.indexOf("-") > -1) {
+              warnHyphenatedStyleName(name2);
+            } else if (badVendoredStyleNamePattern.test(name2)) {
+              warnBadVendoredStyleName(name2);
             } else if (badStyleValueWithSemicolonPattern.test(value)) {
-              warnStyleValueWithSemicolon(name, value);
+              warnStyleValueWithSemicolon(name2, value);
             }
             if (typeof value === "number") {
               if (isNaN(value)) {
-                warnStyleValueIsNaN(name, value);
+                warnStyleValueIsNaN(name2, value);
               } else if (!isFinite(value)) {
-                warnStyleValueIsInfinity(name, value);
+                warnStyleValueIsInfinity(name2, value);
               }
             }
           };
@@ -5771,35 +5771,35 @@ var require_react_dom_development = __commonJS({
         var warnedProperties = {};
         var rARIA = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
         var rARIACamel = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-        function validateProperty(tagName, name) {
+        function validateProperty(tagName, name2) {
           {
-            if (hasOwnProperty.call(warnedProperties, name) && warnedProperties[name]) {
+            if (hasOwnProperty.call(warnedProperties, name2) && warnedProperties[name2]) {
               return true;
             }
-            if (rARIACamel.test(name)) {
-              var ariaName = "aria-" + name.slice(4).toLowerCase();
+            if (rARIACamel.test(name2)) {
+              var ariaName = "aria-" + name2.slice(4).toLowerCase();
               var correctName = ariaProperties.hasOwnProperty(ariaName) ? ariaName : null;
               if (correctName == null) {
-                error2("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name);
-                warnedProperties[name] = true;
+                error2("Invalid ARIA attribute `%s`. ARIA attributes follow the pattern aria-* and must be lowercase.", name2);
+                warnedProperties[name2] = true;
                 return true;
               }
-              if (name !== correctName) {
-                error2("Invalid ARIA attribute `%s`. Did you mean `%s`?", name, correctName);
-                warnedProperties[name] = true;
+              if (name2 !== correctName) {
+                error2("Invalid ARIA attribute `%s`. Did you mean `%s`?", name2, correctName);
+                warnedProperties[name2] = true;
                 return true;
               }
             }
-            if (rARIA.test(name)) {
-              var lowerCasedName = name.toLowerCase();
+            if (rARIA.test(name2)) {
+              var lowerCasedName = name2.toLowerCase();
               var standardName = ariaProperties.hasOwnProperty(lowerCasedName) ? lowerCasedName : null;
               if (standardName == null) {
-                warnedProperties[name] = true;
+                warnedProperties[name2] = true;
                 return false;
               }
-              if (name !== standardName) {
-                error2("Unknown ARIA attribute `%s`. Did you mean `%s`?", name, standardName);
-                warnedProperties[name] = true;
+              if (name2 !== standardName) {
+                error2("Unknown ARIA attribute `%s`. Did you mean `%s`?", name2, standardName);
+                warnedProperties[name2] = true;
                 return true;
               }
             }
@@ -5855,95 +5855,95 @@ var require_react_dom_development = __commonJS({
           var INVALID_EVENT_NAME_REGEX = /^on[^A-Z]/;
           var rARIA$1 = new RegExp("^(aria)-[" + ATTRIBUTE_NAME_CHAR + "]*$");
           var rARIACamel$1 = new RegExp("^(aria)[A-Z][" + ATTRIBUTE_NAME_CHAR + "]*$");
-          validateProperty$1 = function(tagName, name, value, eventRegistry) {
-            if (hasOwnProperty.call(warnedProperties$1, name) && warnedProperties$1[name]) {
+          validateProperty$1 = function(tagName, name2, value, eventRegistry) {
+            if (hasOwnProperty.call(warnedProperties$1, name2) && warnedProperties$1[name2]) {
               return true;
             }
-            var lowerCasedName = name.toLowerCase();
+            var lowerCasedName = name2.toLowerCase();
             if (lowerCasedName === "onfocusin" || lowerCasedName === "onfocusout") {
               error2("React uses onFocus and onBlur instead of onFocusIn and onFocusOut. All React events are normalized to bubble, so onFocusIn and onFocusOut are not needed/supported by React.");
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
             if (eventRegistry != null) {
               var registrationNameDependencies2 = eventRegistry.registrationNameDependencies, possibleRegistrationNames2 = eventRegistry.possibleRegistrationNames;
-              if (registrationNameDependencies2.hasOwnProperty(name)) {
+              if (registrationNameDependencies2.hasOwnProperty(name2)) {
                 return true;
               }
               var registrationName = possibleRegistrationNames2.hasOwnProperty(lowerCasedName) ? possibleRegistrationNames2[lowerCasedName] : null;
               if (registrationName != null) {
-                error2("Invalid event handler property `%s`. Did you mean `%s`?", name, registrationName);
-                warnedProperties$1[name] = true;
+                error2("Invalid event handler property `%s`. Did you mean `%s`?", name2, registrationName);
+                warnedProperties$1[name2] = true;
                 return true;
               }
-              if (EVENT_NAME_REGEX.test(name)) {
-                error2("Unknown event handler property `%s`. It will be ignored.", name);
-                warnedProperties$1[name] = true;
+              if (EVENT_NAME_REGEX.test(name2)) {
+                error2("Unknown event handler property `%s`. It will be ignored.", name2);
+                warnedProperties$1[name2] = true;
                 return true;
               }
-            } else if (EVENT_NAME_REGEX.test(name)) {
-              if (INVALID_EVENT_NAME_REGEX.test(name)) {
-                error2("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name);
+            } else if (EVENT_NAME_REGEX.test(name2)) {
+              if (INVALID_EVENT_NAME_REGEX.test(name2)) {
+                error2("Invalid event handler property `%s`. React events use the camelCase naming convention, for example `onClick`.", name2);
               }
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
-            if (rARIA$1.test(name) || rARIACamel$1.test(name)) {
+            if (rARIA$1.test(name2) || rARIACamel$1.test(name2)) {
               return true;
             }
             if (lowerCasedName === "innerhtml") {
               error2("Directly setting property `innerHTML` is not permitted. For more information, lookup documentation on `dangerouslySetInnerHTML`.");
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
             if (lowerCasedName === "aria") {
               error2("The `aria` attribute is reserved for future use in React. Pass individual `aria-` attributes instead.");
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
             if (lowerCasedName === "is" && value !== null && value !== void 0 && typeof value !== "string") {
               error2("Received a `%s` for a string attribute `is`. If this is expected, cast the value to a string.", typeof value);
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
             if (typeof value === "number" && isNaN(value)) {
-              error2("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name);
-              warnedProperties$1[name] = true;
+              error2("Received NaN for the `%s` attribute. If this is expected, cast the value to a string.", name2);
+              warnedProperties$1[name2] = true;
               return true;
             }
-            var propertyInfo = getPropertyInfo(name);
+            var propertyInfo = getPropertyInfo(name2);
             var isReserved = propertyInfo !== null && propertyInfo.type === RESERVED;
             if (possibleStandardNames.hasOwnProperty(lowerCasedName)) {
               var standardName = possibleStandardNames[lowerCasedName];
-              if (standardName !== name) {
-                error2("Invalid DOM property `%s`. Did you mean `%s`?", name, standardName);
-                warnedProperties$1[name] = true;
+              if (standardName !== name2) {
+                error2("Invalid DOM property `%s`. Did you mean `%s`?", name2, standardName);
+                warnedProperties$1[name2] = true;
                 return true;
               }
-            } else if (!isReserved && name !== lowerCasedName) {
-              error2("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name, lowerCasedName);
-              warnedProperties$1[name] = true;
+            } else if (!isReserved && name2 !== lowerCasedName) {
+              error2("React does not recognize the `%s` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `%s` instead. If you accidentally passed it from a parent component, remove it from the DOM element.", name2, lowerCasedName);
+              warnedProperties$1[name2] = true;
               return true;
             }
-            if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name, value, propertyInfo, false)) {
+            if (typeof value === "boolean" && shouldRemoveAttributeWithWarning(name2, value, propertyInfo, false)) {
               if (value) {
-                error2('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name, name, value, name);
+                error2('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.', value, name2, name2, value, name2);
               } else {
-                error2('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name, name, value, name, name, name);
+                error2('Received `%s` for a non-boolean attribute `%s`.\n\nIf you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.\n\nIf you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.', value, name2, name2, value, name2, name2, name2);
               }
-              warnedProperties$1[name] = true;
+              warnedProperties$1[name2] = true;
               return true;
             }
             if (isReserved) {
               return true;
             }
-            if (shouldRemoveAttributeWithWarning(name, value, propertyInfo, false)) {
-              warnedProperties$1[name] = true;
+            if (shouldRemoveAttributeWithWarning(name2, value, propertyInfo, false)) {
+              warnedProperties$1[name2] = true;
               return false;
             }
             if ((value === "false" || value === "true") && propertyInfo !== null && propertyInfo.type === BOOLEAN) {
-              error2("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name, value);
-              warnedProperties$1[name] = true;
+              error2("Received the string `%s` for the boolean attribute `%s`. %s Did you mean %s={%s}?", value, name2, value === "false" ? "The browser will interpret it as a truthy value." : 'Although this works, it will not work as expected if you pass the string "false".', name2, value);
+              warnedProperties$1[name2] = true;
               return true;
             }
             return true;
@@ -6057,13 +6057,13 @@ var require_react_dom_development = __commonJS({
         var batchedUpdatesImpl = function(fn, bookkeeping) {
           return fn(bookkeeping);
         };
-        var flushSyncImpl2 = function() {
+        var flushSyncImpl = function() {
         };
         var isInsideEventHandler = false;
         function finishEventHandler() {
           var controlledComponentsHavePendingUpdates = needsStateRestore();
           if (controlledComponentsHavePendingUpdates) {
-            flushSyncImpl2();
+            flushSyncImpl();
             restoreStateIfNeeded();
           }
         }
@@ -6081,13 +6081,13 @@ var require_react_dom_development = __commonJS({
         }
         function setBatchingImplementation(_batchedUpdatesImpl, _discreteUpdatesImpl, _flushSyncImpl) {
           batchedUpdatesImpl = _batchedUpdatesImpl;
-          flushSyncImpl2 = _flushSyncImpl;
+          flushSyncImpl = _flushSyncImpl;
         }
         function isInteractive(tag) {
           return tag === "button" || tag === "input" || tag === "select" || tag === "textarea";
         }
-        function shouldPreventMouseEvent(name, type, props) {
-          switch (name) {
+        function shouldPreventMouseEvent(name2, type, props) {
+          switch (name2) {
             case "onClick":
             case "onClickCapture":
             case "onDoubleClick":
@@ -6137,7 +6137,7 @@ var require_react_dom_development = __commonJS({
             passiveBrowserEventsSupported = false;
           }
         }
-        function invokeGuardedCallbackProd(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallbackProd(name2, func, context, a, b, c, d, e, f) {
           var funcArgs = Array.prototype.slice.call(arguments, 3);
           try {
             func.apply(context, funcArgs);
@@ -6149,7 +6149,7 @@ var require_react_dom_development = __commonJS({
         {
           if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
             var fakeNode = document.createElement("react");
-            invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a, b, c, d, e, f) {
+            invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name2, func, context, a, b, c, d, e, f) {
               if (typeof document === "undefined" || document === null) {
                 throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
               }
@@ -6189,7 +6189,7 @@ var require_react_dom_development = __commonJS({
                   }
                 }
               }
-              var evtType = "react-" + (name ? name : "invokeguardedcallback");
+              var evtType = "react-" + (name2 ? name2 : "invokeguardedcallback");
               window.addEventListener("error", handleWindowError);
               fakeNode.addEventListener(evtType, callCallback2, false);
               evt.initEvent(evtType, false, false);
@@ -6224,12 +6224,12 @@ var require_react_dom_development = __commonJS({
             caughtError = error3;
           }
         };
-        function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallback(name2, func, context, a, b, c, d, e, f) {
           hasError = false;
           caughtError = null;
           invokeGuardedCallbackImpl$1.apply(reporter, arguments);
         }
-        function invokeGuardedCallbackAndCatchFirstError(name, func, context, a, b, c, d, e, f) {
+        function invokeGuardedCallbackAndCatchFirstError(name2, func, context, a, b, c, d, e, f) {
           invokeGuardedCallback.apply(this, arguments);
           if (hasError) {
             var error3 = clearCaughtError();
@@ -8759,13 +8759,13 @@ var require_react_dom_development = __commonJS({
             return false;
           }
           var eventName = "on" + eventNameSuffix;
-          var isSupported = eventName in document;
-          if (!isSupported) {
+          var isSupported2 = eventName in document;
+          if (!isSupported2) {
             var element = document.createElement("div");
             element.setAttribute(eventName, "return;");
-            isSupported = typeof element[eventName] === "function";
+            isSupported2 = typeof element[eventName] === "function";
           }
-          return isSupported;
+          return isSupported2;
         }
         function registerEvents$1() {
           registerTwoPhaseEvent("onChange", ["change", "click", "focusin", "focusout", "input", "keydown", "keyup", "selectionchange"]);
@@ -9867,8 +9867,8 @@ var require_react_dom_development = __commonJS({
             }
             didWarnInvalidHydration = true;
             var names = [];
-            attributeNames.forEach(function(name) {
-              names.push(name);
+            attributeNames.forEach(function(name2) {
+              names.push(name2);
             });
             error2("Extra attributes from the server: %s", names);
           };
@@ -10340,8 +10340,8 @@ var require_react_dom_development = __commonJS({
             extraAttributeNames = /* @__PURE__ */ new Set();
             var attributes = domElement.attributes;
             for (var _i = 0; _i < attributes.length; _i++) {
-              var name = attributes[_i].name.toLowerCase();
-              switch (name) {
+              var name2 = attributes[_i].name.toLowerCase();
+              switch (name2) {
                 case "value":
                   break;
                 case "checked":
@@ -11445,9 +11445,9 @@ var require_react_dom_development = __commonJS({
         var contextStackCursor = createCursor(emptyContextObject);
         var didPerformWorkStackCursor = createCursor(false);
         var previousContext = emptyContextObject;
-        function getUnmaskedContext(workInProgress2, Component2, didPushOwnContextIfProvider) {
+        function getUnmaskedContext(workInProgress2, Component, didPushOwnContextIfProvider) {
           {
-            if (didPushOwnContextIfProvider && isContextProvider(Component2)) {
+            if (didPushOwnContextIfProvider && isContextProvider(Component)) {
               return previousContext;
             }
             return contextStackCursor.current;
@@ -11476,8 +11476,8 @@ var require_react_dom_development = __commonJS({
               context[key] = unmaskedContext[key];
             }
             {
-              var name = getComponentNameFromFiber(workInProgress2) || "Unknown";
-              checkPropTypes(contextTypes, context, "context", name);
+              var name2 = getComponentNameFromFiber(workInProgress2) || "Unknown";
+              checkPropTypes(contextTypes, context, "context", name2);
             }
             if (instance) {
               cacheContext(workInProgress2, unmaskedContext, context);
@@ -11538,8 +11538,8 @@ var require_react_dom_development = __commonJS({
               }
             }
             {
-              var name = getComponentNameFromFiber(fiber) || "Unknown";
-              checkPropTypes(childContextTypes, childContext, "child context", name);
+              var name2 = getComponentNameFromFiber(fiber) || "Unknown";
+              checkPropTypes(childContextTypes, childContext, "child context", name2);
             }
             return assign({}, parentContext, childContext);
           }
@@ -11584,8 +11584,8 @@ var require_react_dom_development = __commonJS({
                 case HostRoot:
                   return node.stateNode.context;
                 case ClassComponent: {
-                  var Component2 = node.type;
-                  if (isContextProvider(Component2)) {
+                  var Component = node.type;
+                  if (isContextProvider(Component)) {
                     return node.stateNode.__reactInternalMemoizedMergedChildContext;
                   }
                   break;
@@ -12347,10 +12347,10 @@ var require_react_dom_development = __commonJS({
             pendingLegacyContextWarning = /* @__PURE__ */ new Map();
           };
         }
-        function resolveDefaultProps(Component2, baseProps) {
-          if (Component2 && Component2.defaultProps) {
+        function resolveDefaultProps(Component, baseProps) {
+          if (Component && Component.defaultProps) {
             var props = assign({}, baseProps);
-            var defaultProps = Component2.defaultProps;
+            var defaultProps = Component.defaultProps;
             for (var propName in defaultProps) {
               if (props[propName] === void 0) {
                 props[propName] = defaultProps[propName];
@@ -12451,8 +12451,8 @@ var require_react_dom_development = __commonJS({
                 if (dependency.context === context) {
                   if (fiber.tag === ClassComponent) {
                     var lane = pickArbitraryLane(renderLanes2);
-                    var update = createUpdate(NoTimestamp, lane);
-                    update.tag = ForceUpdate;
+                    var update2 = createUpdate(NoTimestamp, lane);
+                    update2.tag = ForceUpdate;
                     var updateQueue = fiber.updateQueue;
                     if (updateQueue === null)
                       ;
@@ -12460,12 +12460,12 @@ var require_react_dom_development = __commonJS({
                       var sharedQueue = updateQueue.shared;
                       var pending = sharedQueue.pending;
                       if (pending === null) {
-                        update.next = update;
+                        update2.next = update2;
                       } else {
-                        update.next = pending.next;
-                        pending.next = update;
+                        update2.next = pending.next;
+                        pending.next = update2;
                       }
-                      sharedQueue.pending = update;
+                      sharedQueue.pending = update2;
                     }
                   }
                   fiber.lanes = mergeLanes(fiber.lanes, renderLanes2);
@@ -12592,39 +12592,39 @@ var require_react_dom_development = __commonJS({
             concurrentQueues = null;
           }
         }
-        function enqueueConcurrentHookUpdate(fiber, queue, update, lane) {
+        function enqueueConcurrentHookUpdate(fiber, queue, update2, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update2.next = update2;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update2.next = interleaved.next;
+            interleaved.next = update2;
           }
-          queue.interleaved = update;
+          queue.interleaved = update2;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
-        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane) {
+        function enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update2, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update2.next = update2;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update2.next = interleaved.next;
+            interleaved.next = update2;
           }
-          queue.interleaved = update;
+          queue.interleaved = update2;
         }
-        function enqueueConcurrentClassUpdate(fiber, queue, update, lane) {
+        function enqueueConcurrentClassUpdate(fiber, queue, update2, lane) {
           var interleaved = queue.interleaved;
           if (interleaved === null) {
-            update.next = update;
+            update2.next = update2;
             pushConcurrentUpdateQueue(queue);
           } else {
-            update.next = interleaved.next;
-            interleaved.next = update;
+            update2.next = interleaved.next;
+            interleaved.next = update2;
           }
-          queue.interleaved = update;
+          queue.interleaved = update2;
           return markUpdateLaneFromFiberToRoot(fiber, lane);
         }
         function enqueueConcurrentRenderForLane(fiber, lane) {
@@ -12706,7 +12706,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         function createUpdate(eventTime, lane) {
-          var update = {
+          var update2 = {
             eventTime,
             lane,
             tag: UpdateState,
@@ -12714,9 +12714,9 @@ var require_react_dom_development = __commonJS({
             callback: null,
             next: null
           };
-          return update;
+          return update2;
         }
-        function enqueueUpdate(fiber, update, lane) {
+        function enqueueUpdate(fiber, update2, lane) {
           var updateQueue = fiber.updateQueue;
           if (updateQueue === null) {
             return null;
@@ -12731,15 +12731,15 @@ var require_react_dom_development = __commonJS({
           if (isUnsafeClassRenderPhaseUpdate()) {
             var pending = sharedQueue.pending;
             if (pending === null) {
-              update.next = update;
+              update2.next = update2;
             } else {
-              update.next = pending.next;
-              pending.next = update;
+              update2.next = pending.next;
+              pending.next = update2;
             }
-            sharedQueue.pending = update;
+            sharedQueue.pending = update2;
             return unsafe_markUpdateLaneFromFiberToRoot(fiber, lane);
           } else {
-            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update, lane);
+            return enqueueConcurrentClassUpdate(fiber, sharedQueue, update2, lane);
           }
         }
         function entangleTransitions(root2, fiber, lane) {
@@ -12766,14 +12766,14 @@ var require_react_dom_development = __commonJS({
               var newLast = null;
               var firstBaseUpdate = queue.firstBaseUpdate;
               if (firstBaseUpdate !== null) {
-                var update = firstBaseUpdate;
+                var update2 = firstBaseUpdate;
                 do {
                   var clone = {
-                    eventTime: update.eventTime,
-                    lane: update.lane,
-                    tag: update.tag,
-                    payload: update.payload,
-                    callback: update.callback,
+                    eventTime: update2.eventTime,
+                    lane: update2.lane,
+                    tag: update2.tag,
+                    payload: update2.payload,
+                    callback: update2.callback,
                     next: null
                   };
                   if (newLast === null) {
@@ -12782,8 +12782,8 @@ var require_react_dom_development = __commonJS({
                     newLast.next = clone;
                     newLast = clone;
                   }
-                  update = update.next;
-                } while (update !== null);
+                  update2 = update2.next;
+                } while (update2 !== null);
                 if (newLast === null) {
                   newFirst = newLast = capturedUpdate;
                 } else {
@@ -12812,10 +12812,10 @@ var require_react_dom_development = __commonJS({
           }
           queue.lastBaseUpdate = capturedUpdate;
         }
-        function getStateFromUpdate(workInProgress2, queue, update, prevState, nextProps, instance) {
-          switch (update.tag) {
+        function getStateFromUpdate(workInProgress2, queue, update2, prevState, nextProps, instance) {
+          switch (update2.tag) {
             case ReplaceState: {
-              var payload = update.payload;
+              var payload = update2.payload;
               if (typeof payload === "function") {
                 {
                   enterDisallowedContextReadInDEV();
@@ -12840,7 +12840,7 @@ var require_react_dom_development = __commonJS({
               workInProgress2.flags = workInProgress2.flags & ~ShouldCapture | DidCapture;
             }
             case UpdateState: {
-              var _payload = update.payload;
+              var _payload = update2.payload;
               var partialState;
               if (typeof _payload === "function") {
                 {
@@ -12913,17 +12913,17 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newFirstBaseUpdate = null;
             var newLastBaseUpdate = null;
-            var update = firstBaseUpdate;
+            var update2 = firstBaseUpdate;
             do {
-              var updateLane = update.lane;
-              var updateEventTime = update.eventTime;
+              var updateLane = update2.lane;
+              var updateEventTime = update2.eventTime;
               if (!isSubsetOfLanes(renderLanes2, updateLane)) {
                 var clone = {
                   eventTime: updateEventTime,
                   lane: updateLane,
-                  tag: update.tag,
-                  payload: update.payload,
-                  callback: update.callback,
+                  tag: update2.tag,
+                  payload: update2.payload,
+                  callback: update2.callback,
                   next: null
                 };
                 if (newLastBaseUpdate === null) {
@@ -12941,29 +12941,29 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    tag: update.tag,
-                    payload: update.payload,
-                    callback: update.callback,
+                    tag: update2.tag,
+                    payload: update2.payload,
+                    callback: update2.callback,
                     next: null
                   };
                   newLastBaseUpdate = newLastBaseUpdate.next = _clone;
                 }
-                newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance);
-                var callback = update.callback;
+                newState = getStateFromUpdate(workInProgress2, queue, update2, newState, props, instance);
+                var callback = update2.callback;
                 if (callback !== null && // If the update was already committed, we should not queue its
                 // callback again.
-                update.lane !== NoLane) {
+                update2.lane !== NoLane) {
                   workInProgress2.flags |= Callback;
                   var effects = queue.effects;
                   if (effects === null) {
-                    queue.effects = [update];
+                    queue.effects = [update2];
                   } else {
-                    effects.push(update);
+                    effects.push(update2);
                   }
                 }
               }
-              update = update.next;
-              if (update === null) {
+              update2 = update2.next;
+              if (update2 === null) {
                 pendingQueue = queue.shared.pending;
                 if (pendingQueue === null) {
                   break;
@@ -12971,7 +12971,7 @@ var require_react_dom_development = __commonJS({
                   var _lastPendingUpdate = pendingQueue;
                   var _firstPendingUpdate = _lastPendingUpdate.next;
                   _lastPendingUpdate.next = null;
-                  update = _firstPendingUpdate;
+                  update2 = _firstPendingUpdate;
                   queue.lastBaseUpdate = _lastPendingUpdate;
                   queue.shared.pending = null;
                 }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React7.Component().refs;
+        var emptyRefsObject = new React3.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -13103,15 +13103,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.payload = payload;
+            var update2 = createUpdate(eventTime, lane);
+            update2.payload = payload;
             if (callback !== void 0 && callback !== null) {
               {
                 warnOnInvalidCallback(callback, "setState");
               }
-              update.callback = callback;
+              update2.callback = callback;
             }
-            var root2 = enqueueUpdate(fiber, update, lane);
+            var root2 = enqueueUpdate(fiber, update2, lane);
             if (root2 !== null) {
               scheduleUpdateOnFiber(root2, fiber, lane, eventTime);
               entangleTransitions(root2, fiber, lane);
@@ -13124,16 +13124,16 @@ var require_react_dom_development = __commonJS({
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.tag = ReplaceState;
-            update.payload = payload;
+            var update2 = createUpdate(eventTime, lane);
+            update2.tag = ReplaceState;
+            update2.payload = payload;
             if (callback !== void 0 && callback !== null) {
               {
                 warnOnInvalidCallback(callback, "replaceState");
               }
-              update.callback = callback;
+              update2.callback = callback;
             }
-            var root2 = enqueueUpdate(fiber, update, lane);
+            var root2 = enqueueUpdate(fiber, update2, lane);
             if (root2 !== null) {
               scheduleUpdateOnFiber(root2, fiber, lane, eventTime);
               entangleTransitions(root2, fiber, lane);
@@ -13146,15 +13146,15 @@ var require_react_dom_development = __commonJS({
             var fiber = get(inst);
             var eventTime = requestEventTime();
             var lane = requestUpdateLane(fiber);
-            var update = createUpdate(eventTime, lane);
-            update.tag = ForceUpdate;
+            var update2 = createUpdate(eventTime, lane);
+            update2.tag = ForceUpdate;
             if (callback !== void 0 && callback !== null) {
               {
                 warnOnInvalidCallback(callback, "forceUpdate");
               }
-              update.callback = callback;
+              update2.callback = callback;
             }
-            var root2 = enqueueUpdate(fiber, update, lane);
+            var root2 = enqueueUpdate(fiber, update2, lane);
             if (root2 !== null) {
               scheduleUpdateOnFiber(root2, fiber, lane, eventTime);
               entangleTransitions(root2, fiber, lane);
@@ -13191,80 +13191,80 @@ var require_react_dom_development = __commonJS({
         function checkClassInstance(workInProgress2, ctor, newProps) {
           var instance = workInProgress2.stateNode;
           {
-            var name = getComponentNameFromType(ctor) || "Component";
+            var name2 = getComponentNameFromType(ctor) || "Component";
             var renderPresent = instance.render;
             if (!renderPresent) {
               if (ctor.prototype && typeof ctor.prototype.render === "function") {
-                error2("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name);
+                error2("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name2);
               } else {
-                error2("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name);
+                error2("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name2);
               }
             }
             if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
-              error2("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name);
+              error2("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name2);
             }
             if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
-              error2("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name);
+              error2("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name2);
             }
             if (instance.propTypes) {
-              error2("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name);
+              error2("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name2);
             }
             if (instance.contextType) {
-              error2("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name);
+              error2("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name2);
             }
             {
               if (instance.contextTypes) {
-                error2("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name);
+                error2("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name2);
               }
               if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
                 didWarnAboutContextTypeAndContextTypes.add(ctor);
-                error2("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name);
+                error2("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name2);
               }
             }
             if (typeof instance.componentShouldUpdate === "function") {
-              error2("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name);
+              error2("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name2);
             }
             if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== "undefined") {
               error2("%s has a method called shouldComponentUpdate(). shouldComponentUpdate should not be used when extending React.PureComponent. Please extend React.Component if shouldComponentUpdate is used.", getComponentNameFromType(ctor) || "A pure component");
             }
             if (typeof instance.componentDidUnmount === "function") {
-              error2("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name);
+              error2("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name2);
             }
             if (typeof instance.componentDidReceiveProps === "function") {
-              error2("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name);
+              error2("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name2);
             }
             if (typeof instance.componentWillRecieveProps === "function") {
-              error2("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name);
+              error2("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name2);
             }
             if (typeof instance.UNSAFE_componentWillRecieveProps === "function") {
-              error2("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name);
+              error2("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name2);
             }
             var hasMutatedProps = instance.props !== newProps;
             if (instance.props !== void 0 && hasMutatedProps) {
-              error2("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name, name);
+              error2("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name2, name2);
             }
             if (instance.defaultProps) {
-              error2("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name, name);
+              error2("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name2, name2);
             }
             if (typeof instance.getSnapshotBeforeUpdate === "function" && typeof instance.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
               didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
               error2("%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). This component defines getSnapshotBeforeUpdate() only.", getComponentNameFromType(ctor));
             }
             if (typeof instance.getDerivedStateFromProps === "function") {
-              error2("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+              error2("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
             }
             if (typeof instance.getDerivedStateFromError === "function") {
-              error2("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
+              error2("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name2);
             }
             if (typeof ctor.getSnapshotBeforeUpdate === "function") {
-              error2("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name);
+              error2("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name2);
             }
             var _state = instance.state;
             if (_state && (typeof _state !== "object" || isArray(_state))) {
-              error2("%s.state: must be set to an object or null", name);
+              error2("%s.state: must be set to an object or null", name2);
             }
             if (typeof instance.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
-              error2("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name);
+              error2("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name2);
             }
           }
         }
@@ -13852,7 +13852,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-            if (current2 === null || current2.tag !== Fragment3) {
+            if (current2 === null || current2.tag !== Fragment) {
               var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
               created.return = returnFiber;
               return created;
@@ -14255,7 +14255,7 @@ var require_react_dom_development = __commonJS({
               if (child.key === key) {
                 var elementType2 = element.type;
                 if (elementType2 === REACT_FRAGMENT_TYPE) {
-                  if (child.tag === Fragment3) {
+                  if (child.tag === Fragment) {
                     deleteRemainingChildren(returnFiber, child.sibling);
                     var existing = useFiber(child, element.props.children);
                     existing.return = returnFiber;
@@ -14645,7 +14645,7 @@ var require_react_dom_development = __commonJS({
           }
           return true;
         }
-        function renderWithHooks(current2, workInProgress2, Component2, props, secondArg, nextRenderLanes) {
+        function renderWithHooks(current2, workInProgress2, Component, props, secondArg, nextRenderLanes) {
           renderLanes = nextRenderLanes;
           currentlyRenderingFiber$1 = workInProgress2;
           {
@@ -14665,7 +14665,7 @@ var require_react_dom_development = __commonJS({
               ReactCurrentDispatcher$1.current = HooksDispatcherOnMountInDEV;
             }
           }
-          var children = Component2(props, secondArg);
+          var children = Component(props, secondArg);
           if (didScheduleRenderPhaseUpdateDuringThisPass) {
             var numberOfReRenders = 0;
             do {
@@ -14685,7 +14685,7 @@ var require_react_dom_development = __commonJS({
                 hookTypesUpdateIndexDev = -1;
               }
               ReactCurrentDispatcher$1.current = HooksDispatcherOnRerenderInDEV;
-              children = Component2(props, secondArg);
+              children = Component(props, secondArg);
             } while (didScheduleRenderPhaseUpdateDuringThisPass);
           }
           ReactCurrentDispatcher$1.current = ContextOnlyDispatcher;
@@ -14874,15 +14874,15 @@ var require_react_dom_development = __commonJS({
             var newBaseState = null;
             var newBaseQueueFirst = null;
             var newBaseQueueLast = null;
-            var update = first;
+            var update2 = first;
             do {
-              var updateLane = update.lane;
+              var updateLane = update2.lane;
               if (!isSubsetOfLanes(renderLanes, updateLane)) {
                 var clone = {
                   lane: updateLane,
-                  action: update.action,
-                  hasEagerState: update.hasEagerState,
-                  eagerState: update.eagerState,
+                  action: update2.action,
+                  hasEagerState: update2.hasEagerState,
+                  eagerState: update2.eagerState,
                   next: null
                 };
                 if (newBaseQueueLast === null) {
@@ -14900,22 +14900,22 @@ var require_react_dom_development = __commonJS({
                     // it. Using NoLane works because 0 is a subset of all bitmasks, so
                     // this will never be skipped by the check above.
                     lane: NoLane,
-                    action: update.action,
-                    hasEagerState: update.hasEagerState,
-                    eagerState: update.eagerState,
+                    action: update2.action,
+                    hasEagerState: update2.hasEagerState,
+                    eagerState: update2.eagerState,
                     next: null
                   };
                   newBaseQueueLast = newBaseQueueLast.next = _clone;
                 }
-                if (update.hasEagerState) {
-                  newState = update.eagerState;
+                if (update2.hasEagerState) {
+                  newState = update2.eagerState;
                 } else {
-                  var action = update.action;
+                  var action = update2.action;
                   newState = reducer(newState, action);
                 }
               }
-              update = update.next;
-            } while (update !== null && update !== first);
+              update2 = update2.next;
+            } while (update2 !== null && update2 !== first);
             if (newBaseQueueLast === null) {
               newBaseState = newState;
             } else {
@@ -14957,12 +14957,12 @@ var require_react_dom_development = __commonJS({
           if (lastRenderPhaseUpdate !== null) {
             queue.pending = null;
             var firstRenderPhaseUpdate = lastRenderPhaseUpdate.next;
-            var update = firstRenderPhaseUpdate;
+            var update2 = firstRenderPhaseUpdate;
             do {
-              var action = update.action;
+              var action = update2.action;
               newState = reducer(newState, action);
-              update = update.next;
-            } while (update !== firstRenderPhaseUpdate);
+              update2 = update2.next;
+            } while (update2 !== firstRenderPhaseUpdate);
             if (!objectIs(newState, hook.memoizedState)) {
               markWorkInProgressReceivedUpdate();
             }
@@ -15455,7 +15455,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update = {
+          var update2 = {
             lane,
             action,
             hasEagerState: false,
@@ -15463,9 +15463,9 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update);
+            enqueueRenderPhaseUpdate(queue, update2);
           } else {
-            var root2 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+            var root2 = enqueueConcurrentHookUpdate(fiber, queue, update2, lane);
             if (root2 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root2, fiber, lane, eventTime);
@@ -15481,7 +15481,7 @@ var require_react_dom_development = __commonJS({
             }
           }
           var lane = requestUpdateLane(fiber);
-          var update = {
+          var update2 = {
             lane,
             action,
             hasEagerState: false,
@@ -15489,7 +15489,7 @@ var require_react_dom_development = __commonJS({
             next: null
           };
           if (isRenderPhaseUpdate(fiber)) {
-            enqueueRenderPhaseUpdate(queue, update);
+            enqueueRenderPhaseUpdate(queue, update2);
           } else {
             var alternate = fiber.alternate;
             if (fiber.lanes === NoLanes && (alternate === null || alternate.lanes === NoLanes)) {
@@ -15503,10 +15503,10 @@ var require_react_dom_development = __commonJS({
                 try {
                   var currentState = queue.lastRenderedState;
                   var eagerState = lastRenderedReducer(currentState, action);
-                  update.hasEagerState = true;
-                  update.eagerState = eagerState;
+                  update2.hasEagerState = true;
+                  update2.eagerState = eagerState;
                   if (objectIs(eagerState, currentState)) {
-                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane);
+                    enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update2, lane);
                     return;
                   }
                 } catch (error3) {
@@ -15517,7 +15517,7 @@ var require_react_dom_development = __commonJS({
                 }
               }
             }
-            var root2 = enqueueConcurrentHookUpdate(fiber, queue, update, lane);
+            var root2 = enqueueConcurrentHookUpdate(fiber, queue, update2, lane);
             if (root2 !== null) {
               var eventTime = requestEventTime();
               scheduleUpdateOnFiber(root2, fiber, lane, eventTime);
@@ -15530,16 +15530,16 @@ var require_react_dom_development = __commonJS({
           var alternate = fiber.alternate;
           return fiber === currentlyRenderingFiber$1 || alternate !== null && alternate === currentlyRenderingFiber$1;
         }
-        function enqueueRenderPhaseUpdate(queue, update) {
+        function enqueueRenderPhaseUpdate(queue, update2) {
           didScheduleRenderPhaseUpdateDuringThisPass = didScheduleRenderPhaseUpdate = true;
           var pending = queue.pending;
           if (pending === null) {
-            update.next = update;
+            update2.next = update2;
           } else {
-            update.next = pending.next;
-            pending.next = update;
+            update2.next = pending.next;
+            pending.next = update2;
           }
-          queue.pending = update;
+          queue.pending = update2;
         }
         function entangleTransitionUpdate(root2, queue, lane) {
           if (isTransitionLane(lane)) {
@@ -16542,28 +16542,28 @@ var require_react_dom_development = __commonJS({
         }
         var PossiblyWeakMap$1 = typeof WeakMap === "function" ? WeakMap : Map;
         function createRootErrorUpdate(fiber, errorInfo, lane) {
-          var update = createUpdate(NoTimestamp, lane);
-          update.tag = CaptureUpdate;
-          update.payload = {
+          var update2 = createUpdate(NoTimestamp, lane);
+          update2.tag = CaptureUpdate;
+          update2.payload = {
             element: null
           };
           var error3 = errorInfo.value;
-          update.callback = function() {
+          update2.callback = function() {
             onUncaughtError(error3);
             logCapturedError(fiber, errorInfo);
           };
-          return update;
+          return update2;
         }
         function createClassErrorUpdate(fiber, errorInfo, lane) {
-          var update = createUpdate(NoTimestamp, lane);
-          update.tag = CaptureUpdate;
+          var update2 = createUpdate(NoTimestamp, lane);
+          update2.tag = CaptureUpdate;
           var getDerivedStateFromError = fiber.type.getDerivedStateFromError;
           if (typeof getDerivedStateFromError === "function") {
             var error$1 = errorInfo.value;
-            update.payload = function() {
+            update2.payload = function() {
               return getDerivedStateFromError(error$1);
             };
-            update.callback = function() {
+            update2.callback = function() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16572,7 +16572,7 @@ var require_react_dom_development = __commonJS({
           }
           var inst = fiber.stateNode;
           if (inst !== null && typeof inst.componentDidCatch === "function") {
-            update.callback = function callback() {
+            update2.callback = function callback() {
               {
                 markFailedErrorBoundaryForHotReloading(fiber);
               }
@@ -16594,7 +16594,7 @@ var require_react_dom_development = __commonJS({
               }
             };
           }
-          return update;
+          return update2;
         }
         function attachPingListener(root2, wakeable, lanes) {
           var pingCache = root2.pingCache;
@@ -16668,9 +16668,9 @@ var require_react_dom_development = __commonJS({
                 if (currentSourceFiber === null) {
                   sourceFiber.tag = IncompleteClassComponent;
                 } else {
-                  var update = createUpdate(NoTimestamp, SyncLane);
-                  update.tag = ForceUpdate;
-                  enqueueUpdate(sourceFiber, update, SyncLane);
+                  var update2 = createUpdate(NoTimestamp, SyncLane);
+                  update2.tag = ForceUpdate;
+                  enqueueUpdate(sourceFiber, update2, SyncLane);
                 }
               }
               sourceFiber.lanes = mergeLanes(sourceFiber.lanes, SyncLane);
@@ -16738,8 +16738,8 @@ var require_react_dom_development = __commonJS({
                 workInProgress2.flags |= ShouldCapture;
                 var lane = pickArbitraryLane(rootRenderLanes);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
-                enqueueCapturedUpdate(workInProgress2, update);
+                var update2 = createRootErrorUpdate(workInProgress2, _errorInfo, lane);
+                enqueueCapturedUpdate(workInProgress2, update2);
                 return;
               }
               case ClassComponent:
@@ -16795,22 +16795,22 @@ var require_react_dom_development = __commonJS({
           workInProgress2.child = reconcileChildFibers(workInProgress2, current2.child, null, renderLanes2);
           workInProgress2.child = reconcileChildFibers(workInProgress2, null, nextChildren, renderLanes2);
         }
-        function updateForwardRef(current2, workInProgress2, Component2, nextProps, renderLanes2) {
+        function updateForwardRef(current2, workInProgress2, Component, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component2.propTypes;
+              var innerPropTypes = Component.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component2)
+                  getComponentNameFromType(Component)
                 );
               }
             }
           }
-          var render2 = Component2.render;
+          var render2 = Component.render;
           var ref = workInProgress2.ref;
           var nextChildren;
           var hasId;
@@ -16848,11 +16848,11 @@ var require_react_dom_development = __commonJS({
           reconcileChildren(current2, workInProgress2, nextChildren, renderLanes2);
           return workInProgress2.child;
         }
-        function updateMemoComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
+        function updateMemoComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
           if (current2 === null) {
-            var type = Component2.type;
-            if (isSimpleFunctionComponent(type) && Component2.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
-            Component2.defaultProps === void 0) {
+            var type = Component.type;
+            if (isSimpleFunctionComponent(type) && Component.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
+            Component.defaultProps === void 0) {
               var resolvedType = type;
               {
                 resolvedType = resolveFunctionForHotReloading(type);
@@ -16876,14 +16876,14 @@ var require_react_dom_development = __commonJS({
                 );
               }
             }
-            var child = createFiberFromTypeAndProps(Component2.type, null, nextProps, workInProgress2, workInProgress2.mode, renderLanes2);
+            var child = createFiberFromTypeAndProps(Component.type, null, nextProps, workInProgress2, workInProgress2.mode, renderLanes2);
             child.ref = workInProgress2.ref;
             child.return = workInProgress2;
             workInProgress2.child = child;
             return child;
           }
           {
-            var _type = Component2.type;
+            var _type = Component.type;
             var _innerPropTypes = _type.propTypes;
             if (_innerPropTypes) {
               checkPropTypes(
@@ -16899,7 +16899,7 @@ var require_react_dom_development = __commonJS({
           var hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(current2, renderLanes2);
           if (!hasScheduledUpdateOrContext) {
             var prevProps = currentChild.memoizedProps;
-            var compare = Component2.compare;
+            var compare = Component.compare;
             compare = compare !== null ? compare : shallowEqual;
             if (compare(prevProps, nextProps) && current2.ref === workInProgress2.ref) {
               return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
@@ -16912,7 +16912,7 @@ var require_react_dom_development = __commonJS({
           workInProgress2.child = newChild;
           return newChild;
         }
-        function updateSimpleMemoComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
+        function updateSimpleMemoComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
               var outerMemoType = workInProgress2.elementType;
@@ -16952,7 +16952,7 @@ var require_react_dom_development = __commonJS({
               }
             }
           }
-          return updateFunctionComponent(current2, workInProgress2, Component2, nextProps, renderLanes2);
+          return updateFunctionComponent(current2, workInProgress2, Component, nextProps, renderLanes2);
         }
         function updateOffscreenComponent(current2, workInProgress2, renderLanes2) {
           var nextProps = workInProgress2.pendingProps;
@@ -17042,24 +17042,24 @@ var require_react_dom_development = __commonJS({
             }
           }
         }
-        function updateFunctionComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
+        function updateFunctionComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
           {
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component2.propTypes;
+              var innerPropTypes = Component.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component2)
+                  getComponentNameFromType(Component)
                 );
               }
             }
           }
           var context;
           {
-            var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, true);
+            var unmaskedContext = getUnmaskedContext(workInProgress2, Component, true);
             context = getMaskedContext(workInProgress2, unmaskedContext);
           }
           var nextChildren;
@@ -17071,12 +17071,12 @@ var require_react_dom_development = __commonJS({
           {
             ReactCurrentOwner$1.current = workInProgress2;
             setIsRendering(true);
-            nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context, renderLanes2);
+            nextChildren = renderWithHooks(current2, workInProgress2, Component, nextProps, context, renderLanes2);
             hasId = checkDidRenderIdHook();
             if (workInProgress2.mode & StrictLegacyMode) {
               setIsStrictModeForDevtools(true);
               try {
-                nextChildren = renderWithHooks(current2, workInProgress2, Component2, nextProps, context, renderLanes2);
+                nextChildren = renderWithHooks(current2, workInProgress2, Component, nextProps, context, renderLanes2);
                 hasId = checkDidRenderIdHook();
               } finally {
                 setIsStrictModeForDevtools(false);
@@ -17098,7 +17098,7 @@ var require_react_dom_development = __commonJS({
           reconcileChildren(current2, workInProgress2, nextChildren, renderLanes2);
           return workInProgress2.child;
         }
-        function updateClassComponent(current2, workInProgress2, Component2, nextProps, renderLanes2) {
+        function updateClassComponent(current2, workInProgress2, Component, nextProps, renderLanes2) {
           {
             switch (shouldError(workInProgress2)) {
               case false: {
@@ -17115,26 +17115,26 @@ var require_react_dom_development = __commonJS({
                 var error$1 = new Error("Simulated error coming from DevTools");
                 var lane = pickArbitraryLane(renderLanes2);
                 workInProgress2.lanes = mergeLanes(workInProgress2.lanes, lane);
-                var update = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
-                enqueueCapturedUpdate(workInProgress2, update);
+                var update2 = createClassErrorUpdate(workInProgress2, createCapturedValueAtFiber(error$1, workInProgress2), lane);
+                enqueueCapturedUpdate(workInProgress2, update2);
                 break;
               }
             }
             if (workInProgress2.type !== workInProgress2.elementType) {
-              var innerPropTypes = Component2.propTypes;
+              var innerPropTypes = Component.propTypes;
               if (innerPropTypes) {
                 checkPropTypes(
                   innerPropTypes,
                   nextProps,
                   // Resolved props
                   "prop",
-                  getComponentNameFromType(Component2)
+                  getComponentNameFromType(Component)
                 );
               }
             }
           }
           var hasContext;
-          if (isContextProvider(Component2)) {
+          if (isContextProvider(Component)) {
             hasContext = true;
             pushContextProvider(workInProgress2);
           } else {
@@ -17145,15 +17145,15 @@ var require_react_dom_development = __commonJS({
           var shouldUpdate;
           if (instance === null) {
             resetSuspendedCurrentOnMountInLegacyMode(current2, workInProgress2);
-            constructClassInstance(workInProgress2, Component2, nextProps);
-            mountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
+            constructClassInstance(workInProgress2, Component, nextProps);
+            mountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
             shouldUpdate = true;
           } else if (current2 === null) {
-            shouldUpdate = resumeMountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
+            shouldUpdate = resumeMountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
           } else {
-            shouldUpdate = updateClassInstance(current2, workInProgress2, Component2, nextProps, renderLanes2);
+            shouldUpdate = updateClassInstance(current2, workInProgress2, Component, nextProps, renderLanes2);
           }
-          var nextUnitOfWork = finishClassComponent(current2, workInProgress2, Component2, shouldUpdate, hasContext, renderLanes2);
+          var nextUnitOfWork = finishClassComponent(current2, workInProgress2, Component, shouldUpdate, hasContext, renderLanes2);
           {
             var inst = workInProgress2.stateNode;
             if (shouldUpdate && inst.props !== nextProps) {
@@ -17165,19 +17165,19 @@ var require_react_dom_development = __commonJS({
           }
           return nextUnitOfWork;
         }
-        function finishClassComponent(current2, workInProgress2, Component2, shouldUpdate, hasContext, renderLanes2) {
+        function finishClassComponent(current2, workInProgress2, Component, shouldUpdate, hasContext, renderLanes2) {
           markRef(current2, workInProgress2);
           var didCaptureError = (workInProgress2.flags & DidCapture) !== NoFlags;
           if (!shouldUpdate && !didCaptureError) {
             if (hasContext) {
-              invalidateContextProvider(workInProgress2, Component2, false);
+              invalidateContextProvider(workInProgress2, Component, false);
             }
             return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
           }
           var instance = workInProgress2.stateNode;
           ReactCurrentOwner$1.current = workInProgress2;
           var nextChildren;
-          if (didCaptureError && typeof Component2.getDerivedStateFromError !== "function") {
+          if (didCaptureError && typeof Component.getDerivedStateFromError !== "function") {
             nextChildren = null;
             {
               stopProfilerTimerIfRunning();
@@ -17211,7 +17211,7 @@ var require_react_dom_development = __commonJS({
           }
           workInProgress2.memoizedState = instance.state;
           if (hasContext) {
-            invalidateContextProvider(workInProgress2, Component2, true);
+            invalidateContextProvider(workInProgress2, Component, true);
           }
           return workInProgress2.child;
         }
@@ -17311,45 +17311,45 @@ var require_react_dom_development = __commonJS({
           var lazyComponent = elementType2;
           var payload = lazyComponent._payload;
           var init = lazyComponent._init;
-          var Component2 = init(payload);
-          workInProgress2.type = Component2;
-          var resolvedTag = workInProgress2.tag = resolveLazyComponentTag(Component2);
-          var resolvedProps = resolveDefaultProps(Component2, props);
+          var Component = init(payload);
+          workInProgress2.type = Component;
+          var resolvedTag = workInProgress2.tag = resolveLazyComponentTag(Component);
+          var resolvedProps = resolveDefaultProps(Component, props);
           var child;
           switch (resolvedTag) {
             case FunctionComponent: {
               {
-                validateFunctionComponentInDev(workInProgress2, Component2);
-                workInProgress2.type = Component2 = resolveFunctionForHotReloading(Component2);
+                validateFunctionComponentInDev(workInProgress2, Component);
+                workInProgress2.type = Component = resolveFunctionForHotReloading(Component);
               }
-              child = updateFunctionComponent(null, workInProgress2, Component2, resolvedProps, renderLanes2);
+              child = updateFunctionComponent(null, workInProgress2, Component, resolvedProps, renderLanes2);
               return child;
             }
             case ClassComponent: {
               {
-                workInProgress2.type = Component2 = resolveClassForHotReloading(Component2);
+                workInProgress2.type = Component = resolveClassForHotReloading(Component);
               }
-              child = updateClassComponent(null, workInProgress2, Component2, resolvedProps, renderLanes2);
+              child = updateClassComponent(null, workInProgress2, Component, resolvedProps, renderLanes2);
               return child;
             }
             case ForwardRef: {
               {
-                workInProgress2.type = Component2 = resolveForwardRefForHotReloading(Component2);
+                workInProgress2.type = Component = resolveForwardRefForHotReloading(Component);
               }
-              child = updateForwardRef(null, workInProgress2, Component2, resolvedProps, renderLanes2);
+              child = updateForwardRef(null, workInProgress2, Component, resolvedProps, renderLanes2);
               return child;
             }
             case MemoComponent: {
               {
                 if (workInProgress2.type !== workInProgress2.elementType) {
-                  var outerPropTypes = Component2.propTypes;
+                  var outerPropTypes = Component.propTypes;
                   if (outerPropTypes) {
                     checkPropTypes(
                       outerPropTypes,
                       resolvedProps,
                       // Resolved for outer only
                       "prop",
-                      getComponentNameFromType(Component2)
+                      getComponentNameFromType(Component)
                     );
                   }
                 }
@@ -17357,8 +17357,8 @@ var require_react_dom_development = __commonJS({
               child = updateMemoComponent(
                 null,
                 workInProgress2,
-                Component2,
-                resolveDefaultProps(Component2.type, resolvedProps),
+                Component,
+                resolveDefaultProps(Component.type, resolvedProps),
                 // The inner type can have defaults too
                 renderLanes2
               );
@@ -17367,33 +17367,33 @@ var require_react_dom_development = __commonJS({
           }
           var hint = "";
           {
-            if (Component2 !== null && typeof Component2 === "object" && Component2.$$typeof === REACT_LAZY_TYPE) {
+            if (Component !== null && typeof Component === "object" && Component.$$typeof === REACT_LAZY_TYPE) {
               hint = " Did you wrap a component in React.lazy() more than once?";
             }
           }
-          throw new Error("Element type is invalid. Received a promise that resolves to: " + Component2 + ". " + ("Lazy element type must resolve to a class or function." + hint));
+          throw new Error("Element type is invalid. Received a promise that resolves to: " + Component + ". " + ("Lazy element type must resolve to a class or function." + hint));
         }
-        function mountIncompleteClassComponent(_current, workInProgress2, Component2, nextProps, renderLanes2) {
+        function mountIncompleteClassComponent(_current, workInProgress2, Component, nextProps, renderLanes2) {
           resetSuspendedCurrentOnMountInLegacyMode(_current, workInProgress2);
           workInProgress2.tag = ClassComponent;
           var hasContext;
-          if (isContextProvider(Component2)) {
+          if (isContextProvider(Component)) {
             hasContext = true;
             pushContextProvider(workInProgress2);
           } else {
             hasContext = false;
           }
           prepareToReadContext(workInProgress2, renderLanes2);
-          constructClassInstance(workInProgress2, Component2, nextProps);
-          mountClassInstance(workInProgress2, Component2, nextProps, renderLanes2);
-          return finishClassComponent(null, workInProgress2, Component2, true, hasContext, renderLanes2);
+          constructClassInstance(workInProgress2, Component, nextProps);
+          mountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
+          return finishClassComponent(null, workInProgress2, Component, true, hasContext, renderLanes2);
         }
-        function mountIndeterminateComponent(_current, workInProgress2, Component2, renderLanes2) {
+        function mountIndeterminateComponent(_current, workInProgress2, Component, renderLanes2) {
           resetSuspendedCurrentOnMountInLegacyMode(_current, workInProgress2);
           var props = workInProgress2.pendingProps;
           var context;
           {
-            var unmaskedContext = getUnmaskedContext(workInProgress2, Component2, false);
+            var unmaskedContext = getUnmaskedContext(workInProgress2, Component, false);
             context = getMaskedContext(workInProgress2, unmaskedContext);
           }
           prepareToReadContext(workInProgress2, renderLanes2);
@@ -17403,8 +17403,8 @@ var require_react_dom_development = __commonJS({
             markComponentRenderStarted(workInProgress2);
           }
           {
-            if (Component2.prototype && typeof Component2.prototype.render === "function") {
-              var componentName = getComponentNameFromType(Component2) || "Unknown";
+            if (Component.prototype && typeof Component.prototype.render === "function") {
+              var componentName = getComponentNameFromType(Component) || "Unknown";
               if (!didWarnAboutBadClass[componentName]) {
                 error2("The <%s /> component appears to have a render method, but doesn't extend React.Component. This is likely to cause errors. Change %s to extend React.Component instead.", componentName, componentName);
                 didWarnAboutBadClass[componentName] = true;
@@ -17415,7 +17415,7 @@ var require_react_dom_development = __commonJS({
             }
             setIsRendering(true);
             ReactCurrentOwner$1.current = workInProgress2;
-            value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
+            value = renderWithHooks(null, workInProgress2, Component, props, context, renderLanes2);
             hasId = checkDidRenderIdHook();
             setIsRendering(false);
           }
@@ -17425,7 +17425,7 @@ var require_react_dom_development = __commonJS({
           workInProgress2.flags |= PerformedWork;
           {
             if (typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0) {
-              var _componentName = getComponentNameFromType(Component2) || "Unknown";
+              var _componentName = getComponentNameFromType(Component) || "Unknown";
               if (!didWarnAboutModulePatternComponent[_componentName]) {
                 error2("The <%s /> component appears to be a function component that returns a class instance. Change %s to a class that extends React.Component instead. If you can't use a class try assigning the prototype on the function as a workaround. `%s.prototype = React.Component.prototype`. Don't use an arrow function since it cannot be called with `new` by React.", _componentName, _componentName, _componentName);
                 didWarnAboutModulePatternComponent[_componentName] = true;
@@ -17438,7 +17438,7 @@ var require_react_dom_development = __commonJS({
             typeof value === "object" && value !== null && typeof value.render === "function" && value.$$typeof === void 0
           ) {
             {
-              var _componentName2 = getComponentNameFromType(Component2) || "Unknown";
+              var _componentName2 = getComponentNameFromType(Component) || "Unknown";
               if (!didWarnAboutModulePatternComponent[_componentName2]) {
                 error2("The <%s /> component appears to be a function component that returns a class instance. Change %s to a class that extends React.Component instead. If you can't use a class try assigning the prototype on the function as a workaround. `%s.prototype = React.Component.prototype`. Don't use an arrow function since it cannot be called with `new` by React.", _componentName2, _componentName2, _componentName2);
                 didWarnAboutModulePatternComponent[_componentName2] = true;
@@ -17448,7 +17448,7 @@ var require_react_dom_development = __commonJS({
             workInProgress2.memoizedState = null;
             workInProgress2.updateQueue = null;
             var hasContext = false;
-            if (isContextProvider(Component2)) {
+            if (isContextProvider(Component)) {
               hasContext = true;
               pushContextProvider(workInProgress2);
             } else {
@@ -17457,15 +17457,15 @@ var require_react_dom_development = __commonJS({
             workInProgress2.memoizedState = value.state !== null && value.state !== void 0 ? value.state : null;
             initializeUpdateQueue(workInProgress2);
             adoptClassInstance(workInProgress2, value);
-            mountClassInstance(workInProgress2, Component2, props, renderLanes2);
-            return finishClassComponent(null, workInProgress2, Component2, true, hasContext, renderLanes2);
+            mountClassInstance(workInProgress2, Component, props, renderLanes2);
+            return finishClassComponent(null, workInProgress2, Component, true, hasContext, renderLanes2);
           } else {
             workInProgress2.tag = FunctionComponent;
             {
               if (workInProgress2.mode & StrictLegacyMode) {
                 setIsStrictModeForDevtools(true);
                 try {
-                  value = renderWithHooks(null, workInProgress2, Component2, props, context, renderLanes2);
+                  value = renderWithHooks(null, workInProgress2, Component, props, context, renderLanes2);
                   hasId = checkDidRenderIdHook();
                 } finally {
                   setIsStrictModeForDevtools(false);
@@ -17477,16 +17477,16 @@ var require_react_dom_development = __commonJS({
             }
             reconcileChildren(null, workInProgress2, value, renderLanes2);
             {
-              validateFunctionComponentInDev(workInProgress2, Component2);
+              validateFunctionComponentInDev(workInProgress2, Component);
             }
             return workInProgress2.child;
           }
         }
-        function validateFunctionComponentInDev(workInProgress2, Component2) {
+        function validateFunctionComponentInDev(workInProgress2, Component) {
           {
-            if (Component2) {
-              if (Component2.childContextTypes) {
-                error2("%s(...): childContextTypes cannot be defined on a function component.", Component2.displayName || Component2.name || "Component");
+            if (Component) {
+              if (Component.childContextTypes) {
+                error2("%s(...): childContextTypes cannot be defined on a function component.", Component.displayName || Component.name || "Component");
               }
             }
             if (workInProgress2.ref !== null) {
@@ -17505,15 +17505,15 @@ var require_react_dom_development = __commonJS({
                 error2("Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?%s", info);
               }
             }
-            if (typeof Component2.getDerivedStateFromProps === "function") {
-              var _componentName3 = getComponentNameFromType(Component2) || "Unknown";
+            if (typeof Component.getDerivedStateFromProps === "function") {
+              var _componentName3 = getComponentNameFromType(Component) || "Unknown";
               if (!didWarnAboutGetDerivedStateOnFunctionComponent[_componentName3]) {
                 error2("%s: Function components do not support getDerivedStateFromProps.", _componentName3);
                 didWarnAboutGetDerivedStateOnFunctionComponent[_componentName3] = true;
               }
             }
-            if (typeof Component2.contextType === "object" && Component2.contextType !== null) {
-              var _componentName4 = getComponentNameFromType(Component2) || "Unknown";
+            if (typeof Component.contextType === "object" && Component.contextType !== null) {
+              var _componentName4 = getComponentNameFromType(Component) || "Unknown";
               if (!didWarnAboutContextTypeOnFunctionComponent[_componentName4]) {
                 error2("%s: Function components do not support contextType.", _componentName4);
                 didWarnAboutContextTypeOnFunctionComponent[_componentName4] = true;
@@ -18275,8 +18275,8 @@ var require_react_dom_development = __commonJS({
               pushHostContext(workInProgress2);
               break;
             case ClassComponent: {
-              var Component2 = workInProgress2.type;
-              if (isContextProvider(Component2)) {
+              var Component = workInProgress2.type;
+              if (isContextProvider(Component)) {
                 pushContextProvider(workInProgress2);
               }
               break;
@@ -18403,10 +18403,10 @@ var require_react_dom_development = __commonJS({
               return mountLazyComponent(current2, workInProgress2, elementType2, renderLanes2);
             }
             case FunctionComponent: {
-              var Component2 = workInProgress2.type;
+              var Component = workInProgress2.type;
               var unresolvedProps = workInProgress2.pendingProps;
-              var resolvedProps = workInProgress2.elementType === Component2 ? unresolvedProps : resolveDefaultProps(Component2, unresolvedProps);
-              return updateFunctionComponent(current2, workInProgress2, Component2, resolvedProps, renderLanes2);
+              var resolvedProps = workInProgress2.elementType === Component ? unresolvedProps : resolveDefaultProps(Component, unresolvedProps);
+              return updateFunctionComponent(current2, workInProgress2, Component, resolvedProps, renderLanes2);
             }
             case ClassComponent: {
               var _Component = workInProgress2.type;
@@ -18430,7 +18430,7 @@ var require_react_dom_development = __commonJS({
               var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
               return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
             }
-            case Fragment3:
+            case Fragment:
               return updateFragment(current2, workInProgress2, renderLanes2);
             case Mode:
               return updateMode(current2, workInProgress2, renderLanes2);
@@ -18703,7 +18703,7 @@ var require_react_dom_development = __commonJS({
             case SimpleMemoComponent:
             case FunctionComponent:
             case ForwardRef:
-            case Fragment3:
+            case Fragment:
             case Mode:
             case Profiler:
             case ContextConsumer:
@@ -18711,8 +18711,8 @@ var require_react_dom_development = __commonJS({
               bubbleProperties(workInProgress2);
               return null;
             case ClassComponent: {
-              var Component2 = workInProgress2.type;
-              if (isContextProvider(Component2)) {
+              var Component = workInProgress2.type;
+              if (isContextProvider(Component)) {
                 popContext(workInProgress2);
               }
               bubbleProperties(workInProgress2);
@@ -19030,8 +19030,8 @@ var require_react_dom_development = __commonJS({
           popTreeContext(workInProgress2);
           switch (workInProgress2.tag) {
             case ClassComponent: {
-              var Component2 = workInProgress2.type;
-              if (isContextProvider(Component2)) {
+              var Component = workInProgress2.type;
+              if (isContextProvider(Component)) {
                 popContext(workInProgress2);
               }
               var flags = workInProgress2.flags;
@@ -22038,8 +22038,8 @@ var require_react_dom_development = __commonJS({
         var onUncaughtError = prepareToThrowUncaughtError;
         function captureCommitPhaseErrorOnRoot(rootFiber, sourceFiber, error3) {
           var errorInfo = createCapturedValueAtFiber(error3, sourceFiber);
-          var update = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
-          var root2 = enqueueUpdate(rootFiber, update, SyncLane);
+          var update2 = createRootErrorUpdate(rootFiber, errorInfo, SyncLane);
+          var root2 = enqueueUpdate(rootFiber, update2, SyncLane);
           var eventTime = requestEventTime();
           if (root2 !== null) {
             markRootUpdated(root2, SyncLane, eventTime);
@@ -22068,8 +22068,8 @@ var require_react_dom_development = __commonJS({
               var instance = fiber.stateNode;
               if (typeof ctor.getDerivedStateFromError === "function" || typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance)) {
                 var errorInfo = createCapturedValueAtFiber(error$1, sourceFiber);
-                var update = createClassErrorUpdate(fiber, errorInfo, SyncLane);
-                var root2 = enqueueUpdate(fiber, update, SyncLane);
+                var update2 = createClassErrorUpdate(fiber, errorInfo, SyncLane);
+                var root2 = enqueueUpdate(fiber, update2, SyncLane);
                 var eventTime = requestEventTime();
                 if (root2 !== null) {
                   markRootUpdated(root2, SyncLane, eventTime);
@@ -22487,12 +22487,12 @@ var require_react_dom_development = __commonJS({
             failedBoundaries.add(fiber);
           }
         }
-        var scheduleRefresh = function(root2, update) {
+        var scheduleRefresh = function(root2, update2) {
           {
             if (resolveFamily === null) {
               return;
             }
-            var staleFamilies = update.staleFamilies, updatedFamilies = update.updatedFamilies;
+            var staleFamilies = update2.staleFamilies, updatedFamilies = update2.updatedFamilies;
             flushPassiveEffects();
             flushSync(function() {
               scheduleFibersWithFamiliesRecursively(root2.current, updatedFamilies, staleFamilies);
@@ -22718,18 +22718,18 @@ var require_react_dom_development = __commonJS({
         var createFiber = function(tag, pendingProps, key, mode) {
           return new FiberNode(tag, pendingProps, key, mode);
         };
-        function shouldConstruct$1(Component2) {
-          var prototype = Component2.prototype;
+        function shouldConstruct$1(Component) {
+          var prototype = Component.prototype;
           return !!(prototype && prototype.isReactComponent);
         }
         function isSimpleFunctionComponent(type) {
           return typeof type === "function" && !shouldConstruct$1(type) && type.defaultProps === void 0;
         }
-        function resolveLazyComponentTag(Component2) {
-          if (typeof Component2 === "function") {
-            return shouldConstruct$1(Component2) ? ClassComponent : FunctionComponent;
-          } else if (Component2 !== void 0 && Component2 !== null) {
-            var $$typeof = Component2.$$typeof;
+        function resolveLazyComponentTag(Component) {
+          if (typeof Component === "function") {
+            return shouldConstruct$1(Component) ? ClassComponent : FunctionComponent;
+          } else if (Component !== void 0 && Component !== null) {
+            var $$typeof = Component.$$typeof;
             if ($$typeof === REACT_FORWARD_REF_TYPE) {
               return ForwardRef;
             }
@@ -22962,7 +22962,7 @@ var require_react_dom_development = __commonJS({
           return fiber;
         }
         function createFiberFromFragment(elements, mode, lanes, key) {
-          var fiber = createFiber(Fragment3, elements, key, mode);
+          var fiber = createFiber(Fragment, elements, key, mode);
           fiber.lanes = lanes;
           return fiber;
         }
@@ -23166,9 +23166,9 @@ var require_react_dom_development = __commonJS({
           var fiber = get(parentComponent);
           var parentContext = findCurrentUnmaskedContext(fiber);
           if (fiber.tag === ClassComponent) {
-            var Component2 = fiber.type;
-            if (isContextProvider(Component2)) {
-              return processChildContext(fiber, Component2, parentContext);
+            var Component = fiber.type;
+            if (isContextProvider(Component)) {
+              return processChildContext(fiber, Component, parentContext);
             }
           }
           return parentContext;
@@ -23224,9 +23224,9 @@ var require_react_dom_development = __commonJS({
           var current2 = root2.current;
           var eventTime = requestEventTime();
           var lane = requestUpdateLane(current2);
-          var update = createUpdate(eventTime, lane);
-          update.callback = callback !== void 0 && callback !== null ? callback : null;
-          enqueueUpdate(current2, update, lane);
+          var update2 = createUpdate(eventTime, lane);
+          update2.callback = callback !== void 0 && callback !== null ? callback : null;
+          enqueueUpdate(current2, update2, lane);
           scheduleInitialHydrationOnRoot(root2, lane, eventTime);
           return root2;
         }
@@ -23252,8 +23252,8 @@ var require_react_dom_development = __commonJS({
               error2("Render methods should be a pure function of props and state; triggering nested component updates from render is not allowed. If necessary, trigger nested updates in componentDidUpdate.\n\nCheck the render method of %s.", getComponentNameFromFiber(current) || "Unknown");
             }
           }
-          var update = createUpdate(eventTime, lane);
-          update.payload = {
+          var update2 = createUpdate(eventTime, lane);
+          update2.payload = {
             element
           };
           callback = callback === void 0 ? null : callback;
@@ -23263,9 +23263,9 @@ var require_react_dom_development = __commonJS({
                 error2("render(...): Expected the last optional `callback` argument to be a function. Instead received: %s.", callback);
               }
             }
-            update.callback = callback;
+            update2.callback = callback;
           }
-          var root2 = enqueueUpdate(current$1, update, lane);
+          var root2 = enqueueUpdate(current$1, update2, lane);
           if (root2 !== null) {
             scheduleUpdateOnFiber(root2, current$1, lane, eventTime);
             entangleTransitions(root2, current$1, lane);
@@ -24153,8 +24153,8 @@ __export(turbo_es2017_esm_exports, {
     submitter.type == "submit" || raise(TypeError, "The specified element is not a submit button");
     submitter.form == form || raise(DOMException, "The specified element is not owned by this form element", "NotFoundError");
   }
-  function raise(errorConstructor, message, name) {
-    throw new errorConstructor("Failed to execute 'requestSubmit' on 'HTMLFormElement': " + message + ".", name);
+  function raise(errorConstructor, message, name2) {
+    throw new errorConstructor("Failed to execute 'requestSubmit' on 'HTMLFormElement': " + message + ".", name2);
   }
 })(HTMLFormElement.prototype);
 var submittersByForm = /* @__PURE__ */ new WeakMap();
@@ -24213,12 +24213,12 @@ var FrameElement = class _FrameElement extends HTMLElement {
   reload() {
     return this.delegate.sourceURLReloaded();
   }
-  attributeChangedCallback(name) {
-    if (name == "loading") {
+  attributeChangedCallback(name2) {
+    if (name2 == "loading") {
       this.delegate.loadingStyleChanged();
-    } else if (name == "complete") {
+    } else if (name2 == "complete") {
       this.delegate.completeChanged();
-    } else if (name == "src") {
+    } else if (name2 == "src") {
       this.delegate.sourceURLChanged();
     } else {
       this.delegate.disabledChanged();
@@ -24434,8 +24434,8 @@ var FetchResponse = class {
       return Promise.resolve(void 0);
     }
   }
-  header(name) {
-    return this.response.headers.get(name);
+  header(name2) {
+    return this.response.headers.get(name2);
   }
 };
 function activateScriptElement(element) {
@@ -24454,8 +24454,8 @@ function activateScriptElement(element) {
   }
 }
 function copyElementAttributes(destinationElement, sourceElement) {
-  for (const { name, value } of sourceElement.attributes) {
-    destinationElement.setAttribute(name, value);
+  for (const { name: name2, value } of sourceElement.attributes) {
+    destinationElement.setAttribute(name2, value);
   }
 }
 function createDocumentFragment(html) {
@@ -24575,18 +24575,18 @@ function getVisitAction(...elements) {
   const action = getAttribute("data-turbo-action", ...elements);
   return isAction(action) ? action : null;
 }
-function getMetaElement(name) {
-  return document.querySelector(`meta[name="${name}"]`);
+function getMetaElement(name2) {
+  return document.querySelector(`meta[name="${name2}"]`);
 }
-function getMetaContent(name) {
-  const element = getMetaElement(name);
+function getMetaContent(name2) {
+  const element = getMetaElement(name2);
   return element && element.content;
 }
-function setMetaContent(name, content) {
-  let element = getMetaElement(name);
+function setMetaContent(name2, content) {
+  let element = getMetaElement(name2);
   if (!element) {
     element = document.createElement("meta");
-    element.setAttribute("name", name);
+    element.setAttribute("name", name2);
     document.head.appendChild(element);
   }
   element.setAttribute("content", content);
@@ -24821,11 +24821,11 @@ function buildResourceAndBody(resource, method, requestBody, enctype) {
 }
 function entriesExcludingFiles(requestBody) {
   const entries = [];
-  for (const [name, value] of requestBody) {
+  for (const [name2, value] of requestBody) {
     if (value instanceof File)
       continue;
     else
-      entries.push([name, value]);
+      entries.push([name2, value]);
   }
   return entries;
 }
@@ -25046,10 +25046,10 @@ var FormSubmission = class _FormSubmission {
 };
 function buildFormData(formElement, submitter) {
   const formData = new FormData(formElement);
-  const name = submitter?.getAttribute("name");
+  const name2 = submitter?.getAttribute("name");
   const value = submitter?.getAttribute("value");
-  if (name) {
-    formData.append(name, value || "");
+  if (name2) {
+    formData.append(name2, value || "");
   }
   return formData;
 }
@@ -25404,8 +25404,8 @@ var FormLinkClickObserver = class {
   followedLinkToLocation(link, location2) {
     const form = document.createElement("form");
     const type = "hidden";
-    for (const [name, value] of location2.searchParams) {
-      form.append(Object.assign(document.createElement("input"), { type, name, value }));
+    for (const [name2, value] of location2.searchParams) {
+      form.append(Object.assign(document.createElement("input"), { type, name: name2, value }));
     }
     const action = Object.assign(location2, { search: "" });
     form.setAttribute("data-turbo", "true");
@@ -25764,16 +25764,16 @@ var HeadSnapshot = class extends Snapshot {
       }
     }, []);
   }
-  getMetaValue(name) {
-    const element = this.findMetaElementByName(name);
+  getMetaValue(name2) {
+    const element = this.findMetaElementByName(name2);
     return element ? element.getAttribute("content") : null;
   }
-  findMetaElementByName(name) {
+  findMetaElementByName(name2) {
     return Object.keys(this.detailsByOuterHTML).reduce((result, outerHTML) => {
       const {
         elements: [element]
       } = this.detailsByOuterHTML[outerHTML];
-      return elementIsMetaElementWithName(element, name) ? element : result;
+      return elementIsMetaElementWithName(element, name2) ? element : result;
     }, void 0 | void 0);
   }
 };
@@ -25799,9 +25799,9 @@ function elementIsStylesheet(element) {
   const tagName = element.localName;
   return tagName == "style" || tagName == "link" && element.getAttribute("rel") == "stylesheet";
 }
-function elementIsMetaElementWithName(element, name) {
+function elementIsMetaElementWithName(element, name2) {
   const tagName = element.localName;
-  return tagName == "meta" && element.getAttribute("name") == name;
+  return tagName == "meta" && element.getAttribute("name") == name2;
 }
 function elementWithoutNonce(element) {
   if (element.hasAttribute("nonce")) {
@@ -25872,8 +25872,8 @@ var PageSnapshot = class _PageSnapshot extends Snapshot {
     return this.getSetting("refresh-scroll") === "preserve";
   }
   // Private
-  getSetting(name) {
-    return this.headSnapshot.getMetaValue(`turbo-${name}`);
+  getSetting(name2) {
+    return this.headSnapshot.getMetaValue(`turbo-${name2}`);
   }
 };
 var ViewTransitioner = class {
@@ -29283,8 +29283,8 @@ var Action = class {
   get params() {
     const params = {};
     const pattern = new RegExp(`^data-${this.identifier}-(.+)-param$`, "i");
-    for (const { name, value } of Array.from(this.element.attributes)) {
-      const match = name.match(pattern);
+    for (const { name: name2, value } of Array.from(this.element.attributes)) {
+      const match = name2.match(pattern);
       const key = match && match[1];
       if (key) {
         params[camelize(key)] = typecast(value);
@@ -29366,10 +29366,10 @@ var Binding = class {
     const { actionDescriptorFilters } = this.context.application;
     const { controller } = this.context;
     let passes = true;
-    for (const [name, value] of Object.entries(this.eventOptions)) {
-      if (name in actionDescriptorFilters) {
-        const filter = actionDescriptorFilters[name];
-        passes = passes && filter({ name, value, event, element, controller });
+    for (const [name2, value] of Object.entries(this.eventOptions)) {
+      if (name2 in actionDescriptorFilters) {
+        const filter = actionDescriptorFilters[name2];
+        passes = passes && filter({ name: name2, value, event, element, controller });
       } else {
         continue;
       }
@@ -30075,14 +30075,14 @@ var ValueObserver = class {
       this.invokeChangedCallback(key, descriptor.writer(this.receiver[key]), descriptor.writer(descriptor.defaultValue));
     }
   }
-  stringMapValueChanged(value, name, oldValue) {
-    const descriptor = this.valueDescriptorNameMap[name];
+  stringMapValueChanged(value, name2, oldValue) {
+    const descriptor = this.valueDescriptorNameMap[name2];
     if (value === null)
       return;
     if (oldValue === null) {
       oldValue = descriptor.writer(descriptor.defaultValue);
     }
-    this.invokeChangedCallback(name, value, oldValue);
+    this.invokeChangedCallback(name2, value, oldValue);
   }
   stringMapKeyRemoved(key, attributeName, oldValue) {
     const descriptor = this.valueDescriptorNameMap[key];
@@ -30093,17 +30093,17 @@ var ValueObserver = class {
     }
   }
   invokeChangedCallbacksForDefaultValues() {
-    for (const { key, name, defaultValue, writer } of this.valueDescriptors) {
+    for (const { key, name: name2, defaultValue, writer } of this.valueDescriptors) {
       if (defaultValue != void 0 && !this.controller.data.has(key)) {
-        this.invokeChangedCallback(name, writer(defaultValue), void 0);
+        this.invokeChangedCallback(name2, writer(defaultValue), void 0);
       }
     }
   }
-  invokeChangedCallback(name, rawValue, rawOldValue) {
-    const changedMethodName = `${name}Changed`;
+  invokeChangedCallback(name2, rawValue, rawOldValue) {
+    const changedMethodName = `${name2}Changed`;
     const changedMethod = this.receiver[changedMethodName];
     if (typeof changedMethod == "function") {
-      const descriptor = this.valueDescriptorNameMap[name];
+      const descriptor = this.valueDescriptorNameMap[name2];
       try {
         const value = descriptor.reader(rawValue);
         let oldValue = rawOldValue;
@@ -30156,32 +30156,32 @@ var TargetObserver = class {
       delete this.tokenListObserver;
     }
   }
-  tokenMatched({ element, content: name }) {
+  tokenMatched({ element, content: name2 }) {
     if (this.scope.containsElement(element)) {
-      this.connectTarget(element, name);
+      this.connectTarget(element, name2);
     }
   }
-  tokenUnmatched({ element, content: name }) {
-    this.disconnectTarget(element, name);
+  tokenUnmatched({ element, content: name2 }) {
+    this.disconnectTarget(element, name2);
   }
-  connectTarget(element, name) {
+  connectTarget(element, name2) {
     var _a;
-    if (!this.targetsByName.has(name, element)) {
-      this.targetsByName.add(name, element);
-      (_a = this.tokenListObserver) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.targetConnected(element, name));
+    if (!this.targetsByName.has(name2, element)) {
+      this.targetsByName.add(name2, element);
+      (_a = this.tokenListObserver) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.targetConnected(element, name2));
     }
   }
-  disconnectTarget(element, name) {
+  disconnectTarget(element, name2) {
     var _a;
-    if (this.targetsByName.has(name, element)) {
-      this.targetsByName.delete(name, element);
-      (_a = this.tokenListObserver) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.targetDisconnected(element, name));
+    if (this.targetsByName.has(name2, element)) {
+      this.targetsByName.delete(name2, element);
+      (_a = this.tokenListObserver) === null || _a === void 0 ? void 0 : _a.pause(() => this.delegate.targetDisconnected(element, name2));
     }
   }
   disconnectAllTargets() {
-    for (const name of this.targetsByName.keys) {
-      for (const element of this.targetsByName.getValuesForKey(name)) {
-        this.disconnectTarget(element, name);
+    for (const name2 of this.targetsByName.keys) {
+      for (const element of this.targetsByName.getValuesForKey(name2)) {
+        this.disconnectTarget(element, name2);
       }
     }
   }
@@ -30198,7 +30198,7 @@ var TargetObserver = class {
 function readInheritableStaticArrayValues(constructor, propertyName) {
   const ancestors = getAncestorsForConstructor(constructor);
   return Array.from(ancestors.reduce((values, constructor2) => {
-    getOwnStaticArrayValues(constructor2, propertyName).forEach((name) => values.add(name));
+    getOwnStaticArrayValues(constructor2, propertyName).forEach((name2) => values.add(name2));
     return values;
   }, /* @__PURE__ */ new Set()));
 }
@@ -30476,17 +30476,17 @@ var Context = class {
     detail = Object.assign({ identifier, controller, element }, detail);
     this.application.handleError(error2, `Error ${message}`, detail);
   }
-  targetConnected(element, name) {
-    this.invokeControllerMethod(`${name}TargetConnected`, element);
+  targetConnected(element, name2) {
+    this.invokeControllerMethod(`${name2}TargetConnected`, element);
   }
-  targetDisconnected(element, name) {
-    this.invokeControllerMethod(`${name}TargetDisconnected`, element);
+  targetDisconnected(element, name2) {
+    this.invokeControllerMethod(`${name2}TargetDisconnected`, element);
   }
-  outletConnected(outlet, element, name) {
-    this.invokeControllerMethod(`${namespaceCamelize(name)}OutletConnected`, outlet, element);
+  outletConnected(outlet, element, name2) {
+    this.invokeControllerMethod(`${namespaceCamelize(name2)}OutletConnected`, outlet, element);
   }
-  outletDisconnected(outlet, element, name) {
-    this.invokeControllerMethod(`${namespaceCamelize(name)}OutletDisconnected`, outlet, element);
+  outletDisconnected(outlet, element, name2) {
+    this.invokeControllerMethod(`${namespaceCamelize(name2)}OutletDisconnected`, outlet, element);
   }
   invokeControllerMethod(methodName, ...args) {
     const controller = this.controller;
@@ -30618,21 +30618,21 @@ var ClassMap = class {
   constructor(scope) {
     this.scope = scope;
   }
-  has(name) {
-    return this.data.has(this.getDataKey(name));
+  has(name2) {
+    return this.data.has(this.getDataKey(name2));
   }
-  get(name) {
-    return this.getAll(name)[0];
+  get(name2) {
+    return this.getAll(name2)[0];
   }
-  getAll(name) {
-    const tokenString = this.data.get(this.getDataKey(name)) || "";
+  getAll(name2) {
+    const tokenString = this.data.get(this.getDataKey(name2)) || "";
     return tokenize(tokenString);
   }
-  getAttributeName(name) {
-    return this.data.getAttributeNameForKey(this.getDataKey(name));
+  getAttributeName(name2) {
+    return this.data.getAttributeNameForKey(this.getDataKey(name2));
   }
-  getDataKey(name) {
-    return `${name}-class`;
+  getDataKey(name2) {
+    return `${name2}-class`;
   }
   get data() {
     return this.scope.data;
@@ -30649,22 +30649,22 @@ var DataMap = class {
     return this.scope.identifier;
   }
   get(key) {
-    const name = this.getAttributeNameForKey(key);
-    return this.element.getAttribute(name);
+    const name2 = this.getAttributeNameForKey(key);
+    return this.element.getAttribute(name2);
   }
   set(key, value) {
-    const name = this.getAttributeNameForKey(key);
-    this.element.setAttribute(name, value);
+    const name2 = this.getAttributeNameForKey(key);
+    this.element.setAttribute(name2, value);
     return this.get(key);
   }
   has(key) {
-    const name = this.getAttributeNameForKey(key);
-    return this.element.hasAttribute(name);
+    const name2 = this.getAttributeNameForKey(key);
+    return this.element.hasAttribute(name2);
   }
   delete(key) {
     if (this.has(key)) {
-      const name = this.getAttributeNameForKey(key);
-      this.element.removeAttribute(name);
+      const name2 = this.getAttributeNameForKey(key);
+      this.element.removeAttribute(name2);
       return true;
     } else {
       return false;
@@ -31036,8 +31036,8 @@ var Application = class {
   register(identifier, controllerConstructor) {
     this.load({ identifier, controllerConstructor });
   }
-  registerActionOption(name, filter) {
-    this.actionDescriptorFilters[name] = filter;
+  registerActionOption(name2, filter) {
+    this.actionDescriptorFilters[name2] = filter;
   }
   load(head, ...rest) {
     const definitions = Array.isArray(head) ? head : [head, ...rest];
@@ -31132,31 +31132,31 @@ function getControllerAndEnsureConnectedScope(controller, element, outletName) {
   if (outletController)
     return outletController;
 }
-function propertiesForOutletDefinition(name) {
-  const camelizedName = namespaceCamelize(name);
+function propertiesForOutletDefinition(name2) {
+  const camelizedName = namespaceCamelize(name2);
   return {
     [`${camelizedName}Outlet`]: {
       get() {
-        const outletElement = this.outlets.find(name);
-        const selector = this.outlets.getSelectorForOutletName(name);
+        const outletElement = this.outlets.find(name2);
+        const selector = this.outlets.getSelectorForOutletName(name2);
         if (outletElement) {
-          const outletController = getControllerAndEnsureConnectedScope(this, outletElement, name);
+          const outletController = getControllerAndEnsureConnectedScope(this, outletElement, name2);
           if (outletController)
             return outletController;
-          throw new Error(`The provided outlet element is missing an outlet controller "${name}" instance for host controller "${this.identifier}"`);
+          throw new Error(`The provided outlet element is missing an outlet controller "${name2}" instance for host controller "${this.identifier}"`);
         }
-        throw new Error(`Missing outlet element "${name}" for host controller "${this.identifier}". Stimulus couldn't find a matching outlet element using selector "${selector}".`);
+        throw new Error(`Missing outlet element "${name2}" for host controller "${this.identifier}". Stimulus couldn't find a matching outlet element using selector "${selector}".`);
       }
     },
     [`${camelizedName}Outlets`]: {
       get() {
-        const outlets = this.outlets.findAll(name);
+        const outlets = this.outlets.findAll(name2);
         if (outlets.length > 0) {
           return outlets.map((outletElement) => {
-            const outletController = getControllerAndEnsureConnectedScope(this, outletElement, name);
+            const outletController = getControllerAndEnsureConnectedScope(this, outletElement, name2);
             if (outletController)
               return outletController;
-            console.warn(`The provided outlet element is missing an outlet controller "${name}" instance for host controller "${this.identifier}"`, outletElement);
+            console.warn(`The provided outlet element is missing an outlet controller "${name2}" instance for host controller "${this.identifier}"`, outletElement);
           }).filter((controller) => controller);
         }
         return [];
@@ -31164,23 +31164,23 @@ function propertiesForOutletDefinition(name) {
     },
     [`${camelizedName}OutletElement`]: {
       get() {
-        const outletElement = this.outlets.find(name);
-        const selector = this.outlets.getSelectorForOutletName(name);
+        const outletElement = this.outlets.find(name2);
+        const selector = this.outlets.getSelectorForOutletName(name2);
         if (outletElement) {
           return outletElement;
         } else {
-          throw new Error(`Missing outlet element "${name}" for host controller "${this.identifier}". Stimulus couldn't find a matching outlet element using selector "${selector}".`);
+          throw new Error(`Missing outlet element "${name2}" for host controller "${this.identifier}". Stimulus couldn't find a matching outlet element using selector "${selector}".`);
         }
       }
     },
     [`${camelizedName}OutletElements`]: {
       get() {
-        return this.outlets.findAll(name);
+        return this.outlets.findAll(name2);
       }
     },
     [`has${capitalize(camelizedName)}Outlet`]: {
       get() {
-        return this.outlets.has(name);
+        return this.outlets.has(name2);
       }
     }
   };
@@ -31191,26 +31191,26 @@ function TargetPropertiesBlessing(constructor) {
     return Object.assign(properties, propertiesForTargetDefinition(targetDefinition));
   }, {});
 }
-function propertiesForTargetDefinition(name) {
+function propertiesForTargetDefinition(name2) {
   return {
-    [`${name}Target`]: {
+    [`${name2}Target`]: {
       get() {
-        const target = this.targets.find(name);
+        const target = this.targets.find(name2);
         if (target) {
           return target;
         } else {
-          throw new Error(`Missing target element "${name}" for "${this.identifier}" controller`);
+          throw new Error(`Missing target element "${name2}" for "${this.identifier}" controller`);
         }
       }
     },
-    [`${name}Targets`]: {
+    [`${name2}Targets`]: {
       get() {
-        return this.targets.findAll(name);
+        return this.targets.findAll(name2);
       }
     },
-    [`has${capitalize(name)}Target`]: {
+    [`has${capitalize(name2)}Target`]: {
       get() {
-        return this.targets.has(name);
+        return this.targets.has(name2);
       }
     }
   };
@@ -31234,9 +31234,9 @@ function ValuePropertiesBlessing(constructor) {
 }
 function propertiesForValueDefinitionPair(valueDefinitionPair, controller) {
   const definition = parseValueDefinitionPair(valueDefinitionPair, controller);
-  const { key, name, reader: read, writer: write } = definition;
+  const { key, name: name2, reader: read, writer: write } = definition;
   return {
-    [name]: {
+    [name2]: {
       get() {
         const value = this.data.get(key);
         if (value !== null) {
@@ -31253,7 +31253,7 @@ function propertiesForValueDefinitionPair(valueDefinitionPair, controller) {
         }
       }
     },
-    [`has${capitalize(name)}`]: {
+    [`has${capitalize(name2)}`]: {
       get() {
         return this.data.has(key) || definition.hasCustomDefaultValue;
       }
@@ -31481,1958 +31481,311 @@ var hello_controller_default = class extends Controller {
 // app/javascript/controllers/index.js
 application.register("hello", hello_controller_default);
 
-// app/javascript/components/index.jsx
-var import_react4 = __toESM(require_react());
-var import_client = __toESM(require_client());
-
-// app/javascript/components/App.jsx
-var import_react3 = __toESM(require_react());
-
-// app/javascript/routes/index.jsx
-var import_react2 = __toESM(require_react());
-
-// node_modules/react-router-dom/dist/index.js
-var React2 = __toESM(require_react());
-var ReactDOM = __toESM(require_react_dom());
-
-// node_modules/react-router/dist/index.js
+// node_modules/remount/dist/remount.js
 var React = __toESM(require_react());
-
-// node_modules/@remix-run/router/dist/router.js
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
+var ReactDOM = __toESM(require_client());
+function inject() {
+  if (window.HTMLElement && window.HTMLElement._babelES5Adapter || void 0 === window.Reflect || void 0 === window.customElements || window.customElements.hasOwnProperty("polyfillWrapFlushCallback")) {
+    return;
+  }
+  const a = HTMLElement;
+  window.HTMLElement = function() {
+    return Reflect.construct(a, [], this.constructor);
+  };
+  HTMLElement.prototype = a.prototype;
+  HTMLElement.prototype.constructor = HTMLElement;
+  Object.setPrototypeOf(HTMLElement, a);
+  HTMLElement._babelES5Adapter = true;
+}
+var name$1 = "CustomElements";
+function defineElement$1(elSpec, elName, events) {
+  const { onUpdate, onUnmount, onMount } = events;
+  inject();
+  const attributes = elSpec.attributes || [];
+  class ComponentElement extends HTMLElement {
+    static get observedAttributes() {
+      return ["props-json", ...attributes];
+    }
+    connectedCallback() {
+      this._mountPoint = createMountPoint(this, elSpec);
+      onMount(this, this._mountPoint);
+    }
+    disconnectedCallback() {
+      if (!this._mountPoint) {
+        return;
       }
+      onUnmount(this, this._mountPoint);
     }
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-var Action2;
-(function(Action3) {
-  Action3["Pop"] = "POP";
-  Action3["Push"] = "PUSH";
-  Action3["Replace"] = "REPLACE";
-})(Action2 || (Action2 = {}));
-var PopStateEventType = "popstate";
-function createBrowserHistory(options) {
-  if (options === void 0) {
-    options = {};
-  }
-  function createBrowserLocation(window2, globalHistory) {
-    let {
-      pathname,
-      search,
-      hash
-    } = window2.location;
-    return createLocation(
-      "",
-      {
-        pathname,
-        search,
-        hash
-      },
-      // state defaults to `null` because `window.history.state` does
-      globalHistory.state && globalHistory.state.usr || null,
-      globalHistory.state && globalHistory.state.key || "default"
-    );
-  }
-  function createBrowserHref(window2, to) {
-    return typeof to === "string" ? to : createPath(to);
-  }
-  return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options);
-}
-function invariant(value, message) {
-  if (value === false || value === null || typeof value === "undefined") {
-    throw new Error(message);
-  }
-}
-function warning(cond, message) {
-  if (!cond) {
-    if (typeof console !== "undefined")
-      console.warn(message);
-    try {
-      throw new Error(message);
-    } catch (e) {
-    }
-  }
-}
-function createKey() {
-  return Math.random().toString(36).substr(2, 8);
-}
-function getHistoryState(location2, index) {
-  return {
-    usr: location2.state,
-    key: location2.key,
-    idx: index
-  };
-}
-function createLocation(current, to, state, key) {
-  if (state === void 0) {
-    state = null;
-  }
-  let location2 = _extends({
-    pathname: typeof current === "string" ? current : current.pathname,
-    search: "",
-    hash: ""
-  }, typeof to === "string" ? parsePath(to) : to, {
-    state,
-    // TODO: This could be cleaned up.  push/replace should probably just take
-    // full Locations now and avoid the need to run through this flow at all
-    // But that's a pretty big refactor to the current test suite so going to
-    // keep as is for the time being and just let any incoming keys take precedence
-    key: to && to.key || key || createKey()
-  });
-  return location2;
-}
-function createPath(_ref) {
-  let {
-    pathname = "/",
-    search = "",
-    hash = ""
-  } = _ref;
-  if (search && search !== "?")
-    pathname += search.charAt(0) === "?" ? search : "?" + search;
-  if (hash && hash !== "#")
-    pathname += hash.charAt(0) === "#" ? hash : "#" + hash;
-  return pathname;
-}
-function parsePath(path) {
-  let parsedPath = {};
-  if (path) {
-    let hashIndex = path.indexOf("#");
-    if (hashIndex >= 0) {
-      parsedPath.hash = path.substr(hashIndex);
-      path = path.substr(0, hashIndex);
-    }
-    let searchIndex = path.indexOf("?");
-    if (searchIndex >= 0) {
-      parsedPath.search = path.substr(searchIndex);
-      path = path.substr(0, searchIndex);
-    }
-    if (path) {
-      parsedPath.pathname = path;
-    }
-  }
-  return parsedPath;
-}
-function getUrlBasedHistory(getLocation, createHref, validateLocation, options) {
-  if (options === void 0) {
-    options = {};
-  }
-  let {
-    window: window2 = document.defaultView,
-    v5Compat = false
-  } = options;
-  let globalHistory = window2.history;
-  let action = Action2.Pop;
-  let listener = null;
-  let index = getIndex();
-  if (index == null) {
-    index = 0;
-    globalHistory.replaceState(_extends({}, globalHistory.state, {
-      idx: index
-    }), "");
-  }
-  function getIndex() {
-    let state = globalHistory.state || {
-      idx: null
-    };
-    return state.idx;
-  }
-  function handlePop() {
-    action = Action2.Pop;
-    let nextIndex = getIndex();
-    let delta = nextIndex == null ? null : nextIndex - index;
-    index = nextIndex;
-    if (listener) {
-      listener({
-        action,
-        location: history2.location,
-        delta
-      });
-    }
-  }
-  function push(to, state) {
-    action = Action2.Push;
-    let location2 = createLocation(history2.location, to, state);
-    if (validateLocation)
-      validateLocation(location2, to);
-    index = getIndex() + 1;
-    let historyState = getHistoryState(location2, index);
-    let url = history2.createHref(location2);
-    try {
-      globalHistory.pushState(historyState, "", url);
-    } catch (error2) {
-      if (error2 instanceof DOMException && error2.name === "DataCloneError") {
-        throw error2;
+    attributeChangedCallback() {
+      if (!this._mountPoint) {
+        return;
       }
-      window2.location.assign(url);
-    }
-    if (v5Compat && listener) {
-      listener({
-        action,
-        location: history2.location,
-        delta: 1
-      });
+      onUpdate(this, this._mountPoint);
     }
   }
-  function replace(to, state) {
-    action = Action2.Replace;
-    let location2 = createLocation(history2.location, to, state);
-    if (validateLocation)
-      validateLocation(location2, to);
-    index = getIndex();
-    let historyState = getHistoryState(location2, index);
-    let url = history2.createHref(location2);
-    globalHistory.replaceState(historyState, "", url);
-    if (v5Compat && listener) {
-      listener({
-        action,
-        location: history2.location,
-        delta: 0
-      });
-    }
+  if (elSpec.quiet && window.customElements.get(elName)) {
+    return;
   }
-  function createURL(to) {
-    let base = window2.location.origin !== "null" ? window2.location.origin : window2.location.href;
-    let href = typeof to === "string" ? to : createPath(to);
-    invariant(base, "No window.location.(origin|href) available to create URL for href: " + href);
-    return new URL(href, base);
-  }
-  let history2 = {
-    get action() {
-      return action;
-    },
-    get location() {
-      return getLocation(window2, globalHistory);
-    },
-    listen(fn) {
-      if (listener) {
-        throw new Error("A history only accepts one active listener");
-      }
-      window2.addEventListener(PopStateEventType, handlePop);
-      listener = fn;
-      return () => {
-        window2.removeEventListener(PopStateEventType, handlePop);
-        listener = null;
-      };
-    },
-    createHref(to) {
-      return createHref(window2, to);
-    },
-    createURL,
-    encodeLocation(to) {
-      let url = createURL(to);
-      return {
-        pathname: url.pathname,
-        search: url.search,
-        hash: url.hash
-      };
-    },
-    push,
-    replace,
-    go(n) {
-      return globalHistory.go(n);
-    }
-  };
-  return history2;
+  window.customElements.define(elName, ComponentElement);
 }
-var ResultType;
-(function(ResultType2) {
-  ResultType2["data"] = "data";
-  ResultType2["deferred"] = "deferred";
-  ResultType2["redirect"] = "redirect";
-  ResultType2["error"] = "error";
-})(ResultType || (ResultType = {}));
-function matchRoutes(routes, locationArg, basename) {
-  if (basename === void 0) {
-    basename = "/";
-  }
-  let location2 = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
-  let pathname = stripBasename(location2.pathname || "/", basename);
-  if (pathname == null) {
-    return null;
-  }
-  let branches = flattenRoutes(routes);
-  rankRouteBranches(branches);
-  let matches = null;
-  for (let i = 0; matches == null && i < branches.length; ++i) {
-    matches = matchRouteBranch(
-      branches[i],
-      // Incoming pathnames are generally encoded from either window.location
-      // or from router.navigate, but we want to match against the unencoded
-      // paths in the route definitions.  Memory router locations won't be
-      // encoded here but there also shouldn't be anything to decode so this
-      // should be a safe operation.  This avoids needing matchRoutes to be
-      // history-aware.
-      safelyDecodeURI(pathname)
-    );
-  }
-  return matches;
+function isSupported$1() {
+  return !!(window.customElements && window.customElements.define);
 }
-function convertRouteMatchToUiMatch(match, loaderData) {
-  let {
-    route,
-    pathname,
-    params
-  } = match;
-  return {
-    id: route.id,
-    pathname,
-    params,
-    data: loaderData[route.id],
-    handle: route.handle
-  };
-}
-function flattenRoutes(routes, branches, parentsMeta, parentPath) {
-  if (branches === void 0) {
-    branches = [];
-  }
-  if (parentsMeta === void 0) {
-    parentsMeta = [];
-  }
-  if (parentPath === void 0) {
-    parentPath = "";
-  }
-  let flattenRoute = (route, index, relativePath) => {
-    let meta = {
-      relativePath: relativePath === void 0 ? route.path || "" : relativePath,
-      caseSensitive: route.caseSensitive === true,
-      childrenIndex: index,
-      route
-    };
-    if (meta.relativePath.startsWith("/")) {
-      invariant(meta.relativePath.startsWith(parentPath), 'Absolute route path "' + meta.relativePath + '" nested under path ' + ('"' + parentPath + '" is not valid. An absolute child route path ') + "must start with the combined path of all its parent routes.");
-      meta.relativePath = meta.relativePath.slice(parentPath.length);
-    }
-    let path = joinPaths([parentPath, meta.relativePath]);
-    let routesMeta = parentsMeta.concat(meta);
-    if (route.children && route.children.length > 0) {
-      invariant(
-        // Our types know better, but runtime JS may not!
-        // @ts-expect-error
-        route.index !== true,
-        "Index routes must not have child routes. Please remove " + ('all child routes from route path "' + path + '".')
-      );
-      flattenRoutes(route.children, branches, routesMeta, path);
-    }
-    if (route.path == null && !route.index) {
-      return;
-    }
-    branches.push({
-      path,
-      score: computeScore(path, route.index),
-      routesMeta
-    });
-  };
-  routes.forEach((route, index) => {
-    var _route$path;
-    if (route.path === "" || !((_route$path = route.path) != null && _route$path.includes("?"))) {
-      flattenRoute(route, index);
-    } else {
-      for (let exploded of explodeOptionalSegments(route.path)) {
-        flattenRoute(route, index, exploded);
-      }
-    }
-  });
-  return branches;
-}
-function explodeOptionalSegments(path) {
-  let segments = path.split("/");
-  if (segments.length === 0)
-    return [];
-  let [first, ...rest] = segments;
-  let isOptional = first.endsWith("?");
-  let required = first.replace(/\?$/, "");
-  if (rest.length === 0) {
-    return isOptional ? [required, ""] : [required];
-  }
-  let restExploded = explodeOptionalSegments(rest.join("/"));
-  let result = [];
-  result.push(...restExploded.map((subpath) => subpath === "" ? required : [required, subpath].join("/")));
-  if (isOptional) {
-    result.push(...restExploded);
-  }
-  return result.map((exploded) => path.startsWith("/") && exploded === "" ? "/" : exploded);
-}
-function rankRouteBranches(branches) {
-  branches.sort((a, b) => a.score !== b.score ? b.score - a.score : compareIndexes(a.routesMeta.map((meta) => meta.childrenIndex), b.routesMeta.map((meta) => meta.childrenIndex)));
-}
-var paramRe = /^:[\w-]+$/;
-var dynamicSegmentValue = 3;
-var indexRouteValue = 2;
-var emptySegmentValue = 1;
-var staticSegmentValue = 10;
-var splatPenalty = -2;
-var isSplat = (s) => s === "*";
-function computeScore(path, index) {
-  let segments = path.split("/");
-  let initialScore = segments.length;
-  if (segments.some(isSplat)) {
-    initialScore += splatPenalty;
-  }
-  if (index) {
-    initialScore += indexRouteValue;
-  }
-  return segments.filter((s) => !isSplat(s)).reduce((score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue), initialScore);
-}
-function compareIndexes(a, b) {
-  let siblings = a.length === b.length && a.slice(0, -1).every((n, i) => n === b[i]);
-  return siblings ? (
-    // If two routes are siblings, we should try to match the earlier sibling
-    // first. This allows people to have fine-grained control over the matching
-    // behavior by simply putting routes with identical paths in the order they
-    // want them tried.
-    a[a.length - 1] - b[b.length - 1]
-  ) : (
-    // Otherwise, it doesn't really make sense to rank non-siblings by index,
-    // so they sort equally.
-    0
-  );
-}
-function matchRouteBranch(branch, pathname) {
-  let {
-    routesMeta
-  } = branch;
-  let matchedParams = {};
-  let matchedPathname = "/";
-  let matches = [];
-  for (let i = 0; i < routesMeta.length; ++i) {
-    let meta = routesMeta[i];
-    let end = i === routesMeta.length - 1;
-    let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
-    let match = matchPath({
-      path: meta.relativePath,
-      caseSensitive: meta.caseSensitive,
-      end
-    }, remainingPathname);
-    if (!match)
-      return null;
-    Object.assign(matchedParams, match.params);
-    let route = meta.route;
-    matches.push({
-      // TODO: Can this as be avoided?
-      params: matchedParams,
-      pathname: joinPaths([matchedPathname, match.pathname]),
-      pathnameBase: normalizePathname(joinPaths([matchedPathname, match.pathnameBase])),
-      route
-    });
-    if (match.pathnameBase !== "/") {
-      matchedPathname = joinPaths([matchedPathname, match.pathnameBase]);
-    }
-  }
-  return matches;
-}
-function matchPath(pattern, pathname) {
-  if (typeof pattern === "string") {
-    pattern = {
-      path: pattern,
-      caseSensitive: false,
-      end: true
-    };
-  }
-  let [matcher, compiledParams] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
-  let match = pathname.match(matcher);
-  if (!match)
-    return null;
-  let matchedPathname = match[0];
-  let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
-  let captureGroups = match.slice(1);
-  let params = compiledParams.reduce((memo, _ref, index) => {
-    let {
-      paramName,
-      isOptional
-    } = _ref;
-    if (paramName === "*") {
-      let splatValue = captureGroups[index] || "";
-      pathnameBase = matchedPathname.slice(0, matchedPathname.length - splatValue.length).replace(/(.)\/+$/, "$1");
-    }
-    const value = captureGroups[index];
-    if (isOptional && !value) {
-      memo[paramName] = void 0;
-    } else {
-      memo[paramName] = safelyDecodeURIComponent(value || "", paramName);
-    }
-    return memo;
-  }, {});
-  return {
-    params,
-    pathname: matchedPathname,
-    pathnameBase,
-    pattern
-  };
-}
-function compilePath(path, caseSensitive, end) {
-  if (caseSensitive === void 0) {
-    caseSensitive = false;
-  }
-  if (end === void 0) {
-    end = true;
-  }
-  warning(path === "*" || !path.endsWith("*") || path.endsWith("/*"), 'Route path "' + path + '" will be treated as if it were ' + ('"' + path.replace(/\*$/, "/*") + '" because the `*` character must ') + "always follow a `/` in the pattern. To get rid of this warning, " + ('please change the route path to "' + path.replace(/\*$/, "/*") + '".'));
-  let params = [];
-  let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_, paramName, isOptional) => {
-    params.push({
-      paramName,
-      isOptional: isOptional != null
-    });
-    return isOptional ? "/?([^\\/]+)?" : "/([^\\/]+)";
-  });
-  if (path.endsWith("*")) {
-    params.push({
-      paramName: "*"
-    });
-    regexpSource += path === "*" || path === "/*" ? "(.*)$" : "(?:\\/(.+)|\\/*)$";
-  } else if (end) {
-    regexpSource += "\\/*$";
-  } else if (path !== "" && path !== "/") {
-    regexpSource += "(?:(?=\\/|$))";
-  } else
-    ;
-  let matcher = new RegExp(regexpSource, caseSensitive ? void 0 : "i");
-  return [matcher, params];
-}
-function safelyDecodeURI(value) {
-  try {
-    return decodeURI(value);
-  } catch (error2) {
-    warning(false, 'The URL path "' + value + '" could not be decoded because it is is a malformed URL segment. This is probably due to a bad percent ' + ("encoding (" + error2 + ")."));
-    return value;
-  }
-}
-function safelyDecodeURIComponent(value, paramName) {
-  try {
-    return decodeURIComponent(value);
-  } catch (error2) {
-    warning(false, 'The value for the URL param "' + paramName + '" will not be decoded because' + (' the string "' + value + '" is a malformed URL segment. This is probably') + (" due to a bad percent encoding (" + error2 + ")."));
-    return value;
-  }
-}
-function stripBasename(pathname, basename) {
-  if (basename === "/")
-    return pathname;
-  if (!pathname.toLowerCase().startsWith(basename.toLowerCase())) {
-    return null;
-  }
-  let startIndex = basename.endsWith("/") ? basename.length - 1 : basename.length;
-  let nextChar = pathname.charAt(startIndex);
-  if (nextChar && nextChar !== "/") {
-    return null;
-  }
-  return pathname.slice(startIndex) || "/";
-}
-function resolvePath(to, fromPathname) {
-  if (fromPathname === void 0) {
-    fromPathname = "/";
-  }
-  let {
-    pathname: toPathname,
-    search = "",
-    hash = ""
-  } = typeof to === "string" ? parsePath(to) : to;
-  let pathname = toPathname ? toPathname.startsWith("/") ? toPathname : resolvePathname(toPathname, fromPathname) : fromPathname;
-  return {
-    pathname,
-    search: normalizeSearch(search),
-    hash: normalizeHash(hash)
-  };
-}
-function resolvePathname(relativePath, fromPathname) {
-  let segments = fromPathname.replace(/\/+$/, "").split("/");
-  let relativeSegments = relativePath.split("/");
-  relativeSegments.forEach((segment) => {
-    if (segment === "..") {
-      if (segments.length > 1)
-        segments.pop();
-    } else if (segment !== ".") {
-      segments.push(segment);
-    }
-  });
-  return segments.length > 1 ? segments.join("/") : "/";
-}
-function getInvalidPathError(char, field, dest, path) {
-  return "Cannot include a '" + char + "' character in a manually specified " + ("`to." + field + "` field [" + JSON.stringify(path) + "].  Please separate it out to the ") + ("`to." + dest + "` field. Alternatively you may provide the full path as ") + 'a string in <Link to="..."> and the router will parse it for you.';
-}
-function getPathContributingMatches(matches) {
-  return matches.filter((match, index) => index === 0 || match.route.path && match.route.path.length > 0);
-}
-function getResolveToMatches(matches, v7_relativeSplatPath) {
-  let pathMatches = getPathContributingMatches(matches);
-  if (v7_relativeSplatPath) {
-    return pathMatches.map((match, idx) => idx === matches.length - 1 ? match.pathname : match.pathnameBase);
-  }
-  return pathMatches.map((match) => match.pathnameBase);
-}
-function resolveTo(toArg, routePathnames, locationPathname, isPathRelative) {
-  if (isPathRelative === void 0) {
-    isPathRelative = false;
-  }
-  let to;
-  if (typeof toArg === "string") {
-    to = parsePath(toArg);
+function createMountPoint(element, elSpec) {
+  const { shadow: shadow2 } = elSpec;
+  if (shadow2 && element.attachShadow) {
+    const mountPoint = document.createElement("span");
+    element.attachShadow({ mode: "open" }).appendChild(mountPoint);
+    return mountPoint;
   } else {
-    to = _extends({}, toArg);
-    invariant(!to.pathname || !to.pathname.includes("?"), getInvalidPathError("?", "pathname", "search", to));
-    invariant(!to.pathname || !to.pathname.includes("#"), getInvalidPathError("#", "pathname", "hash", to));
-    invariant(!to.search || !to.search.includes("#"), getInvalidPathError("#", "search", "hash", to));
+    return element;
   }
-  let isEmptyPath = toArg === "" || to.pathname === "";
-  let toPathname = isEmptyPath ? "/" : to.pathname;
-  let from;
-  if (toPathname == null) {
-    from = locationPathname;
-  } else {
-    let routePathnameIndex = routePathnames.length - 1;
-    if (!isPathRelative && toPathname.startsWith("..")) {
-      let toSegments = toPathname.split("/");
-      while (toSegments[0] === "..") {
-        toSegments.shift();
-        routePathnameIndex -= 1;
-      }
-      to.pathname = toSegments.join("/");
-    }
-    from = routePathnameIndex >= 0 ? routePathnames[routePathnameIndex] : "/";
-  }
-  let path = resolvePath(to, from);
-  let hasExplicitTrailingSlash = toPathname && toPathname !== "/" && toPathname.endsWith("/");
-  let hasCurrentTrailingSlash = (isEmptyPath || toPathname === ".") && locationPathname.endsWith("/");
-  if (!path.pathname.endsWith("/") && (hasExplicitTrailingSlash || hasCurrentTrailingSlash)) {
-    path.pathname += "/";
-  }
-  return path;
 }
-var joinPaths = (paths) => paths.join("/").replace(/\/\/+/g, "/");
-var normalizePathname = (pathname) => pathname.replace(/\/+$/, "").replace(/^\/*/, "/");
-var normalizeSearch = (search) => !search || search === "?" ? "" : search.startsWith("?") ? search : "?" + search;
-var normalizeHash = (hash) => !hash || hash === "#" ? "" : hash.startsWith("#") ? hash : "#" + hash;
-function isRouteErrorResponse(error2) {
-  return error2 != null && typeof error2.status === "number" && typeof error2.statusText === "string" && typeof error2.internal === "boolean" && "data" in error2;
+function supportsShadow$1() {
+  return !!(document && document.body && document.body.attachShadow);
 }
-var validMutationMethodsArr = ["post", "put", "patch", "delete"];
-var validMutationMethods = new Set(validMutationMethodsArr);
-var validRequestMethodsArr = ["get", ...validMutationMethodsArr];
-var validRequestMethods = new Set(validRequestMethodsArr);
-var UNSAFE_DEFERRED_SYMBOL = Symbol("deferred");
-
-// node_modules/react-router/dist/index.js
-function _extends2() {
-  _extends2 = Object.assign ? Object.assign.bind() : function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends2.apply(this, arguments);
-}
-var DataRouterContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  DataRouterContext.displayName = "DataRouter";
-}
-var DataRouterStateContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  DataRouterStateContext.displayName = "DataRouterState";
-}
-var AwaitContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  AwaitContext.displayName = "Await";
-}
-var NavigationContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  NavigationContext.displayName = "Navigation";
-}
-var LocationContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  LocationContext.displayName = "Location";
-}
-var RouteContext = /* @__PURE__ */ React.createContext({
-  outlet: null,
-  matches: [],
-  isDataRoute: false
+var CustomElementsStrategy = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  name: name$1,
+  defineElement: defineElement$1,
+  isSupported: isSupported$1,
+  supportsShadow: supportsShadow$1
 });
-if (true) {
-  RouteContext.displayName = "Route";
-}
-var RouteErrorContext = /* @__PURE__ */ React.createContext(null);
-if (true) {
-  RouteErrorContext.displayName = "RouteError";
-}
-function useHref(to, _temp) {
-  let {
-    relative
-  } = _temp === void 0 ? {} : _temp;
-  !useInRouterContext() ? true ? invariant(
-    false,
-    // TODO: This error is probably because they somehow have 2 versions of the
-    // router loaded. We can help them understand how to avoid that.
-    "useHref() may be used only in the context of a <Router> component."
-  ) : invariant(false) : void 0;
-  let {
-    basename,
-    navigator: navigator2
-  } = React.useContext(NavigationContext);
-  let {
-    hash,
-    pathname,
-    search
-  } = useResolvedPath(to, {
-    relative
-  });
-  let joinedPathname = pathname;
-  if (basename !== "/") {
-    joinedPathname = pathname === "/" ? basename : joinPaths([basename, pathname]);
-  }
-  return navigator2.createHref({
-    pathname: joinedPathname,
-    search,
-    hash
-  });
-}
-function useInRouterContext() {
-  return React.useContext(LocationContext) != null;
-}
-function useLocation() {
-  !useInRouterContext() ? true ? invariant(
-    false,
-    // TODO: This error is probably because they somehow have 2 versions of the
-    // router loaded. We can help them understand how to avoid that.
-    "useLocation() may be used only in the context of a <Router> component."
-  ) : invariant(false) : void 0;
-  return React.useContext(LocationContext).location;
-}
-var navigateEffectWarning = "You should call navigate() in a React.useEffect(), not when your component is first rendered.";
-function useIsomorphicLayoutEffect(cb) {
-  let isStatic = React.useContext(NavigationContext).static;
-  if (!isStatic) {
-    React.useLayoutEffect(cb);
+function each(list, fn) {
+  for (let i = 0, len = list.length; i < len; i++) {
+    fn(list[i]);
   }
 }
-function useNavigate() {
-  let {
-    isDataRoute
-  } = React.useContext(RouteContext);
-  return isDataRoute ? useNavigateStable() : useNavigateUnstable();
+var name = "MutationObserver";
+var observers = {};
+function isSupported() {
+  return "MutationObserver" in window;
 }
-function useNavigateUnstable() {
-  !useInRouterContext() ? true ? invariant(
-    false,
-    // TODO: This error is probably because they somehow have 2 versions of the
-    // router loaded. We can help them understand how to avoid that.
-    "useNavigate() may be used only in the context of a <Router> component."
-  ) : invariant(false) : void 0;
-  let dataRouterContext = React.useContext(DataRouterContext);
-  let {
-    basename,
-    future,
-    navigator: navigator2
-  } = React.useContext(NavigationContext);
-  let {
-    matches
-  } = React.useContext(RouteContext);
-  let {
-    pathname: locationPathname
-  } = useLocation();
-  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches, future.v7_relativeSplatPath));
-  let activeRef = React.useRef(false);
-  useIsomorphicLayoutEffect(() => {
-    activeRef.current = true;
-  });
-  let navigate = React.useCallback(function(to, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    true ? warning(activeRef.current, navigateEffectWarning) : void 0;
-    if (!activeRef.current)
-      return;
-    if (typeof to === "number") {
-      navigator2.go(to);
+function defineElement(elSpec, elName, events) {
+  elName = elName.toLowerCase();
+  if (!isValidName(elName)) {
+    if (elSpec.quiet) {
       return;
     }
-    let path = resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, options.relative === "path");
-    if (dataRouterContext == null && basename !== "/") {
-      path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
+    throw new Error(`Remount: "${elName}" is not a valid custom element elName`);
+  }
+  if (observers[elName]) {
+    if (elSpec.quiet) {
+      return;
     }
-    (!!options.replace ? navigator2.replace : navigator2.push)(path, options.state, options);
-  }, [basename, navigator2, routePathnamesJson, locationPathname, dataRouterContext]);
-  return navigate;
-}
-function useResolvedPath(to, _temp2) {
-  let {
-    relative
-  } = _temp2 === void 0 ? {} : _temp2;
-  let {
-    future
-  } = React.useContext(NavigationContext);
-  let {
-    matches
-  } = React.useContext(RouteContext);
-  let {
-    pathname: locationPathname
-  } = useLocation();
-  let routePathnamesJson = JSON.stringify(getResolveToMatches(matches, future.v7_relativeSplatPath));
-  return React.useMemo(() => resolveTo(to, JSON.parse(routePathnamesJson), locationPathname, relative === "path"), [to, routePathnamesJson, locationPathname, relative]);
-}
-function useRoutes(routes, locationArg) {
-  return useRoutesImpl(routes, locationArg);
-}
-function useRoutesImpl(routes, locationArg, dataRouterState, future) {
-  !useInRouterContext() ? true ? invariant(
-    false,
-    // TODO: This error is probably because they somehow have 2 versions of the
-    // router loaded. We can help them understand how to avoid that.
-    "useRoutes() may be used only in the context of a <Router> component."
-  ) : invariant(false) : void 0;
-  let {
-    navigator: navigator2
-  } = React.useContext(NavigationContext);
-  let {
-    matches: parentMatches
-  } = React.useContext(RouteContext);
-  let routeMatch = parentMatches[parentMatches.length - 1];
-  let parentParams = routeMatch ? routeMatch.params : {};
-  let parentPathname = routeMatch ? routeMatch.pathname : "/";
-  let parentPathnameBase = routeMatch ? routeMatch.pathnameBase : "/";
-  let parentRoute = routeMatch && routeMatch.route;
-  if (true) {
-    let parentPath = parentRoute && parentRoute.path || "";
-    warningOnce(parentPathname, !parentRoute || parentPath.endsWith("*"), "You rendered descendant <Routes> (or called `useRoutes()`) at " + ('"' + parentPathname + '" (under <Route path="' + parentPath + '">) but the ') + `parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
-
-` + ('Please change the parent <Route path="' + parentPath + '"> to <Route ') + ('path="' + (parentPath === "/" ? "*" : parentPath + "/*") + '">.'));
+    throw new Error(`Remount: "${elName}" is already registered`);
   }
-  let locationFromContext = useLocation();
-  let location2;
-  if (locationArg) {
-    var _parsedLocationArg$pa;
-    let parsedLocationArg = typeof locationArg === "string" ? parsePath(locationArg) : locationArg;
-    !(parentPathnameBase === "/" || ((_parsedLocationArg$pa = parsedLocationArg.pathname) == null ? void 0 : _parsedLocationArg$pa.startsWith(parentPathnameBase))) ? true ? invariant(false, "When overriding the location using `<Routes location>` or `useRoutes(routes, location)`, the location pathname must begin with the portion of the URL pathname that was " + ('matched by all parent routes. The current pathname base is "' + parentPathnameBase + '" ') + ('but pathname "' + parsedLocationArg.pathname + '" was given in the `location` prop.')) : invariant(false) : void 0;
-    location2 = parsedLocationArg;
-  } else {
-    location2 = locationFromContext;
-  }
-  let pathname = location2.pathname || "/";
-  let remainingPathname = parentPathnameBase === "/" ? pathname : pathname.slice(parentPathnameBase.length) || "/";
-  let matches = matchRoutes(routes, {
-    pathname: remainingPathname
-  });
-  if (true) {
-    true ? warning(parentRoute || matches != null, 'No routes matched location "' + location2.pathname + location2.search + location2.hash + '" ') : void 0;
-    true ? warning(matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0, 'Matched leaf route at location "' + location2.pathname + location2.search + location2.hash + '" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.') : void 0;
-  }
-  let renderedMatches = _renderMatches(matches && matches.map((match) => Object.assign({}, match, {
-    params: Object.assign({}, parentParams, match.params),
-    pathname: joinPaths([
-      parentPathnameBase,
-      // Re-encode pathnames that were decoded inside matchRoutes
-      navigator2.encodeLocation ? navigator2.encodeLocation(match.pathname).pathname : match.pathname
-    ]),
-    pathnameBase: match.pathnameBase === "/" ? parentPathnameBase : joinPaths([
-      parentPathnameBase,
-      // Re-encode pathnames that were decoded inside matchRoutes
-      navigator2.encodeLocation ? navigator2.encodeLocation(match.pathnameBase).pathname : match.pathnameBase
-    ])
-  })), parentMatches, dataRouterState, future);
-  if (locationArg && renderedMatches) {
-    return /* @__PURE__ */ React.createElement(LocationContext.Provider, {
-      value: {
-        location: _extends2({
-          pathname: "/",
-          search: "",
-          hash: "",
-          state: null,
-          key: "default"
-        }, location2),
-        navigationType: Action2.Pop
-      }
-    }, renderedMatches);
-  }
-  return renderedMatches;
-}
-function DefaultErrorComponent() {
-  let error2 = useRouteError();
-  let message = isRouteErrorResponse(error2) ? error2.status + " " + error2.statusText : error2 instanceof Error ? error2.message : JSON.stringify(error2);
-  let stack = error2 instanceof Error ? error2.stack : null;
-  let lightgrey = "rgba(200,200,200, 0.5)";
-  let preStyles = {
-    padding: "0.5rem",
-    backgroundColor: lightgrey
-  };
-  let codeStyles = {
-    padding: "2px 4px",
-    backgroundColor: lightgrey
-  };
-  let devInfo = null;
-  if (true) {
-    console.error("Error handled by React Router default ErrorBoundary:", error2);
-    devInfo = /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("p", null, "\u{1F4BF} Hey developer \u{1F44B}"), /* @__PURE__ */ React.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ React.createElement("code", {
-      style: codeStyles
-    }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ React.createElement("code", {
-      style: codeStyles
-    }, "errorElement"), " prop on your route."));
-  }
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ React.createElement("h3", {
-    style: {
-      fontStyle: "italic"
-    }
-  }, message), stack ? /* @__PURE__ */ React.createElement("pre", {
-    style: preStyles
-  }, stack) : null, devInfo);
-}
-var defaultErrorElement = /* @__PURE__ */ React.createElement(DefaultErrorComponent, null);
-var RenderErrorBoundary = class extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      location: props.location,
-      revalidation: props.revalidation,
-      error: props.error
-    };
-  }
-  static getDerivedStateFromError(error2) {
-    return {
-      error: error2
-    };
-  }
-  static getDerivedStateFromProps(props, state) {
-    if (state.location !== props.location || state.revalidation !== "idle" && props.revalidation === "idle") {
-      return {
-        error: props.error,
-        location: props.location,
-        revalidation: props.revalidation
-      };
-    }
-    return {
-      error: props.error !== void 0 ? props.error : state.error,
-      location: state.location,
-      revalidation: props.revalidation || state.revalidation
-    };
-  }
-  componentDidCatch(error2, errorInfo) {
-    console.error("React Router caught the following error during render", error2, errorInfo);
-  }
-  render() {
-    return this.state.error !== void 0 ? /* @__PURE__ */ React.createElement(RouteContext.Provider, {
-      value: this.props.routeContext
-    }, /* @__PURE__ */ React.createElement(RouteErrorContext.Provider, {
-      value: this.state.error,
-      children: this.props.component
-    })) : this.props.children;
-  }
-};
-function RenderedRoute(_ref) {
-  let {
-    routeContext,
-    match,
-    children
-  } = _ref;
-  let dataRouterContext = React.useContext(DataRouterContext);
-  if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match.route.errorElement || match.route.ErrorBoundary)) {
-    dataRouterContext.staticContext._deepestRenderedBoundaryId = match.route.id;
-  }
-  return /* @__PURE__ */ React.createElement(RouteContext.Provider, {
-    value: routeContext
-  }, children);
-}
-function _renderMatches(matches, parentMatches, dataRouterState, future) {
-  var _dataRouterState2;
-  if (parentMatches === void 0) {
-    parentMatches = [];
-  }
-  if (dataRouterState === void 0) {
-    dataRouterState = null;
-  }
-  if (future === void 0) {
-    future = null;
-  }
-  if (matches == null) {
-    var _dataRouterState;
-    if ((_dataRouterState = dataRouterState) != null && _dataRouterState.errors) {
-      matches = dataRouterState.matches;
-    } else {
-      return null;
-    }
-  }
-  let renderedMatches = matches;
-  let errors = (_dataRouterState2 = dataRouterState) == null ? void 0 : _dataRouterState2.errors;
-  if (errors != null) {
-    let errorIndex = renderedMatches.findIndex((m) => m.route.id && (errors == null ? void 0 : errors[m.route.id]));
-    !(errorIndex >= 0) ? true ? invariant(false, "Could not find a matching route for errors on route IDs: " + Object.keys(errors).join(",")) : invariant(false) : void 0;
-    renderedMatches = renderedMatches.slice(0, Math.min(renderedMatches.length, errorIndex + 1));
-  }
-  let renderFallback = false;
-  let fallbackIndex = -1;
-  if (dataRouterState && future && future.v7_partialHydration) {
-    for (let i = 0; i < renderedMatches.length; i++) {
-      let match = renderedMatches[i];
-      if (match.route.HydrateFallback || match.route.hydrateFallbackElement) {
-        fallbackIndex = i;
-      }
-      if (match.route.id) {
-        let {
-          loaderData,
-          errors: errors2
-        } = dataRouterState;
-        let needsToRunLoader = match.route.loader && loaderData[match.route.id] === void 0 && (!errors2 || errors2[match.route.id] === void 0);
-        if (match.route.lazy || needsToRunLoader) {
-          renderFallback = true;
-          if (fallbackIndex >= 0) {
-            renderedMatches = renderedMatches.slice(0, fallbackIndex + 1);
-          } else {
-            renderedMatches = [renderedMatches[0]];
+  const observer = new MutationObserver(
+    /** @type MutationCallback */
+    (mutations) => {
+      each(mutations, (mutation) => {
+        each(mutation.addedNodes, (node) => {
+          if (isElement(node)) {
+            checkForMount(node, elName, events);
           }
-          break;
-        }
-      }
-    }
-  }
-  return renderedMatches.reduceRight((outlet, match, index) => {
-    let error2;
-    let shouldRenderHydrateFallback = false;
-    let errorElement = null;
-    let hydrateFallbackElement = null;
-    if (dataRouterState) {
-      error2 = errors && match.route.id ? errors[match.route.id] : void 0;
-      errorElement = match.route.errorElement || defaultErrorElement;
-      if (renderFallback) {
-        if (fallbackIndex < 0 && index === 0) {
-          warningOnce("route-fallback", false, "No `HydrateFallback` element provided to render during initial hydration");
-          shouldRenderHydrateFallback = true;
-          hydrateFallbackElement = null;
-        } else if (fallbackIndex === index) {
-          shouldRenderHydrateFallback = true;
-          hydrateFallbackElement = match.route.hydrateFallbackElement || null;
-        }
-      }
-    }
-    let matches2 = parentMatches.concat(renderedMatches.slice(0, index + 1));
-    let getChildren = () => {
-      let children;
-      if (error2) {
-        children = errorElement;
-      } else if (shouldRenderHydrateFallback) {
-        children = hydrateFallbackElement;
-      } else if (match.route.Component) {
-        children = /* @__PURE__ */ React.createElement(match.route.Component, null);
-      } else if (match.route.element) {
-        children = match.route.element;
-      } else {
-        children = outlet;
-      }
-      return /* @__PURE__ */ React.createElement(RenderedRoute, {
-        match,
-        routeContext: {
-          outlet,
-          matches: matches2,
-          isDataRoute: dataRouterState != null
-        },
-        children
+        });
       });
-    };
-    return dataRouterState && (match.route.ErrorBoundary || match.route.errorElement || index === 0) ? /* @__PURE__ */ React.createElement(RenderErrorBoundary, {
-      location: dataRouterState.location,
-      revalidation: dataRouterState.revalidation,
-      component: errorElement,
-      error: error2,
-      children: getChildren(),
-      routeContext: {
-        outlet: null,
-        matches: matches2,
-        isDataRoute: true
-      }
-    }) : getChildren();
-  }, null);
-}
-var DataRouterHook = /* @__PURE__ */ function(DataRouterHook3) {
-  DataRouterHook3["UseBlocker"] = "useBlocker";
-  DataRouterHook3["UseRevalidator"] = "useRevalidator";
-  DataRouterHook3["UseNavigateStable"] = "useNavigate";
-  return DataRouterHook3;
-}(DataRouterHook || {});
-var DataRouterStateHook = /* @__PURE__ */ function(DataRouterStateHook3) {
-  DataRouterStateHook3["UseBlocker"] = "useBlocker";
-  DataRouterStateHook3["UseLoaderData"] = "useLoaderData";
-  DataRouterStateHook3["UseActionData"] = "useActionData";
-  DataRouterStateHook3["UseRouteError"] = "useRouteError";
-  DataRouterStateHook3["UseNavigation"] = "useNavigation";
-  DataRouterStateHook3["UseRouteLoaderData"] = "useRouteLoaderData";
-  DataRouterStateHook3["UseMatches"] = "useMatches";
-  DataRouterStateHook3["UseRevalidator"] = "useRevalidator";
-  DataRouterStateHook3["UseNavigateStable"] = "useNavigate";
-  DataRouterStateHook3["UseRouteId"] = "useRouteId";
-  return DataRouterStateHook3;
-}(DataRouterStateHook || {});
-function getDataRouterConsoleError(hookName) {
-  return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
-}
-function useDataRouterContext(hookName) {
-  let ctx = React.useContext(DataRouterContext);
-  !ctx ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
-  return ctx;
-}
-function useDataRouterState(hookName) {
-  let state = React.useContext(DataRouterStateContext);
-  !state ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
-  return state;
-}
-function useRouteContext(hookName) {
-  let route = React.useContext(RouteContext);
-  !route ? true ? invariant(false, getDataRouterConsoleError(hookName)) : invariant(false) : void 0;
-  return route;
-}
-function useCurrentRouteId(hookName) {
-  let route = useRouteContext(hookName);
-  let thisRoute = route.matches[route.matches.length - 1];
-  !thisRoute.route.id ? true ? invariant(false, hookName + ' can only be used on routes that contain a unique "id"') : invariant(false) : void 0;
-  return thisRoute.route.id;
-}
-function useRouteId() {
-  return useCurrentRouteId(DataRouterStateHook.UseRouteId);
-}
-function useNavigation() {
-  let state = useDataRouterState(DataRouterStateHook.UseNavigation);
-  return state.navigation;
-}
-function useMatches() {
-  let {
-    matches,
-    loaderData
-  } = useDataRouterState(DataRouterStateHook.UseMatches);
-  return React.useMemo(() => matches.map((m) => convertRouteMatchToUiMatch(m, loaderData)), [matches, loaderData]);
-}
-function useRouteError() {
-  var _state$errors;
-  let error2 = React.useContext(RouteErrorContext);
-  let state = useDataRouterState(DataRouterStateHook.UseRouteError);
-  let routeId = useCurrentRouteId(DataRouterStateHook.UseRouteError);
-  if (error2 !== void 0) {
-    return error2;
-  }
-  return (_state$errors = state.errors) == null ? void 0 : _state$errors[routeId];
-}
-function useNavigateStable() {
-  let {
-    router
-  } = useDataRouterContext(DataRouterHook.UseNavigateStable);
-  let id = useCurrentRouteId(DataRouterStateHook.UseNavigateStable);
-  let activeRef = React.useRef(false);
-  useIsomorphicLayoutEffect(() => {
-    activeRef.current = true;
+    }
+  );
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
   });
-  let navigate = React.useCallback(function(to, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    true ? warning(activeRef.current, navigateEffectWarning) : void 0;
-    if (!activeRef.current)
-      return;
-    if (typeof to === "number") {
-      router.navigate(to);
-    } else {
-      router.navigate(to, _extends2({
-        fromRouteId: id
-      }, options));
-    }
-  }, [router, id]);
-  return navigate;
-}
-var alreadyWarned = {};
-function warningOnce(key, cond, message) {
-  if (!cond && !alreadyWarned[key]) {
-    alreadyWarned[key] = true;
-    true ? warning(false, message) : void 0;
+  observers[elName] = /* true */
+  observer;
+  function mountElementsInDOM() {
+    const nodes = document.getElementsByTagName(elName);
+    each(
+      nodes,
+      (node) => checkForMount(node, elName, events)
+    );
   }
-}
-var START_TRANSITION = "startTransition";
-var startTransitionImpl = React[START_TRANSITION];
-function Route(_props) {
-  true ? invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.") : invariant(false);
-}
-function Router2(_ref5) {
-  let {
-    basename: basenameProp = "/",
-    children = null,
-    location: locationProp,
-    navigationType = Action2.Pop,
-    navigator: navigator2,
-    static: staticProp = false,
-    future
-  } = _ref5;
-  !!useInRouterContext() ? true ? invariant(false, "You cannot render a <Router> inside another <Router>. You should never have more than one in your app.") : invariant(false) : void 0;
-  let basename = basenameProp.replace(/^\/*/, "/");
-  let navigationContext = React.useMemo(() => ({
-    basename,
-    navigator: navigator2,
-    static: staticProp,
-    future: _extends2({
-      v7_relativeSplatPath: false
-    }, future)
-  }), [basename, future, navigator2, staticProp]);
-  if (typeof locationProp === "string") {
-    locationProp = parsePath(locationProp);
-  }
-  let {
-    pathname = "/",
-    search = "",
-    hash = "",
-    state = null,
-    key = "default"
-  } = locationProp;
-  let locationContext = React.useMemo(() => {
-    let trailingPathname = stripBasename(pathname, basename);
-    if (trailingPathname == null) {
-      return null;
-    }
-    return {
-      location: {
-        pathname: trailingPathname,
-        search,
-        hash,
-        state,
-        key
-      },
-      navigationType
-    };
-  }, [basename, pathname, search, hash, state, key, navigationType]);
-  true ? warning(locationContext != null, '<Router basename="' + basename + '"> is not able to match the URL ' + ('"' + pathname + search + hash + '" because it does not start with the ') + "basename, so the <Router> won't render anything.") : void 0;
-  if (locationContext == null) {
-    return null;
-  }
-  return /* @__PURE__ */ React.createElement(NavigationContext.Provider, {
-    value: navigationContext
-  }, /* @__PURE__ */ React.createElement(LocationContext.Provider, {
-    children,
-    value: locationContext
-  }));
-}
-function Routes(_ref6) {
-  let {
-    children,
-    location: location2
-  } = _ref6;
-  return useRoutes(createRoutesFromChildren(children), location2);
-}
-var neverSettledPromise = new Promise(() => {
-});
-function createRoutesFromChildren(children, parentPath) {
-  if (parentPath === void 0) {
-    parentPath = [];
-  }
-  let routes = [];
-  React.Children.forEach(children, (element, index) => {
-    if (!/* @__PURE__ */ React.isValidElement(element)) {
-      return;
-    }
-    let treePath = [...parentPath, index];
-    if (element.type === React.Fragment) {
-      routes.push.apply(routes, createRoutesFromChildren(element.props.children, treePath));
-      return;
-    }
-    !(element.type === Route) ? true ? invariant(false, "[" + (typeof element.type === "string" ? element.type : element.type.name) + "] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>") : invariant(false) : void 0;
-    !(!element.props.index || !element.props.children) ? true ? invariant(false, "An index route cannot have child routes.") : invariant(false) : void 0;
-    let route = {
-      id: element.props.id || treePath.join("-"),
-      caseSensitive: element.props.caseSensitive,
-      element: element.props.element,
-      Component: element.props.Component,
-      index: element.props.index,
-      path: element.props.path,
-      loader: element.props.loader,
-      action: element.props.action,
-      errorElement: element.props.errorElement,
-      ErrorBoundary: element.props.ErrorBoundary,
-      hasErrorBoundary: element.props.ErrorBoundary != null || element.props.errorElement != null,
-      shouldRevalidate: element.props.shouldRevalidate,
-      handle: element.props.handle,
-      lazy: element.props.lazy
-    };
-    if (element.props.children) {
-      route.children = createRoutesFromChildren(element.props.children, treePath);
-    }
-    routes.push(route);
-  });
-  return routes;
-}
-
-// node_modules/react-router-dom/dist/index.js
-function _extends3() {
-  _extends3 = Object.assign ? Object.assign.bind() : function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends3.apply(this, arguments);
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null)
-    return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0)
-      continue;
-    target[key] = source[key];
-  }
-  return target;
-}
-var defaultMethod = "get";
-var defaultEncType = "application/x-www-form-urlencoded";
-function isHtmlElement(object) {
-  return object != null && typeof object.tagName === "string";
-}
-function isButtonElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
-}
-function isFormElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
-}
-function isInputElement(object) {
-  return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
-}
-function isModifiedEvent(event) {
-  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-}
-function shouldProcessLinkClick(event, target) {
-  return event.button === 0 && // Ignore everything but left clicks
-  (!target || target === "_self") && // Let browser handle "target=_blank" etc.
-  !isModifiedEvent(event);
-}
-var _formDataSupportsSubmitter = null;
-function isFormDataSubmitterSupported() {
-  if (_formDataSupportsSubmitter === null) {
-    try {
-      new FormData(
-        document.createElement("form"),
-        // @ts-expect-error if FormData supports the submitter parameter, this will throw
-        0
-      );
-      _formDataSupportsSubmitter = false;
-    } catch (e) {
-      _formDataSupportsSubmitter = true;
-    }
-  }
-  return _formDataSupportsSubmitter;
-}
-var supportedFormEncTypes = /* @__PURE__ */ new Set(["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]);
-function getFormEncType(encType) {
-  if (encType != null && !supportedFormEncTypes.has(encType)) {
-    true ? warning(false, '"' + encType + '" is not a valid `encType` for `<Form>`/`<fetcher.Form>` ' + ('and will default to "' + defaultEncType + '"')) : void 0;
-    return null;
-  }
-  return encType;
-}
-function getFormSubmissionInfo(target, basename) {
-  let method;
-  let action;
-  let encType;
-  let formData;
-  let body;
-  if (isFormElement(target)) {
-    let attr = target.getAttribute("action");
-    action = attr ? stripBasename(attr, basename) : null;
-    method = target.getAttribute("method") || defaultMethod;
-    encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
-    formData = new FormData(target);
-  } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
-    let form = target.form;
-    if (form == null) {
-      throw new Error('Cannot submit a <button> or <input type="submit"> without a <form>');
-    }
-    let attr = target.getAttribute("formaction") || form.getAttribute("action");
-    action = attr ? stripBasename(attr, basename) : null;
-    method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
-    encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
-    formData = new FormData(form, target);
-    if (!isFormDataSubmitterSupported()) {
-      let {
-        name,
-        type,
-        value
-      } = target;
-      if (type === "image") {
-        let prefix = name ? name + "." : "";
-        formData.append(prefix + "x", "0");
-        formData.append(prefix + "y", "0");
-      } else if (name) {
-        formData.append(name, value);
-      }
-    }
-  } else if (isHtmlElement(target)) {
-    throw new Error('Cannot submit element that is not <form>, <button>, or <input type="submit|image">');
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    mountElementsInDOM();
   } else {
-    method = defaultMethod;
-    action = null;
-    encType = defaultEncType;
-    body = target;
+    window.addEventListener("DOMContentLoaded", mountElementsInDOM);
   }
-  if (formData && encType === "text/plain") {
-    body = formData;
-    formData = void 0;
-  }
-  return {
-    action,
-    method: method.toLowerCase(),
-    encType,
-    formData,
-    body
-  };
 }
-var _excluded = ["onClick", "relative", "reloadDocument", "replace", "state", "target", "to", "preventScrollReset", "unstable_viewTransition"];
-var _excluded2 = ["aria-current", "caseSensitive", "className", "end", "style", "to", "unstable_viewTransition", "children"];
-var _excluded3 = ["fetcherKey", "navigate", "reloadDocument", "replace", "state", "method", "action", "onSubmit", "relative", "preventScrollReset", "unstable_viewTransition"];
-var ViewTransitionContext = /* @__PURE__ */ React2.createContext({
-  isTransitioning: false
-});
-if (true) {
-  ViewTransitionContext.displayName = "ViewTransition";
-}
-var FetchersContext = /* @__PURE__ */ React2.createContext(/* @__PURE__ */ new Map());
-if (true) {
-  FetchersContext.displayName = "Fetchers";
-}
-var START_TRANSITION2 = "startTransition";
-var startTransitionImpl2 = React2[START_TRANSITION2];
-var FLUSH_SYNC = "flushSync";
-var flushSyncImpl = ReactDOM[FLUSH_SYNC];
-var USE_ID = "useId";
-var useIdImpl = React2[USE_ID];
-function BrowserRouter(_ref4) {
-  let {
-    basename,
-    children,
-    future,
-    window: window2
-  } = _ref4;
-  let historyRef = React2.useRef();
-  if (historyRef.current == null) {
-    historyRef.current = createBrowserHistory({
-      window: window2,
-      v5Compat: true
+function checkForMount(node, elName, events) {
+  if (node.nodeName.toLowerCase() === elName) {
+    events.onMount(node, node);
+    observeForUpdates(node, events);
+    observeForRemoval(node, events);
+  } else if (node.children && node.children.length) {
+    each(node.children, (subnode) => {
+      if (isElement(subnode)) {
+        checkForMount(subnode, elName, events);
+      }
     });
   }
-  let history2 = historyRef.current;
-  let [state, setStateImpl] = React2.useState({
-    action: history2.action,
-    location: history2.location
-  });
-  let {
-    v7_startTransition
-  } = future || {};
-  let setState = React2.useCallback((newState) => {
-    v7_startTransition && startTransitionImpl2 ? startTransitionImpl2(() => setStateImpl(newState)) : setStateImpl(newState);
-  }, [setStateImpl, v7_startTransition]);
-  React2.useLayoutEffect(() => history2.listen(setState), [history2, setState]);
-  return /* @__PURE__ */ React2.createElement(Router2, {
-    basename,
-    children,
-    location: state.location,
-    navigationType: state.action,
-    navigator: history2,
-    future
-  });
 }
-function HistoryRouter(_ref6) {
-  let {
-    basename,
-    children,
-    future,
-    history: history2
-  } = _ref6;
-  let [state, setStateImpl] = React2.useState({
-    action: history2.action,
-    location: history2.location
-  });
-  let {
-    v7_startTransition
-  } = future || {};
-  let setState = React2.useCallback((newState) => {
-    v7_startTransition && startTransitionImpl2 ? startTransitionImpl2(() => setStateImpl(newState)) : setStateImpl(newState);
-  }, [setStateImpl, v7_startTransition]);
-  React2.useLayoutEffect(() => history2.listen(setState), [history2, setState]);
-  return /* @__PURE__ */ React2.createElement(Router2, {
-    basename,
-    children,
-    location: state.location,
-    navigationType: state.action,
-    navigator: history2,
-    future
-  });
+function observeForUpdates(node, events) {
+  const { onUpdate } = events;
+  const observer = new MutationObserver(
+    /** @type MutationCallback */
+    (mutations) => {
+      each(mutations, (mutation) => {
+        const targetNode = mutation.target;
+        if (isElement(targetNode)) {
+          onUpdate(targetNode, targetNode);
+        }
+      });
+    }
+  );
+  observer.observe(node, { attributes: true });
 }
-if (true) {
-  HistoryRouter.displayName = "unstable_HistoryRouter";
+function observeForRemoval(node, events) {
+  const { onUnmount } = events;
+  const parent = node.parentNode;
+  if (!parent) {
+    return;
+  }
+  const observer = new MutationObserver(
+    /** @type MutationCallback */
+    (mutations) => {
+      each(mutations, (mutation) => {
+        each(mutation.removedNodes, (subnode) => {
+          if (node !== subnode) {
+            return;
+          }
+          if (isElement(node)) {
+            observer.disconnect(parent);
+            onUnmount(node, node);
+          }
+        });
+      });
+    }
+  );
+  observer.observe(parent, { childList: true, subtree: true });
 }
-var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
-var ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-var Link = /* @__PURE__ */ React2.forwardRef(function LinkWithRef(_ref7, ref) {
-  let {
-    onClick,
-    relative,
-    reloadDocument,
-    replace,
-    state,
-    target,
-    to,
-    preventScrollReset,
-    unstable_viewTransition
-  } = _ref7, rest = _objectWithoutPropertiesLoose(_ref7, _excluded);
-  let {
-    basename
-  } = React2.useContext(NavigationContext);
-  let absoluteHref;
-  let isExternal = false;
-  if (typeof to === "string" && ABSOLUTE_URL_REGEX.test(to)) {
-    absoluteHref = to;
-    if (isBrowser) {
-      try {
-        let currentUrl = new URL(window.location.href);
-        let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
-        let path = stripBasename(targetUrl.pathname, basename);
-        if (targetUrl.origin === currentUrl.origin && path != null) {
-          to = path + targetUrl.search + targetUrl.hash;
+function isValidName(elName) {
+  return !!(elName.indexOf("-") !== -1 && elName.match(/^[a-z][a-z0-9-]*$/));
+}
+function supportsShadow() {
+  return false;
+}
+function isElement(node) {
+  if (node) {
+    return true;
+  }
+  return false;
+}
+var MutationObserverStrategy = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  name,
+  observers,
+  isSupported,
+  defineElement,
+  supportsShadow
+});
+var cachedStrategy;
+function getStrategy() {
+  if (cachedStrategy) {
+    return cachedStrategy;
+  }
+  const StrategyUsed = [CustomElementsStrategy, MutationObserverStrategy].find(
+    (strategy) => !!strategy.isSupported()
+  );
+  if (!StrategyUsed) {
+    console.warn(
+      "Remount: This browser doesn't support the MutationObserver API or the Custom Elements API. Including polyfills might fix this. Remount elements will not work. https://github.com/rstacruz/remount"
+    );
+  }
+  cachedStrategy = StrategyUsed;
+  return StrategyUsed;
+}
+function define(components, defaults) {
+  const Strategy = getStrategy();
+  if (!Strategy) {
+    return;
+  }
+  Object.keys(components).forEach((name2) => {
+    const elSpec = Object.assign({}, defaults, toElementSpec(components[name2]));
+    const adapter = elSpec.adapter;
+    if (!adapter)
+      throw new Error("No suitable adapter found");
+    Strategy.defineElement(elSpec, name2, {
+      onMount(element, mountPoint) {
+        const props = getProps(element, elSpec.attributes);
+        if (elSpec.shadow && elSpec.retarget) {
+          adapter.mount(elSpec, mountPoint, props, element);
         } else {
-          isExternal = true;
+          adapter.mount(elSpec, mountPoint, props, null);
         }
-      } catch (e) {
-        true ? warning(false, '<Link to="' + to + '"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.') : void 0;
+      },
+      onUpdate(element, mountPoint) {
+        const props = getProps(element, elSpec.attributes);
+        adapter.update(elSpec, mountPoint, props, null);
+      },
+      onUnmount(element, mountPoint) {
+        adapter.unmount(elSpec, mountPoint);
       }
-    }
-  }
-  let href = useHref(to, {
-    relative
-  });
-  let internalOnClick = useLinkClickHandler(to, {
-    replace,
-    state,
-    target,
-    preventScrollReset,
-    relative,
-    unstable_viewTransition
-  });
-  function handleClick(event) {
-    if (onClick)
-      onClick(event);
-    if (!event.defaultPrevented) {
-      internalOnClick(event);
-    }
-  }
-  return (
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    /* @__PURE__ */ React2.createElement("a", _extends3({}, rest, {
-      href: absoluteHref || href,
-      onClick: isExternal || reloadDocument ? onClick : handleClick,
-      ref,
-      target
-    }))
-  );
-});
-if (true) {
-  Link.displayName = "Link";
-}
-var NavLink = /* @__PURE__ */ React2.forwardRef(function NavLinkWithRef(_ref8, ref) {
-  let {
-    "aria-current": ariaCurrentProp = "page",
-    caseSensitive = false,
-    className: classNameProp = "",
-    end = false,
-    style: styleProp,
-    to,
-    unstable_viewTransition,
-    children
-  } = _ref8, rest = _objectWithoutPropertiesLoose(_ref8, _excluded2);
-  let path = useResolvedPath(to, {
-    relative: rest.relative
-  });
-  let location2 = useLocation();
-  let routerState = React2.useContext(DataRouterStateContext);
-  let {
-    navigator: navigator2
-  } = React2.useContext(NavigationContext);
-  let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useViewTransitionState(path) && unstable_viewTransition === true;
-  let toPathname = navigator2.encodeLocation ? navigator2.encodeLocation(path).pathname : path.pathname;
-  let locationPathname = location2.pathname;
-  let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
-  if (!caseSensitive) {
-    locationPathname = locationPathname.toLowerCase();
-    nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
-    toPathname = toPathname.toLowerCase();
-  }
-  const endSlashPosition = toPathname !== "/" && toPathname.endsWith("/") ? toPathname.length - 1 : toPathname.length;
-  let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(endSlashPosition) === "/";
-  let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
-  let renderProps = {
-    isActive,
-    isPending,
-    isTransitioning
-  };
-  let ariaCurrent = isActive ? ariaCurrentProp : void 0;
-  let className;
-  if (typeof classNameProp === "function") {
-    className = classNameProp(renderProps);
-  } else {
-    className = [classNameProp, isActive ? "active" : null, isPending ? "pending" : null, isTransitioning ? "transitioning" : null].filter(Boolean).join(" ");
-  }
-  let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
-  return /* @__PURE__ */ React2.createElement(Link, _extends3({}, rest, {
-    "aria-current": ariaCurrent,
-    className,
-    ref,
-    style,
-    to,
-    unstable_viewTransition
-  }), typeof children === "function" ? children(renderProps) : children);
-});
-if (true) {
-  NavLink.displayName = "NavLink";
-}
-var Form = /* @__PURE__ */ React2.forwardRef((_ref9, forwardedRef) => {
-  let {
-    fetcherKey,
-    navigate,
-    reloadDocument,
-    replace,
-    state,
-    method = defaultMethod,
-    action,
-    onSubmit,
-    relative,
-    preventScrollReset,
-    unstable_viewTransition
-  } = _ref9, props = _objectWithoutPropertiesLoose(_ref9, _excluded3);
-  let submit = useSubmit();
-  let formAction = useFormAction(action, {
-    relative
-  });
-  let formMethod = method.toLowerCase() === "get" ? "get" : "post";
-  let submitHandler = (event) => {
-    onSubmit && onSubmit(event);
-    if (event.defaultPrevented)
-      return;
-    event.preventDefault();
-    let submitter = event.nativeEvent.submitter;
-    let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
-    submit(submitter || event.currentTarget, {
-      fetcherKey,
-      method: submitMethod,
-      navigate,
-      replace,
-      state,
-      relative,
-      preventScrollReset,
-      unstable_viewTransition
     });
-  };
-  return /* @__PURE__ */ React2.createElement("form", _extends3({
-    ref: forwardedRef,
-    method: formMethod,
-    action: formAction,
-    onSubmit: reloadDocument ? onSubmit : submitHandler
-  }, props));
+  });
+}
+function toElementSpec(thing) {
+  if (isElementSpec(thing)) {
+    return thing;
+  }
+  return { component: thing };
+}
+function isElementSpec(spec) {
+  return typeof spec === "object" && spec.component;
+}
+function getProps(element, attributes) {
+  const rawJson = element.getAttribute("props-json");
+  if (rawJson) {
+    return JSON.parse(rawJson);
+  }
+  const names = attributes || [];
+  return names.reduce((result, attribute) => {
+    result[attribute] = element.getAttribute(attribute);
+    return result;
+  }, {});
+}
+var roots = /* @__PURE__ */ new Map();
+function mount(elSpec, mountPoint, props, element) {
+  const reactElement = React.createElement(elSpec.component, props);
+  const root = ReactDOM.createRoot(mountPoint);
+  roots.set(mountPoint, root);
+  root.render(reactElement);
+}
+function update(elSpec, mountPoint, props, element) {
+  const reactElement = React.createElement(elSpec.component, props);
+  const root = roots.get(mountPoint);
+  if (root)
+    root.render(reactElement);
+}
+function unmount(elSpec, mountPoint) {
+  const root = roots.get(mountPoint);
+  if (!root)
+    return;
+  root.unmount();
+  roots.delete(mountPoint);
+}
+var ReactAdapter = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  mount,
+  update,
+  unmount
 });
-if (true) {
-  Form.displayName = "Form";
-}
-function ScrollRestoration(_ref10) {
-  let {
-    getKey,
-    storageKey
-  } = _ref10;
-  useScrollRestoration({
-    getKey,
-    storageKey
+function defineReact(components = {}, options = {}) {
+  return define(components, {
+    adapter: ReactAdapter,
+    ...options
   });
-  return null;
-}
-if (true) {
-  ScrollRestoration.displayName = "ScrollRestoration";
-}
-var DataRouterHook2;
-(function(DataRouterHook3) {
-  DataRouterHook3["UseScrollRestoration"] = "useScrollRestoration";
-  DataRouterHook3["UseSubmit"] = "useSubmit";
-  DataRouterHook3["UseSubmitFetcher"] = "useSubmitFetcher";
-  DataRouterHook3["UseFetcher"] = "useFetcher";
-  DataRouterHook3["useViewTransitionState"] = "useViewTransitionState";
-})(DataRouterHook2 || (DataRouterHook2 = {}));
-var DataRouterStateHook2;
-(function(DataRouterStateHook3) {
-  DataRouterStateHook3["UseFetcher"] = "useFetcher";
-  DataRouterStateHook3["UseFetchers"] = "useFetchers";
-  DataRouterStateHook3["UseScrollRestoration"] = "useScrollRestoration";
-})(DataRouterStateHook2 || (DataRouterStateHook2 = {}));
-function getDataRouterConsoleError2(hookName) {
-  return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
-}
-function useDataRouterContext2(hookName) {
-  let ctx = React2.useContext(DataRouterContext);
-  !ctx ? true ? invariant(false, getDataRouterConsoleError2(hookName)) : invariant(false) : void 0;
-  return ctx;
-}
-function useDataRouterState2(hookName) {
-  let state = React2.useContext(DataRouterStateContext);
-  !state ? true ? invariant(false, getDataRouterConsoleError2(hookName)) : invariant(false) : void 0;
-  return state;
-}
-function useLinkClickHandler(to, _temp) {
-  let {
-    target,
-    replace: replaceProp,
-    state,
-    preventScrollReset,
-    relative,
-    unstable_viewTransition
-  } = _temp === void 0 ? {} : _temp;
-  let navigate = useNavigate();
-  let location2 = useLocation();
-  let path = useResolvedPath(to, {
-    relative
-  });
-  return React2.useCallback((event) => {
-    if (shouldProcessLinkClick(event, target)) {
-      event.preventDefault();
-      let replace = replaceProp !== void 0 ? replaceProp : createPath(location2) === createPath(path);
-      navigate(to, {
-        replace,
-        state,
-        preventScrollReset,
-        relative,
-        unstable_viewTransition
-      });
-    }
-  }, [location2, navigate, path, replaceProp, state, target, to, preventScrollReset, relative, unstable_viewTransition]);
-}
-function validateClientSideSubmission() {
-  if (typeof document === "undefined") {
-    throw new Error("You are calling submit during the server render. Try calling submit within a `useEffect` or callback instead.");
-  }
-}
-var fetcherId = 0;
-var getUniqueFetcherId = () => "__" + String(++fetcherId) + "__";
-function useSubmit() {
-  let {
-    router
-  } = useDataRouterContext2(DataRouterHook2.UseSubmit);
-  let {
-    basename
-  } = React2.useContext(NavigationContext);
-  let currentRouteId = useRouteId();
-  return React2.useCallback(function(target, options) {
-    if (options === void 0) {
-      options = {};
-    }
-    validateClientSideSubmission();
-    let {
-      action,
-      method,
-      encType,
-      formData,
-      body
-    } = getFormSubmissionInfo(target, basename);
-    if (options.navigate === false) {
-      let key = options.fetcherKey || getUniqueFetcherId();
-      router.fetch(key, currentRouteId, options.action || action, {
-        preventScrollReset: options.preventScrollReset,
-        formData,
-        body,
-        formMethod: options.method || method,
-        formEncType: options.encType || encType,
-        unstable_flushSync: options.unstable_flushSync
-      });
-    } else {
-      router.navigate(options.action || action, {
-        preventScrollReset: options.preventScrollReset,
-        formData,
-        body,
-        formMethod: options.method || method,
-        formEncType: options.encType || encType,
-        replace: options.replace,
-        state: options.state,
-        fromRouteId: currentRouteId,
-        unstable_flushSync: options.unstable_flushSync,
-        unstable_viewTransition: options.unstable_viewTransition
-      });
-    }
-  }, [router, basename, currentRouteId]);
-}
-function useFormAction(action, _temp2) {
-  let {
-    relative
-  } = _temp2 === void 0 ? {} : _temp2;
-  let {
-    basename
-  } = React2.useContext(NavigationContext);
-  let routeContext = React2.useContext(RouteContext);
-  !routeContext ? true ? invariant(false, "useFormAction must be used inside a RouteContext") : invariant(false) : void 0;
-  let [match] = routeContext.matches.slice(-1);
-  let path = _extends3({}, useResolvedPath(action ? action : ".", {
-    relative
-  }));
-  let location2 = useLocation();
-  if (action == null) {
-    path.search = location2.search;
-    let params = new URLSearchParams(path.search);
-    if (params.has("index") && params.get("index") === "") {
-      params.delete("index");
-      path.search = params.toString() ? "?" + params.toString() : "";
-    }
-  }
-  if ((!action || action === ".") && match.route.index) {
-    path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
-  }
-  if (basename !== "/") {
-    path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
-  }
-  return createPath(path);
-}
-var SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
-var savedScrollPositions = {};
-function useScrollRestoration(_temp4) {
-  let {
-    getKey,
-    storageKey
-  } = _temp4 === void 0 ? {} : _temp4;
-  let {
-    router
-  } = useDataRouterContext2(DataRouterHook2.UseScrollRestoration);
-  let {
-    restoreScrollPosition,
-    preventScrollReset
-  } = useDataRouterState2(DataRouterStateHook2.UseScrollRestoration);
-  let {
-    basename
-  } = React2.useContext(NavigationContext);
-  let location2 = useLocation();
-  let matches = useMatches();
-  let navigation = useNavigation();
-  React2.useEffect(() => {
-    window.history.scrollRestoration = "manual";
-    return () => {
-      window.history.scrollRestoration = "auto";
-    };
-  }, []);
-  usePageHide(React2.useCallback(() => {
-    if (navigation.state === "idle") {
-      let key = (getKey ? getKey(location2, matches) : null) || location2.key;
-      savedScrollPositions[key] = window.scrollY;
-    }
-    try {
-      sessionStorage.setItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY, JSON.stringify(savedScrollPositions));
-    } catch (error2) {
-      true ? warning(false, "Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (" + error2 + ").") : void 0;
-    }
-    window.history.scrollRestoration = "auto";
-  }, [storageKey, getKey, navigation.state, location2, matches]));
-  if (typeof document !== "undefined") {
-    React2.useLayoutEffect(() => {
-      try {
-        let sessionPositions = sessionStorage.getItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY);
-        if (sessionPositions) {
-          savedScrollPositions = JSON.parse(sessionPositions);
-        }
-      } catch (e) {
-      }
-    }, [storageKey]);
-    React2.useLayoutEffect(() => {
-      let getKeyWithoutBasename = getKey && basename !== "/" ? (location3, matches2) => getKey(
-        // Strip the basename to match useLocation()
-        _extends3({}, location3, {
-          pathname: stripBasename(location3.pathname, basename) || location3.pathname
-        }),
-        matches2
-      ) : getKey;
-      let disableScrollRestoration = router == null ? void 0 : router.enableScrollRestoration(savedScrollPositions, () => window.scrollY, getKeyWithoutBasename);
-      return () => disableScrollRestoration && disableScrollRestoration();
-    }, [router, basename, getKey]);
-    React2.useLayoutEffect(() => {
-      if (restoreScrollPosition === false) {
-        return;
-      }
-      if (typeof restoreScrollPosition === "number") {
-        window.scrollTo(0, restoreScrollPosition);
-        return;
-      }
-      if (location2.hash) {
-        let el = document.getElementById(decodeURIComponent(location2.hash.slice(1)));
-        if (el) {
-          el.scrollIntoView();
-          return;
-        }
-      }
-      if (preventScrollReset === true) {
-        return;
-      }
-      window.scrollTo(0, 0);
-    }, [location2, restoreScrollPosition, preventScrollReset]);
-  }
-}
-function usePageHide(callback, options) {
-  let {
-    capture
-  } = options || {};
-  React2.useEffect(() => {
-    let opts = capture != null ? {
-      capture
-    } : void 0;
-    window.addEventListener("pagehide", callback, opts);
-    return () => {
-      window.removeEventListener("pagehide", callback, opts);
-    };
-  }, [callback, capture]);
-}
-function useViewTransitionState(to, opts) {
-  if (opts === void 0) {
-    opts = {};
-  }
-  let vtContext = React2.useContext(ViewTransitionContext);
-  !(vtContext != null) ? true ? invariant(false, "`unstable_useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?") : invariant(false) : void 0;
-  let {
-    basename
-  } = useDataRouterContext2(DataRouterHook2.useViewTransitionState);
-  let path = useResolvedPath(to, {
-    relative: opts.relative
-  });
-  if (!vtContext.isTransitioning) {
-    return false;
-  }
-  let currentPath = stripBasename(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
-  let nextPath = stripBasename(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
-  return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
 }
 
-// app/javascript/components/Home.jsx
-var import_react = __toESM(require_react());
-var Home_default = () => /* @__PURE__ */ import_react.default.createElement("div", { className: "" }, "Testing Hello World!");
+// app/javascript/react/src/components/App.jsx
+var React2 = __toESM(require_react());
+var ReactDOM2 = __toESM(require_react_dom());
+var App = () => {
+  return /* @__PURE__ */ React2.createElement("div", null, "Hello, Rails 7!");
+};
+var App_default = App;
 
-// app/javascript/routes/index.jsx
-var routes_default = /* @__PURE__ */ import_react2.default.createElement(BrowserRouter, null, /* @__PURE__ */ import_react2.default.createElement(Routes, null, /* @__PURE__ */ import_react2.default.createElement(Route, { path: "/", element: /* @__PURE__ */ import_react2.default.createElement(Home_default, null) })));
-
-// app/javascript/components/App.jsx
-var App_default = (props) => /* @__PURE__ */ import_react3.default.createElement(import_react3.default.Fragment, null, routes_default);
-
-// app/javascript/components/index.jsx
-document.addEventListener("turbo:load", () => {
-  const root = (0, import_client.createRoot)(
-    document.body.appendChild(document.createElement("div"))
-  );
-  root.render(/* @__PURE__ */ import_react4.default.createElement(App_default, null));
-});
+// app/javascript/react/src/index.js
+defineReact({ "app-component": App_default });
 /*! Bundled license information:
 
 react/cjs/react.development.js:
@@ -33485,42 +31838,6 @@ react-dom/cjs/react-dom.development.js:
   (*!
   Turbo 8.0.0-beta.2
   Copyright © 2023 37signals LLC
-   *)
-
-@remix-run/router/dist/router.js:
-  (**
-   * @remix-run/router v1.14.2
-   *
-   * Copyright (c) Remix Software Inc.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.md file in the root directory of this source tree.
-   *
-   * @license MIT
-   *)
-
-react-router/dist/index.js:
-  (**
-   * React Router v6.21.2
-   *
-   * Copyright (c) Remix Software Inc.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.md file in the root directory of this source tree.
-   *
-   * @license MIT
-   *)
-
-react-router-dom/dist/index.js:
-  (**
-   * React Router DOM v6.21.2
-   *
-   * Copyright (c) Remix Software Inc.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.md file in the root directory of this source tree.
-   *
-   * @license MIT
    *)
 */
 //# sourceMappingURL=/assets/application.js.map
