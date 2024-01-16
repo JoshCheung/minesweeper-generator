@@ -1,0 +1,105 @@
+/* app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.css */
+.form-container {
+  width: 400px;
+  max-width: 400px;
+  background-color: rgb(234, 234, 234);
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 25px;
+  padding: 24px;
+}
+.input-form-container {
+  display: flex;
+  flex-direction: column;
+}
+.input-container {
+  display: flex;
+  padding: 8px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.button-container {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+/* app/javascript/react/src/components/BoardList/ListItem.css */
+.list-item-container {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100%;
+  background-color: rgb(255, 255, 244);
+  margin-bottom: 16px;
+  border-radius: 25px;
+}
+.board-info-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+.list-item-name {
+  display: flex;
+  font-weight: bold;
+}
+.list-item-email {
+  display: flex;
+}
+.list-item-date {
+  display: flex;
+}
+
+/* app/javascript/react/src/components/BoardList/BoardList.css */
+.list-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 24px 0px 24px;
+}
+.list-title {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.list-wrapper {
+  padding: 10px;
+  overflow-y: scroll;
+}
+.list-button-container {
+  margin-top: auto;
+  bottom: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+/* app/javascript/react/src/components/Home/Home.css */
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+.home-form-container {
+  display: flex;
+  width: 75%;
+  height: 100%;
+  background-color: white;
+  justify-content: center;
+}
+.board-list-container {
+  display: flex;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(207, 232, 255);
+}
+
+/* app/javascript/react/src/components/App.css */
+body {
+  margin: 0 !important;
+}
+/*# sourceMappingURL=/assets/application.css.map */

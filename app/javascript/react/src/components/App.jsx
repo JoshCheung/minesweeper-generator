@@ -1,8 +1,12 @@
 import * as React from 'react'                          
-import * as ReactDOM from 'react-dom'                   
-                                                        
+import Home from './Home/Home';
+import "./App.css";                                                         
 const App = () => {                                   
-  return (<div>Hello, Rails 7!</div>)                   
+  return (
+    <div>
+      <Home/>
+    </div>
+  )                   
 }                                                       
                                         
 // Use it if you don't plan to use "remount"                
@@ -10,4 +14,4 @@ const App = () => {
   // ReactDOM.render(<Hello />, document.getElementById('hello'))                  
 // })                                                    
                                                         
-export default App;
+export default App
