@@ -1,11 +1,17 @@
 import * as React from 'react'                          
 import Home from './Home/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import Board from './Board/Board';
 import "./App.css";                                                         
+
 const App = () => {                                   
   return (
-    <div>
-      <Home/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path={`viewBoard/:id`} element={<Board/>} />
+      </Routes>
+    </Router>
   )                   
 }                                                       
                                         
