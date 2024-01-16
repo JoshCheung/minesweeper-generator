@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getTenMostRecentBoards } from '../../api/GetMinesweeperBoards';
 import ListItem from './ListItem';
-
 import './BoardList.css';
 import { Button } from '@mui/material';
 
@@ -10,11 +9,12 @@ const BoardList = () => {
     const [boardsList, setBoardsList] = useState([]);
     
     useEffect(() => {
-        fetchTenMostRecentBoards()
+        fetchTenMostRecentBoards();
     }, []);
 
     const fetchTenMostRecentBoards = async () => {
         const boards = await getTenMostRecentBoards();
+        console.log(boards);
         if (boards) {
             setBoardsList(boards);
         }

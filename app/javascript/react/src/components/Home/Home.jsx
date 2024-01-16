@@ -12,7 +12,7 @@ const Home = () => {
             </div>
 
             <div className="board-list-container">
-                <BoardList/>
+                {/* <BoardList/> */}
             </div>  
         </div>
     )
