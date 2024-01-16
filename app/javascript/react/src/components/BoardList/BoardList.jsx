@@ -15,7 +15,9 @@ const BoardList = () => {
 
     const fetchTenMostRecentBoards = async () => {
         const boards = await getTenMostRecentBoards();
-        setBoardsList(boards);
+        if (boards) {
+            setBoardsList(boards);
+        }
     }
 
     return (
