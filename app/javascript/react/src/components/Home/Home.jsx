@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import BoardGeneratorForm from '../BoardGeneratorForm/BoardGeneratorForm';
 import BoardList from '../BoardList/BoardList';
+import Board from '../Board/Board';
 
 import "./Home.css";
 

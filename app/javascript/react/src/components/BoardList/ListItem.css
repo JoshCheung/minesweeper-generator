@@ -8,6 +8,17 @@
     border-radius: 25px;
 }
 
+.list-item-container:hover {
+    display:flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(255, 247, 226);
+    margin-bottom: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
 .board-info-container {
     display: flex;
     flex-direction: column;
