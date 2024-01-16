@@ -5,9 +5,9 @@ class Board < ApplicationRecord
     def create_board(params)
         board_name = params[:name]
         email = params[:email]
-        height = params[:height].to_i
-        width = params[:width].to_i
-        num_mines = params[:numberOfMines].to_i
+        height = params[:height]
+        width = params[:width]
+        num_mines = params[:num_mines]
         grid = generate_grid(height, width, num_mines)
 
         board = Board.create!(name: board_name, email: email, grid: grid)
