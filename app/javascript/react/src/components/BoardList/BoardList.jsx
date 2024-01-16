@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 const BoardList = () => {
     // const [boardsList, setBoardsList] = useState([]);
     const [boardsList, setBoardsList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    
     useEffect(() => {
         fetchTenMostRecentBoards()
     }, []);
@@ -16,7 +17,6 @@ const BoardList = () => {
         const boards = await getTenMostRecentBoards();
         setBoardsList(boards);
     }
-
 
     return (
         <div className="list-container">

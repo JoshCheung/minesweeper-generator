@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState14(initialState) {
+        function useState15(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1688,7 +1688,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect15(create, deps) {
+        function useEffect16(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2470,7 +2470,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext8;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect15;
+        exports.useEffect = useEffect16;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
@@ -2478,7 +2478,7 @@ var require_react_development = __commonJS({
         exports.useMemo = useMemo4;
         exports.useReducer = useReducer;
         exports.useRef = useRef18;
-        exports.useState = useState14;
+        exports.useState = useState15;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -33928,6 +33928,29 @@ var import_react13 = __toESM(require_react());
 // app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.jsx
 var import_react10 = __toESM(require_react());
 
+// app/javascript/react/src/api/MinesweeperCreate.js
+var headers = {
+  Accept: "application/json",
+  "Content-Type": "application/json"
+};
+async function createBoard(boardData) {
+  const url = `api/v1/boards/create`;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(boardData)
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to create board: ${response.status}`);
+    }
+    return response.json();
+  } catch (error2) {
+    console.error("Error creating board:", error2);
+    throw new Error("Failed to create board. Please try again.");
+  }
+}
+
 // node_modules/@mui/material/colors/common.js
 var common = {
   black: "#000",
@@ -48718,37 +48741,98 @@ var TextField_default = TextField;
 
 // app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.jsx
 var BoardGeneratorForm = () => {
+  const [email, setEmail] = (0, import_react10.useState)("");
+  const [name2, setName] = (0, import_react10.useState)("");
+  const [height2, setHeight] = (0, import_react10.useState)(1);
+  const [width2, setWidth] = (0, import_react10.useState)(1);
+  const [numberOfMines, setNumberOfMines] = (0, import_react10.useState)(1);
+  const [valid, setValidity] = (0, import_react10.useState)(false);
+  (0, import_react10.useEffect)(() => {
+    checkValidity();
+  }, [email, name2, height2, width2, numberOfMines]);
+  const handleEmailInput = (value) => {
+    setEmail(value);
+  };
+  const handleNameInput = (value) => {
+    setName(value);
+  };
+  const handleHeightInput = (value) => {
+    setHeight(value);
+  };
+  const handleWidthInput = (value) => {
+    setWidth(value);
+  };
+  const handleMinesInput = (value) => {
+    setNumberOfMines(value);
+  };
+  const checkValidity = () => {
+    setValidity(email != "" && name2 != "" && checkDimensions() && checkNumberOfMines());
+  };
+  const checkNumberOfMines = () => {
+    return 1 <= numberOfMines && numberOfMines <= height2 * width2;
+  };
+  const checkDimensions = () => {
+    if (width2 == "" || height2 == "") {
+      return false;
+    }
+    return 1 <= width2 && width2 <= 30 && (1 <= height2 && height2 <= 30);
+  };
+  const handleSubmit = async () => {
+    let response = await createBoard({
+      email,
+      name: name2,
+      height: height2,
+      width: width2,
+      numberOfMines
+    });
+    console.log(response);
+  };
   return /* @__PURE__ */ import_react10.default.createElement("div", { className: "form-container" }, /* @__PURE__ */ import_react10.default.createElement("h2", { className: "title" }, "Minesweeper Board Generator"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-form-container" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
+      value: email,
+      onChange: (e) => handleEmailInput(e.target.value),
       label: "Email Address"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
+      value: name2,
+      onChange: (e) => handleNameInput(e.target.value),
       label: "Board Name"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
+      value: height2,
+      onChange: (e) => handleHeightInput(e.target.value),
+      type: "number",
       label: "Board Height (Max 30)"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
+      value: width2,
+      onChange: (e) => handleWidthInput(e.target.value),
+      type: "number",
       label: "Board Width (Max 30)"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
+      value: numberOfMines,
+      onChange: (e) => handleMinesInput(e.target.value),
+      type: "number",
       label: "Number of Mines"
     }
-  ))), /* @__PURE__ */ import_react10.default.createElement("div", { className: "button-container" }, /* @__PURE__ */ import_react10.default.createElement(Button_default, { style: { borderRadius: 25 }, fullWidth: true, variant: "contained", color: "success" }, "Generate Board")));
+  ))), /* @__PURE__ */ import_react10.default.createElement("div", { className: "button-container" }, valid ? /* @__PURE__ */ import_react10.default.createElement(Button_default, { style: { borderRadius: 25 }, fullWidth: true, variant: "contained", color: "success", onClick: () => {
+    handleSubmit();
+  } }, "Generate Board") : /* @__PURE__ */ import_react10.default.createElement(Button_default, { style: { borderRadius: 25 }, disabled: true, fullWidth: true, variant: "contained" }, "Generate Board")));
 };
 var BoardGeneratorForm_default = BoardGeneratorForm;
 
@@ -48756,7 +48840,7 @@ var BoardGeneratorForm_default = BoardGeneratorForm;
 var import_react12 = __toESM(require_react());
 
 // app/javascript/react/src/api/GetMinesweeperBoards.js
-var headers = {
+var headers2 = {
   Accept: "application/json",
   "Content-Type": "application/json"
 };
@@ -48764,7 +48848,7 @@ async function getTenMostRecentBoards() {
   const url = `/api/v1/boards/most_recent`;
   let response = await fetch(url, {
     method: "GET",
-    headers
+    headers: headers2
   });
   let boards = await response.json();
   return await boards;

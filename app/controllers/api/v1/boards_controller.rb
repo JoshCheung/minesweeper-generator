@@ -3,7 +3,7 @@ class Api::V1::BoardsController < ApplicationController
   before_action :set_board, only: %i[show]
 
   def most_recent
-    @boards = Board.order(created_at: :desc).last(10)
+    @boards = Board.order(created_at: :desc).first(10)
     render json: @boards
   end
 
@@ -30,7 +30,7 @@ class Api::V1::BoardsController < ApplicationController
   private 
 
   def board_params
-    params.permit(:name, :email, :height, :width, :num_mines)
+    params.permit(:name, :email, :height, :width, :numberOfMines)
   end
 
   def set_board
