@@ -14,7 +14,7 @@ export async function getTenMostRecentBoards() {
     return await boards;
 }
 
-export async function getTenMostRecentBoards() {
+export async function getAllBoards() {
     const url = `/api/v1/boards/all`;
     let response = await fetch(url, {
         method: 'GET',

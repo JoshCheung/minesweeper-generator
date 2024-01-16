@@ -48743,9 +48743,9 @@ var TextField_default = TextField;
 var BoardGeneratorForm = () => {
   const [email, setEmail] = (0, import_react10.useState)("");
   const [name2, setName] = (0, import_react10.useState)("");
-  const [height2, setHeight] = (0, import_react10.useState)(1);
-  const [width2, setWidth] = (0, import_react10.useState)(1);
-  const [numberOfMines, setNumberOfMines] = (0, import_react10.useState)(1);
+  const [height2, setHeight] = (0, import_react10.useState)(0);
+  const [width2, setWidth] = (0, import_react10.useState)(0);
+  const [numberOfMines, setNumberOfMines] = (0, import_react10.useState)(0);
   const [valid, setValidity] = (0, import_react10.useState)(false);
   (0, import_react10.useEffect)(() => {
     checkValidity();
@@ -48881,7 +48881,7 @@ var ListItem_default = ListItem;
 
 // app/javascript/react/src/components/BoardList/BoardList.jsx
 var BoardList = () => {
-  const [boardsList, setBoardsList] = (0, import_react12.useState)([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
   (0, import_react12.useEffect)(() => {
     fetchTenMostRecentBoards();
   }, []);

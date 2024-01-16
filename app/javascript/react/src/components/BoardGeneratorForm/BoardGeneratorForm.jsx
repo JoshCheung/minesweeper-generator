@@ -6,9 +6,9 @@ import './BoardGeneratorForm.css';
 const BoardGeneratorForm = () => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [height, setHeight] = useState(1);
-    const [width, setWidth] = useState(1);
-    const [numberOfMines, setNumberOfMines] = useState(1);
+    const [height, setHeight] = useState(0);
+    const [width, setWidth] = useState(0);
+    const [numberOfMines, setNumberOfMines] = useState(0);
     const [valid, setValidity] = useState(false);
 
     useEffect(() => {
