@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'homepage#index'
   namespace :api do
     namespace :v1 do
-      get 'boards/index'
+      get 'boards/most_recent'
+      get 'boards/all'
       post 'boards/create'
       get 'boards/show/:id', to: 'boards#show'
     end

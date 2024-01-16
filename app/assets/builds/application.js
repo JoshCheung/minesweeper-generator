@@ -31745,13 +31745,13 @@ var AttributeObserver = class {
   }
 };
 function add(map, key, value) {
-  fetch(map, key).add(value);
+  fetch2(map, key).add(value);
 }
 function del(map, key, value) {
-  fetch(map, key).delete(value);
+  fetch2(map, key).delete(value);
   prune(map, key);
 }
-function fetch(map, key) {
+function fetch2(map, key) {
   let values3 = map.get(key);
   if (!values3) {
     values3 = /* @__PURE__ */ new Set();
@@ -48755,10 +48755,43 @@ var BoardGeneratorForm_default = BoardGeneratorForm;
 // app/javascript/react/src/components/BoardList/BoardList.jsx
 var import_react12 = __toESM(require_react());
 
+// app/javascript/react/src/api/GetMinesweeperBoards.js
+var headers = {
+  Accept: "application/json",
+  "Content-Type": "application/json"
+};
+async function getTenMostRecentBoards() {
+  const url = `/api/v1/boards/most_recent`;
+  let response = await fetch(url, {
+    method: "GET",
+    headers
+  });
+  let boards = await response.json();
+  return await boards;
+}
+
 // app/javascript/react/src/components/BoardList/ListItem.jsx
 var import_react11 = __toESM(require_react());
-var ListItem = () => {
-  return /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-container" });
+
+// app/javascript/react/src/helper/timezoneConverter.js
+function convertUTCtoLocalTimeZone(dateTime) {
+  if (!dateTime) {
+    return "";
+  }
+  const utcDate = new Date(dateTime);
+  const timeZoneOffset = utcDate.getTimezoneOffset();
+  const localDate = new Date(utcDate.getTime() - timeZoneOffset);
+  const formattedLocalTime = localDate.toLocaleString();
+  return formattedLocalTime;
+}
+
+// app/javascript/react/src/components/BoardList/ListItem.jsx
+var ListItem = ({ boardInfo }) => {
+  const convertTime = () => {
+    convertUTCtoLocalTimeZone;
+    return convertUTCtoLocalTimeZone(boardInfo.created_at);
+  };
+  return /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "board-info-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-name" }, "Name: ", boardInfo.name), /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-email" }, "Author: ", boardInfo.email), /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-date" }, "Created At: ", convertTime(boardInfo.created_at))));
 };
 var ListItem_default = ListItem;
 
@@ -48766,8 +48799,26 @@ var ListItem_default = ListItem;
 var BoardList = () => {
   const [boardsList, setBoardsList] = (0, import_react12.useState)([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   (0, import_react12.useEffect)(() => {
+    fetchTenMostRecentBoards();
   }, []);
-  return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, boardsList.map((item) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, null))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(Button_default, { style: { borderRadius: 25 }, variant: "contained", fullWidth: true, color: "info" }, "View All Generated Boards")));
+  const fetchTenMostRecentBoards = async () => {
+    const boards = await getTenMostRecentBoards();
+    setBoardsList(boards);
+  };
+  return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, boardsList.map((board) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, { key: board.id, boardInfo: board }))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(
+    Button_default,
+    {
+      style: { borderRadius: 25 },
+      variant: "contained",
+      fullWidth: true,
+      color: "info",
+      onClick: () => {
+        {
+        }
+      }
+    },
+    "View All Generated Boards"
+  )));
 };
 var BoardList_default = BoardList;
 

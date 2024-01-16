@@ -37,11 +37,20 @@
   margin-bottom: 16px;
   border-radius: 25px;
 }
-.list-item-title {
+.board-info-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
-.list-item-author {
+.list-item-name {
+  display: flex;
+  font-weight: bold;
+}
+.list-item-email {
+  display: flex;
 }
 .list-item-date {
+  display: flex;
 }
 
 /* app/javascript/react/src/components/BoardList/BoardList.css */

@@ -2,7 +2,12 @@ class Api::V1::BoardsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_board, only: %i[show]
 
-  def index
+  def most_recent
+    @boards = Board.order(created_at: :desc).last(10)
+    render json: @boards
+  end
+
+  def all
     @boards = Board.all.order(created_at: :desc)
     render json: @boards
   end
