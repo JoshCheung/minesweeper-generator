@@ -48883,7 +48883,7 @@ var ListItem_default = ListItem;
 var BoardList = () => {
   const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
   (0, import_react12.useEffect)(() => {
-    console.log("Hello!");
+    console.log("Testing!");
     fetchTenMostRecentBoards();
   }, []);
   const fetchTenMostRecentBoards = async () => {
