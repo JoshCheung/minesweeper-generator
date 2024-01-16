@@ -27,10 +27,51 @@
   justify-content: center;
 }
 
+/* app/javascript/react/src/components/BoardList/ListItem.css */
+.list-item-container {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100%;
+  background-color: rgb(255, 255, 244);
+  margin-bottom: 16px;
+  border-radius: 25px;
+}
+.list-item-title {
+}
+.list-item-author {
+}
+.list-item-date {
+}
+
+/* app/javascript/react/src/components/BoardList/BoardList.css */
+.list-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 24px 0px 24px;
+}
+.list-title {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+}
+.list-wrapper {
+  padding: 10px;
+  overflow-y: scroll;
+}
+.list-button-container {
+  margin-top: auto;
+  bottom: 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
 /* app/javascript/react/src/components/Home/Home.css */
 .home-container {
   height: 100vh;
-  background-color: blue;
   display: flex;
   flex-direction: row;
 }
@@ -45,8 +86,11 @@
   display: flex;
   width: 25%;
   height: 100%;
-  background-color: rgb(164, 213, 255);
+  background-color: rgb(207, 232, 255);
 }
 
 /* app/javascript/react/src/components/App.css */
+body {
+  margin: 0 !important;
+}
 /*# sourceMappingURL=/assets/application.css.map */

@@ -22,13 +22,13 @@ const BoardGeneratorForm = () => {
                 <div className="input-container">
                     <TextField
                         fullWidth
-                        label="Board Height"
+                        label="Board Height (Max 30)"
                     />
                 </div>
                 <div className="input-container">
                     <TextField
                         fullWidth
-                        label="Board Width"
+                        label="Board Width (Max 30)"
                     />
                 </div>
                 <div className="input-container">

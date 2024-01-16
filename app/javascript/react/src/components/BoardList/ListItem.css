@@ -1,0 +1,23 @@
+.list-item-container {
+    display:flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100%;
+    background-color: rgb(255, 255, 244);
+    margin-bottom: 16px;
+    border-radius: 25px;
+}
+
+
+
+.list-item-title {
+
+}
+
+.list-item-author {
+
+}   
+
+.list-item-date {
+
+}

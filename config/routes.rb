@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'boards/index'
       post 'boards/create'
-      get 'boards/show'
+      get 'boards/show/:id', to: 'boards#show'
     end
   end
   resources :boards

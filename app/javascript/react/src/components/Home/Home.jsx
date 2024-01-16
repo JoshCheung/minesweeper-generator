@@ -1,6 +1,7 @@
 import React from 'react';
 import BoardGeneratorForm from '../BoardGeneratorForm/BoardGeneratorForm';
-// import BoardList from '';
+import BoardList from '../BoardList/BoardList';
+
 import "./Home.css";
 
 const Home = () => {
@@ -10,8 +11,8 @@ const Home = () => {
                 <BoardGeneratorForm/>
             </div>
 
-            <div className="board-list-container ">
-                {/* <BoardList/> */}
+            <div className="board-list-container">
+                <BoardList/>
             </div>  
         </div>
     )

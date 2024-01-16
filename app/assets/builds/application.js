@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState13(initialState) {
+        function useState14(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1688,7 +1688,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect14(create, deps) {
+        function useEffect15(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2470,7 +2470,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext8;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect14;
+        exports.useEffect = useEffect15;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
@@ -2478,7 +2478,7 @@ var require_react_development = __commonJS({
         exports.useMemo = useMemo4;
         exports.useReducer = useReducer;
         exports.useRef = useRef18;
-        exports.useState = useState13;
+        exports.useState = useState14;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React62 = require_react();
+        var React64 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React62.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React64.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React62.Children.forEach(props.children, function(child) {
+                React64.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React62.Component().refs;
+        var emptyRefsObject = new React64.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React62 = require_react();
+        var React64 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React62.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React64.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,10 +33920,10 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React61 = __toESM(require_react());
+var React63 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
-var import_react11 = __toESM(require_react());
+var import_react13 = __toESM(require_react());
 
 // app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.jsx
 var import_react10 = __toESM(require_react());
@@ -48734,13 +48734,13 @@ var BoardGeneratorForm = () => {
     TextField_default,
     {
       fullWidth: true,
-      label: "Board Height"
+      label: "Board Height (Max 30)"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
       fullWidth: true,
-      label: "Board Width"
+      label: "Board Width (Max 30)"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
@@ -48752,15 +48752,34 @@ var BoardGeneratorForm = () => {
 };
 var BoardGeneratorForm_default = BoardGeneratorForm;
 
+// app/javascript/react/src/components/BoardList/BoardList.jsx
+var import_react12 = __toESM(require_react());
+
+// app/javascript/react/src/components/BoardList/ListItem.jsx
+var import_react11 = __toESM(require_react());
+var ListItem = () => {
+  return /* @__PURE__ */ import_react11.default.createElement("div", { className: "list-item-container" });
+};
+var ListItem_default = ListItem;
+
+// app/javascript/react/src/components/BoardList/BoardList.jsx
+var BoardList = () => {
+  const [boardsList, setBoardsList] = (0, import_react12.useState)([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  (0, import_react12.useEffect)(() => {
+  }, []);
+  return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, boardsList.map((item) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, null))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(Button_default, { style: { borderRadius: 25 }, variant: "contained", fullWidth: true, color: "info" }, "View All Generated Boards")));
+};
+var BoardList_default = BoardList;
+
 // app/javascript/react/src/components/Home/Home.jsx
 var Home = () => {
-  return /* @__PURE__ */ import_react11.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react11.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react11.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react11.default.createElement("div", { className: "board-list-container " }));
+  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react13.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react13.default.createElement("div", { className: "board-list-container" }, /* @__PURE__ */ import_react13.default.createElement(BoardList_default, null)));
 };
 var Home_default = Home;
 
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React61.createElement("div", null, /* @__PURE__ */ React61.createElement(Home_default, null));
+  return /* @__PURE__ */ React63.createElement("div", null, /* @__PURE__ */ React63.createElement(Home_default, null));
 };
 var App_default = App;
 
