@@ -2,7 +2,7 @@ class Api::V1::BoardsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @boards = Board.all.order(created_at: :desc) params[:page]
+    @boards = Board.all.order(created_at: :desc)
     render json: @boards
   end
 
