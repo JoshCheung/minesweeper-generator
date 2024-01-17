@@ -44,7 +44,7 @@ const Board = ({id}) => {
                         </div>
                     </div>
                 }
-        </div>  
+            </div>  
         </div>
     )
 }

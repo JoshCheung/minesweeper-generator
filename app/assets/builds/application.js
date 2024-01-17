@@ -1563,7 +1563,7 @@ var require_react_development = __commonJS({
           }
           return lazyType;
         }
-        function forwardRef32(render) {
+        function forwardRef34(render) {
           {
             if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
               error2("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState19(initialState) {
+        function useState20(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1688,7 +1688,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect20(create, deps) {
+        function useEffect21(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2460,7 +2460,7 @@ var require_react_development = __commonJS({
         exports.createElement = createElement$1;
         exports.createFactory = createFactory;
         exports.createRef = createRef;
-        exports.forwardRef = forwardRef32;
+        exports.forwardRef = forwardRef34;
         exports.isValidElement = isValidElement9;
         exports.lazy = lazy;
         exports.memo = memo2;
@@ -2470,7 +2470,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext10;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect20;
+        exports.useEffect = useEffect21;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
@@ -2478,7 +2478,7 @@ var require_react_development = __commonJS({
         exports.useMemo = useMemo6;
         exports.useReducer = useReducer;
         exports.useRef = useRef20;
-        exports.useState = useState19;
+        exports.useState = useState20;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React69 = require_react();
+        var React78 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React78.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React69.Children.forEach(props.children, function(child) {
+                React78.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React69.Component().refs;
+        var emptyRefsObject = new React78.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React69 = require_react();
+        var React78 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React78.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,7 +33920,7 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React68 = __toESM(require_react());
+var React77 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
 var import_react16 = __toESM(require_react());
@@ -39988,7 +39988,7 @@ function createStyled3(input = {}) {
       skipSx: inputSkipSx,
       // TODO v6: remove `lowercaseFirstLetter()` in the next major release
       // For more details: https://github.com/mui/material-ui/pull/37908
-      overridesResolver = defaultOverridesResolver(lowercaseFirstLetter(componentSlot))
+      overridesResolver: overridesResolver2 = defaultOverridesResolver(lowercaseFirstLetter(componentSlot))
     } = inputOptions, options = _objectWithoutPropertiesLoose2(inputOptions, _excluded7);
     const skipVariantsResolver = inputSkipVariantsResolver !== void 0 ? inputSkipVariantsResolver : (
       // TODO v6: remove `Root` in the next major release
@@ -40069,7 +40069,7 @@ function createStyled3(input = {}) {
           themeId
         });
       }
-      if (componentName && overridesResolver) {
+      if (componentName && overridesResolver2) {
         expressionsWithDefaultTheme.push((props) => {
           const theme = resolveTheme(_extends4({}, props, {
             defaultTheme: defaultTheme2,
@@ -40083,7 +40083,7 @@ function createStyled3(input = {}) {
                 theme
               })) : slotStyle;
             });
-            return overridesResolver(props, resolvedStyleOverrides);
+            return overridesResolver2(props, resolvedStyleOverrides);
           }
           return null;
         });
@@ -49444,14 +49444,749 @@ true ? OutlinedInput.propTypes = {
 OutlinedInput.muiName = "Input";
 var OutlinedInput_default = OutlinedInput;
 
-// node_modules/@mui/material/Select/Select.js
-var React59 = __toESM(require_react());
+// node_modules/@mui/material/Pagination/Pagination.js
+var React63 = __toESM(require_react());
 var import_prop_types39 = __toESM(require_prop_types());
 
-// node_modules/@mui/material/Select/SelectInput.js
-var React58 = __toESM(require_react());
-var import_react_is4 = __toESM(require_react_is3());
+// node_modules/@mui/material/Pagination/paginationClasses.js
+function getPaginationUtilityClass(slot) {
+  return generateUtilityClass("MuiPagination", slot);
+}
+var paginationClasses = generateUtilityClasses("MuiPagination", ["root", "ul", "outlined", "text"]);
+
+// node_modules/@mui/material/usePagination/usePagination.js
+var _excluded38 = ["boundaryCount", "componentName", "count", "defaultPage", "disabled", "hideNextButton", "hidePrevButton", "onChange", "page", "showFirstButton", "showLastButton", "siblingCount"];
+function usePagination(props = {}) {
+  const {
+    boundaryCount = 1,
+    componentName = "usePagination",
+    count = 1,
+    defaultPage = 1,
+    disabled = false,
+    hideNextButton = false,
+    hidePrevButton = false,
+    onChange: handleChange,
+    page: pageProp,
+    showFirstButton = false,
+    showLastButton = false,
+    siblingCount = 1
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  const [page, setPageState] = useControlled({
+    controlled: pageProp,
+    default: defaultPage,
+    name: componentName,
+    state: "page"
+  });
+  const handleClick = (event, value) => {
+    if (!pageProp) {
+      setPageState(value);
+    }
+    if (handleChange) {
+      handleChange(event, value);
+    }
+  };
+  const range = (start2, end) => {
+    const length2 = end - start2 + 1;
+    return Array.from({
+      length: length2
+    }, (_2, i) => start2 + i);
+  };
+  const startPages = range(1, Math.min(boundaryCount, count));
+  const endPages = range(Math.max(count - boundaryCount + 1, boundaryCount + 1), count);
+  const siblingsStart = Math.max(
+    Math.min(
+      // Natural start
+      page - siblingCount,
+      // Lower boundary when page is high
+      count - boundaryCount - siblingCount * 2 - 1
+    ),
+    // Greater than startPages
+    boundaryCount + 2
+  );
+  const siblingsEnd = Math.min(
+    Math.max(
+      // Natural end
+      page + siblingCount,
+      // Upper boundary when page is low
+      boundaryCount + siblingCount * 2 + 2
+    ),
+    // Less than endPages
+    endPages.length > 0 ? endPages[0] - 2 : count - 1
+  );
+  const itemList = [
+    ...showFirstButton ? ["first"] : [],
+    ...hidePrevButton ? [] : ["previous"],
+    ...startPages,
+    // Start ellipsis
+    // eslint-disable-next-line no-nested-ternary
+    ...siblingsStart > boundaryCount + 2 ? ["start-ellipsis"] : boundaryCount + 1 < count - boundaryCount ? [boundaryCount + 1] : [],
+    // Sibling pages
+    ...range(siblingsStart, siblingsEnd),
+    // End ellipsis
+    // eslint-disable-next-line no-nested-ternary
+    ...siblingsEnd < count - boundaryCount - 1 ? ["end-ellipsis"] : count - boundaryCount > boundaryCount ? [count - boundaryCount] : [],
+    ...endPages,
+    ...hideNextButton ? [] : ["next"],
+    ...showLastButton ? ["last"] : []
+  ];
+  const buttonPage = (type) => {
+    switch (type) {
+      case "first":
+        return 1;
+      case "previous":
+        return page - 1;
+      case "next":
+        return page + 1;
+      case "last":
+        return count;
+      default:
+        return null;
+    }
+  };
+  const items = itemList.map((item) => {
+    return typeof item === "number" ? {
+      onClick: (event) => {
+        handleClick(event, item);
+      },
+      type: "page",
+      page: item,
+      selected: item === page,
+      disabled,
+      "aria-current": item === page ? "true" : void 0
+    } : {
+      onClick: (event) => {
+        handleClick(event, buttonPage(item));
+      },
+      type: item,
+      page: buttonPage(item),
+      selected: false,
+      disabled: disabled || item.indexOf("ellipsis") === -1 && (item === "next" || item === "last" ? page >= count : page <= 1)
+    };
+  });
+  return _extends4({
+    items
+  }, other);
+}
+
+// node_modules/@mui/material/PaginationItem/PaginationItem.js
+var React62 = __toESM(require_react());
 var import_prop_types38 = __toESM(require_prop_types());
+
+// node_modules/@mui/material/PaginationItem/paginationItemClasses.js
+function getPaginationItemUtilityClass(slot) {
+  return generateUtilityClass("MuiPaginationItem", slot);
+}
+var paginationItemClasses = generateUtilityClasses("MuiPaginationItem", ["root", "page", "sizeSmall", "sizeLarge", "text", "textPrimary", "textSecondary", "outlined", "outlinedPrimary", "outlinedSecondary", "rounded", "ellipsis", "firstLast", "previousNext", "focusVisible", "disabled", "selected", "icon"]);
+var paginationItemClasses_default = paginationItemClasses;
+
+// node_modules/@mui/material/internal/svg-icons/FirstPage.js
+var React58 = __toESM(require_react());
+var import_jsx_runtime43 = __toESM(require_jsx_runtime());
+var FirstPage_default = createSvgIcon(/* @__PURE__ */ (0, import_jsx_runtime43.jsx)("path", {
+  d: "M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+}), "FirstPage");
+
+// node_modules/@mui/material/internal/svg-icons/LastPage.js
+var React59 = __toESM(require_react());
+var import_jsx_runtime44 = __toESM(require_jsx_runtime());
+var LastPage_default = createSvgIcon(/* @__PURE__ */ (0, import_jsx_runtime44.jsx)("path", {
+  d: "M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+}), "LastPage");
+
+// node_modules/@mui/material/internal/svg-icons/NavigateBefore.js
+var React60 = __toESM(require_react());
+var import_jsx_runtime45 = __toESM(require_jsx_runtime());
+var NavigateBefore_default = createSvgIcon(/* @__PURE__ */ (0, import_jsx_runtime45.jsx)("path", {
+  d: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+}), "NavigateBefore");
+
+// node_modules/@mui/material/internal/svg-icons/NavigateNext.js
+var React61 = __toESM(require_react());
+var import_jsx_runtime46 = __toESM(require_jsx_runtime());
+var NavigateNext_default = createSvgIcon(/* @__PURE__ */ (0, import_jsx_runtime46.jsx)("path", {
+  d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+}), "NavigateNext");
+
+// node_modules/@mui/material/PaginationItem/PaginationItem.js
+var import_jsx_runtime47 = __toESM(require_jsx_runtime());
+var import_jsx_runtime48 = __toESM(require_jsx_runtime());
+var _excluded39 = ["className", "color", "component", "components", "disabled", "page", "selected", "shape", "size", "slots", "type", "variant"];
+var overridesResolver = (props, styles4) => {
+  const {
+    ownerState
+  } = props;
+  return [styles4.root, styles4[ownerState.variant], styles4[`size${capitalize_default(ownerState.size)}`], ownerState.variant === "text" && styles4[`text${capitalize_default(ownerState.color)}`], ownerState.variant === "outlined" && styles4[`outlined${capitalize_default(ownerState.color)}`], ownerState.shape === "rounded" && styles4.rounded, ownerState.type === "page" && styles4.page, (ownerState.type === "start-ellipsis" || ownerState.type === "end-ellipsis") && styles4.ellipsis, (ownerState.type === "previous" || ownerState.type === "next") && styles4.previousNext, (ownerState.type === "first" || ownerState.type === "last") && styles4.firstLast];
+};
+var useUtilityClasses19 = (ownerState) => {
+  const {
+    classes,
+    color: color2,
+    disabled,
+    selected,
+    size,
+    shape: shape2,
+    type,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ["root", `size${capitalize_default(size)}`, variant, shape2, color2 !== "standard" && `${variant}${capitalize_default(color2)}`, disabled && "disabled", selected && "selected", {
+      page: "page",
+      first: "firstLast",
+      last: "firstLast",
+      "start-ellipsis": "ellipsis",
+      "end-ellipsis": "ellipsis",
+      previous: "previousNext",
+      next: "previousNext"
+    }[type]],
+    icon: ["icon"]
+  };
+  return composeClasses(slots, getPaginationItemUtilityClass, classes);
+};
+var PaginationItemEllipsis = styled_default("div", {
+  name: "MuiPaginationItem",
+  slot: "Root",
+  overridesResolver
+})(({
+  theme,
+  ownerState
+}) => _extends4({}, theme.typography.body2, {
+  borderRadius: 32 / 2,
+  textAlign: "center",
+  boxSizing: "border-box",
+  minWidth: 32,
+  padding: "0 6px",
+  margin: "0 3px",
+  color: (theme.vars || theme).palette.text.primary,
+  height: "auto",
+  [`&.${paginationItemClasses_default.disabled}`]: {
+    opacity: (theme.vars || theme).palette.action.disabledOpacity
+  }
+}, ownerState.size === "small" && {
+  minWidth: 26,
+  borderRadius: 26 / 2,
+  margin: "0 1px",
+  padding: "0 4px"
+}, ownerState.size === "large" && {
+  minWidth: 40,
+  borderRadius: 40 / 2,
+  padding: "0 10px",
+  fontSize: theme.typography.pxToRem(15)
+}));
+var PaginationItemPage = styled_default(ButtonBase_default, {
+  name: "MuiPaginationItem",
+  slot: "Root",
+  overridesResolver
+})(({
+  theme,
+  ownerState
+}) => _extends4({}, theme.typography.body2, {
+  borderRadius: 32 / 2,
+  textAlign: "center",
+  boxSizing: "border-box",
+  minWidth: 32,
+  height: 32,
+  padding: "0 6px",
+  margin: "0 3px",
+  color: (theme.vars || theme).palette.text.primary,
+  [`&.${paginationItemClasses_default.focusVisible}`]: {
+    backgroundColor: (theme.vars || theme).palette.action.focus
+  },
+  [`&.${paginationItemClasses_default.disabled}`]: {
+    opacity: (theme.vars || theme).palette.action.disabledOpacity
+  },
+  transition: theme.transitions.create(["color", "background-color"], {
+    duration: theme.transitions.duration.short
+  }),
+  "&:hover": {
+    backgroundColor: (theme.vars || theme).palette.action.hover,
+    // Reset on touch devices, it doesn't add specificity
+    "@media (hover: none)": {
+      backgroundColor: "transparent"
+    }
+  },
+  [`&.${paginationItemClasses_default.selected}`]: {
+    backgroundColor: (theme.vars || theme).palette.action.selected,
+    "&:hover": {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette.action.selectedChannel} / calc(${theme.vars.palette.action.selectedOpacity} + ${theme.vars.palette.action.hoverOpacity}))` : alpha(theme.palette.action.selected, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+      // Reset on touch devices, it doesn't add specificity
+      "@media (hover: none)": {
+        backgroundColor: (theme.vars || theme).palette.action.selected
+      }
+    },
+    [`&.${paginationItemClasses_default.focusVisible}`]: {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette.action.selectedChannel} / calc(${theme.vars.palette.action.selectedOpacity} + ${theme.vars.palette.action.focusOpacity}))` : alpha(theme.palette.action.selected, theme.palette.action.selectedOpacity + theme.palette.action.focusOpacity)
+    },
+    [`&.${paginationItemClasses_default.disabled}`]: {
+      opacity: 1,
+      color: (theme.vars || theme).palette.action.disabled,
+      backgroundColor: (theme.vars || theme).palette.action.selected
+    }
+  }
+}, ownerState.size === "small" && {
+  minWidth: 26,
+  height: 26,
+  borderRadius: 26 / 2,
+  margin: "0 1px",
+  padding: "0 4px"
+}, ownerState.size === "large" && {
+  minWidth: 40,
+  height: 40,
+  borderRadius: 40 / 2,
+  padding: "0 10px",
+  fontSize: theme.typography.pxToRem(15)
+}, ownerState.shape === "rounded" && {
+  borderRadius: (theme.vars || theme).shape.borderRadius
+}), ({
+  theme,
+  ownerState
+}) => _extends4({}, ownerState.variant === "text" && {
+  [`&.${paginationItemClasses_default.selected}`]: _extends4({}, ownerState.color !== "standard" && {
+    color: (theme.vars || theme).palette[ownerState.color].contrastText,
+    backgroundColor: (theme.vars || theme).palette[ownerState.color].main,
+    "&:hover": {
+      backgroundColor: (theme.vars || theme).palette[ownerState.color].dark,
+      // Reset on touch devices, it doesn't add specificity
+      "@media (hover: none)": {
+        backgroundColor: (theme.vars || theme).palette[ownerState.color].main
+      }
+    },
+    [`&.${paginationItemClasses_default.focusVisible}`]: {
+      backgroundColor: (theme.vars || theme).palette[ownerState.color].dark
+    }
+  }, {
+    [`&.${paginationItemClasses_default.disabled}`]: {
+      color: (theme.vars || theme).palette.action.disabled
+    }
+  })
+}, ownerState.variant === "outlined" && {
+  border: theme.vars ? `1px solid rgba(${theme.vars.palette.common.onBackgroundChannel} / 0.23)` : `1px solid ${theme.palette.mode === "light" ? "rgba(0, 0, 0, 0.23)" : "rgba(255, 255, 255, 0.23)"}`,
+  [`&.${paginationItemClasses_default.selected}`]: _extends4({}, ownerState.color !== "standard" && {
+    color: (theme.vars || theme).palette[ownerState.color].main,
+    border: `1px solid ${theme.vars ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / 0.5)` : alpha(theme.palette[ownerState.color].main, 0.5)}`,
+    backgroundColor: theme.vars ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / ${theme.vars.palette.action.activatedOpacity})` : alpha(theme.palette[ownerState.color].main, theme.palette.action.activatedOpacity),
+    "&:hover": {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / calc(${theme.vars.palette.action.activatedOpacity} + ${theme.vars.palette.action.focusOpacity}))` : alpha(theme.palette[ownerState.color].main, theme.palette.action.activatedOpacity + theme.palette.action.focusOpacity),
+      // Reset on touch devices, it doesn't add specificity
+      "@media (hover: none)": {
+        backgroundColor: "transparent"
+      }
+    },
+    [`&.${paginationItemClasses_default.focusVisible}`]: {
+      backgroundColor: theme.vars ? `rgba(${theme.vars.palette[ownerState.color].mainChannel} / calc(${theme.vars.palette.action.activatedOpacity} + ${theme.vars.palette.action.focusOpacity}))` : alpha(theme.palette[ownerState.color].main, theme.palette.action.activatedOpacity + theme.palette.action.focusOpacity)
+    }
+  }, {
+    [`&.${paginationItemClasses_default.disabled}`]: {
+      borderColor: (theme.vars || theme).palette.action.disabledBackground,
+      color: (theme.vars || theme).palette.action.disabled
+    }
+  })
+}));
+var PaginationItemPageIcon = styled_default("div", {
+  name: "MuiPaginationItem",
+  slot: "Icon",
+  overridesResolver: (props, styles4) => styles4.icon
+})(({
+  theme,
+  ownerState
+}) => _extends4({
+  fontSize: theme.typography.pxToRem(20),
+  margin: "0 -8px"
+}, ownerState.size === "small" && {
+  fontSize: theme.typography.pxToRem(18)
+}, ownerState.size === "large" && {
+  fontSize: theme.typography.pxToRem(22)
+}));
+var PaginationItem = /* @__PURE__ */ React62.forwardRef(function PaginationItem2(inProps, ref) {
+  const props = useThemeProps2({
+    props: inProps,
+    name: "MuiPaginationItem"
+  });
+  const {
+    className,
+    color: color2 = "standard",
+    component,
+    components = {},
+    disabled = false,
+    page,
+    selected = false,
+    shape: shape2 = "circular",
+    size = "medium",
+    slots = {},
+    type = "page",
+    variant = "text"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
+  const ownerState = _extends4({}, props, {
+    color: color2,
+    disabled,
+    selected,
+    shape: shape2,
+    size,
+    type,
+    variant
+  });
+  const theme = useTheme4();
+  const classes = useUtilityClasses19(ownerState);
+  const normalizedIcons = theme.direction === "rtl" ? {
+    previous: slots.next || components.next || NavigateNext_default,
+    next: slots.previous || components.previous || NavigateBefore_default,
+    last: slots.first || components.first || FirstPage_default,
+    first: slots.last || components.last || LastPage_default
+  } : {
+    previous: slots.previous || components.previous || NavigateBefore_default,
+    next: slots.next || components.next || NavigateNext_default,
+    first: slots.first || components.first || FirstPage_default,
+    last: slots.last || components.last || LastPage_default
+  };
+  const Icon = normalizedIcons[type];
+  return type === "start-ellipsis" || type === "end-ellipsis" ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(PaginationItemEllipsis, {
+    ref,
+    ownerState,
+    className: clsx_default(classes.root, className),
+    children: "\u2026"
+  }) : /* @__PURE__ */ (0, import_jsx_runtime48.jsxs)(PaginationItemPage, _extends4({
+    ref,
+    ownerState,
+    component,
+    disabled,
+    className: clsx_default(classes.root, className)
+  }, other, {
+    children: [type === "page" && page, Icon ? /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(PaginationItemPageIcon, {
+      as: Icon,
+      ownerState,
+      className: classes.icon
+    }) : null]
+  }));
+});
+true ? PaginationItem.propTypes = {
+  // ┌────────────────────────────── Warning ──────────────────────────────┐
+  // │ These PropTypes are generated from the TypeScript type definitions. │
+  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
+  // └─────────────────────────────────────────────────────────────────────┘
+  /**
+   * @ignore
+   */
+  children: import_prop_types38.default.node,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: import_prop_types38.default.object,
+  /**
+   * @ignore
+   */
+  className: import_prop_types38.default.string,
+  /**
+   * The active color.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
+   * @default 'standard'
+   */
+  color: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["primary", "secondary", "standard"]), import_prop_types38.default.string]),
+  /**
+   * The component used for the root node.
+   * Either a string to use a HTML element or a component.
+   */
+  component: import_prop_types38.default.elementType,
+  /**
+   * The components used for each slot inside.
+   *
+   * This prop is an alias for the `slots` prop.
+   * It's recommended to use the `slots` prop instead.
+   *
+   * @default {}
+   */
+  components: import_prop_types38.default.shape({
+    first: import_prop_types38.default.elementType,
+    last: import_prop_types38.default.elementType,
+    next: import_prop_types38.default.elementType,
+    previous: import_prop_types38.default.elementType
+  }),
+  /**
+   * If `true`, the component is disabled.
+   * @default false
+   */
+  disabled: import_prop_types38.default.bool,
+  /**
+   * The current page number.
+   */
+  page: import_prop_types38.default.node,
+  /**
+   * If `true` the pagination item is selected.
+   * @default false
+   */
+  selected: import_prop_types38.default.bool,
+  /**
+   * The shape of the pagination item.
+   * @default 'circular'
+   */
+  shape: import_prop_types38.default.oneOf(["circular", "rounded"]),
+  /**
+   * The size of the component.
+   * @default 'medium'
+   */
+  size: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["small", "medium", "large"]), import_prop_types38.default.string]),
+  /**
+   * The components used for each slot inside.
+   *
+   * This prop is an alias for the `components` prop, which will be deprecated in the future.
+   *
+   * @default {}
+   */
+  slots: import_prop_types38.default.shape({
+    first: import_prop_types38.default.elementType,
+    last: import_prop_types38.default.elementType,
+    next: import_prop_types38.default.elementType,
+    previous: import_prop_types38.default.elementType
+  }),
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: import_prop_types38.default.oneOfType([import_prop_types38.default.arrayOf(import_prop_types38.default.oneOfType([import_prop_types38.default.func, import_prop_types38.default.object, import_prop_types38.default.bool])), import_prop_types38.default.func, import_prop_types38.default.object]),
+  /**
+   * The type of pagination item.
+   * @default 'page'
+   */
+  type: import_prop_types38.default.oneOf(["end-ellipsis", "first", "last", "next", "page", "previous", "start-ellipsis"]),
+  /**
+   * The variant to use.
+   * @default 'text'
+   */
+  variant: import_prop_types38.default.oneOfType([import_prop_types38.default.oneOf(["outlined", "text"]), import_prop_types38.default.string])
+} : void 0;
+var PaginationItem_default = PaginationItem;
+
+// node_modules/@mui/material/Pagination/Pagination.js
+var import_jsx_runtime49 = __toESM(require_jsx_runtime());
+var _excluded40 = ["boundaryCount", "className", "color", "count", "defaultPage", "disabled", "getItemAriaLabel", "hideNextButton", "hidePrevButton", "onChange", "page", "renderItem", "shape", "showFirstButton", "showLastButton", "siblingCount", "size", "variant"];
+var useUtilityClasses20 = (ownerState) => {
+  const {
+    classes,
+    variant
+  } = ownerState;
+  const slots = {
+    root: ["root", variant],
+    ul: ["ul"]
+  };
+  return composeClasses(slots, getPaginationUtilityClass, classes);
+};
+var PaginationRoot = styled_default("nav", {
+  name: "MuiPagination",
+  slot: "Root",
+  overridesResolver: (props, styles4) => {
+    const {
+      ownerState
+    } = props;
+    return [styles4.root, styles4[ownerState.variant]];
+  }
+})({});
+var PaginationUl = styled_default("ul", {
+  name: "MuiPagination",
+  slot: "Ul",
+  overridesResolver: (props, styles4) => styles4.ul
+})({
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "center",
+  padding: 0,
+  margin: 0,
+  listStyle: "none"
+});
+function defaultGetAriaLabel(type, page, selected) {
+  if (type === "page") {
+    return `${selected ? "" : "Go to "}page ${page}`;
+  }
+  return `Go to ${type} page`;
+}
+var Pagination = /* @__PURE__ */ React63.forwardRef(function Pagination2(inProps, ref) {
+  const props = useThemeProps2({
+    props: inProps,
+    name: "MuiPagination"
+  });
+  const {
+    boundaryCount = 1,
+    className,
+    color: color2 = "standard",
+    count = 1,
+    defaultPage = 1,
+    disabled = false,
+    getItemAriaLabel = defaultGetAriaLabel,
+    hideNextButton = false,
+    hidePrevButton = false,
+    renderItem = (item) => /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(PaginationItem_default, _extends4({}, item)),
+    shape: shape2 = "circular",
+    showFirstButton = false,
+    showLastButton = false,
+    siblingCount = 1,
+    size = "medium",
+    variant = "text"
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  const {
+    items
+  } = usePagination(_extends4({}, props, {
+    componentName: "Pagination"
+  }));
+  const ownerState = _extends4({}, props, {
+    boundaryCount,
+    color: color2,
+    count,
+    defaultPage,
+    disabled,
+    getItemAriaLabel,
+    hideNextButton,
+    hidePrevButton,
+    renderItem,
+    shape: shape2,
+    showFirstButton,
+    showLastButton,
+    siblingCount,
+    size,
+    variant
+  });
+  const classes = useUtilityClasses20(ownerState);
+  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(PaginationRoot, _extends4({
+    "aria-label": "pagination navigation",
+    className: clsx_default(classes.root, className),
+    ownerState,
+    ref
+  }, other, {
+    children: /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(PaginationUl, {
+      className: classes.ul,
+      ownerState,
+      children: items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime49.jsx)("li", {
+        children: renderItem(_extends4({}, item, {
+          color: color2,
+          "aria-label": getItemAriaLabel(item.type, item.page, item.selected),
+          shape: shape2,
+          size,
+          variant
+        }))
+      }, index))
+    })
+  }));
+});
+true ? Pagination.propTypes = {
+  // ┌────────────────────────────── Warning ──────────────────────────────┐
+  // │ These PropTypes are generated from the TypeScript type definitions. │
+  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
+  // └─────────────────────────────────────────────────────────────────────┘
+  /**
+   * Number of always visible pages at the beginning and end.
+   * @default 1
+   */
+  boundaryCount: integerPropType_default,
+  /**
+   * Override or extend the styles applied to the component.
+   */
+  classes: import_prop_types39.default.object,
+  /**
+   * @ignore
+   */
+  className: import_prop_types39.default.string,
+  /**
+   * The active color.
+   * It supports both default and custom theme colors, which can be added as shown in the
+   * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
+   * @default 'standard'
+   */
+  color: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["primary", "secondary", "standard"]), import_prop_types39.default.string]),
+  /**
+   * The total number of pages.
+   * @default 1
+   */
+  count: integerPropType_default,
+  /**
+   * The page selected by default when the component is uncontrolled.
+   * @default 1
+   */
+  defaultPage: integerPropType_default,
+  /**
+   * If `true`, the component is disabled.
+   * @default false
+   */
+  disabled: import_prop_types39.default.bool,
+  /**
+   * Accepts a function which returns a string value that provides a user-friendly name for the current page.
+   * This is important for screen reader users.
+   *
+   * For localization purposes, you can use the provided [translations](/material-ui/guides/localization/).
+   * @param {string} type The link or button type to format ('page' | 'first' | 'last' | 'next' | 'previous' | 'start-ellipsis' | 'end-ellipsis'). Defaults to 'page'.
+   * @param {number} page The page number to format.
+   * @param {bool} selected If true, the current page is selected.
+   * @returns {string}
+   */
+  getItemAriaLabel: import_prop_types39.default.func,
+  /**
+   * If `true`, hide the next-page button.
+   * @default false
+   */
+  hideNextButton: import_prop_types39.default.bool,
+  /**
+   * If `true`, hide the previous-page button.
+   * @default false
+   */
+  hidePrevButton: import_prop_types39.default.bool,
+  /**
+   * Callback fired when the page is changed.
+   *
+   * @param {React.ChangeEvent<unknown>} event The event source of the callback.
+   * @param {number} page The page selected.
+   */
+  onChange: import_prop_types39.default.func,
+  /**
+   * The current page.
+   */
+  page: integerPropType_default,
+  /**
+   * Render the item.
+   * @param {PaginationRenderItemParams} params The props to spread on a PaginationItem.
+   * @returns {ReactNode}
+   * @default (item) => <PaginationItem {...item} />
+   */
+  renderItem: import_prop_types39.default.func,
+  /**
+   * The shape of the pagination items.
+   * @default 'circular'
+   */
+  shape: import_prop_types39.default.oneOf(["circular", "rounded"]),
+  /**
+   * If `true`, show the first-page button.
+   * @default false
+   */
+  showFirstButton: import_prop_types39.default.bool,
+  /**
+   * If `true`, show the last-page button.
+   * @default false
+   */
+  showLastButton: import_prop_types39.default.bool,
+  /**
+   * Number of always visible pages before and after the current page.
+   * @default 1
+   */
+  siblingCount: integerPropType_default,
+  /**
+   * The size of the component.
+   * @default 'medium'
+   */
+  size: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["small", "medium", "large"]), import_prop_types39.default.string]),
+  /**
+   * The system prop that allows defining system overrides as well as additional CSS styles.
+   */
+  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object]),
+  /**
+   * The variant to use.
+   * @default 'text'
+   */
+  variant: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf(["outlined", "text"]), import_prop_types39.default.string])
+} : void 0;
+var Pagination_default = Pagination;
+
+// node_modules/@mui/material/Select/Select.js
+var React65 = __toESM(require_react());
+var import_prop_types41 = __toESM(require_prop_types());
+
+// node_modules/@mui/material/Select/SelectInput.js
+var React64 = __toESM(require_react());
+var import_react_is4 = __toESM(require_react_is3());
+var import_prop_types40 = __toESM(require_prop_types());
 
 // node_modules/@mui/material/Select/selectClasses.js
 function getSelectUtilityClasses(slot) {
@@ -49461,10 +50196,10 @@ var selectClasses = generateUtilityClasses("MuiSelect", ["root", "select", "mult
 var selectClasses_default = selectClasses;
 
 // node_modules/@mui/material/Select/SelectInput.js
-var import_jsx_runtime43 = __toESM(require_jsx_runtime());
-var import_jsx_runtime44 = __toESM(require_jsx_runtime());
+var import_jsx_runtime50 = __toESM(require_jsx_runtime());
+var import_jsx_runtime51 = __toESM(require_jsx_runtime());
 var _span3;
-var _excluded38 = ["aria-describedby", "aria-label", "autoFocus", "autoWidth", "children", "className", "defaultOpen", "defaultValue", "disabled", "displayEmpty", "error", "IconComponent", "inputRef", "labelId", "MenuProps", "multiple", "name", "onBlur", "onChange", "onClose", "onFocus", "onOpen", "open", "readOnly", "renderValue", "SelectDisplayProps", "tabIndex", "type", "value", "variant"];
+var _excluded41 = ["aria-describedby", "aria-label", "autoFocus", "autoWidth", "children", "className", "defaultOpen", "defaultValue", "disabled", "displayEmpty", "error", "IconComponent", "inputRef", "labelId", "MenuProps", "multiple", "name", "onBlur", "onChange", "onClose", "onFocus", "onOpen", "open", "readOnly", "renderValue", "SelectDisplayProps", "tabIndex", "type", "value", "variant"];
 var SelectSelect = styled_default("div", {
   name: "MuiSelect",
   slot: "Select",
@@ -49533,7 +50268,7 @@ function areEqualValues(a, b) {
 function isEmpty5(display) {
   return display == null || typeof display === "string" && !display.trim();
 }
-var useUtilityClasses19 = (ownerState) => {
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes,
     variant,
@@ -49549,7 +50284,7 @@ var useUtilityClasses19 = (ownerState) => {
   };
   return composeClasses(slots, getSelectUtilityClasses, classes);
 };
-var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props, ref) {
+var SelectInput = /* @__PURE__ */ React64.forwardRef(function SelectInput2(props, ref) {
   var _MenuProps$slotProps;
   const {
     "aria-describedby": ariaDescribedby,
@@ -49581,7 +50316,7 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     tabIndex: tabIndexProp,
     value: valueProp,
     variant = "standard"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded38);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
   const [value, setValueState] = useControlled_default({
     controlled: valueProp,
     default: defaultValue,
@@ -49592,40 +50327,40 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     default: defaultOpen,
     name: "Select"
   });
-  const inputRef = React58.useRef(null);
-  const displayRef = React58.useRef(null);
-  const [displayNode, setDisplayNode] = React58.useState(null);
+  const inputRef = React64.useRef(null);
+  const displayRef = React64.useRef(null);
+  const [displayNode, setDisplayNode] = React64.useState(null);
   const {
     current: isOpenControlled
-  } = React58.useRef(openProp != null);
-  const [menuMinWidthState, setMenuMinWidthState] = React58.useState();
+  } = React64.useRef(openProp != null);
+  const [menuMinWidthState, setMenuMinWidthState] = React64.useState();
   const handleRef = useForkRef_default(ref, inputRefProp);
-  const handleDisplayRef = React58.useCallback((node2) => {
+  const handleDisplayRef = React64.useCallback((node2) => {
     displayRef.current = node2;
     if (node2) {
       setDisplayNode(node2);
     }
   }, []);
   const anchorElement = displayNode == null ? void 0 : displayNode.parentNode;
-  React58.useImperativeHandle(handleRef, () => ({
+  React64.useImperativeHandle(handleRef, () => ({
     focus: () => {
       displayRef.current.focus();
     },
     node: inputRef.current,
     value
   }), [value]);
-  React58.useEffect(() => {
+  React64.useEffect(() => {
     if (defaultOpen && openState && displayNode && !isOpenControlled) {
       setMenuMinWidthState(autoWidth ? null : anchorElement.clientWidth);
       displayRef.current.focus();
     }
   }, [displayNode, autoWidth]);
-  React58.useEffect(() => {
+  React64.useEffect(() => {
     if (autoFocus) {
       displayRef.current.focus();
     }
   }, [autoFocus]);
-  React58.useEffect(() => {
+  React64.useEffect(() => {
     if (!labelId) {
       return void 0;
     }
@@ -49667,7 +50402,7 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
   const handleClose = (event) => {
     update2(false, event);
   };
-  const childrenArray = React58.Children.toArray(children);
+  const childrenArray = React64.Children.toArray(children);
   const handleChange = (event) => {
     const child = childrenArray.find((childItem) => childItem.props.value === event.target.value);
     if (child === void 0) {
@@ -49761,7 +50496,7 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     }
   }
   const items = childrenArray.map((child) => {
-    if (!/* @__PURE__ */ React58.isValidElement(child)) {
+    if (!/* @__PURE__ */ React64.isValidElement(child)) {
       return null;
     }
     if (true) {
@@ -49787,7 +50522,7 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     if (selected) {
       foundMatch = true;
     }
-    return /* @__PURE__ */ React58.cloneElement(child, {
+    return /* @__PURE__ */ React64.cloneElement(child, {
       "aria-selected": selected ? "true" : "false",
       onClick: handleItemClick(child),
       onKeyUp: (event) => {
@@ -49807,7 +50542,7 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     });
   });
   if (true) {
-    React58.useEffect(() => {
+    React64.useEffect(() => {
       if (!foundMatch && !multiple && value !== "") {
         const values3 = childrenArray.map((child) => child.props.value);
         console.warn([`MUI: You have provided an out-of-range value \`${value}\` for the select ${name2 ? `(name="${name2}") ` : ""}component.`, "Consider providing a value that matches one of the available options or ''.", `The available values are ${values3.filter((x) => x != null).map((x) => `\`${x}\``).join(", ") || '""'}.`].join("\n"));
@@ -49848,11 +50583,11 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
     open,
     error: error2
   });
-  const classes = useUtilityClasses19(ownerState);
+  const classes = useUtilityClasses21(ownerState);
   const paperProps = _extends4({}, MenuProps.PaperProps, (_MenuProps$slotProps = MenuProps.slotProps) == null ? void 0 : _MenuProps$slotProps.paper);
   const listboxId = useId();
-  return /* @__PURE__ */ (0, import_jsx_runtime44.jsxs)(React58.Fragment, {
-    children: [/* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SelectSelect, _extends4({
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(React64.Fragment, {
+    children: [/* @__PURE__ */ (0, import_jsx_runtime50.jsx)(SelectSelect, _extends4({
       ref: handleDisplayRef,
       tabIndex,
       role: "combobox",
@@ -49873,12 +50608,12 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
       id: buttonId,
       children: isEmpty5(display) ? (
         // notranslate needed while Google Translate will not fix zero-width space issue
-        _span3 || (_span3 = /* @__PURE__ */ (0, import_jsx_runtime43.jsx)("span", {
+        _span3 || (_span3 = /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", {
           className: "notranslate",
           children: "\u200B"
         }))
       ) : display
-    })), /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SelectNativeInput, _extends4({
+    })), /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(SelectNativeInput, _extends4({
       "aria-invalid": error2,
       value: Array.isArray(value) ? value.join(",") : value,
       name: name2,
@@ -49890,11 +50625,11 @@ var SelectInput = /* @__PURE__ */ React58.forwardRef(function SelectInput2(props
       className: classes.nativeInput,
       autoFocus,
       ownerState
-    }, other)), /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(SelectIcon, {
+    }, other)), /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(SelectIcon, {
       as: IconComponent,
       className: classes.icon,
       ownerState
-    }), /* @__PURE__ */ (0, import_jsx_runtime43.jsx)(Menu_default, _extends4({
+    }), /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(Menu_default, _extends4({
       id: `menu-${name2 || ""}`,
       anchorEl: anchorElement,
       open,
@@ -49930,59 +50665,59 @@ true ? SelectInput.propTypes = {
   /**
    * @ignore
    */
-  "aria-describedby": import_prop_types38.default.string,
+  "aria-describedby": import_prop_types40.default.string,
   /**
    * @ignore
    */
-  "aria-label": import_prop_types38.default.string,
+  "aria-label": import_prop_types40.default.string,
   /**
    * @ignore
    */
-  autoFocus: import_prop_types38.default.bool,
+  autoFocus: import_prop_types40.default.bool,
   /**
    * If `true`, the width of the popover will automatically be set according to the items inside the
    * menu, otherwise it will be at least the width of the select input.
    */
-  autoWidth: import_prop_types38.default.bool,
+  autoWidth: import_prop_types40.default.bool,
   /**
    * The option elements to populate the select with.
    * Can be some `<MenuItem>` elements.
    */
-  children: import_prop_types38.default.node,
+  children: import_prop_types40.default.node,
   /**
    * Override or extend the styles applied to the component.
    * See [CSS API](#css) below for more details.
    */
-  classes: import_prop_types38.default.object,
+  classes: import_prop_types40.default.object,
   /**
    * The CSS class name of the select element.
    */
-  className: import_prop_types38.default.string,
+  className: import_prop_types40.default.string,
   /**
    * If `true`, the component is toggled on mount. Use when the component open state is not controlled.
    * You can only use it when the `native` prop is `false` (default).
    */
-  defaultOpen: import_prop_types38.default.bool,
+  defaultOpen: import_prop_types40.default.bool,
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: import_prop_types38.default.any,
+  defaultValue: import_prop_types40.default.any,
   /**
    * If `true`, the select is disabled.
    */
-  disabled: import_prop_types38.default.bool,
+  disabled: import_prop_types40.default.bool,
   /**
    * If `true`, the selected item is displayed even if its value is empty.
    */
-  displayEmpty: import_prop_types38.default.bool,
+  displayEmpty: import_prop_types40.default.bool,
   /**
    * If `true`, the `select input` will indicate an error.
    */
-  error: import_prop_types38.default.bool,
+  error: import_prop_types40.default.bool,
   /**
    * The icon that displays the arrow.
    */
-  IconComponent: import_prop_types38.default.elementType.isRequired,
+  IconComponent: import_prop_types40.default.elementType.isRequired,
   /**
    * Imperative handle implementing `{ value: T, node: HTMLElement, focus(): void }`
    * Equivalent to `ref`
@@ -49992,23 +50727,23 @@ true ? SelectInput.propTypes = {
    * The ID of an element that acts as an additional label. The Select will
    * be labelled by the additional label and the selected value.
    */
-  labelId: import_prop_types38.default.string,
+  labelId: import_prop_types40.default.string,
   /**
    * Props applied to the [`Menu`](/material-ui/api/menu/) element.
    */
-  MenuProps: import_prop_types38.default.object,
+  MenuProps: import_prop_types40.default.object,
   /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    */
-  multiple: import_prop_types38.default.bool,
+  multiple: import_prop_types40.default.bool,
   /**
    * Name attribute of the `select` or hidden `input` element.
    */
-  name: import_prop_types38.default.string,
+  name: import_prop_types40.default.string,
   /**
    * @ignore
    */
-  onBlur: import_prop_types38.default.func,
+  onBlur: import_prop_types40.default.func,
   /**
    * Callback fired when a menu item is selected.
    *
@@ -50016,68 +50751,68 @@ true ? SelectInput.propTypes = {
    * You can pull out the new value by accessing `event.target.value` (any).
    * @param {object} [child] The react element that was selected.
    */
-  onChange: import_prop_types38.default.func,
+  onChange: import_prop_types40.default.func,
   /**
    * Callback fired when the component requests to be closed.
    * Use in controlled mode (see open).
    *
    * @param {object} event The event source of the callback.
    */
-  onClose: import_prop_types38.default.func,
+  onClose: import_prop_types40.default.func,
   /**
    * @ignore
    */
-  onFocus: import_prop_types38.default.func,
+  onFocus: import_prop_types40.default.func,
   /**
    * Callback fired when the component requests to be opened.
    * Use in controlled mode (see open).
    *
    * @param {object} event The event source of the callback.
    */
-  onOpen: import_prop_types38.default.func,
+  onOpen: import_prop_types40.default.func,
   /**
    * If `true`, the component is shown.
    */
-  open: import_prop_types38.default.bool,
+  open: import_prop_types40.default.bool,
   /**
    * @ignore
    */
-  readOnly: import_prop_types38.default.bool,
+  readOnly: import_prop_types40.default.bool,
   /**
    * Render the selected value.
    *
    * @param {any} value The `value` provided to the component.
    * @returns {ReactNode}
    */
-  renderValue: import_prop_types38.default.func,
+  renderValue: import_prop_types40.default.func,
   /**
    * Props applied to the clickable div element.
    */
-  SelectDisplayProps: import_prop_types38.default.object,
+  SelectDisplayProps: import_prop_types40.default.object,
   /**
    * @ignore
    */
-  tabIndex: import_prop_types38.default.oneOfType([import_prop_types38.default.number, import_prop_types38.default.string]),
+  tabIndex: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
   /**
    * @ignore
    */
-  type: import_prop_types38.default.any,
+  type: import_prop_types40.default.any,
   /**
    * The input value.
    */
-  value: import_prop_types38.default.any,
+  value: import_prop_types40.default.any,
   /**
    * The variant to use.
    */
-  variant: import_prop_types38.default.oneOf(["standard", "outlined", "filled"])
+  variant: import_prop_types40.default.oneOf(["standard", "outlined", "filled"])
 } : void 0;
 var SelectInput_default = SelectInput;
 
 // node_modules/@mui/material/Select/Select.js
-var import_jsx_runtime45 = __toESM(require_jsx_runtime());
-var _excluded39 = ["autoWidth", "children", "classes", "className", "defaultOpen", "displayEmpty", "IconComponent", "id", "input", "inputProps", "label", "labelId", "MenuProps", "multiple", "native", "onClose", "onOpen", "open", "renderValue", "SelectDisplayProps", "variant"];
+var import_jsx_runtime52 = __toESM(require_jsx_runtime());
+var _excluded42 = ["autoWidth", "children", "classes", "className", "defaultOpen", "displayEmpty", "IconComponent", "id", "input", "inputProps", "label", "labelId", "MenuProps", "multiple", "native", "onClose", "onOpen", "open", "renderValue", "SelectDisplayProps", "variant"];
 var _excluded212 = ["root"];
-var useUtilityClasses20 = (ownerState) => {
+var useUtilityClasses22 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -50092,7 +50827,7 @@ var styledRootConfig = {
 var StyledInput = styled_default(Input_default, styledRootConfig)("");
 var StyledOutlinedInput = styled_default(OutlinedInput_default, styledRootConfig)("");
 var StyledFilledInput = styled_default(FilledInput_default, styledRootConfig)("");
-var Select = /* @__PURE__ */ React59.forwardRef(function Select2(inProps, ref) {
+var Select = /* @__PURE__ */ React65.forwardRef(function Select2(inProps, ref) {
   const props = useThemeProps2({
     name: "MuiSelect",
     props: inProps
@@ -50119,7 +50854,7 @@ var Select = /* @__PURE__ */ React59.forwardRef(function Select2(inProps, ref) {
     renderValue,
     SelectDisplayProps,
     variant: variantProp = "outlined"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded39);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
   const inputComponent = native ? NativeSelectInput_default : SelectInput_default;
   const muiFormControl = useFormControl();
   const fcs = formControlState({
@@ -50132,23 +50867,23 @@ var Select = /* @__PURE__ */ React59.forwardRef(function Select2(inProps, ref) {
     variant,
     classes: classesProp
   });
-  const classes = useUtilityClasses20(ownerState);
+  const classes = useUtilityClasses22(ownerState);
   const restOfClasses = _objectWithoutPropertiesLoose2(classes, _excluded212);
   const InputComponent = input || {
-    standard: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(StyledInput, {
+    standard: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(StyledInput, {
       ownerState
     }),
-    outlined: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(StyledOutlinedInput, {
+    outlined: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(StyledOutlinedInput, {
       label,
       ownerState
     }),
-    filled: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(StyledFilledInput, {
+    filled: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(StyledFilledInput, {
       ownerState
     })
   }[variant];
   const inputComponentRef = useForkRef_default(ref, InputComponent.ref);
-  return /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(React59.Fragment, {
-    children: /* @__PURE__ */ React59.cloneElement(InputComponent, _extends4({
+  return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(React65.Fragment, {
+    children: /* @__PURE__ */ React65.cloneElement(InputComponent, _extends4({
       // Most of the logic is implemented in `SelectInput`.
       // The `Select` component is a simple API wrapper to expose something better to play with.
       inputComponent,
@@ -50198,33 +50933,33 @@ true ? Select.propTypes = {
    * menu, otherwise it will be at least the width of the select input.
    * @default false
    */
-  autoWidth: import_prop_types39.default.bool,
+  autoWidth: import_prop_types41.default.bool,
   /**
    * The option elements to populate the select with.
    * Can be some `MenuItem` when `native` is false and `option` when `native` is true.
    *
    * ⚠️The `MenuItem` elements **must** be direct descendants when `native` is false.
    */
-  children: import_prop_types39.default.node,
+  children: import_prop_types41.default.node,
   /**
    * Override or extend the styles applied to the component.
    * @default {}
    */
-  classes: import_prop_types39.default.object,
+  classes: import_prop_types41.default.object,
   /**
    * @ignore
    */
-  className: import_prop_types39.default.string,
+  className: import_prop_types41.default.string,
   /**
    * If `true`, the component is initially open. Use when the component open state is not controlled (i.e. the `open` prop is not defined).
    * You can only use it when the `native` prop is `false` (default).
    * @default false
    */
-  defaultOpen: import_prop_types39.default.bool,
+  defaultOpen: import_prop_types41.default.bool,
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: import_prop_types39.default.any,
+  defaultValue: import_prop_types41.default.any,
   /**
    * If `true`, a value is displayed even if no items are selected.
    *
@@ -50235,48 +50970,48 @@ true ? Select.propTypes = {
    * The label should either be hidden or forced to a shrunk state.
    * @default false
    */
-  displayEmpty: import_prop_types39.default.bool,
+  displayEmpty: import_prop_types41.default.bool,
   /**
    * The icon that displays the arrow.
    * @default ArrowDropDownIcon
    */
-  IconComponent: import_prop_types39.default.elementType,
+  IconComponent: import_prop_types41.default.elementType,
   /**
    * The `id` of the wrapper element or the `select` element when `native`.
    */
-  id: import_prop_types39.default.string,
+  id: import_prop_types41.default.string,
   /**
    * An `Input` element; does not have to be a material-ui specific `Input`.
    */
-  input: import_prop_types39.default.element,
+  input: import_prop_types41.default.element,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    * When `native` is `true`, the attributes are applied on the `select` element.
    */
-  inputProps: import_prop_types39.default.object,
+  inputProps: import_prop_types41.default.object,
   /**
    * See [OutlinedInput#label](/material-ui/api/outlined-input/#props)
    */
-  label: import_prop_types39.default.node,
+  label: import_prop_types41.default.node,
   /**
    * The ID of an element that acts as an additional label. The Select will
    * be labelled by the additional label and the selected value.
    */
-  labelId: import_prop_types39.default.string,
+  labelId: import_prop_types41.default.string,
   /**
    * Props applied to the [`Menu`](/material-ui/api/menu/) element.
    */
-  MenuProps: import_prop_types39.default.object,
+  MenuProps: import_prop_types41.default.object,
   /**
    * If `true`, `value` must be an array and the menu will support multiple selections.
    * @default false
    */
-  multiple: import_prop_types39.default.bool,
+  multiple: import_prop_types41.default.bool,
   /**
    * If `true`, the component uses a native `select` element.
    * @default false
    */
-  native: import_prop_types39.default.bool,
+  native: import_prop_types41.default.bool,
   /**
    * Callback fired when a menu item is selected.
    *
@@ -50285,26 +51020,26 @@ true ? Select.propTypes = {
    * **Warning**: This is a generic event, not a change event, unless the change event is caused by browser autofill.
    * @param {object} [child] The react element that was selected when `native` is `false` (default).
    */
-  onChange: import_prop_types39.default.func,
+  onChange: import_prop_types41.default.func,
   /**
    * Callback fired when the component requests to be closed.
    * Use it in either controlled (see the `open` prop), or uncontrolled mode (to detect when the Select collapses).
    *
    * @param {object} event The event source of the callback.
    */
-  onClose: import_prop_types39.default.func,
+  onClose: import_prop_types41.default.func,
   /**
    * Callback fired when the component requests to be opened.
    * Use it in either controlled (see the `open` prop), or uncontrolled mode (to detect when the Select expands).
    *
    * @param {object} event The event source of the callback.
    */
-  onOpen: import_prop_types39.default.func,
+  onOpen: import_prop_types41.default.func,
   /**
    * If `true`, the component is shown.
    * You can only use it when the `native` prop is `false` (default).
    */
-  open: import_prop_types39.default.bool,
+  open: import_prop_types41.default.bool,
   /**
    * Render the selected value.
    * You can only use it when the `native` prop is `false` (default).
@@ -50312,15 +51047,15 @@ true ? Select.propTypes = {
    * @param {any} value The `value` provided to the component.
    * @returns {ReactNode}
    */
-  renderValue: import_prop_types39.default.func,
+  renderValue: import_prop_types41.default.func,
   /**
    * Props applied to the clickable div element.
    */
-  SelectDisplayProps: import_prop_types39.default.object,
+  SelectDisplayProps: import_prop_types41.default.object,
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: import_prop_types39.default.oneOfType([import_prop_types39.default.arrayOf(import_prop_types39.default.oneOfType([import_prop_types39.default.func, import_prop_types39.default.object, import_prop_types39.default.bool])), import_prop_types39.default.func, import_prop_types39.default.object]),
+  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object]),
   /**
    * The `input` value. Providing an empty string will select no options.
    * Set to an empty string `''` if you don't want any of the available options to be selected.
@@ -50328,19 +51063,19 @@ true ? Select.propTypes = {
    * If the value is an object it must have reference equality with the option in order to be selected.
    * If the value is not an object, the string representation must match with the string representation of the option in order to be selected.
    */
-  value: import_prop_types39.default.oneOfType([import_prop_types39.default.oneOf([""]), import_prop_types39.default.any]),
+  value: import_prop_types41.default.oneOfType([import_prop_types41.default.oneOf([""]), import_prop_types41.default.any]),
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: import_prop_types39.default.oneOf(["filled", "outlined", "standard"])
+  variant: import_prop_types41.default.oneOf(["filled", "outlined", "standard"])
 } : void 0;
 Select.muiName = "Select";
 var Select_default = Select;
 
 // node_modules/@mui/material/TextField/TextField.js
-var React60 = __toESM(require_react());
-var import_prop_types40 = __toESM(require_prop_types());
+var React66 = __toESM(require_react());
+var import_prop_types42 = __toESM(require_prop_types());
 
 // node_modules/@mui/material/TextField/textFieldClasses.js
 function getTextFieldUtilityClass(slot) {
@@ -50349,15 +51084,15 @@ function getTextFieldUtilityClass(slot) {
 var textFieldClasses = generateUtilityClasses("MuiTextField", ["root"]);
 
 // node_modules/@mui/material/TextField/TextField.js
-var import_jsx_runtime46 = __toESM(require_jsx_runtime());
-var import_jsx_runtime47 = __toESM(require_jsx_runtime());
-var _excluded40 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
+var import_jsx_runtime53 = __toESM(require_jsx_runtime());
+var import_jsx_runtime54 = __toESM(require_jsx_runtime());
+var _excluded43 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
 var variantComponent = {
   standard: Input_default,
   filled: FilledInput_default,
   outlined: OutlinedInput_default
 };
-var useUtilityClasses21 = (ownerState) => {
+var useUtilityClasses23 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -50371,7 +51106,7 @@ var TextFieldRoot = styled_default(FormControl_default, {
   slot: "Root",
   overridesResolver: (props, styles4) => styles4.root
 })({});
-var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, ref) {
+var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, ref) {
   const props = useThemeProps2({
     props: inProps,
     name: "MuiTextField"
@@ -50409,7 +51144,7 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
     type,
     value,
     variant = "outlined"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
   const ownerState = _extends4({}, props, {
     autoFocus,
     color: color2,
@@ -50421,7 +51156,7 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
     select,
     variant
   });
-  const classes = useUtilityClasses21(ownerState);
+  const classes = useUtilityClasses23(ownerState);
   if (true) {
     if (select && !children) {
       console.error("MUI: `children` must be passed when using the `TextField` component with `select`.");
@@ -50444,7 +51179,7 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
   const helperTextId = helperText && id ? `${id}-helper-text` : void 0;
   const inputLabelId = label && id ? `${id}-label` : void 0;
   const InputComponent = variantComponent[variant];
-  const InputElement = /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(InputComponent, _extends4({
+  const InputElement = /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(InputComponent, _extends4({
     "aria-describedby": helperTextId,
     autoComplete,
     autoFocus,
@@ -50465,7 +51200,7 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
     placeholder,
     inputProps
   }, InputMore, InputProps));
-  return /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(TextFieldRoot, _extends4({
+  return /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)(TextFieldRoot, _extends4({
     className: clsx_default(classes.root, className),
     disabled,
     error: error2,
@@ -50476,12 +51211,12 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
     variant,
     ownerState
   }, other, {
-    children: [label != null && label !== "" && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(InputLabel_default, _extends4({
+    children: [label != null && label !== "" && /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(InputLabel_default, _extends4({
       htmlFor: id,
       id: inputLabelId
     }, InputLabelProps, {
       children: label
-    })), select ? /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Select_default, _extends4({
+    })), select ? /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(Select_default, _extends4({
       "aria-describedby": helperTextId,
       id,
       labelId: inputLabelId,
@@ -50489,7 +51224,7 @@ var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, 
       input: InputElement
     }, SelectProps, {
       children
-    })) : InputElement, helperText && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(FormHelperText_default, _extends4({
+    })) : InputElement, helperText && /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(FormHelperText_default, _extends4({
       id: helperTextId
     }, FormHelperTextProps, {
       children: helperText
@@ -50506,79 +51241,79 @@ true ? TextField.propTypes = {
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: import_prop_types40.default.string,
+  autoComplete: import_prop_types42.default.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    * @default false
    */
-  autoFocus: import_prop_types40.default.bool,
+  autoFocus: import_prop_types42.default.bool,
   /**
    * @ignore
    */
-  children: import_prop_types40.default.node,
+  children: import_prop_types42.default.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: import_prop_types40.default.object,
+  classes: import_prop_types42.default.object,
   /**
    * @ignore
    */
-  className: import_prop_types40.default.string,
+  className: import_prop_types42.default.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
-  color: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["primary", "secondary", "error", "info", "success", "warning"]), import_prop_types40.default.string]),
+  color: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["primary", "secondary", "error", "info", "success", "warning"]), import_prop_types42.default.string]),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: import_prop_types40.default.any,
+  defaultValue: import_prop_types42.default.any,
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: import_prop_types40.default.bool,
+  disabled: import_prop_types42.default.bool,
   /**
    * If `true`, the label is displayed in an error state.
    * @default false
    */
-  error: import_prop_types40.default.bool,
+  error: import_prop_types42.default.bool,
   /**
    * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
    */
-  FormHelperTextProps: import_prop_types40.default.object,
+  FormHelperTextProps: import_prop_types42.default.object,
   /**
    * If `true`, the input will take up the full width of its container.
    * @default false
    */
-  fullWidth: import_prop_types40.default.bool,
+  fullWidth: import_prop_types42.default.bool,
   /**
    * The helper text content.
    */
-  helperText: import_prop_types40.default.node,
+  helperText: import_prop_types42.default.node,
   /**
    * The id of the `input` element.
    * Use this prop to make `label` and `helperText` accessible for screen readers.
    */
-  id: import_prop_types40.default.string,
+  id: import_prop_types42.default.string,
   /**
    * Props applied to the [`InputLabel`](/material-ui/api/input-label/) element.
    * Pointer events like `onClick` are enabled if and only if `shrink` is `true`.
    */
-  InputLabelProps: import_prop_types40.default.object,
+  InputLabelProps: import_prop_types42.default.object,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    */
-  inputProps: import_prop_types40.default.object,
+  inputProps: import_prop_types42.default.object,
   /**
    * Props applied to the Input element.
    * It will be a [`FilledInput`](/material-ui/api/filled-input/),
    * [`OutlinedInput`](/material-ui/api/outlined-input/) or [`Input`](/material-ui/api/input/)
    * component depending on the `variant` prop value.
    */
-  InputProps: import_prop_types40.default.object,
+  InputProps: import_prop_types42.default.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -50586,88 +51321,88 @@ true ? TextField.propTypes = {
   /**
    * The label content.
    */
-  label: import_prop_types40.default.node,
+  label: import_prop_types42.default.node,
   /**
    * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @default 'none'
    */
-  margin: import_prop_types40.default.oneOf(["dense", "none", "normal"]),
+  margin: import_prop_types42.default.oneOf(["dense", "none", "normal"]),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
+  maxRows: import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
+  minRows: import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string]),
   /**
    * If `true`, a `textarea` element is rendered instead of an input.
    * @default false
    */
-  multiline: import_prop_types40.default.bool,
+  multiline: import_prop_types42.default.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: import_prop_types40.default.string,
+  name: import_prop_types42.default.string,
   /**
    * @ignore
    */
-  onBlur: import_prop_types40.default.func,
+  onBlur: import_prop_types42.default.func,
   /**
    * Callback fired when the value is changed.
    *
    * @param {object} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: import_prop_types40.default.func,
+  onChange: import_prop_types42.default.func,
   /**
    * @ignore
    */
-  onFocus: import_prop_types40.default.func,
+  onFocus: import_prop_types42.default.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: import_prop_types40.default.string,
+  placeholder: import_prop_types42.default.string,
   /**
    * If `true`, the label is displayed as required and the `input` element is required.
    * @default false
    */
-  required: import_prop_types40.default.bool,
+  required: import_prop_types42.default.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
+  rows: import_prop_types42.default.oneOfType([import_prop_types42.default.number, import_prop_types42.default.string]),
   /**
    * Render a [`Select`](/material-ui/api/select/) element while passing the Input element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    * @default false
    */
-  select: import_prop_types40.default.bool,
+  select: import_prop_types42.default.bool,
   /**
    * Props applied to the [`Select`](/material-ui/api/select/) element.
    */
-  SelectProps: import_prop_types40.default.object,
+  SelectProps: import_prop_types42.default.object,
   /**
    * The size of the component.
    */
-  size: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["medium", "small"]), import_prop_types40.default.string]),
+  size: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["medium", "small"]), import_prop_types42.default.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object]),
+  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    */
-  type: import_prop_types40.default.string,
+  type: import_prop_types42.default.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: import_prop_types40.default.any,
+  value: import_prop_types42.default.any,
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: import_prop_types40.default.oneOf(["filled", "outlined", "standard"])
+  variant: import_prop_types42.default.oneOf(["filled", "outlined", "standard"])
 } : void 0;
 var TextField_default = TextField;
 
@@ -50786,6 +51521,15 @@ async function getTenMostRecentBoards() {
   let boards = await response.json();
   return await boards;
 }
+async function getAllBoardsByPage(pageNumber) {
+  const url = `/api/v1/boards/all?page=${pageNumber}`;
+  let response = await fetch(url, {
+    method: "GET",
+    headers: headers2
+  });
+  let boards = await response.json();
+  return await boards;
+}
 async function getBoard(board_id) {
   const url = `/api/v1/boards/show/${board_id}`;
   let response = await fetch(url, {
@@ -50830,16 +51574,19 @@ var ListItem_default = ListItem;
 
 // app/javascript/react/src/components/BoardList/BoardList.jsx
 var BoardList = () => {
+  const navigate = useNavigate();
   const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
   (0, import_react12.useEffect)(() => {
     fetchTenMostRecentBoards();
   }, []);
   const fetchTenMostRecentBoards = async () => {
     const boards = await getTenMostRecentBoards();
-    console.log(boards);
     if (boards) {
       setBoardsList(boards);
     }
+  };
+  const navigateToViewAllBoards = () => {
+    navigate("/boardCollection");
   };
   return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, boardsList.map((board) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, { key: board.id, boardInfo: board }))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(
     Button_default,
@@ -50849,8 +51596,7 @@ var BoardList = () => {
       fullWidth: true,
       color: "info",
       onClick: () => {
-        {
-        }
+        navigateToViewAllBoards();
       }
     },
     "View All Generated Boards"
@@ -50874,7 +51620,7 @@ var Mine_default = Mine;
 // app/javascript/react/src/components/Board/BoardGrid.jsx
 var BoardGrid = ({ grid: grid2 }) => {
   const [gridboard, setGrid] = (0, import_react14.useState)(grid2);
-  return /* @__PURE__ */ import_react14.default.createElement("table", null, /* @__PURE__ */ import_react14.default.createElement("tbody", null, grid2.map((row) => /* @__PURE__ */ import_react14.default.createElement("tr", null, row.map((cell) => /* @__PURE__ */ import_react14.default.createElement("td", { className: "board-cell" }, cell == 1 && /* @__PURE__ */ import_react14.default.createElement(Mine_default, null)))))));
+  return /* @__PURE__ */ import_react14.default.createElement("table", null, /* @__PURE__ */ import_react14.default.createElement("tbody", null, grid2.map((row, index) => /* @__PURE__ */ import_react14.default.createElement("tr", { key: index }, row.map((cell, index2) => /* @__PURE__ */ import_react14.default.createElement("td", { key: index2, className: "board-cell" }, cell == 1 && /* @__PURE__ */ import_react14.default.createElement(Mine_default, null)))))));
 };
 var BoardGrid_default = BoardGrid;
 
@@ -50905,9 +51651,72 @@ var Home = () => {
 };
 var Home_default = Home;
 
+// app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
+var import_react19 = __toESM(require_react());
+
+// app/javascript/react/src/components/BoardCollection/Collection.jsx
+var import_react18 = __toESM(require_react());
+
+// app/javascript/react/src/components/BoardCollection/Tile.jsx
+var import_react17 = __toESM(require_react());
+var Tile = ({ board }) => {
+  const navigate = useNavigate();
+  const viewBoard = () => {
+    navigate(`/viewBoard/${board.id}`);
+  };
+  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-container", onClick: viewBoard }, /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-name" }, board.name), /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-email" }, "Author: ", board.email), /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-date" }, "Created: ", convertUTCtoLocalTimeZone(board.created_at)));
+};
+var Tile_default = Tile;
+
+// app/javascript/react/src/components/BoardCollection/Collection.jsx
+var Collection = ({ boards }) => {
+  return /* @__PURE__ */ import_react18.default.createElement("div", { className: "collection-container" }, boards.map((board) => /* @__PURE__ */ import_react18.default.createElement(Tile_default, { key: board.id, board })));
+};
+var Collection_default = Collection;
+
+// app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
+var BoardCollection = () => {
+  const navigate = useNavigate();
+  const [page, setPage] = import_react19.default.useState(1);
+  const [numPages, setNumPages] = (0, import_react19.useState)(0);
+  const [boards, setBoards] = (0, import_react19.useState)([]);
+  const [loading, setLoading] = (0, import_react19.useState)(true);
+  (0, import_react19.useEffect)(() => {
+    fetchBoards(1);
+  }, []);
+  const navigateHome = () => {
+    navigate("/");
+  };
+  const fetchBoards = async () => {
+    try {
+      fetchBoardPage(1);
+    } catch (error2) {
+      console.error("Error fetching recipes:", error2);
+    }
+  };
+  const handleChange = (event, value) => {
+    console.log(value);
+    if (value !== page) {
+      fetchBoardPage(value);
+      setPage(value);
+    }
+  };
+  const fetchBoardPage = async (pageNumber) => {
+    const fetchedBoards = await getAllBoardsByPage(pageNumber);
+    console.log(fetchedBoards);
+    setBoards(fetchedBoards.boards);
+    setNumPages(fetchedBoards.total_pages);
+    setLoading(false);
+  };
+  return /* @__PURE__ */ import_react19.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react19.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react19.default.createElement(Button_default, { variant: "contained", onClick: () => {
+    navigateHome();
+  } }, "Home")), /* @__PURE__ */ import_react19.default.createElement("div", { className: "board-collection-header" }, /* @__PURE__ */ import_react19.default.createElement("h1", null, "Generated Boards")), loading ? /* @__PURE__ */ import_react19.default.createElement("p", null, "Loading Boards...") : /* @__PURE__ */ import_react19.default.createElement(Collection_default, { boards }), /* @__PURE__ */ import_react19.default.createElement("div", { className: "AdminPage-pagination-container" }, /* @__PURE__ */ import_react19.default.createElement(Pagination_default, { page, onChange: handleChange, count: numPages })));
+};
+var BoardCollection_default = BoardCollection;
+
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React68.createElement(BrowserRouter, null, /* @__PURE__ */ React68.createElement(Routes, null, /* @__PURE__ */ React68.createElement(Route, { path: "/", element: /* @__PURE__ */ React68.createElement(Home_default, null) }), /* @__PURE__ */ React68.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React68.createElement(Board_default, null) })));
+  return /* @__PURE__ */ React77.createElement(BrowserRouter, null, /* @__PURE__ */ React77.createElement(Routes, null, /* @__PURE__ */ React77.createElement(Route, { path: "/", element: /* @__PURE__ */ React77.createElement(Home_default, null) }), /* @__PURE__ */ React77.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React77.createElement(Board_default, null) }), /* @__PURE__ */ React77.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React77.createElement(BoardCollection_default, null) })));
 };
 var App_default = App;
 

@@ -244,6 +244,85 @@
   background-color: rgb(207, 232, 255);
 }
 
+/* app/javascript/react/src/components/BoardCollection/Tile.css */
+.tile-container {
+  height: 150px;
+  width: 250px;
+  max-width: 250px;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border-radius: 25px;
+  padding: 20px;
+}
+.tile-container:hover {
+  background-color: rgb(246, 246, 209);
+  cursor: pointer;
+}
+.tile-name {
+  display: flex;
+  font-weight: bold;
+  font-size: large;
+  font-family: sans-serif;
+  word-wrap: anywhere;
+  margin-bottom: 8px;
+}
+.tile-email {
+  display: flex;
+  font-size: large;
+  font-family: sans-serif;
+  margin-bottom: 8px;
+}
+.tile-date {
+  display: flex;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+/* app/javascript/react/src/components/BoardCollection/Collection.css */
+.collection-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  height: 100%;
+  width: 100%;
+  min-height: 80%;
+}
+
+/* app/javascript/react/src/components/BoardCollection/BoardCollection.css */
+.board-collection-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: sans-serif;
+  margin-bottom: 150px;
+}
+.filters-and-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.filters-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.search-container {
+  width: 100%;
+}
+.applied-filters-container {
+  padding: 20px 0px;
+}
+.AdminPage-pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
 /* app/javascript/react/src/components/App.css */
 body {
   margin: 0 !important;

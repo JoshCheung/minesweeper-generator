@@ -8,8 +8,11 @@ class Api::V1::BoardsController < ApplicationController
   end
 
   def all
-    @boards = Board.all.order(created_at: :desc)
-    render json: @boards
+    @boards = Board.all.order(created_at: :desc).page(params[:page])
+    render json: {
+      boards: @boards,
+      total_pages: @boards.total_pages,
+    }
   end
 
   def create

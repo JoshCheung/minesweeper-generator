@@ -10,13 +10,13 @@ const BoardGrid = ({grid}) => {
         <table>
             <tbody>
             { 
-                     grid.map((row) => (
-                         <tr>
+                     grid.map((row, index) => (
+                        <tr key={index}>
                              {
-                                 row.map((cell) => (
-                                     <td className="board-cell">
-                                         {cell == 1 && <Mine/>}
-                                     </td>
+                                 row.map((cell, index) => (
+                                    <td  key={index} className="board-cell">
+                                        {cell == 1 && <Mine/>}
+                                    </td>
                                  ))
                              }
                          </tr>

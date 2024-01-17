@@ -1,4 +1,6 @@
 class Board < ApplicationRecord
+    paginates_per 12
+    
     validates :name, presence: true
     validates :email, presence: true
 
