@@ -244,6 +244,36 @@
   background-color: rgb(207, 232, 255);
 }
 
+/* app/javascript/react/src/components/BoardCollection/BoardCollection.css */
+.board-collection-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.filters-and-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.filters-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.search-container {
+  width: 100%;
+}
+.applied-filters-container {
+  padding: 20px 0px;
+}
+.AdminPage-pagination-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
 /* app/javascript/react/src/components/App.css */
 body {
   margin: 0 !important;

@@ -3,9 +3,10 @@ import { getTenMostRecentBoards } from '../../api/GetMinesweeperBoards';
 import ListItem from './ListItem';
 import './BoardList.css';
 import { Button } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const BoardList = () => {
-    // const [boardsList, setBoardsList] = useState([]);
+    const navigate = useNavigate();
     const [boardsList, setBoardsList] = useState([]);
     
     useEffect(() => {
@@ -14,10 +15,13 @@ const BoardList = () => {
 
     const fetchTenMostRecentBoards = async () => {
         const boards = await getTenMostRecentBoards();
-        console.log(boards);
         if (boards) {
             setBoardsList(boards);
         }
+    }
+
+    const navigateToViewAllBoards = () => {
+        navigate('/boardCollection');
     }
 
     return (
@@ -35,7 +39,7 @@ const BoardList = () => {
                     style={{borderRadius: 25}} 
                     variant="contained" 
                     fullWidth color="info"
-                    onClick={()=>{{}}}>
+                    onClick={()=>{navigateToViewAllBoards()}}>
                         View All Generated Boards
                 </Button>
             </div>
