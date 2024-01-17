@@ -2,8 +2,11 @@ import React, {useEffect, useState} from 'react';
 import { createBoard } from '../../api/MinesweeperCreate';
 import { Button, TextField } from '@mui/material';
 import './BoardGeneratorForm.css';
+import { useNavigate } from 'react-router';
 
 const BoardGeneratorForm = () => {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [height, setHeight] = useState(0);
@@ -54,7 +57,7 @@ const BoardGeneratorForm = () => {
         let response = await createBoard({
             email, name, height, width, numberOfMines
         });
-        console.log(response);
+        navigate(`/viewBoard/${response.id}`)
     }
 
     return (

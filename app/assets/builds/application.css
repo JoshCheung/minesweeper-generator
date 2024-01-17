@@ -88,6 +88,27 @@
   justify-content: center;
 }
 
+/* app/javascript/react/src/components/Board/Board.css */
+.board-wrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: aliceblue;
+  justify-content: center;
+  margin: auto;
+}
+.home-button-container {
+  position: absolute;
+  left: 0;
+  margin: 20px;
+}
+.board-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 /* app/javascript/react/src/components/Home/Home.css */
 .home-container {
   height: 100vh;

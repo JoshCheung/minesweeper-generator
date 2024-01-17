@@ -1,10 +1,15 @@
 import React, {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getBoard } from "../../api/GetMinesweeperBoards";
+import './Board.css';
+import { Button } from "@mui/material";
+import BoardGrid from "./BoardGrid";
 
 const Board = ({id}) => {
     const params = useParams();
+    const navigate = useNavigate();
     const [board, setBoard] = useState([])
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchBoardDetails();
@@ -12,12 +17,29 @@ const Board = ({id}) => {
 
     const fetchBoardDetails = async () => {
         let board = await getBoard(params.id);
-        setBoard(board.grid);
+        setBoard(board);
+        setLoading(false);
+    }
+
+    const navigateHome = () => {
+        navigate('/');
     }
 
     return (
-        <div className="board-component-container">
-            
+        <div className="board-wrapper" >
+            <div className="home-button-container">
+                <Button variant="contained" onClick={navigateHome}>Home</Button>
+            </div>
+            { loading ? 
+                <p>Loading Board...</p>
+                :
+                <div className="board-container">
+                    <h1>{board.name}</h1>
+                    <h3>{board.email}</h3>
+                    <BoardGrid grid={board.grid}/>
+                </div>
+            }
+          
         </div>
     )
 }
