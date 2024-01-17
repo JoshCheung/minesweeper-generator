@@ -24,23 +24,6 @@ const BoardGrid = ({grid}) => {
                  }
             </tbody>
         </table>
-        // <Table>
-        //     <TableBody>
-        //         { 
-        //             grid.map((row) => (
-        //                 <TableRow>
-        //                     {
-        //                         row.map((cell) => (
-        //                             <TableCell className="board-cell">
-        //                                 {cell == 1 && <Mine/>}
-        //                             </TableCell>
-        //                         ))
-        //                     }
-        //                 </TableRow>
-        //             ))
-        //         }
-        //     </TableBody>
-        // </Table>
     )
 }
 export default BoardGrid;

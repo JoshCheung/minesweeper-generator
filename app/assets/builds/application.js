@@ -50832,7 +50832,6 @@ var ListItem_default = ListItem;
 var BoardList = () => {
   const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
   (0, import_react12.useEffect)(() => {
-    console.log("Testing!");
     fetchTenMostRecentBoards();
   }, []);
   const fetchTenMostRecentBoards = async () => {
@@ -50896,7 +50895,7 @@ var Board = ({ id }) => {
   const navigateHome = () => {
     navigate("/");
   };
-  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-wrapper" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react15.default.createElement(Button_default, { variant: "contained", onClick: navigateHome }, "Home")), loading ? /* @__PURE__ */ import_react15.default.createElement("p", null, "Loading Board...") : /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title-container", style: { flex: "none" } }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "title" }, "Minesweeper: ", board.name), /* @__PURE__ */ import_react15.default.createElement("h3", null, "Created by: ", board.email)), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-grid-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardGrid_default, { grid: board.grid }))));
+  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-wrapper" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react15.default.createElement(Button_default, { variant: "contained", onClick: navigateHome }, "Home")), loading ? /* @__PURE__ */ import_react15.default.createElement("p", null, "Loading Board...") : /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title-container", style: { flex: "none" } }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title" }, "Minesweeper: ", board.name), /* @__PURE__ */ import_react15.default.createElement("h3", null, "Created by: ", board.email)), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-grid-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardGrid_default, { grid: board.grid }))));
 };
 var Board_default = Board;
 

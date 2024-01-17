@@ -9,7 +9,6 @@ const BoardList = () => {
     const [boardsList, setBoardsList] = useState([]);
     
     useEffect(() => {
-        console.log("Testing!")
         fetchTenMostRecentBoards();
     }, []);
 

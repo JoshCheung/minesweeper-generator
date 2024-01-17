@@ -37,11 +37,9 @@
 }
 .list-item-container:hover {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: rgb(255, 247, 226);
   margin-bottom: 16px;
   border-radius: 25px;
+  background-color: rgb(255, 247, 226);
   cursor: pointer;
 }
 .board-info-container {
@@ -53,14 +51,21 @@
 .list-item-name {
   display: flex;
   font-weight: bold;
-  overflow-wrap: break-word;
+  font-size: large;
+  font-family: sans-serif;
   word-wrap: anywhere;
+  margin-bottom: 8px;
 }
 .list-item-email {
   display: flex;
+  font-size: large;
+  font-family: sans-serif;
+  margin-bottom: 8px;
 }
 .list-item-date {
   display: flex;
+  font-size: large;
+  font-family: sans-serif;
 }
 
 /* app/javascript/react/src/components/BoardList/BoardList.css */
@@ -119,7 +124,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.title {
+.board-title {
   font-size: larger;
   font-weight: bold;
   margin: auto;

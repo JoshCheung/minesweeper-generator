@@ -1,5 +1,5 @@
 .list-item-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 244);
     margin-bottom: 16px;
@@ -7,12 +7,10 @@
 }
 
 .list-item-container:hover {
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgb(255, 247, 226);
+    display: flex;
     margin-bottom: 16px;
     border-radius: 25px;
+    background-color: rgb(255, 247, 226);
     cursor: pointer;
 }
 
@@ -26,14 +24,21 @@
 .list-item-name {
     display: flex;
     font-weight: bold;
-    overflow-wrap: break-word;
+    font-size: large;
+    font-family: sans-serif;
     word-wrap: anywhere;
+    margin-bottom: 8px;
 }
 
 .list-item-email {
     display: flex;
+    font-size: large;
+    font-family: sans-serif;
+    margin-bottom: 8px;
 }   
 
 .list-item-date {
     display: flex;
+    font-size: large;
+    font-family: sans-serif;
 }

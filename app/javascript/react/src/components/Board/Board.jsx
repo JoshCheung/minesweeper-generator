@@ -35,7 +35,7 @@ const Board = ({id}) => {
                 :
                 <div className="board-container">
                     <div className="board-title-container" style={{ flex: 'none' }}>
-                        <div className="title">Minesweeper: {board.name}</div>
+                        <div className="board-title">Minesweeper: {board.name}</div>
                         <h3>Created by: {board.email}</h3>
                     </div>
                     <div className="board-grid-container">

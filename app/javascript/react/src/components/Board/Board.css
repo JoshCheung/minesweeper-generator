@@ -34,7 +34,7 @@
     flex-direction: column;
 }
 
-.title {
+.board-title {
     font-size: larger;
     font-weight: bold;
     margin: auto;
