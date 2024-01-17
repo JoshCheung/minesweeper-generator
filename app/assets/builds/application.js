@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React76 = require_react();
+        var React77 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React76.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React77.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React76.Children.forEach(props.children, function(child) {
+                React77.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React76.Component().refs;
+        var emptyRefsObject = new React77.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React76 = require_react();
+        var React77 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React76.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React77.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,7 +33920,7 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React75 = __toESM(require_react());
+var React76 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
 var import_react16 = __toESM(require_react());
@@ -51643,10 +51643,19 @@ var Home = () => {
 var Home_default = Home;
 
 // app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
+var import_react18 = __toESM(require_react());
+
+// app/javascript/react/src/components/BoardCollection/Collection.jsx
 var import_react17 = __toESM(require_react());
+var Collection = () => {
+  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "recipe-boxes-container" });
+};
+var Collection_default = Collection;
+
+// app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
 var BoardCollection = () => {
   const navigate = useNavigate();
-  const [page, setPage] = import_react17.default.useState(1);
+  const [page, setPage] = import_react18.default.useState(1);
   const navigateHome = () => {
     navigate("/");
   };
@@ -51656,15 +51665,15 @@ var BoardCollection = () => {
       fetchRecipePage(value);
     }
   };
-  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react17.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react17.default.createElement(Button_default, { variant: "contained", onClick: () => {
+  return /* @__PURE__ */ import_react18.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react18.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "contained", onClick: () => {
     navigateHome();
-  } }, "Home")), /* @__PURE__ */ import_react17.default.createElement("div", { className: "board-collection-header" }, /* @__PURE__ */ import_react17.default.createElement("h1", null, "Generated Boards")), /* @__PURE__ */ import_react17.default.createElement(Collection, null), /* @__PURE__ */ import_react17.default.createElement("div", { className: "AdminPage-pagination-container" }, /* @__PURE__ */ import_react17.default.createElement(Pagination_default, { page, onChange: (e) => handleChange(e.target.value) })));
+  } }, "Home")), /* @__PURE__ */ import_react18.default.createElement("div", { className: "board-collection-header" }, /* @__PURE__ */ import_react18.default.createElement("h1", null, "Generated Boards")), /* @__PURE__ */ import_react18.default.createElement(Collection_default, null), /* @__PURE__ */ import_react18.default.createElement("div", { className: "AdminPage-pagination-container" }, /* @__PURE__ */ import_react18.default.createElement(Pagination_default, { page, onChange: (e) => handleChange(e.target.value) })));
 };
 var BoardCollection_default = BoardCollection;
 
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React75.createElement(BrowserRouter, null, /* @__PURE__ */ React75.createElement(Routes, null, /* @__PURE__ */ React75.createElement(Route, { path: "/", element: /* @__PURE__ */ React75.createElement(Home_default, null) }), /* @__PURE__ */ React75.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React75.createElement(Board_default, null) }), /* @__PURE__ */ React75.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React75.createElement(BoardCollection_default, null) })));
+  return /* @__PURE__ */ React76.createElement(BrowserRouter, null, /* @__PURE__ */ React76.createElement(Routes, null, /* @__PURE__ */ React76.createElement(Route, { path: "/", element: /* @__PURE__ */ React76.createElement(Home_default, null) }), /* @__PURE__ */ React76.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React76.createElement(Board_default, null) }), /* @__PURE__ */ React76.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React76.createElement(BoardCollection_default, null) })));
 };
 var App_default = App;
 

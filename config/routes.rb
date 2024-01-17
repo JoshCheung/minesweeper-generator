@@ -4,15 +4,12 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'boards/most_recent'
       get 'boards/all' 
-    
       post 'boards/create'
       get 'boards/show/:id', to: 'boards#show'
     end
   end
   
-  resources :boards do
-    get 'boards/all/:page', action: :index, on: :collection
-  end
+  resources :boards 
 
   get '*path', to: 'homepage#index'
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Collection from './Collection';
 import { useNavigate } from "react-router";
 import { Button, Pagination } from "@mui/material";
 import "./BoardCollection.css";
