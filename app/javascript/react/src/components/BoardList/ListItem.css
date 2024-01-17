@@ -1,8 +1,6 @@
 .list-item-container {
     display:flex;
     flex-direction: column;
-    height: 100px;
-    width: 100%;
     background-color: rgb(255, 255, 244);
     margin-bottom: 16px;
     border-radius: 25px;
@@ -11,7 +9,6 @@
 .list-item-container:hover {
     display:flex;
     flex-direction: column;
-    height: 100px;
     width: 100%;
     background-color: rgb(255, 247, 226);
     margin-bottom: 16px;
@@ -20,14 +17,17 @@
 }
 
 .board-info-container {
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    width: inherit;
 }
 
 .list-item-name {
     display: flex;
     font-weight: bold;
+    overflow-wrap: break-word;
+    word-wrap: anywhere;
 }
 
 .list-item-email {

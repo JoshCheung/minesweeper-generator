@@ -5,6 +5,7 @@
     background-color: aliceblue;
     justify-content: center;
     margin: auto;
+    overflow: scroll;
 }
 
 .home-button-container {
@@ -13,9 +14,40 @@
     margin: 20px;
 }
 
+.board-grid-container {
+    display: flex;
+    justify-content: center;
+}
+
 .board-container {
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    max-width: 100%;
 }
+
+.board-title-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: larger;
+    font-weight: bold;
+    margin: auto;
+    display: flex;
+    width: 50%;
+    overflow-wrap: break-word;
+    word-wrap: anywhere;
+    font-family: sans-serif;
+}
+
+.board-grid-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+

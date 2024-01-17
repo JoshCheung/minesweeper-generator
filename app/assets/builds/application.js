@@ -1376,7 +1376,7 @@ var require_react_development = __commonJS({
           }
           return children;
         }
-        function createContext10(defaultValue) {
+        function createContext8(defaultValue) {
           var context = {
             $$typeof: REACT_CONTEXT_TYPE,
             // As a workaround to support multiple concurrent renderers, we categorize
@@ -1563,7 +1563,7 @@ var require_react_development = __commonJS({
           }
           return lazyType;
         }
-        function forwardRef36(render) {
+        function forwardRef32(render) {
           {
             if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
               error2("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).");
@@ -1662,7 +1662,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher;
         }
-        function useContext12(Context2) {
+        function useContext10(Context2) {
           var dispatcher = resolveDispatcher();
           {
             if (Context2._context !== void 0) {
@@ -1704,7 +1704,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useCallback(callback, deps);
         }
-        function useMemo7(create, deps) {
+        function useMemo6(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useMemo(create, deps);
         }
@@ -2456,18 +2456,18 @@ var require_react_development = __commonJS({
         exports.Suspense = REACT_SUSPENSE_TYPE;
         exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
         exports.cloneElement = cloneElement$1;
-        exports.createContext = createContext10;
+        exports.createContext = createContext8;
         exports.createElement = createElement$1;
         exports.createFactory = createFactory;
         exports.createRef = createRef;
-        exports.forwardRef = forwardRef36;
+        exports.forwardRef = forwardRef32;
         exports.isValidElement = isValidElement9;
         exports.lazy = lazy;
         exports.memo = memo2;
         exports.startTransition = startTransition;
         exports.unstable_act = act;
         exports.useCallback = useCallback11;
-        exports.useContext = useContext12;
+        exports.useContext = useContext10;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
         exports.useEffect = useEffect20;
@@ -2475,7 +2475,7 @@ var require_react_development = __commonJS({
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
         exports.useLayoutEffect = useLayoutEffect5;
-        exports.useMemo = useMemo7;
+        exports.useMemo = useMemo6;
         exports.useReducer = useReducer;
         exports.useRef = useRef20;
         exports.useState = useState19;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React74 = require_react();
+        var React69 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React74.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React74.Children.forEach(props.children, function(child) {
+                React69.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React74.Component().refs;
+        var emptyRefsObject = new React69.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React74 = require_react();
+        var React69 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React74.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,10 +33920,10 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React73 = __toESM(require_react());
+var React68 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
-var import_react15 = __toESM(require_react());
+var import_react16 = __toESM(require_react());
 
 // node_modules/react-router-dom/dist/index.js
 var React3 = __toESM(require_react());
@@ -50338,568 +50338,9 @@ true ? Select.propTypes = {
 Select.muiName = "Select";
 var Select_default = Select;
 
-// node_modules/@mui/material/Table/Table.js
-var React61 = __toESM(require_react());
-var import_prop_types40 = __toESM(require_prop_types());
-
-// node_modules/@mui/material/Table/TableContext.js
-var React60 = __toESM(require_react());
-var TableContext = /* @__PURE__ */ React60.createContext();
-if (true) {
-  TableContext.displayName = "TableContext";
-}
-var TableContext_default = TableContext;
-
-// node_modules/@mui/material/Table/tableClasses.js
-function getTableUtilityClass(slot) {
-  return generateUtilityClass("MuiTable", slot);
-}
-var tableClasses = generateUtilityClasses("MuiTable", ["root", "stickyHeader"]);
-
-// node_modules/@mui/material/Table/Table.js
-var import_jsx_runtime46 = __toESM(require_jsx_runtime());
-var _excluded40 = ["className", "component", "padding", "size", "stickyHeader"];
-var useUtilityClasses21 = (ownerState) => {
-  const {
-    classes,
-    stickyHeader
-  } = ownerState;
-  const slots = {
-    root: ["root", stickyHeader && "stickyHeader"]
-  };
-  return composeClasses(slots, getTableUtilityClass, classes);
-};
-var TableRoot = styled_default("table", {
-  name: "MuiTable",
-  slot: "Root",
-  overridesResolver: (props, styles4) => {
-    const {
-      ownerState
-    } = props;
-    return [styles4.root, ownerState.stickyHeader && styles4.stickyHeader];
-  }
-})(({
-  theme,
-  ownerState
-}) => _extends4({
-  display: "table",
-  width: "100%",
-  borderCollapse: "collapse",
-  borderSpacing: 0,
-  "& caption": _extends4({}, theme.typography.body2, {
-    padding: theme.spacing(2),
-    color: (theme.vars || theme).palette.text.secondary,
-    textAlign: "left",
-    captionSide: "bottom"
-  })
-}, ownerState.stickyHeader && {
-  borderCollapse: "separate"
-}));
-var defaultComponent = "table";
-var Table = /* @__PURE__ */ React61.forwardRef(function Table2(inProps, ref) {
-  const props = useThemeProps2({
-    props: inProps,
-    name: "MuiTable"
-  });
-  const {
-    className,
-    component = defaultComponent,
-    padding: padding2 = "normal",
-    size = "medium",
-    stickyHeader = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
-  const ownerState = _extends4({}, props, {
-    component,
-    padding: padding2,
-    size,
-    stickyHeader
-  });
-  const classes = useUtilityClasses21(ownerState);
-  const table = React61.useMemo(() => ({
-    padding: padding2,
-    size,
-    stickyHeader
-  }), [padding2, size, stickyHeader]);
-  return /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(TableContext_default.Provider, {
-    value: table,
-    children: /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(TableRoot, _extends4({
-      as: component,
-      role: component === defaultComponent ? null : "table",
-      ref,
-      className: clsx_default(classes.root, className),
-      ownerState
-    }, other))
-  });
-});
-true ? Table.propTypes = {
-  // ┌────────────────────────────── Warning ──────────────────────────────┐
-  // │ These PropTypes are generated from the TypeScript type definitions. │
-  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
-  // └─────────────────────────────────────────────────────────────────────┘
-  /**
-   * The content of the table, normally `TableHead` and `TableBody`.
-   */
-  children: import_prop_types40.default.node,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: import_prop_types40.default.object,
-  /**
-   * @ignore
-   */
-  className: import_prop_types40.default.string,
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: import_prop_types40.default.elementType,
-  /**
-   * Allows TableCells to inherit padding of the Table.
-   * @default 'normal'
-   */
-  padding: import_prop_types40.default.oneOf(["checkbox", "none", "normal"]),
-  /**
-   * Allows TableCells to inherit size of the Table.
-   * @default 'medium'
-   */
-  size: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["medium", "small"]), import_prop_types40.default.string]),
-  /**
-   * Set the header sticky.
-   *
-   * ⚠️ It doesn't work with IE11.
-   * @default false
-   */
-  stickyHeader: import_prop_types40.default.bool,
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object])
-} : void 0;
-var Table_default = Table;
-
-// node_modules/@mui/material/TableBody/TableBody.js
-var React63 = __toESM(require_react());
-var import_prop_types41 = __toESM(require_prop_types());
-
-// node_modules/@mui/material/Table/Tablelvl2Context.js
-var React62 = __toESM(require_react());
-var Tablelvl2Context = /* @__PURE__ */ React62.createContext();
-if (true) {
-  Tablelvl2Context.displayName = "Tablelvl2Context";
-}
-var Tablelvl2Context_default = Tablelvl2Context;
-
-// node_modules/@mui/material/TableBody/tableBodyClasses.js
-function getTableBodyUtilityClass(slot) {
-  return generateUtilityClass("MuiTableBody", slot);
-}
-var tableBodyClasses = generateUtilityClasses("MuiTableBody", ["root"]);
-
-// node_modules/@mui/material/TableBody/TableBody.js
-var import_jsx_runtime47 = __toESM(require_jsx_runtime());
-var _excluded41 = ["className", "component"];
-var useUtilityClasses22 = (ownerState) => {
-  const {
-    classes
-  } = ownerState;
-  const slots = {
-    root: ["root"]
-  };
-  return composeClasses(slots, getTableBodyUtilityClass, classes);
-};
-var TableBodyRoot = styled_default("tbody", {
-  name: "MuiTableBody",
-  slot: "Root",
-  overridesResolver: (props, styles4) => styles4.root
-})({
-  display: "table-row-group"
-});
-var tablelvl2 = {
-  variant: "body"
-};
-var defaultComponent2 = "tbody";
-var TableBody = /* @__PURE__ */ React63.forwardRef(function TableBody2(inProps, ref) {
-  const props = useThemeProps2({
-    props: inProps,
-    name: "MuiTableBody"
-  });
-  const {
-    className,
-    component = defaultComponent2
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded41);
-  const ownerState = _extends4({}, props, {
-    component
-  });
-  const classes = useUtilityClasses22(ownerState);
-  return /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(Tablelvl2Context_default.Provider, {
-    value: tablelvl2,
-    children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(TableBodyRoot, _extends4({
-      className: clsx_default(classes.root, className),
-      as: component,
-      ref,
-      role: component === defaultComponent2 ? null : "rowgroup",
-      ownerState
-    }, other))
-  });
-});
-true ? TableBody.propTypes = {
-  // ┌────────────────────────────── Warning ──────────────────────────────┐
-  // │ These PropTypes are generated from the TypeScript type definitions. │
-  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
-  // └─────────────────────────────────────────────────────────────────────┘
-  /**
-   * The content of the component, normally `TableRow`.
-   */
-  children: import_prop_types41.default.node,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: import_prop_types41.default.object,
-  /**
-   * @ignore
-   */
-  className: import_prop_types41.default.string,
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: import_prop_types41.default.elementType,
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: import_prop_types41.default.oneOfType([import_prop_types41.default.arrayOf(import_prop_types41.default.oneOfType([import_prop_types41.default.func, import_prop_types41.default.object, import_prop_types41.default.bool])), import_prop_types41.default.func, import_prop_types41.default.object])
-} : void 0;
-var TableBody_default = TableBody;
-
-// node_modules/@mui/material/TableCell/TableCell.js
-var React64 = __toESM(require_react());
-var import_prop_types42 = __toESM(require_prop_types());
-
-// node_modules/@mui/material/TableCell/tableCellClasses.js
-function getTableCellUtilityClass(slot) {
-  return generateUtilityClass("MuiTableCell", slot);
-}
-var tableCellClasses = generateUtilityClasses("MuiTableCell", ["root", "head", "body", "footer", "sizeSmall", "sizeMedium", "paddingCheckbox", "paddingNone", "alignLeft", "alignCenter", "alignRight", "alignJustify", "stickyHeader"]);
-var tableCellClasses_default = tableCellClasses;
-
-// node_modules/@mui/material/TableCell/TableCell.js
-var import_jsx_runtime48 = __toESM(require_jsx_runtime());
-var _excluded42 = ["align", "className", "component", "padding", "scope", "size", "sortDirection", "variant"];
-var useUtilityClasses23 = (ownerState) => {
-  const {
-    classes,
-    variant,
-    align,
-    padding: padding2,
-    size,
-    stickyHeader
-  } = ownerState;
-  const slots = {
-    root: ["root", variant, stickyHeader && "stickyHeader", align !== "inherit" && `align${capitalize_default(align)}`, padding2 !== "normal" && `padding${capitalize_default(padding2)}`, `size${capitalize_default(size)}`]
-  };
-  return composeClasses(slots, getTableCellUtilityClass, classes);
-};
-var TableCellRoot = styled_default("td", {
-  name: "MuiTableCell",
-  slot: "Root",
-  overridesResolver: (props, styles4) => {
-    const {
-      ownerState
-    } = props;
-    return [styles4.root, styles4[ownerState.variant], styles4[`size${capitalize_default(ownerState.size)}`], ownerState.padding !== "normal" && styles4[`padding${capitalize_default(ownerState.padding)}`], ownerState.align !== "inherit" && styles4[`align${capitalize_default(ownerState.align)}`], ownerState.stickyHeader && styles4.stickyHeader];
-  }
-})(({
-  theme,
-  ownerState
-}) => _extends4({}, theme.typography.body2, {
-  display: "table-cell",
-  verticalAlign: "inherit",
-  // Workaround for a rendering bug with spanned columns in Chrome 62.0.
-  // Removes the alpha (sets it to 1), and lightens or darkens the theme color.
-  borderBottom: theme.vars ? `1px solid ${theme.vars.palette.TableCell.border}` : `1px solid
-    ${theme.palette.mode === "light" ? lighten(alpha(theme.palette.divider, 1), 0.88) : darken(alpha(theme.palette.divider, 1), 0.68)}`,
-  textAlign: "left",
-  padding: 16
-}, ownerState.variant === "head" && {
-  color: (theme.vars || theme).palette.text.primary,
-  lineHeight: theme.typography.pxToRem(24),
-  fontWeight: theme.typography.fontWeightMedium
-}, ownerState.variant === "body" && {
-  color: (theme.vars || theme).palette.text.primary
-}, ownerState.variant === "footer" && {
-  color: (theme.vars || theme).palette.text.secondary,
-  lineHeight: theme.typography.pxToRem(21),
-  fontSize: theme.typography.pxToRem(12)
-}, ownerState.size === "small" && {
-  padding: "6px 16px",
-  [`&.${tableCellClasses_default.paddingCheckbox}`]: {
-    width: 24,
-    // prevent the checkbox column from growing
-    padding: "0 12px 0 16px",
-    "& > *": {
-      padding: 0
-    }
-  }
-}, ownerState.padding === "checkbox" && {
-  width: 48,
-  // prevent the checkbox column from growing
-  padding: "0 0 0 4px"
-}, ownerState.padding === "none" && {
-  padding: 0
-}, ownerState.align === "left" && {
-  textAlign: "left"
-}, ownerState.align === "center" && {
-  textAlign: "center"
-}, ownerState.align === "right" && {
-  textAlign: "right",
-  flexDirection: "row-reverse"
-}, ownerState.align === "justify" && {
-  textAlign: "justify"
-}, ownerState.stickyHeader && {
-  position: "sticky",
-  top: 0,
-  zIndex: 2,
-  backgroundColor: (theme.vars || theme).palette.background.default
-}));
-var TableCell = /* @__PURE__ */ React64.forwardRef(function TableCell2(inProps, ref) {
-  const props = useThemeProps2({
-    props: inProps,
-    name: "MuiTableCell"
-  });
-  const {
-    align = "inherit",
-    className,
-    component: componentProp,
-    padding: paddingProp,
-    scope: scopeProp,
-    size: sizeProp,
-    sortDirection,
-    variant: variantProp
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded42);
-  const table = React64.useContext(TableContext_default);
-  const tablelvl22 = React64.useContext(Tablelvl2Context_default);
-  const isHeadCell = tablelvl22 && tablelvl22.variant === "head";
-  let component;
-  if (componentProp) {
-    component = componentProp;
-  } else {
-    component = isHeadCell ? "th" : "td";
-  }
-  let scope = scopeProp;
-  if (component === "td") {
-    scope = void 0;
-  } else if (!scope && isHeadCell) {
-    scope = "col";
-  }
-  const variant = variantProp || tablelvl22 && tablelvl22.variant;
-  const ownerState = _extends4({}, props, {
-    align,
-    component,
-    padding: paddingProp || (table && table.padding ? table.padding : "normal"),
-    size: sizeProp || (table && table.size ? table.size : "medium"),
-    sortDirection,
-    stickyHeader: variant === "head" && table && table.stickyHeader,
-    variant
-  });
-  const classes = useUtilityClasses23(ownerState);
-  let ariaSort = null;
-  if (sortDirection) {
-    ariaSort = sortDirection === "asc" ? "ascending" : "descending";
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime48.jsx)(TableCellRoot, _extends4({
-    as: component,
-    ref,
-    className: clsx_default(classes.root, className),
-    "aria-sort": ariaSort,
-    scope,
-    ownerState
-  }, other));
-});
-true ? TableCell.propTypes = {
-  // ┌────────────────────────────── Warning ──────────────────────────────┐
-  // │ These PropTypes are generated from the TypeScript type definitions. │
-  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
-  // └─────────────────────────────────────────────────────────────────────┘
-  /**
-   * Set the text-align on the table cell content.
-   *
-   * Monetary or generally number fields **should be right aligned** as that allows
-   * you to add them up quickly in your head without having to worry about decimals.
-   * @default 'inherit'
-   */
-  align: import_prop_types42.default.oneOf(["center", "inherit", "justify", "left", "right"]),
-  /**
-   * The content of the component.
-   */
-  children: import_prop_types42.default.node,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: import_prop_types42.default.object,
-  /**
-   * @ignore
-   */
-  className: import_prop_types42.default.string,
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: import_prop_types42.default.elementType,
-  /**
-   * Sets the padding applied to the cell.
-   * The prop defaults to the value (`'default'`) inherited from the parent Table component.
-   */
-  padding: import_prop_types42.default.oneOf(["checkbox", "none", "normal"]),
-  /**
-   * Set scope attribute.
-   */
-  scope: import_prop_types42.default.string,
-  /**
-   * Specify the size of the cell.
-   * The prop defaults to the value (`'medium'`) inherited from the parent Table component.
-   */
-  size: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["medium", "small"]), import_prop_types42.default.string]),
-  /**
-   * Set aria-sort direction.
-   */
-  sortDirection: import_prop_types42.default.oneOf(["asc", "desc", false]),
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: import_prop_types42.default.oneOfType([import_prop_types42.default.arrayOf(import_prop_types42.default.oneOfType([import_prop_types42.default.func, import_prop_types42.default.object, import_prop_types42.default.bool])), import_prop_types42.default.func, import_prop_types42.default.object]),
-  /**
-   * Specify the cell type.
-   * The prop defaults to the value inherited from the parent TableHead, TableBody, or TableFooter components.
-   */
-  variant: import_prop_types42.default.oneOfType([import_prop_types42.default.oneOf(["body", "footer", "head"]), import_prop_types42.default.string])
-} : void 0;
-var TableCell_default = TableCell;
-
-// node_modules/@mui/material/TableRow/TableRow.js
-var React65 = __toESM(require_react());
-var import_prop_types43 = __toESM(require_prop_types());
-
-// node_modules/@mui/material/TableRow/tableRowClasses.js
-function getTableRowUtilityClass(slot) {
-  return generateUtilityClass("MuiTableRow", slot);
-}
-var tableRowClasses = generateUtilityClasses("MuiTableRow", ["root", "selected", "hover", "head", "footer"]);
-var tableRowClasses_default = tableRowClasses;
-
-// node_modules/@mui/material/TableRow/TableRow.js
-var import_jsx_runtime49 = __toESM(require_jsx_runtime());
-var _excluded43 = ["className", "component", "hover", "selected"];
-var useUtilityClasses24 = (ownerState) => {
-  const {
-    classes,
-    selected,
-    hover,
-    head,
-    footer
-  } = ownerState;
-  const slots = {
-    root: ["root", selected && "selected", hover && "hover", head && "head", footer && "footer"]
-  };
-  return composeClasses(slots, getTableRowUtilityClass, classes);
-};
-var TableRowRoot = styled_default("tr", {
-  name: "MuiTableRow",
-  slot: "Root",
-  overridesResolver: (props, styles4) => {
-    const {
-      ownerState
-    } = props;
-    return [styles4.root, ownerState.head && styles4.head, ownerState.footer && styles4.footer];
-  }
-})(({
-  theme
-}) => ({
-  color: "inherit",
-  display: "table-row",
-  verticalAlign: "middle",
-  // We disable the focus ring for mouse, touch and keyboard users.
-  outline: 0,
-  [`&.${tableRowClasses_default.hover}:hover`]: {
-    backgroundColor: (theme.vars || theme).palette.action.hover
-  },
-  [`&.${tableRowClasses_default.selected}`]: {
-    backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / ${theme.vars.palette.action.selectedOpacity})` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity),
-    "&:hover": {
-      backgroundColor: theme.vars ? `rgba(${theme.vars.palette.primary.mainChannel} / calc(${theme.vars.palette.action.selectedOpacity} + ${theme.vars.palette.action.hoverOpacity}))` : alpha(theme.palette.primary.main, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity)
-    }
-  }
-}));
-var defaultComponent3 = "tr";
-var TableRow = /* @__PURE__ */ React65.forwardRef(function TableRow2(inProps, ref) {
-  const props = useThemeProps2({
-    props: inProps,
-    name: "MuiTableRow"
-  });
-  const {
-    className,
-    component = defaultComponent3,
-    hover = false,
-    selected = false
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded43);
-  const tablelvl22 = React65.useContext(Tablelvl2Context_default);
-  const ownerState = _extends4({}, props, {
-    component,
-    hover,
-    selected,
-    head: tablelvl22 && tablelvl22.variant === "head",
-    footer: tablelvl22 && tablelvl22.variant === "footer"
-  });
-  const classes = useUtilityClasses24(ownerState);
-  return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(TableRowRoot, _extends4({
-    as: component,
-    ref,
-    className: clsx_default(classes.root, className),
-    role: component === defaultComponent3 ? null : "row",
-    ownerState
-  }, other));
-});
-true ? TableRow.propTypes = {
-  // ┌────────────────────────────── Warning ──────────────────────────────┐
-  // │ These PropTypes are generated from the TypeScript type definitions. │
-  // │    To update them, edit the d.ts file and run `pnpm proptypes`.     │
-  // └─────────────────────────────────────────────────────────────────────┘
-  /**
-   * Should be valid <tr> children such as `TableCell`.
-   */
-  children: import_prop_types43.default.node,
-  /**
-   * Override or extend the styles applied to the component.
-   */
-  classes: import_prop_types43.default.object,
-  /**
-   * @ignore
-   */
-  className: import_prop_types43.default.string,
-  /**
-   * The component used for the root node.
-   * Either a string to use a HTML element or a component.
-   */
-  component: import_prop_types43.default.elementType,
-  /**
-   * If `true`, the table row will shade on hover.
-   * @default false
-   */
-  hover: import_prop_types43.default.bool,
-  /**
-   * If `true`, the table row will have the selected shading.
-   * @default false
-   */
-  selected: import_prop_types43.default.bool,
-  /**
-   * The system prop that allows defining system overrides as well as additional CSS styles.
-   */
-  sx: import_prop_types43.default.oneOfType([import_prop_types43.default.arrayOf(import_prop_types43.default.oneOfType([import_prop_types43.default.func, import_prop_types43.default.object, import_prop_types43.default.bool])), import_prop_types43.default.func, import_prop_types43.default.object])
-} : void 0;
-var TableRow_default = TableRow;
-
 // node_modules/@mui/material/TextField/TextField.js
-var React66 = __toESM(require_react());
-var import_prop_types44 = __toESM(require_prop_types());
+var React60 = __toESM(require_react());
+var import_prop_types40 = __toESM(require_prop_types());
 
 // node_modules/@mui/material/TextField/textFieldClasses.js
 function getTextFieldUtilityClass(slot) {
@@ -50908,15 +50349,15 @@ function getTextFieldUtilityClass(slot) {
 var textFieldClasses = generateUtilityClasses("MuiTextField", ["root"]);
 
 // node_modules/@mui/material/TextField/TextField.js
-var import_jsx_runtime50 = __toESM(require_jsx_runtime());
-var import_jsx_runtime51 = __toESM(require_jsx_runtime());
-var _excluded44 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
+var import_jsx_runtime46 = __toESM(require_jsx_runtime());
+var import_jsx_runtime47 = __toESM(require_jsx_runtime());
+var _excluded40 = ["autoComplete", "autoFocus", "children", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "maxRows", "minRows", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "select", "SelectProps", "type", "value", "variant"];
 var variantComponent = {
   standard: Input_default,
   filled: FilledInput_default,
   outlined: OutlinedInput_default
 };
-var useUtilityClasses25 = (ownerState) => {
+var useUtilityClasses21 = (ownerState) => {
   const {
     classes
   } = ownerState;
@@ -50930,7 +50371,7 @@ var TextFieldRoot = styled_default(FormControl_default, {
   slot: "Root",
   overridesResolver: (props, styles4) => styles4.root
 })({});
-var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, ref) {
+var TextField = /* @__PURE__ */ React60.forwardRef(function TextField2(inProps, ref) {
   const props = useThemeProps2({
     props: inProps,
     name: "MuiTextField"
@@ -50968,7 +50409,7 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
     type,
     value,
     variant = "outlined"
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded44);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded40);
   const ownerState = _extends4({}, props, {
     autoFocus,
     color: color2,
@@ -50980,7 +50421,7 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
     select,
     variant
   });
-  const classes = useUtilityClasses25(ownerState);
+  const classes = useUtilityClasses21(ownerState);
   if (true) {
     if (select && !children) {
       console.error("MUI: `children` must be passed when using the `TextField` component with `select`.");
@@ -51003,7 +50444,7 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
   const helperTextId = helperText && id ? `${id}-helper-text` : void 0;
   const inputLabelId = label && id ? `${id}-label` : void 0;
   const InputComponent = variantComponent[variant];
-  const InputElement = /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(InputComponent, _extends4({
+  const InputElement = /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(InputComponent, _extends4({
     "aria-describedby": helperTextId,
     autoComplete,
     autoFocus,
@@ -51024,7 +50465,7 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
     placeholder,
     inputProps
   }, InputMore, InputProps));
-  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(TextFieldRoot, _extends4({
+  return /* @__PURE__ */ (0, import_jsx_runtime47.jsxs)(TextFieldRoot, _extends4({
     className: clsx_default(classes.root, className),
     disabled,
     error: error2,
@@ -51035,12 +50476,12 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
     variant,
     ownerState
   }, other, {
-    children: [label != null && label !== "" && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(InputLabel_default, _extends4({
+    children: [label != null && label !== "" && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(InputLabel_default, _extends4({
       htmlFor: id,
       id: inputLabelId
     }, InputLabelProps, {
       children: label
-    })), select ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(Select_default, _extends4({
+    })), select ? /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(Select_default, _extends4({
       "aria-describedby": helperTextId,
       id,
       labelId: inputLabelId,
@@ -51048,7 +50489,7 @@ var TextField = /* @__PURE__ */ React66.forwardRef(function TextField2(inProps, 
       input: InputElement
     }, SelectProps, {
       children
-    })) : InputElement, helperText && /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(FormHelperText_default, _extends4({
+    })) : InputElement, helperText && /* @__PURE__ */ (0, import_jsx_runtime46.jsx)(FormHelperText_default, _extends4({
       id: helperTextId
     }, FormHelperTextProps, {
       children: helperText
@@ -51065,79 +50506,79 @@ true ? TextField.propTypes = {
    * The name can be confusing, as it's more like an autofill.
    * You can learn more about it [following the specification](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill).
    */
-  autoComplete: import_prop_types44.default.string,
+  autoComplete: import_prop_types40.default.string,
   /**
    * If `true`, the `input` element is focused during the first mount.
    * @default false
    */
-  autoFocus: import_prop_types44.default.bool,
+  autoFocus: import_prop_types40.default.bool,
   /**
    * @ignore
    */
-  children: import_prop_types44.default.node,
+  children: import_prop_types40.default.node,
   /**
    * Override or extend the styles applied to the component.
    */
-  classes: import_prop_types44.default.object,
+  classes: import_prop_types40.default.object,
   /**
    * @ignore
    */
-  className: import_prop_types44.default.string,
+  className: import_prop_types40.default.string,
   /**
    * The color of the component.
    * It supports both default and custom theme colors, which can be added as shown in the
    * [palette customization guide](https://mui.com/material-ui/customization/palette/#custom-colors).
    * @default 'primary'
    */
-  color: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["primary", "secondary", "error", "info", "success", "warning"]), import_prop_types44.default.string]),
+  color: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["primary", "secondary", "error", "info", "success", "warning"]), import_prop_types40.default.string]),
   /**
    * The default value. Use when the component is not controlled.
    */
-  defaultValue: import_prop_types44.default.any,
+  defaultValue: import_prop_types40.default.any,
   /**
    * If `true`, the component is disabled.
    * @default false
    */
-  disabled: import_prop_types44.default.bool,
+  disabled: import_prop_types40.default.bool,
   /**
    * If `true`, the label is displayed in an error state.
    * @default false
    */
-  error: import_prop_types44.default.bool,
+  error: import_prop_types40.default.bool,
   /**
    * Props applied to the [`FormHelperText`](/material-ui/api/form-helper-text/) element.
    */
-  FormHelperTextProps: import_prop_types44.default.object,
+  FormHelperTextProps: import_prop_types40.default.object,
   /**
    * If `true`, the input will take up the full width of its container.
    * @default false
    */
-  fullWidth: import_prop_types44.default.bool,
+  fullWidth: import_prop_types40.default.bool,
   /**
    * The helper text content.
    */
-  helperText: import_prop_types44.default.node,
+  helperText: import_prop_types40.default.node,
   /**
    * The id of the `input` element.
    * Use this prop to make `label` and `helperText` accessible for screen readers.
    */
-  id: import_prop_types44.default.string,
+  id: import_prop_types40.default.string,
   /**
    * Props applied to the [`InputLabel`](/material-ui/api/input-label/) element.
    * Pointer events like `onClick` are enabled if and only if `shrink` is `true`.
    */
-  InputLabelProps: import_prop_types44.default.object,
+  InputLabelProps: import_prop_types40.default.object,
   /**
    * [Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes) applied to the `input` element.
    */
-  inputProps: import_prop_types44.default.object,
+  inputProps: import_prop_types40.default.object,
   /**
    * Props applied to the Input element.
    * It will be a [`FilledInput`](/material-ui/api/filled-input/),
    * [`OutlinedInput`](/material-ui/api/outlined-input/) or [`Input`](/material-ui/api/input/)
    * component depending on the `variant` prop value.
    */
-  InputProps: import_prop_types44.default.object,
+  InputProps: import_prop_types40.default.object,
   /**
    * Pass a ref to the `input` element.
    */
@@ -51145,88 +50586,88 @@ true ? TextField.propTypes = {
   /**
    * The label content.
    */
-  label: import_prop_types44.default.node,
+  label: import_prop_types40.default.node,
   /**
    * If `dense` or `normal`, will adjust vertical spacing of this and contained components.
    * @default 'none'
    */
-  margin: import_prop_types44.default.oneOf(["dense", "none", "normal"]),
+  margin: import_prop_types40.default.oneOf(["dense", "none", "normal"]),
   /**
    * Maximum number of rows to display when multiline option is set to true.
    */
-  maxRows: import_prop_types44.default.oneOfType([import_prop_types44.default.number, import_prop_types44.default.string]),
+  maxRows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
   /**
    * Minimum number of rows to display when multiline option is set to true.
    */
-  minRows: import_prop_types44.default.oneOfType([import_prop_types44.default.number, import_prop_types44.default.string]),
+  minRows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
   /**
    * If `true`, a `textarea` element is rendered instead of an input.
    * @default false
    */
-  multiline: import_prop_types44.default.bool,
+  multiline: import_prop_types40.default.bool,
   /**
    * Name attribute of the `input` element.
    */
-  name: import_prop_types44.default.string,
+  name: import_prop_types40.default.string,
   /**
    * @ignore
    */
-  onBlur: import_prop_types44.default.func,
+  onBlur: import_prop_types40.default.func,
   /**
    * Callback fired when the value is changed.
    *
    * @param {object} event The event source of the callback.
    * You can pull out the new value by accessing `event.target.value` (string).
    */
-  onChange: import_prop_types44.default.func,
+  onChange: import_prop_types40.default.func,
   /**
    * @ignore
    */
-  onFocus: import_prop_types44.default.func,
+  onFocus: import_prop_types40.default.func,
   /**
    * The short hint displayed in the `input` before the user enters a value.
    */
-  placeholder: import_prop_types44.default.string,
+  placeholder: import_prop_types40.default.string,
   /**
    * If `true`, the label is displayed as required and the `input` element is required.
    * @default false
    */
-  required: import_prop_types44.default.bool,
+  required: import_prop_types40.default.bool,
   /**
    * Number of rows to display when multiline option is set to true.
    */
-  rows: import_prop_types44.default.oneOfType([import_prop_types44.default.number, import_prop_types44.default.string]),
+  rows: import_prop_types40.default.oneOfType([import_prop_types40.default.number, import_prop_types40.default.string]),
   /**
    * Render a [`Select`](/material-ui/api/select/) element while passing the Input element to `Select` as `input` parameter.
    * If this option is set you must pass the options of the select as children.
    * @default false
    */
-  select: import_prop_types44.default.bool,
+  select: import_prop_types40.default.bool,
   /**
    * Props applied to the [`Select`](/material-ui/api/select/) element.
    */
-  SelectProps: import_prop_types44.default.object,
+  SelectProps: import_prop_types40.default.object,
   /**
    * The size of the component.
    */
-  size: import_prop_types44.default.oneOfType([import_prop_types44.default.oneOf(["medium", "small"]), import_prop_types44.default.string]),
+  size: import_prop_types40.default.oneOfType([import_prop_types40.default.oneOf(["medium", "small"]), import_prop_types40.default.string]),
   /**
    * The system prop that allows defining system overrides as well as additional CSS styles.
    */
-  sx: import_prop_types44.default.oneOfType([import_prop_types44.default.arrayOf(import_prop_types44.default.oneOfType([import_prop_types44.default.func, import_prop_types44.default.object, import_prop_types44.default.bool])), import_prop_types44.default.func, import_prop_types44.default.object]),
+  sx: import_prop_types40.default.oneOfType([import_prop_types40.default.arrayOf(import_prop_types40.default.oneOfType([import_prop_types40.default.func, import_prop_types40.default.object, import_prop_types40.default.bool])), import_prop_types40.default.func, import_prop_types40.default.object]),
   /**
    * Type of the `input` element. It should be [a valid HTML5 input type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types).
    */
-  type: import_prop_types44.default.string,
+  type: import_prop_types40.default.string,
   /**
    * The value of the `input` element, required for a controlled component.
    */
-  value: import_prop_types44.default.any,
+  value: import_prop_types40.default.any,
   /**
    * The variant to use.
    * @default 'outlined'
    */
-  variant: import_prop_types44.default.oneOf(["filled", "outlined", "standard"])
+  variant: import_prop_types40.default.oneOf(["filled", "outlined", "standard"])
 } : void 0;
 var TextField_default = TextField;
 
@@ -51419,13 +50860,22 @@ var BoardList = () => {
 var BoardList_default = BoardList;
 
 // app/javascript/react/src/components/Board/Board.jsx
-var import_react14 = __toESM(require_react());
+var import_react15 = __toESM(require_react());
 
 // app/javascript/react/src/components/Board/BoardGrid.jsx
+var import_react14 = __toESM(require_react());
+
+// app/javascript/react/src/components/Board/Mine.jsx
 var import_react13 = __toESM(require_react());
+var Mine = () => {
+  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-shell" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection" })), /* @__PURE__ */ import_react13.default.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-horizontal" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-vertical" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-down" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-up" })));
+};
+var Mine_default = Mine;
+
+// app/javascript/react/src/components/Board/BoardGrid.jsx
 var BoardGrid = ({ grid: grid2 }) => {
-  const [gridboard, setGrid] = (0, import_react13.useState)(grid2);
-  return /* @__PURE__ */ import_react13.default.createElement(Table_default, null, /* @__PURE__ */ import_react13.default.createElement(TableBody_default, null, grid2.map((row) => /* @__PURE__ */ import_react13.default.createElement(TableRow_default, null, row.map((cell) => /* @__PURE__ */ import_react13.default.createElement(TableCell_default, { style: { height: 40, width: 40, border: "1px solid black" } }, cell == 1 ? "MINE" : " "))))));
+  const [gridboard, setGrid] = (0, import_react14.useState)(grid2);
+  return /* @__PURE__ */ import_react14.default.createElement("table", null, /* @__PURE__ */ import_react14.default.createElement("tbody", null, grid2.map((row) => /* @__PURE__ */ import_react14.default.createElement("tr", null, row.map((cell) => /* @__PURE__ */ import_react14.default.createElement("td", { className: "board-cell" }, cell == 1 && /* @__PURE__ */ import_react14.default.createElement(Mine_default, null)))))));
 };
 var BoardGrid_default = BoardGrid;
 
@@ -51433,9 +50883,9 @@ var BoardGrid_default = BoardGrid;
 var Board = ({ id }) => {
   const params = useParams();
   const navigate = useNavigate();
-  const [board, setBoard] = (0, import_react14.useState)([]);
-  const [loading, setLoading] = (0, import_react14.useState)(true);
-  (0, import_react14.useEffect)(() => {
+  const [board, setBoard] = (0, import_react15.useState)([]);
+  const [loading, setLoading] = (0, import_react15.useState)(true);
+  (0, import_react15.useEffect)(() => {
     fetchBoardDetails();
   }, [id]);
   const fetchBoardDetails = async () => {
@@ -51446,19 +50896,19 @@ var Board = ({ id }) => {
   const navigateHome = () => {
     navigate("/");
   };
-  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "board-wrapper" }, /* @__PURE__ */ import_react14.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react14.default.createElement(Button_default, { variant: "contained", onClick: navigateHome }, "Home")), loading ? /* @__PURE__ */ import_react14.default.createElement("p", null, "Loading Board...") : /* @__PURE__ */ import_react14.default.createElement("div", { className: "board-container" }, /* @__PURE__ */ import_react14.default.createElement("h1", null, board.name), /* @__PURE__ */ import_react14.default.createElement("h3", null, board.email), /* @__PURE__ */ import_react14.default.createElement(BoardGrid_default, { grid: board.grid })));
+  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-wrapper" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react15.default.createElement(Button_default, { variant: "contained", onClick: navigateHome }, "Home")), loading ? /* @__PURE__ */ import_react15.default.createElement("p", null, "Loading Board...") : /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title-container", style: { flex: "none" } }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "title" }, "Minesweeper: ", board.name), /* @__PURE__ */ import_react15.default.createElement("h3", null, "Created by: ", board.email)), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-grid-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardGrid_default, { grid: board.grid }))));
 };
 var Board_default = Board;
 
 // app/javascript/react/src/components/Home/Home.jsx
 var Home = () => {
-  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-list-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardList_default, null)));
+  return /* @__PURE__ */ import_react16.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react16.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react16.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react16.default.createElement("div", { className: "board-list-container" }, /* @__PURE__ */ import_react16.default.createElement(BoardList_default, null)));
 };
 var Home_default = Home;
 
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React73.createElement(BrowserRouter, null, /* @__PURE__ */ React73.createElement(Routes, null, /* @__PURE__ */ React73.createElement(Route, { path: "/", element: /* @__PURE__ */ React73.createElement(Home_default, null) }), /* @__PURE__ */ React73.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React73.createElement(Board_default, null) })));
+  return /* @__PURE__ */ React68.createElement(BrowserRouter, null, /* @__PURE__ */ React68.createElement(Routes, null, /* @__PURE__ */ React68.createElement(Route, { path: "/", element: /* @__PURE__ */ React68.createElement(Home_default, null) }), /* @__PURE__ */ React68.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React68.createElement(Board_default, null) })));
 };
 var App_default = App;
 

@@ -34,9 +34,13 @@ const Board = ({id}) => {
                 <p>Loading Board...</p>
                 :
                 <div className="board-container">
-                    <h1>{board.name}</h1>
-                    <h3>{board.email}</h3>
-                    <BoardGrid grid={board.grid}/>
+                    <div className="board-title-container" style={{ flex: 'none' }}>
+                        <div className="title">Minesweeper: {board.name}</div>
+                        <h3>Created by: {board.email}</h3>
+                    </div>
+                    <div className="board-grid-container">
+                        <BoardGrid grid={board.grid}/>
+                    </div>
                 </div>
             }
           

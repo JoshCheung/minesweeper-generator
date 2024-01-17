@@ -31,8 +31,6 @@
 .list-item-container {
   display: flex;
   flex-direction: column;
-  height: 100px;
-  width: 100%;
   background-color: rgb(255, 255, 244);
   margin-bottom: 16px;
   border-radius: 25px;
@@ -40,7 +38,6 @@
 .list-item-container:hover {
   display: flex;
   flex-direction: column;
-  height: 100px;
   width: 100%;
   background-color: rgb(255, 247, 226);
   margin-bottom: 16px;
@@ -48,13 +45,16 @@
   cursor: pointer;
 }
 .board-info-container {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  width: inherit;
 }
 .list-item-name {
   display: flex;
   font-weight: bold;
+  overflow-wrap: break-word;
+  word-wrap: anywhere;
 }
 .list-item-email {
   display: flex;
@@ -77,7 +77,6 @@
   justify-content: center;
 }
 .list-wrapper {
-  padding: 10px;
   overflow-y: scroll;
 }
 .list-button-container {
@@ -96,17 +95,110 @@
   background-color: aliceblue;
   justify-content: center;
   margin: auto;
+  overflow: scroll;
 }
 .home-button-container {
   position: absolute;
   left: 0;
   margin: 20px;
 }
+.board-grid-container {
+  display: flex;
+  justify-content: center;
+}
 .board-container {
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  max-width: 100%;
+}
+.board-title-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.title {
+  font-size: larger;
+  font-weight: bold;
+  margin: auto;
+  display: flex;
+  width: 50%;
+  overflow-wrap: break-word;
+  word-wrap: anywhere;
+  font-family: sans-serif;
+}
+.board-grid-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* app/javascript/react/src/components/Board/BoardGrid.css */
+.board-cell {
+  border: 1px solid black !important;
+  height: 40px;
+  width: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  padding: 16px;
+}
+
+/* app/javascript/react/src/components/Board/Mine.css */
+.mine-shell {
+  height: 40px;
+  width: 40px;
+  background-color: black;
+  border-radius: 50px;
+}
+.mine-reflection-container {
+  padding: 5px;
+  z-index: 1;
+  position: relative;
+}
+.mine-reflection {
+  margin: 0px 0px 0px 5px;
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  border-radius: 50px;
+}
+.line-through-horizontal {
+  position: absolute;
+  width: 60px;
+  height: 5px;
+  border-radius: 25px;
+  background-color: black;
+  margin-left: -9px;
+  transform: translateY(-50%);
+}
+.line-through-vertical {
+  position: absolute;
+  width: 60px;
+  height: 5px;
+  border-radius: 25px;
+  background-color: black;
+  margin-left: -9px;
+  transform: translateY(-50%) rotate(90deg);
+}
+.line-through-diagonal-down {
+  position: absolute;
+  width: 130%;
+  height: 3px;
+  border-radius: 25px;
+  background-color: black;
+  margin-left: -15%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.line-through-diagonal-up {
+  position: absolute;
+  width: 130%;
+  height: 3px;
+  border-radius: 25px;
+  background-color: black;
+  margin-left: -15%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* app/javascript/react/src/components/Home/Home.css */
