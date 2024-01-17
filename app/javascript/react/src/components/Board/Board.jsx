@@ -26,24 +26,25 @@ const Board = ({id}) => {
     }
 
     return (
-        <div className="board-wrapper" >
-            <div className="home-button-container">
-                <Button variant="contained" onClick={navigateHome}>Home</Button>
-            </div>
-            { loading ? 
-                <p>Loading Board...</p>
-                :
-                <div className="board-container">
-                    <div className="board-title-container" style={{ flex: 'none' }}>
-                        <div className="board-title">Minesweeper: {board.name}</div>
-                        <h3>Created by: {board.email}</h3>
-                    </div>
-                    <div className="board-grid-container">
-                        <BoardGrid grid={board.grid}/>
-                    </div>
+        <div className="board-page-container">
+            <div className="board-wrapper">
+                <div className="home-button-container">
+                    <Button variant="contained" onClick={navigateHome}>Home</Button>
                 </div>
-            }
-          
+                { loading ? 
+                    <p>Loading Board...</p>
+                    :
+                    <div className="board-container">
+                        <div className="board-title-container">
+                            <div className="board-title">Minesweeper: {board.name}</div>
+                            <div className="board-created-by">Created by: {board.email}</div>
+                        </div>
+                        <div className="board-grid-container">
+                            <BoardGrid grid={board.grid}/>
+                        </div>
+                    </div>
+                }
+        </div>  
         </div>
     )
 }
