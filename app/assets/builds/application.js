@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState18(initialState) {
+        function useState19(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1688,7 +1688,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect19(create, deps) {
+        function useEffect20(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2470,7 +2470,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext10;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect19;
+        exports.useEffect = useEffect20;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
@@ -2478,7 +2478,7 @@ var require_react_development = __commonJS({
         exports.useMemo = useMemo6;
         exports.useReducer = useReducer;
         exports.useRef = useRef20;
-        exports.useState = useState18;
+        exports.useState = useState19;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React67 = require_react();
+        var React69 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React67.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React67.Children.forEach(props.children, function(child) {
+                React69.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React67.Component().refs;
+        var emptyRefsObject = new React69.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React67 = require_react();
+        var React69 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React67.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React69.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,10 +33920,10 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React66 = __toESM(require_react());
+var React68 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
-var import_react14 = __toESM(require_react());
+var import_react16 = __toESM(require_react());
 
 // node_modules/react-router-dom/dist/index.js
 var React3 = __toESM(require_react());
@@ -50673,6 +50673,7 @@ var TextField_default = TextField;
 
 // app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.jsx
 var BoardGeneratorForm = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = (0, import_react10.useState)("");
   const [name2, setName] = (0, import_react10.useState)("");
   const [height2, setHeight] = (0, import_react10.useState)(0);
@@ -50717,7 +50718,7 @@ var BoardGeneratorForm = () => {
       width: width2,
       numberOfMines
     });
-    console.log(response);
+    navigate(`/viewBoard/${response.id}`);
   };
   return /* @__PURE__ */ import_react10.default.createElement("div", { className: "form-container" }, /* @__PURE__ */ import_react10.default.createElement("h2", { className: "title" }, "Minesweeper Board Generator"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-form-container" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
@@ -50831,7 +50832,6 @@ var ListItem_default = ListItem;
 var BoardList = () => {
   const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
   (0, import_react12.useEffect)(() => {
-    console.log("Testing!");
     fetchTenMostRecentBoards();
   }, []);
   const fetchTenMostRecentBoards = async () => {
@@ -50859,30 +50859,55 @@ var BoardList = () => {
 var BoardList_default = BoardList;
 
 // app/javascript/react/src/components/Board/Board.jsx
+var import_react15 = __toESM(require_react());
+
+// app/javascript/react/src/components/Board/BoardGrid.jsx
+var import_react14 = __toESM(require_react());
+
+// app/javascript/react/src/components/Board/Mine.jsx
 var import_react13 = __toESM(require_react());
+var Mine = () => {
+  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-shell" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection" })), /* @__PURE__ */ import_react13.default.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-horizontal" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-vertical" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-down" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-up" })));
+};
+var Mine_default = Mine;
+
+// app/javascript/react/src/components/Board/BoardGrid.jsx
+var BoardGrid = ({ grid: grid2 }) => {
+  const [gridboard, setGrid] = (0, import_react14.useState)(grid2);
+  return /* @__PURE__ */ import_react14.default.createElement("table", null, /* @__PURE__ */ import_react14.default.createElement("tbody", null, grid2.map((row) => /* @__PURE__ */ import_react14.default.createElement("tr", null, row.map((cell) => /* @__PURE__ */ import_react14.default.createElement("td", { className: "board-cell" }, cell == 1 && /* @__PURE__ */ import_react14.default.createElement(Mine_default, null)))))));
+};
+var BoardGrid_default = BoardGrid;
+
+// app/javascript/react/src/components/Board/Board.jsx
 var Board = ({ id }) => {
   const params = useParams();
-  const [board, setBoard] = (0, import_react13.useState)([]);
-  (0, import_react13.useEffect)(() => {
+  const navigate = useNavigate();
+  const [board, setBoard] = (0, import_react15.useState)([]);
+  const [loading, setLoading] = (0, import_react15.useState)(true);
+  (0, import_react15.useEffect)(() => {
     fetchBoardDetails();
   }, [id]);
   const fetchBoardDetails = async () => {
     let board2 = await getBoard(params.id);
-    setBoard(board2.grid);
+    setBoard(board2);
+    setLoading(false);
   };
-  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "board-component-container" });
+  const navigateHome = () => {
+    navigate("/");
+  };
+  return /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-page-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-wrapper" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react15.default.createElement(Button_default, { variant: "contained", onClick: navigateHome }, "Home")), loading ? /* @__PURE__ */ import_react15.default.createElement("p", null, "Loading Board...") : /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title-container" }, /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-title" }, "Minesweeper: ", board.name), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-created-by" }, "Created by: ", board.email)), /* @__PURE__ */ import_react15.default.createElement("div", { className: "board-grid-container" }, /* @__PURE__ */ import_react15.default.createElement(BoardGrid_default, { grid: board.grid })))));
 };
 var Board_default = Board;
 
 // app/javascript/react/src/components/Home/Home.jsx
 var Home = () => {
-  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react14.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react14.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react14.default.createElement("div", { className: "board-list-container" }, /* @__PURE__ */ import_react14.default.createElement(BoardList_default, null)));
+  return /* @__PURE__ */ import_react16.default.createElement("div", { className: "home-container" }, /* @__PURE__ */ import_react16.default.createElement("div", { className: "home-form-container" }, /* @__PURE__ */ import_react16.default.createElement(BoardGeneratorForm_default, null)), /* @__PURE__ */ import_react16.default.createElement("div", { className: "board-list-container" }, /* @__PURE__ */ import_react16.default.createElement(BoardList_default, null)));
 };
 var Home_default = Home;
 
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React66.createElement(BrowserRouter, null, /* @__PURE__ */ React66.createElement(Routes, null, /* @__PURE__ */ React66.createElement(Route, { path: "/", element: /* @__PURE__ */ React66.createElement(Home_default, null) }), /* @__PURE__ */ React66.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React66.createElement(Board_default, null) })));
+  return /* @__PURE__ */ React68.createElement(BrowserRouter, null, /* @__PURE__ */ React68.createElement(Routes, null, /* @__PURE__ */ React68.createElement(Route, { path: "/", element: /* @__PURE__ */ React68.createElement(Home_default, null) }), /* @__PURE__ */ React68.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React68.createElement(Board_default, null) })));
 };
 var App_default = App;
 

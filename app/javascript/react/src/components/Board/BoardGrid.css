@@ -1,0 +1,9 @@
+.board-cell {
+    border: 1px solid black !important;
+    height: 40px !important;
+    width: 40px !important;
+    max-width: 40px;
+    max-height: 40px;
+    padding: 16px;
+
+}

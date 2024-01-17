@@ -1,0 +1,60 @@
+.mine-shell {
+    height: 40px;
+    width: 40px;
+    background-color: black;
+    border-radius: 50px;
+}
+
+.mine-reflection-container {
+    padding: 5px;
+    z-index: 1;
+    position: relative;
+}
+
+.mine-reflection {
+    margin: 0px 0px 0px 5px;
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.line-through-horizontal {
+    position: absolute;
+    width: 60px;
+    height: 5px; /* Adjust line height as needed */
+    border-radius: 25px;
+    background-color: black; /* Line color */
+    margin-left: -9px;
+    transform: translateY(-50%);
+}
+
+.line-through-vertical {
+    position: absolute;
+    width: 60px;
+    height: 5px; /* Adjust line height as needed */
+    border-radius: 25px;
+    background-color: black; /* Line color */
+    margin-left: -9px;
+    transform: translateY(-50%)  rotate(90deg);
+}
+
+.line-through-diagonal-down {
+    position: absolute;
+    width: 130%;
+    height: 3px; /* Adjust line height as needed */
+    border-radius: 25px;
+    background-color: black; /* Line color */
+    margin-left: -15%;
+    transform: translateY(-50%)  rotate(45deg);
+}
+
+.line-through-diagonal-up {
+    position: absolute;
+    width: 130%;
+    height: 3px; /* Adjust line height as needed */
+    border-radius: 25px;
+    background-color: black; /* Line color */
+    margin-left: -15%;
+    transform: translateY(-50%)  rotate(-45deg);
+}

@@ -1,39 +1,44 @@
 .list-item-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    height: 100px;
-    width: 100%;
     background-color: rgb(255, 255, 244);
     margin-bottom: 16px;
     border-radius: 25px;
 }
 
 .list-item-container:hover {
-    display:flex;
-    flex-direction: column;
-    height: 100px;
-    width: 100%;
-    background-color: rgb(255, 247, 226);
+    display: flex;
     margin-bottom: 16px;
     border-radius: 25px;
+    background-color: rgb(255, 247, 226);
     cursor: pointer;
 }
 
 .board-info-container {
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    width: inherit;
 }
 
 .list-item-name {
     display: flex;
     font-weight: bold;
+    font-size: large;
+    font-family: sans-serif;
+    word-wrap: anywhere;
+    margin-bottom: 8px;
 }
 
 .list-item-email {
     display: flex;
+    font-size: large;
+    font-family: sans-serif;
+    margin-bottom: 8px;
 }   
 
 .list-item-date {
     display: flex;
+    font-size: large;
+    font-family: sans-serif;
 }
