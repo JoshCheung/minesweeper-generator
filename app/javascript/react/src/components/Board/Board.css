@@ -27,13 +27,10 @@
 }
 
 .board-container {
-    /* overflow: scroll; */
-    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     text-align: center;
     width: 100%;
-    /* max-width: 100%; */
 }
 
 .board-title-container {
@@ -53,6 +50,7 @@
     font-family: sans-serif;
     margin-bottom: 8px;
     width: 50%;
+    min-width: 500px;
 }
 
 .board-created-by {

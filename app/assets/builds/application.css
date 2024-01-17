@@ -139,6 +139,7 @@
   font-family: sans-serif;
   margin-bottom: 8px;
   width: 50%;
+  min-width: 500px;
 }
 .board-created-by {
   font-size: medium;
