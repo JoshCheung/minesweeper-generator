@@ -1,6 +1,6 @@
 class Api::V1::BoardsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-  skip_before_action :authenticate_user!, :only => "reply", :raise => false
+  # skip_before_action :verify_authenticity_token
+  # skip_before_action :authenticate_user!, :only => "reply", :raise => false
 
   before_action :set_board, only: %i[show]
 
