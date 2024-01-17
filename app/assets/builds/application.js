@@ -51695,7 +51695,6 @@ var BoardCollection = () => {
     }
   };
   const handleChange = (event, value) => {
-    console.log(value);
     if (value !== page) {
       fetchBoardPage(value);
       setPage(value);
@@ -51703,7 +51702,6 @@ var BoardCollection = () => {
   };
   const fetchBoardPage = async (pageNumber) => {
     const fetchedBoards = await getAllBoardsByPage(pageNumber);
-    console.log(fetchedBoards);
     setBoards(fetchedBoards.boards);
     setNumPages(fetchedBoards.total_pages);
     setLoading(false);
