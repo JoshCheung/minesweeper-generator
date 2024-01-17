@@ -1,0 +1,38 @@
+.tile-container {
+    height: 150px;
+    width: 250px;
+    max-width: 250px;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.tile-container:hover {
+    background-color: rgb(246, 246, 209);
+    cursor: pointer;
+}
+
+.tile-name {
+    display: flex;
+    font-weight: bold;
+    font-size: large;
+    font-family: sans-serif;
+    word-wrap: anywhere;
+    margin-bottom: 8px;
+}
+
+.tile-email {
+    display: flex;
+    font-size: large;
+    font-family: sans-serif;
+    margin-bottom: 8px;
+}   
+
+.tile-date {
+    display: flex;
+    font-size: large;
+    font-family: sans-serif;
+}

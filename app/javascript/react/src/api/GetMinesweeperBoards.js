@@ -14,8 +14,8 @@ export async function getTenMostRecentBoards() {
     return await boards;
 }
 
-export async function getAllBoards() {
-    const url = `/api/v1/boards/all`;
+export async function getAllBoardsByPage(pageNumber) {
+    const url = `/api/v1/boards/all?page=${pageNumber}`;
     let response = await fetch(url, {
         method: 'GET',
         headers: headers
@@ -35,4 +35,5 @@ export async function getBoard(board_id) {
     let board = await response.json();
     return await board;
 }
+
 

@@ -1,24 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Collection from './Collection';
 import { useNavigate } from "react-router";
 import { Button, Pagination } from "@mui/material";
+import { getAllBoardsByPage } from "../../api/GetMinesweeperBoards";
 import "./BoardCollection.css";
 
 const BoardCollection = () => {
     const navigate = useNavigate();
     const [page, setPage] = React.useState(1);
+    const [numPages, setNumPages] = useState(0);
+    const [boards, setBoards] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchBoards(1);
+    }, [])
 
     const navigateHome = () => {
         navigate('/');
     }
 
-    const handleChange = (value) => {
+
+    const fetchBoards= async () => {
+        try {
+            fetchBoardPage(1);
+        } catch (error) {
+          console.error('Error fetching recipes:', error);
+        }
+      };
+
+
+    const handleChange = (event, value) => {
+        console.log(value);
         if (value !== page) {
+            fetchBoardPage(value);
             setPage(value);
-            fetchRecipePage(value);
         }
     };
 
+    const fetchBoardPage = async (pageNumber) => {
+        const fetchedBoards = await getAllBoardsByPage(pageNumber);
+        console.log(fetchedBoards);
+        setBoards(fetchedBoards.boards);
+        setNumPages(fetchedBoards.total_pages)
+        setLoading(false);
+    }
 
     return (
         <div className="collection-page-container">
@@ -30,10 +56,15 @@ const BoardCollection = () => {
                 <h1>Generated Boards</h1>
             </div>
 
-            <Collection/>
+            {
+                loading ? 
+                <p>Loading Boards...</p>
+                :
+                <Collection boards={boards}/>
+            }
 
             <div className="AdminPage-pagination-container">
-                <Pagination page={page} onChange={(e) => handleChange(e.target.value)}/>
+                <Pagination page={page} onChange={handleChange} count={numPages}/>
             </div>
         </div>
     )

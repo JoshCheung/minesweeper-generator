@@ -1676,7 +1676,7 @@ var require_react_development = __commonJS({
           }
           return dispatcher.useContext(Context2);
         }
-        function useState19(initialState) {
+        function useState20(initialState) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useState(initialState);
         }
@@ -1688,7 +1688,7 @@ var require_react_development = __commonJS({
           var dispatcher = resolveDispatcher();
           return dispatcher.useRef(initialValue);
         }
-        function useEffect20(create, deps) {
+        function useEffect21(create, deps) {
           var dispatcher = resolveDispatcher();
           return dispatcher.useEffect(create, deps);
         }
@@ -2470,7 +2470,7 @@ var require_react_development = __commonJS({
         exports.useContext = useContext10;
         exports.useDebugValue = useDebugValue2;
         exports.useDeferredValue = useDeferredValue;
-        exports.useEffect = useEffect20;
+        exports.useEffect = useEffect21;
         exports.useId = useId2;
         exports.useImperativeHandle = useImperativeHandle6;
         exports.useInsertionEffect = useInsertionEffect3;
@@ -2478,7 +2478,7 @@ var require_react_development = __commonJS({
         exports.useMemo = useMemo6;
         exports.useReducer = useReducer;
         exports.useRef = useRef20;
-        exports.useState = useState19;
+        exports.useState = useState20;
         exports.useSyncExternalStore = useSyncExternalStore;
         exports.useTransition = useTransition;
         exports.version = ReactVersion;
@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React77 = require_react();
+        var React78 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React77.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React78.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React77.Children.forEach(props.children, function(child) {
+                React78.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React77.Component().refs;
+        var emptyRefsObject = new React78.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -24971,7 +24971,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React77 = require_react();
+        var React78 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -24997,7 +24997,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React77.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React78.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33920,7 +33920,7 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React76 = __toESM(require_react());
+var React77 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
 var import_react16 = __toESM(require_react());
@@ -51521,6 +51521,15 @@ async function getTenMostRecentBoards() {
   let boards = await response.json();
   return await boards;
 }
+async function getAllBoardsByPage(pageNumber) {
+  const url = `/api/v1/boards/all?page=${pageNumber}`;
+  let response = await fetch(url, {
+    method: "GET",
+    headers: headers2
+  });
+  let boards = await response.json();
+  return await boards;
+}
 async function getBoard(board_id) {
   const url = `/api/v1/boards/show/${board_id}`;
   let response = await fetch(url, {
@@ -51643,37 +51652,71 @@ var Home = () => {
 var Home_default = Home;
 
 // app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
-var import_react18 = __toESM(require_react());
+var import_react19 = __toESM(require_react());
 
 // app/javascript/react/src/components/BoardCollection/Collection.jsx
+var import_react18 = __toESM(require_react());
+
+// app/javascript/react/src/components/BoardCollection/Tile.jsx
 var import_react17 = __toESM(require_react());
-var Collection = () => {
-  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "recipe-boxes-container" });
+var Tile = ({ board }) => {
+  const navigate = useNavigate();
+  const viewBoard = () => {
+    navigate(`/viewBoard/${board.id}`);
+  };
+  return /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-container", onClick: viewBoard }, /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-name" }, board.name), /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-email" }, "Author: ", board.email), /* @__PURE__ */ import_react17.default.createElement("div", { className: "tile-date" }, "Created: ", convertUTCtoLocalTimeZone(board.created_at)));
+};
+var Tile_default = Tile;
+
+// app/javascript/react/src/components/BoardCollection/Collection.jsx
+var Collection = ({ boards }) => {
+  return /* @__PURE__ */ import_react18.default.createElement("div", { className: "collection-container" }, boards.map((board) => /* @__PURE__ */ import_react18.default.createElement(Tile_default, { key: board.id, board })));
 };
 var Collection_default = Collection;
 
 // app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
 var BoardCollection = () => {
   const navigate = useNavigate();
-  const [page, setPage] = import_react18.default.useState(1);
+  const [page, setPage] = import_react19.default.useState(1);
+  const [numPages, setNumPages] = (0, import_react19.useState)(0);
+  const [boards, setBoards] = (0, import_react19.useState)([]);
+  const [loading, setLoading] = (0, import_react19.useState)(true);
+  (0, import_react19.useEffect)(() => {
+    fetchBoards(1);
+  }, []);
   const navigateHome = () => {
     navigate("/");
   };
-  const handleChange = (value) => {
-    if (value !== page) {
-      setPage(value);
-      fetchRecipePage(value);
+  const fetchBoards = async () => {
+    try {
+      fetchBoardPage(1);
+    } catch (error2) {
+      console.error("Error fetching recipes:", error2);
     }
   };
-  return /* @__PURE__ */ import_react18.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react18.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react18.default.createElement(Button_default, { variant: "contained", onClick: () => {
+  const handleChange = (event, value) => {
+    console.log(value);
+    if (value !== page) {
+      fetchBoardPage(value);
+      setPage(value);
+    }
+  };
+  const fetchBoardPage = async (pageNumber) => {
+    const fetchedBoards = await getAllBoardsByPage(pageNumber);
+    console.log(fetchedBoards);
+    setBoards(fetchedBoards.boards);
+    setNumPages(fetchedBoards.total_pages);
+    setLoading(false);
+  };
+  return /* @__PURE__ */ import_react19.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react19.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react19.default.createElement(Button_default, { variant: "contained", onClick: () => {
     navigateHome();
-  } }, "Home")), /* @__PURE__ */ import_react18.default.createElement("div", { className: "board-collection-header" }, /* @__PURE__ */ import_react18.default.createElement("h1", null, "Generated Boards")), /* @__PURE__ */ import_react18.default.createElement(Collection_default, null), /* @__PURE__ */ import_react18.default.createElement("div", { className: "AdminPage-pagination-container" }, /* @__PURE__ */ import_react18.default.createElement(Pagination_default, { page, onChange: (e) => handleChange(e.target.value) })));
+  } }, "Home")), /* @__PURE__ */ import_react19.default.createElement("div", { className: "board-collection-header" }, /* @__PURE__ */ import_react19.default.createElement("h1", null, "Generated Boards")), loading ? /* @__PURE__ */ import_react19.default.createElement("p", null, "Loading Boards...") : /* @__PURE__ */ import_react19.default.createElement(Collection_default, { boards }), /* @__PURE__ */ import_react19.default.createElement("div", { className: "AdminPage-pagination-container" }, /* @__PURE__ */ import_react19.default.createElement(Pagination_default, { page, onChange: handleChange, count: numPages })));
 };
 var BoardCollection_default = BoardCollection;
 
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React76.createElement(BrowserRouter, null, /* @__PURE__ */ React76.createElement(Routes, null, /* @__PURE__ */ React76.createElement(Route, { path: "/", element: /* @__PURE__ */ React76.createElement(Home_default, null) }), /* @__PURE__ */ React76.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React76.createElement(Board_default, null) }), /* @__PURE__ */ React76.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React76.createElement(BoardCollection_default, null) })));
+  return /* @__PURE__ */ React77.createElement(BrowserRouter, null, /* @__PURE__ */ React77.createElement(Routes, null, /* @__PURE__ */ React77.createElement(Route, { path: "/", element: /* @__PURE__ */ React77.createElement(Home_default, null) }), /* @__PURE__ */ React77.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React77.createElement(Board_default, null) }), /* @__PURE__ */ React77.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React77.createElement(BoardCollection_default, null) })));
 };
 var App_default = App;
 
