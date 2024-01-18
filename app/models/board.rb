@@ -4,6 +4,8 @@ class Board < ApplicationRecord
     validates :name, presence: true
     validates :email, presence: true
 
+    self.table_name = 'boards'
+
     def create_board(params)
         board_name = params[:name]
         email = params[:email]
