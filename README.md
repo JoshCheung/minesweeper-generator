@@ -1,24 +1,7 @@
-# README
+# Minesweeper Board Generator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The goal of this project is to create a minesweeper board generator.
+For every board generated, we should be able to view them and track previously generated boards. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Corresponding Design Doc:
+[https://docs.google.com/document/d/198dLAUjj251LjErdj0yPu1HlI2Y3ttFT8wWqeziTAcM/edit?usp=sharing]
