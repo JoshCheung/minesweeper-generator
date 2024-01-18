@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 const BoardList = () => {
     const navigate = useNavigate();
     const [boardsList, setBoardsList] = useState([]);
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         fetchTenMostRecentBoards();
@@ -16,6 +17,7 @@ const BoardList = () => {
     const fetchTenMostRecentBoards = async () => {
         const boards = await getTenMostRecentBoards();
         if (boards) {
+            setLoading(false);
             setBoardsList(boards);
         }
     }
@@ -29,10 +31,18 @@ const BoardList = () => {
             <h3 className="list-title">Most Recent Generated Boards</h3>
             <div className="list-wrapper">
                 {
-                    boardsList.map((board) => (
-                        <ListItem key={board.id} boardInfo={board} />
-                    ))
+                    loading ?
+                    <p>Loading list...</p>
+                    :
+                    <>
+                        {
+                            boardsList.map((board) => (
+                                <ListItem key={board.id} boardInfo={board} />
+                            ))
+                        }
+                    </>
                 }
+                
             </div>
             <div className="list-button-container">
                 <Button 

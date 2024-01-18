@@ -51576,19 +51576,21 @@ var ListItem_default = ListItem;
 var BoardList = () => {
   const navigate = useNavigate();
   const [boardsList, setBoardsList] = (0, import_react12.useState)([]);
+  const [loading, setLoading] = (0, import_react12.useState)(true);
   (0, import_react12.useEffect)(() => {
     fetchTenMostRecentBoards();
   }, []);
   const fetchTenMostRecentBoards = async () => {
     const boards = await getTenMostRecentBoards();
     if (boards) {
+      setLoading(false);
       setBoardsList(boards);
     }
   };
   const navigateToViewAllBoards = () => {
     navigate("/boardCollection");
   };
-  return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, boardsList.map((board) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, { key: board.id, boardInfo: board }))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(
+  return /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-container" }, /* @__PURE__ */ import_react12.default.createElement("h3", { className: "list-title" }, "Most Recent Generated Boards"), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-wrapper" }, loading ? /* @__PURE__ */ import_react12.default.createElement("p", null, "Loading list...") : /* @__PURE__ */ import_react12.default.createElement(import_react12.default.Fragment, null, boardsList.map((board) => /* @__PURE__ */ import_react12.default.createElement(ListItem_default, { key: board.id, boardInfo: board })))), /* @__PURE__ */ import_react12.default.createElement("div", { className: "list-button-container" }, /* @__PURE__ */ import_react12.default.createElement(
     Button_default,
     {
       style: { borderRadius: 25 },
