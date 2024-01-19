@@ -15,7 +15,7 @@ describe('BoardGrid Component', () => {
 
 
   it('renders a Mine cell', () => {
-    const mockGridData = [[1]]; // Assuming 1 represents a Mine
+    const mockGridData = [[1]]; 
 
     render(<BoardGrid grid={mockGridData} />);
 
@@ -23,8 +23,7 @@ describe('BoardGrid Component', () => {
   });
 
   it('renders an Empty cell', () => {
-    const mockGridData = [[0]]; // Assuming 0 represents an Empty cell
-
+    const mockGridData = [[0]]; 
     render(<BoardGrid grid={mockGridData} />);
 
     expect(screen.getByTestId('empty-cell')).toBeInTheDocument();
