@@ -1,6 +1,6 @@
 import React from "react";
 import './Tile.css';
-import { convertUTCtoLocalTimeZone } from "../../helper/timezoneConverter";
+import { convertUTCtoLocalTimeZone } from "../../../helper/timezoneConverter";
 import { useNavigate } from "react-router-dom";
 
 const Tile = ({board}) => {

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getBoard } from "../../api/GetMinesweeperBoards";
 import './Board.css';
 import { Button } from "@mui/material";
-import BoardGrid from "./BoardGrid";
+import BoardGrid from "./BoardGrid/BoardGrid";
 
 const Board = ({id}) => {
     const params = useParams();

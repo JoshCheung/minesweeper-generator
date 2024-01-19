@@ -51609,24 +51609,24 @@ var BoardList_default = BoardList;
 // app/javascript/react/src/components/Board/Board.jsx
 var import_react16 = __toESM(require_react());
 
-// app/javascript/react/src/components/Board/BoardGrid.jsx
+// app/javascript/react/src/components/Board/BoardGrid/BoardGrid.jsx
 var import_react15 = __toESM(require_react());
 
-// app/javascript/react/src/components/Board/Mine.jsx
+// app/javascript/react/src/components/Board/Mines/Mine.jsx
 var import_react13 = __toESM(require_react());
 var Mine = () => {
   return /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-shell" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection" })), /* @__PURE__ */ import_react13.default.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-horizontal" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-vertical" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-down" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-up" })));
 };
 var Mine_default = Mine;
 
-// app/javascript/react/src/components/Board/EmptyCell.jsx
+// app/javascript/react/src/components/Board/Cells/EmptyCell.jsx
 var import_react14 = __toESM(require_react());
 var EmptyCell = () => {
   return /* @__PURE__ */ import_react14.default.createElement("div", { className: "empty-shell" });
 };
 var EmptyCell_default = EmptyCell;
 
-// app/javascript/react/src/components/Board/BoardGrid.jsx
+// app/javascript/react/src/components/Board/BoardGrid/BoardGrid.jsx
 var BoardGrid = ({ grid: grid2 }) => {
   const [gridboard, setGrid] = (0, import_react15.useState)(grid2);
   return /* @__PURE__ */ import_react15.default.createElement("table", null, /* @__PURE__ */ import_react15.default.createElement("tbody", null, grid2.map((row, index) => /* @__PURE__ */ import_react15.default.createElement("tr", { key: index }, row.map((cell, index2) => /* @__PURE__ */ import_react15.default.createElement("td", { key: index2, className: "board-cell" }, cell == 1 ? /* @__PURE__ */ import_react15.default.createElement(Mine_default, null) : /* @__PURE__ */ import_react15.default.createElement(EmptyCell_default, null)))))));
@@ -51663,10 +51663,10 @@ var Home_default = Home;
 // app/javascript/react/src/components/BoardCollection/BoardCollection.jsx
 var import_react20 = __toESM(require_react());
 
-// app/javascript/react/src/components/BoardCollection/Collection.jsx
+// app/javascript/react/src/components/BoardCollection/Collection/Collection.jsx
 var import_react19 = __toESM(require_react());
 
-// app/javascript/react/src/components/BoardCollection/Tile.jsx
+// app/javascript/react/src/components/BoardCollection/Tiles/Tile.jsx
 var import_react18 = __toESM(require_react());
 var Tile = ({ board }) => {
   const navigate = useNavigate();
@@ -51677,7 +51677,7 @@ var Tile = ({ board }) => {
 };
 var Tile_default = Tile;
 
-// app/javascript/react/src/components/BoardCollection/Collection.jsx
+// app/javascript/react/src/components/BoardCollection/Collection/Collection.jsx
 var Collection = ({ boards }) => {
   return /* @__PURE__ */ import_react19.default.createElement("div", { className: "collection-container" }, boards.map((board) => /* @__PURE__ */ import_react19.default.createElement(Tile_default, { key: board.id, board })));
 };

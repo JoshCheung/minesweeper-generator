@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Table, TableRow, TableCell, TableBody } from "@mui/material";
 import "./BoardGrid.css";
-import Mine from "./Mine";
-import EmptyCell from './EmptyCell';
+import Mine from "../Mines/Mine";
+import EmptyCell from '../Cells/EmptyCell';
 
 const BoardGrid = ({grid}) => { 
     const [gridboard, setGrid] = useState(grid);

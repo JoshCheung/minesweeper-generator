@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Collection from './Collection';
+import Collection from './Collection/Collection';
 import { useNavigate } from "react-router";
 import { Button, Pagination } from "@mui/material";
 import { getAllBoardsByPage } from "../../api/GetMinesweeperBoards";
