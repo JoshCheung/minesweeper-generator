@@ -51694,9 +51694,11 @@ var BoardCollection = () => {
   };
   const fetchBoardPage = async (pageNumber) => {
     const fetchedBoards = await getAllBoardsByPage(pageNumber);
-    setBoards(fetchedBoards.boards);
-    setNumPages(fetchedBoards.total_pages);
-    setLoading(false);
+    if (fetchedBoards) {
+      setBoards(fetchedBoards.boards);
+      setNumPages(fetchedBoards.total_pages);
+      setLoading(false);
+    }
   };
   return /* @__PURE__ */ import_react20.default.createElement("div", { className: "collection-page-container" }, /* @__PURE__ */ import_react20.default.createElement("div", { className: "home-button-container" }, /* @__PURE__ */ import_react20.default.createElement(Button_default, { variant: "contained", onClick: () => {
     navigateHome();
