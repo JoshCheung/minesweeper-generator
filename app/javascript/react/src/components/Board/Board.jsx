@@ -17,8 +17,10 @@ const Board = ({id}) => {
 
     const fetchBoardDetails = async () => {
         let board = await getBoard(params.id);
-        setBoard(board);
-        setLoading(false);
+        if (board) {
+            setBoard(board);
+            setLoading(false);
+        }
     }
 
     const navigateHome = () => {

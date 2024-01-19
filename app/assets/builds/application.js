@@ -51598,20 +51598,22 @@ var import_react15 = __toESM(require_react());
 // app/javascript/react/src/components/Board/Mines/Mine.jsx
 var import_react13 = __toESM(require_react());
 var Mine = () => {
-  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-shell" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection" })), /* @__PURE__ */ import_react13.default.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-horizontal" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-vertical" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-down" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-up" })));
+  return /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-shell", "data-testid": "mine-cell" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection-container" }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "mine-reflection" })), /* @__PURE__ */ import_react13.default.createElement("div", { style: { position: "relative" } }, /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-horizontal" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-vertical" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-down" }), /* @__PURE__ */ import_react13.default.createElement("div", { className: "line-through-diagonal-up" })));
 };
 var Mine_default = Mine;
 
 // app/javascript/react/src/components/Board/Cells/EmptyCell.jsx
 var import_react14 = __toESM(require_react());
 var EmptyCell = () => {
-  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "empty-shell" });
+  return /* @__PURE__ */ import_react14.default.createElement("div", { className: "empty-shell", "data-testid": "empty-cell" });
 };
 var EmptyCell_default = EmptyCell;
 
 // app/javascript/react/src/components/Board/BoardGrid/BoardGrid.jsx
 var BoardGrid = ({ grid: grid2 }) => {
-  const [gridboard, setGrid] = (0, import_react15.useState)(grid2);
+  if (!grid2) {
+    return null;
+  }
   return /* @__PURE__ */ import_react15.default.createElement("table", null, /* @__PURE__ */ import_react15.default.createElement("tbody", null, grid2.map((row, index) => /* @__PURE__ */ import_react15.default.createElement("tr", { key: index }, row.map((cell, index2) => /* @__PURE__ */ import_react15.default.createElement("td", { key: index2, className: "board-cell" }, cell == 1 ? /* @__PURE__ */ import_react15.default.createElement(Mine_default, null) : /* @__PURE__ */ import_react15.default.createElement(EmptyCell_default, null)))))));
 };
 var BoardGrid_default = BoardGrid;
@@ -51627,8 +51629,10 @@ var Board = ({ id }) => {
   }, [id]);
   const fetchBoardDetails = async () => {
     let board2 = await getBoard(params.id);
-    setBoard(board2);
-    setLoading(false);
+    if (board2) {
+      setBoard(board2);
+      setLoading(false);
+    }
   };
   const navigateHome = () => {
     navigate("/");
