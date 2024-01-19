@@ -24099,9 +24099,9 @@ var require_client = __commonJS({
   }
 });
 
-// node_modules/react-is/cjs/react-is.development.js
+// node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js
 var require_react_is_development = __commonJS({
-  "node_modules/react-is/cjs/react-is.development.js"(exports) {
+  "node_modules/hoist-non-react-statics/node_modules/react-is/cjs/react-is.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -24254,9 +24254,9 @@ var require_react_is_development = __commonJS({
   }
 });
 
-// node_modules/react-is/index.js
+// node_modules/hoist-non-react-statics/node_modules/react-is/index.js
 var require_react_is = __commonJS({
-  "node_modules/react-is/index.js"(exports, module) {
+  "node_modules/hoist-non-react-statics/node_modules/react-is/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -24351,6 +24351,173 @@ var require_hoist_non_react_statics_cjs = __commonJS({
       return targetComponent;
     }
     module.exports = hoistNonReactStatics;
+  }
+});
+
+// node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js
+var require_react_is_development2 = __commonJS({
+  "node_modules/prop-types/node_modules/react-is/cjs/react-is.development.js"(exports) {
+    "use strict";
+    if (true) {
+      (function() {
+        "use strict";
+        var hasSymbol = typeof Symbol === "function" && Symbol.for;
+        var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for("react.element") : 60103;
+        var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for("react.portal") : 60106;
+        var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for("react.fragment") : 60107;
+        var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for("react.strict_mode") : 60108;
+        var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for("react.profiler") : 60114;
+        var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for("react.provider") : 60109;
+        var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for("react.context") : 60110;
+        var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for("react.async_mode") : 60111;
+        var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for("react.concurrent_mode") : 60111;
+        var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for("react.forward_ref") : 60112;
+        var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for("react.suspense") : 60113;
+        var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for("react.suspense_list") : 60120;
+        var REACT_MEMO_TYPE = hasSymbol ? Symbol.for("react.memo") : 60115;
+        var REACT_LAZY_TYPE = hasSymbol ? Symbol.for("react.lazy") : 60116;
+        var REACT_BLOCK_TYPE = hasSymbol ? Symbol.for("react.block") : 60121;
+        var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for("react.fundamental") : 60117;
+        var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 60118;
+        var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 60119;
+        function isValidElementType(type) {
+          return typeof type === "string" || typeof type === "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+          type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+        }
+        function typeOf(object) {
+          if (typeof object === "object" && object !== null) {
+            var $$typeof = object.$$typeof;
+            switch ($$typeof) {
+              case REACT_ELEMENT_TYPE:
+                var type = object.type;
+                switch (type) {
+                  case REACT_ASYNC_MODE_TYPE:
+                  case REACT_CONCURRENT_MODE_TYPE:
+                  case REACT_FRAGMENT_TYPE:
+                  case REACT_PROFILER_TYPE:
+                  case REACT_STRICT_MODE_TYPE:
+                  case REACT_SUSPENSE_TYPE:
+                    return type;
+                  default:
+                    var $$typeofType = type && type.$$typeof;
+                    switch ($$typeofType) {
+                      case REACT_CONTEXT_TYPE:
+                      case REACT_FORWARD_REF_TYPE:
+                      case REACT_LAZY_TYPE:
+                      case REACT_MEMO_TYPE:
+                      case REACT_PROVIDER_TYPE:
+                        return $$typeofType;
+                      default:
+                        return $$typeof;
+                    }
+                }
+              case REACT_PORTAL_TYPE:
+                return $$typeof;
+            }
+          }
+          return void 0;
+        }
+        var AsyncMode = REACT_ASYNC_MODE_TYPE;
+        var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+        var ContextConsumer = REACT_CONTEXT_TYPE;
+        var ContextProvider = REACT_PROVIDER_TYPE;
+        var Element2 = REACT_ELEMENT_TYPE;
+        var ForwardRef2 = REACT_FORWARD_REF_TYPE;
+        var Fragment14 = REACT_FRAGMENT_TYPE;
+        var Lazy = REACT_LAZY_TYPE;
+        var Memo2 = REACT_MEMO_TYPE;
+        var Portal3 = REACT_PORTAL_TYPE;
+        var Profiler = REACT_PROFILER_TYPE;
+        var StrictMode = REACT_STRICT_MODE_TYPE;
+        var Suspense = REACT_SUSPENSE_TYPE;
+        var hasWarnedAboutDeprecatedIsAsyncMode = false;
+        function isAsyncMode(object) {
+          {
+            if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+              hasWarnedAboutDeprecatedIsAsyncMode = true;
+              console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.");
+            }
+          }
+          return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+        }
+        function isConcurrentMode(object) {
+          return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+        }
+        function isContextConsumer(object) {
+          return typeOf(object) === REACT_CONTEXT_TYPE;
+        }
+        function isContextProvider(object) {
+          return typeOf(object) === REACT_PROVIDER_TYPE;
+        }
+        function isElement2(object) {
+          return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+        }
+        function isForwardRef(object) {
+          return typeOf(object) === REACT_FORWARD_REF_TYPE;
+        }
+        function isFragment4(object) {
+          return typeOf(object) === REACT_FRAGMENT_TYPE;
+        }
+        function isLazy(object) {
+          return typeOf(object) === REACT_LAZY_TYPE;
+        }
+        function isMemo(object) {
+          return typeOf(object) === REACT_MEMO_TYPE;
+        }
+        function isPortal(object) {
+          return typeOf(object) === REACT_PORTAL_TYPE;
+        }
+        function isProfiler(object) {
+          return typeOf(object) === REACT_PROFILER_TYPE;
+        }
+        function isStrictMode(object) {
+          return typeOf(object) === REACT_STRICT_MODE_TYPE;
+        }
+        function isSuspense(object) {
+          return typeOf(object) === REACT_SUSPENSE_TYPE;
+        }
+        exports.AsyncMode = AsyncMode;
+        exports.ConcurrentMode = ConcurrentMode;
+        exports.ContextConsumer = ContextConsumer;
+        exports.ContextProvider = ContextProvider;
+        exports.Element = Element2;
+        exports.ForwardRef = ForwardRef2;
+        exports.Fragment = Fragment14;
+        exports.Lazy = Lazy;
+        exports.Memo = Memo2;
+        exports.Portal = Portal3;
+        exports.Profiler = Profiler;
+        exports.StrictMode = StrictMode;
+        exports.Suspense = Suspense;
+        exports.isAsyncMode = isAsyncMode;
+        exports.isConcurrentMode = isConcurrentMode;
+        exports.isContextConsumer = isContextConsumer;
+        exports.isContextProvider = isContextProvider;
+        exports.isElement = isElement2;
+        exports.isForwardRef = isForwardRef;
+        exports.isFragment = isFragment4;
+        exports.isLazy = isLazy;
+        exports.isMemo = isMemo;
+        exports.isPortal = isPortal;
+        exports.isProfiler = isProfiler;
+        exports.isStrictMode = isStrictMode;
+        exports.isSuspense = isSuspense;
+        exports.isValidElementType = isValidElementType;
+        exports.typeOf = typeOf;
+      })();
+    }
+  }
+});
+
+// node_modules/prop-types/node_modules/react-is/index.js
+var require_react_is2 = __commonJS({
+  "node_modules/prop-types/node_modules/react-is/index.js"(exports, module) {
+    "use strict";
+    if (false) {
+      module.exports = null;
+    } else {
+      module.exports = require_react_is_development2();
+    }
   }
 });
 
@@ -24510,7 +24677,7 @@ var require_checkPropTypes = __commonJS({
 var require_factoryWithTypeCheckers = __commonJS({
   "node_modules/prop-types/factoryWithTypeCheckers.js"(exports, module) {
     "use strict";
-    var ReactIs = require_react_is();
+    var ReactIs = require_react_is2();
     var assign2 = require_object_assign();
     var ReactPropTypesSecret = require_ReactPropTypesSecret();
     var has = require_has();
@@ -24953,7 +25120,7 @@ var require_factoryWithTypeCheckers = __commonJS({
 var require_prop_types = __commonJS({
   "node_modules/prop-types/index.js"(exports, module) {
     if (true) {
-      ReactIs = require_react_is();
+      ReactIs = require_react_is2();
       throwOnDirectAccess = true;
       module.exports = require_factoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
     } else {
@@ -25854,203 +26021,9 @@ var require_jsx_runtime = __commonJS({
   }
 });
 
-// node_modules/@mui/utils/node_modules/react-is/cjs/react-is.development.js
-var require_react_is_development2 = __commonJS({
-  "node_modules/@mui/utils/node_modules/react-is/cjs/react-is.development.js"(exports) {
-    "use strict";
-    if (true) {
-      (function() {
-        "use strict";
-        var REACT_ELEMENT_TYPE = Symbol.for("react.element");
-        var REACT_PORTAL_TYPE = Symbol.for("react.portal");
-        var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
-        var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
-        var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
-        var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
-        var REACT_CONTEXT_TYPE = Symbol.for("react.context");
-        var REACT_SERVER_CONTEXT_TYPE = Symbol.for("react.server_context");
-        var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
-        var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
-        var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
-        var REACT_MEMO_TYPE = Symbol.for("react.memo");
-        var REACT_LAZY_TYPE = Symbol.for("react.lazy");
-        var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
-        var enableScopeAPI = false;
-        var enableCacheElement = false;
-        var enableTransitionTracing = false;
-        var enableLegacyHidden = false;
-        var enableDebugTracing = false;
-        var REACT_MODULE_REFERENCE;
-        {
-          REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
-        }
-        function isValidElementType(type) {
-          if (typeof type === "string" || typeof type === "function") {
-            return true;
-          }
-          if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) {
-            return true;
-          }
-          if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
-            // types supported by any Flight configuration anywhere since
-            // we don't know which Flight build this will end up being used
-            // with.
-            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== void 0) {
-              return true;
-            }
-          }
-          return false;
-        }
-        function typeOf(object) {
-          if (typeof object === "object" && object !== null) {
-            var $$typeof = object.$$typeof;
-            switch ($$typeof) {
-              case REACT_ELEMENT_TYPE:
-                var type = object.type;
-                switch (type) {
-                  case REACT_FRAGMENT_TYPE:
-                  case REACT_PROFILER_TYPE:
-                  case REACT_STRICT_MODE_TYPE:
-                  case REACT_SUSPENSE_TYPE:
-                  case REACT_SUSPENSE_LIST_TYPE:
-                    return type;
-                  default:
-                    var $$typeofType = type && type.$$typeof;
-                    switch ($$typeofType) {
-                      case REACT_SERVER_CONTEXT_TYPE:
-                      case REACT_CONTEXT_TYPE:
-                      case REACT_FORWARD_REF_TYPE:
-                      case REACT_LAZY_TYPE:
-                      case REACT_MEMO_TYPE:
-                      case REACT_PROVIDER_TYPE:
-                        return $$typeofType;
-                      default:
-                        return $$typeof;
-                    }
-                }
-              case REACT_PORTAL_TYPE:
-                return $$typeof;
-            }
-          }
-          return void 0;
-        }
-        var ContextConsumer = REACT_CONTEXT_TYPE;
-        var ContextProvider = REACT_PROVIDER_TYPE;
-        var Element2 = REACT_ELEMENT_TYPE;
-        var ForwardRef2 = REACT_FORWARD_REF_TYPE;
-        var Fragment14 = REACT_FRAGMENT_TYPE;
-        var Lazy = REACT_LAZY_TYPE;
-        var Memo2 = REACT_MEMO_TYPE;
-        var Portal3 = REACT_PORTAL_TYPE;
-        var Profiler = REACT_PROFILER_TYPE;
-        var StrictMode = REACT_STRICT_MODE_TYPE;
-        var Suspense = REACT_SUSPENSE_TYPE;
-        var SuspenseList = REACT_SUSPENSE_LIST_TYPE;
-        var hasWarnedAboutDeprecatedIsAsyncMode = false;
-        var hasWarnedAboutDeprecatedIsConcurrentMode = false;
-        function isAsyncMode(object) {
-          {
-            if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-              hasWarnedAboutDeprecatedIsAsyncMode = true;
-              console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 18+.");
-            }
-          }
-          return false;
-        }
-        function isConcurrentMode(object) {
-          {
-            if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
-              hasWarnedAboutDeprecatedIsConcurrentMode = true;
-              console["warn"]("The ReactIs.isConcurrentMode() alias has been deprecated, and will be removed in React 18+.");
-            }
-          }
-          return false;
-        }
-        function isContextConsumer(object) {
-          return typeOf(object) === REACT_CONTEXT_TYPE;
-        }
-        function isContextProvider(object) {
-          return typeOf(object) === REACT_PROVIDER_TYPE;
-        }
-        function isElement2(object) {
-          return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-        }
-        function isForwardRef(object) {
-          return typeOf(object) === REACT_FORWARD_REF_TYPE;
-        }
-        function isFragment4(object) {
-          return typeOf(object) === REACT_FRAGMENT_TYPE;
-        }
-        function isLazy(object) {
-          return typeOf(object) === REACT_LAZY_TYPE;
-        }
-        function isMemo(object) {
-          return typeOf(object) === REACT_MEMO_TYPE;
-        }
-        function isPortal(object) {
-          return typeOf(object) === REACT_PORTAL_TYPE;
-        }
-        function isProfiler(object) {
-          return typeOf(object) === REACT_PROFILER_TYPE;
-        }
-        function isStrictMode(object) {
-          return typeOf(object) === REACT_STRICT_MODE_TYPE;
-        }
-        function isSuspense(object) {
-          return typeOf(object) === REACT_SUSPENSE_TYPE;
-        }
-        function isSuspenseList(object) {
-          return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
-        }
-        exports.ContextConsumer = ContextConsumer;
-        exports.ContextProvider = ContextProvider;
-        exports.Element = Element2;
-        exports.ForwardRef = ForwardRef2;
-        exports.Fragment = Fragment14;
-        exports.Lazy = Lazy;
-        exports.Memo = Memo2;
-        exports.Portal = Portal3;
-        exports.Profiler = Profiler;
-        exports.StrictMode = StrictMode;
-        exports.Suspense = Suspense;
-        exports.SuspenseList = SuspenseList;
-        exports.isAsyncMode = isAsyncMode;
-        exports.isConcurrentMode = isConcurrentMode;
-        exports.isContextConsumer = isContextConsumer;
-        exports.isContextProvider = isContextProvider;
-        exports.isElement = isElement2;
-        exports.isForwardRef = isForwardRef;
-        exports.isFragment = isFragment4;
-        exports.isLazy = isLazy;
-        exports.isMemo = isMemo;
-        exports.isPortal = isPortal;
-        exports.isProfiler = isProfiler;
-        exports.isStrictMode = isStrictMode;
-        exports.isSuspense = isSuspense;
-        exports.isSuspenseList = isSuspenseList;
-        exports.isValidElementType = isValidElementType;
-        exports.typeOf = typeOf;
-      })();
-    }
-  }
-});
-
-// node_modules/@mui/utils/node_modules/react-is/index.js
-var require_react_is2 = __commonJS({
-  "node_modules/@mui/utils/node_modules/react-is/index.js"(exports, module) {
-    "use strict";
-    if (false) {
-      module.exports = null;
-    } else {
-      module.exports = require_react_is_development2();
-    }
-  }
-});
-
-// node_modules/@mui/material/node_modules/react-is/cjs/react-is.development.js
+// node_modules/react-is/cjs/react-is.development.js
 var require_react_is_development3 = __commonJS({
-  "node_modules/@mui/material/node_modules/react-is/cjs/react-is.development.js"(exports) {
+  "node_modules/react-is/cjs/react-is.development.js"(exports) {
     "use strict";
     if (true) {
       (function() {
@@ -26230,9 +26203,9 @@ var require_react_is_development3 = __commonJS({
   }
 });
 
-// node_modules/@mui/material/node_modules/react-is/index.js
+// node_modules/react-is/index.js
 var require_react_is3 = __commonJS({
-  "node_modules/@mui/material/node_modules/react-is/index.js"(exports, module) {
+  "node_modules/react-is/index.js"(exports, module) {
     "use strict";
     if (false) {
       module.exports = null;
@@ -35502,7 +35475,8 @@ var NavLink = /* @__PURE__ */ React3.forwardRef(function NavLinkWithRef(_ref8, r
   let location2 = useLocation();
   let routerState = React3.useContext(DataRouterStateContext);
   let {
-    navigator: navigator2
+    navigator: navigator2,
+    basename
   } = React3.useContext(NavigationContext);
   let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -35514,6 +35488,9 @@ var NavLink = /* @__PURE__ */ React3.forwardRef(function NavLinkWithRef(_ref8, r
     locationPathname = locationPathname.toLowerCase();
     nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
     toPathname = toPathname.toLowerCase();
+  }
+  if (nextLocationPathname && basename) {
+    nextLocationPathname = stripBasename(nextLocationPathname, basename) || nextLocationPathname;
   }
   const endSlashPosition = toPathname !== "/" && toPathname.endsWith("/") ? toPathname.length - 1 : toPathname.length;
   let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(endSlashPosition) === "/";
@@ -38208,7 +38185,7 @@ function exactProp(propTypes) {
 }
 
 // node_modules/@mui/utils/esm/getDisplayName.js
-var import_react_is = __toESM(require_react_is2());
+var import_react_is = __toESM(require_react_is3());
 var fnNameMatchRegex = /^\s*function(?:\s|\s*\/\*.*\*\/\s*)+([^(\s/]*)\s*/;
 function getFunctionName(fn) {
   const match2 = `${fn}`.match(fnNameMatchRegex);
@@ -38659,7 +38636,7 @@ var ClassNameGenerator = createClassNameGenerator();
 var ClassNameGenerator_default = ClassNameGenerator;
 
 // node_modules/@mui/utils/esm/generateUtilityClass/generateUtilityClass.js
-var globalStateClassesMapping = {
+var globalStateClasses = {
   active: "active",
   checked: "checked",
   completed: "completed",
@@ -38674,7 +38651,7 @@ var globalStateClassesMapping = {
   selected: "selected"
 };
 function generateUtilityClass(componentName, slot, globalStatePrefix = "Mui") {
-  const globalStateClass = globalStateClassesMapping[slot];
+  const globalStateClass = globalStateClasses[slot];
   return globalStateClass ? `${globalStatePrefix}-${globalStateClass}` : `${ClassNameGenerator_default.generate(componentName)}-${slot}`;
 }
 
@@ -38686,6 +38663,12 @@ function generateUtilityClasses(componentName, slots, globalStatePrefix = "Mui")
   });
   return result;
 }
+
+// node_modules/@mui/utils/esm/clamp/clamp.js
+function clamp(val, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
+  return Math.max(min, Math.min(val, max));
+}
+var clamp_default = clamp;
 
 // node_modules/@mui/system/esm/createTheme/createBreakpoints.js
 var _excluded4 = ["values", "unit", "step"];
@@ -40162,13 +40145,13 @@ function useThemeProps({
 }
 
 // node_modules/@mui/system/esm/colorManipulator.js
-function clamp(value, min = 0, max = 1) {
+function clampWrapper(value, min = 0, max = 1) {
   if (true) {
     if (value < min || value > max) {
       console.error(`MUI: The value provided ${value} is out of range [${min}, ${max}].`);
     }
   }
-  return Math.min(Math.max(min, value), max);
+  return clamp_default(value, min, max);
 }
 function hexToRgb(color2) {
   color2 = color2.slice(1);
@@ -40276,7 +40259,7 @@ function getContrastRatio(foreground, background) {
 }
 function alpha(color2, value) {
   color2 = decomposeColor(color2);
-  value = clamp(value);
+  value = clampWrapper(value);
   if (color2.type === "rgb" || color2.type === "hsl") {
     color2.type += "a";
   }
@@ -40289,7 +40272,7 @@ function alpha(color2, value) {
 }
 function darken(color2, coefficient) {
   color2 = decomposeColor(color2);
-  coefficient = clamp(coefficient);
+  coefficient = clampWrapper(coefficient);
   if (color2.type.indexOf("hsl") !== -1) {
     color2.values[2] *= 1 - coefficient;
   } else if (color2.type.indexOf("rgb") !== -1 || color2.type.indexOf("color") !== -1) {
@@ -40301,7 +40284,7 @@ function darken(color2, coefficient) {
 }
 function lighten(color2, coefficient) {
   color2 = decomposeColor(color2);
-  coefficient = clamp(coefficient);
+  coefficient = clampWrapper(coefficient);
   if (color2.type.indexOf("hsl") !== -1) {
     color2.values[2] += (100 - color2.values[2]) * coefficient;
   } else if (color2.type.indexOf("rgb") !== -1) {
@@ -42026,6 +42009,120 @@ true ? Paper.propTypes = {
 } : void 0;
 var Paper_default = Paper;
 
+// node_modules/@mui/base/utils/isHostComponent.js
+function isHostComponent(element) {
+  return typeof element === "string";
+}
+
+// node_modules/@mui/base/utils/appendOwnerState.js
+function appendOwnerState(elementType2, otherProps, ownerState) {
+  if (elementType2 === void 0 || isHostComponent(elementType2)) {
+    return otherProps;
+  }
+  return _extends4({}, otherProps, {
+    ownerState: _extends4({}, otherProps.ownerState, ownerState)
+  });
+}
+
+// node_modules/@mui/base/utils/extractEventHandlers.js
+function extractEventHandlers(object, excludeKeys = []) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => prop.match(/^on[A-Z]/) && typeof object[prop] === "function" && !excludeKeys.includes(prop)).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+
+// node_modules/@mui/base/utils/resolveComponentProps.js
+function resolveComponentProps(componentProps, ownerState, slotState) {
+  if (typeof componentProps === "function") {
+    return componentProps(ownerState, slotState);
+  }
+  return componentProps;
+}
+
+// node_modules/@mui/base/utils/omitEventHandlers.js
+function omitEventHandlers(object) {
+  if (object === void 0) {
+    return {};
+  }
+  const result = {};
+  Object.keys(object).filter((prop) => !(prop.match(/^on[A-Z]/) && typeof object[prop] === "function")).forEach((prop) => {
+    result[prop] = object[prop];
+  });
+  return result;
+}
+
+// node_modules/@mui/base/utils/mergeSlotProps.js
+function mergeSlotProps(parameters) {
+  const {
+    getSlotProps,
+    additionalProps,
+    externalSlotProps,
+    externalForwardedProps,
+    className
+  } = parameters;
+  if (!getSlotProps) {
+    const joinedClasses2 = clsx_default(additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+    const mergedStyle2 = _extends4({}, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
+    const props2 = _extends4({}, additionalProps, externalForwardedProps, externalSlotProps);
+    if (joinedClasses2.length > 0) {
+      props2.className = joinedClasses2;
+    }
+    if (Object.keys(mergedStyle2).length > 0) {
+      props2.style = mergedStyle2;
+    }
+    return {
+      props: props2,
+      internalRef: void 0
+    };
+  }
+  const eventHandlers = extractEventHandlers(_extends4({}, externalForwardedProps, externalSlotProps));
+  const componentsPropsWithoutEventHandlers = omitEventHandlers(externalSlotProps);
+  const otherPropsWithoutEventHandlers = omitEventHandlers(externalForwardedProps);
+  const internalSlotProps = getSlotProps(eventHandlers);
+  const joinedClasses = clsx_default(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
+  const mergedStyle = _extends4({}, internalSlotProps == null ? void 0 : internalSlotProps.style, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
+  const props = _extends4({}, internalSlotProps, additionalProps, otherPropsWithoutEventHandlers, componentsPropsWithoutEventHandlers);
+  if (joinedClasses.length > 0) {
+    props.className = joinedClasses;
+  }
+  if (Object.keys(mergedStyle).length > 0) {
+    props.style = mergedStyle;
+  }
+  return {
+    props,
+    internalRef: internalSlotProps.ref
+  };
+}
+
+// node_modules/@mui/base/utils/useSlotProps.js
+var _excluded14 = ["elementType", "externalSlotProps", "ownerState", "skipResolvingSlotProps"];
+function useSlotProps(parameters) {
+  var _parameters$additiona;
+  const {
+    elementType: elementType2,
+    externalSlotProps,
+    ownerState,
+    skipResolvingSlotProps = false
+  } = parameters, rest = _objectWithoutPropertiesLoose2(parameters, _excluded14);
+  const resolvedComponentsProps = skipResolvingSlotProps ? {} : resolveComponentProps(externalSlotProps, ownerState);
+  const {
+    props: mergedProps,
+    internalRef
+  } = mergeSlotProps(_extends4({}, rest, {
+    externalSlotProps: resolvedComponentsProps
+  }));
+  const ref = useForkRef(internalRef, resolvedComponentsProps == null ? void 0 : resolvedComponentsProps.ref, (_parameters$additiona = parameters.additionalProps) == null ? void 0 : _parameters$additiona.ref);
+  const props = appendOwnerState(elementType2, _extends4({}, mergedProps, {
+    ref
+  }), ownerState);
+  return props;
+}
+
 // node_modules/@mui/material/ButtonBase/ButtonBase.js
 var React27 = __toESM(require_react());
 var import_prop_types14 = __toESM(require_prop_types());
@@ -42123,7 +42220,7 @@ var touchRippleClasses_default = touchRippleClasses;
 
 // node_modules/@mui/material/ButtonBase/TouchRipple.js
 var import_jsx_runtime8 = __toESM(require_jsx_runtime());
-var _excluded14 = ["center", "classes", "className"];
+var _excluded15 = ["center", "classes", "className"];
 var _ = (t) => t;
 var _t;
 var _t2;
@@ -42242,7 +42339,7 @@ var TouchRipple = /* @__PURE__ */ React26.forwardRef(function TouchRipple2(inPro
     center: centerProp = false,
     classes = {},
     className
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded14);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded15);
   const [ripples, setRipples] = React26.useState([]);
   const nextKey = React26.useRef(0);
   const rippleCallback = React26.useRef(null);
@@ -42431,7 +42528,7 @@ var buttonBaseClasses_default = buttonBaseClasses;
 // node_modules/@mui/material/ButtonBase/ButtonBase.js
 var import_jsx_runtime9 = __toESM(require_jsx_runtime());
 var import_jsx_runtime10 = __toESM(require_jsx_runtime());
-var _excluded15 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
+var _excluded16 = ["action", "centerRipple", "children", "className", "component", "disabled", "disableRipple", "disableTouchRipple", "focusRipple", "focusVisibleClassName", "LinkComponent", "onBlur", "onClick", "onContextMenu", "onDragLeave", "onFocus", "onFocusVisible", "onKeyDown", "onKeyUp", "onMouseDown", "onMouseLeave", "onMouseUp", "onTouchEnd", "onTouchMove", "onTouchStart", "tabIndex", "TouchRippleProps", "touchRippleRef", "type"];
 var useUtilityClasses3 = (ownerState) => {
   const {
     disabled,
@@ -42526,7 +42623,7 @@ var ButtonBase = /* @__PURE__ */ React27.forwardRef(function ButtonBase2(inProps
     TouchRippleProps,
     touchRippleRef,
     type
-  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded15);
+  } = props, other = _objectWithoutPropertiesLoose2(props, _excluded16);
   const buttonRef = React27.useRef(null);
   const rippleRef = React27.useRef(null);
   const handleRippleRef = useForkRef_default(rippleRef, touchRippleRef);
@@ -42870,120 +42967,6 @@ true ? ButtonBase.propTypes = {
   type: import_prop_types14.default.oneOfType([import_prop_types14.default.oneOf(["button", "reset", "submit"]), import_prop_types14.default.string])
 } : void 0;
 var ButtonBase_default = ButtonBase;
-
-// node_modules/@mui/base/utils/isHostComponent.js
-function isHostComponent(element) {
-  return typeof element === "string";
-}
-
-// node_modules/@mui/base/utils/appendOwnerState.js
-function appendOwnerState(elementType2, otherProps, ownerState) {
-  if (elementType2 === void 0 || isHostComponent(elementType2)) {
-    return otherProps;
-  }
-  return _extends4({}, otherProps, {
-    ownerState: _extends4({}, otherProps.ownerState, ownerState)
-  });
-}
-
-// node_modules/@mui/base/utils/extractEventHandlers.js
-function extractEventHandlers(object, excludeKeys = []) {
-  if (object === void 0) {
-    return {};
-  }
-  const result = {};
-  Object.keys(object).filter((prop) => prop.match(/^on[A-Z]/) && typeof object[prop] === "function" && !excludeKeys.includes(prop)).forEach((prop) => {
-    result[prop] = object[prop];
-  });
-  return result;
-}
-
-// node_modules/@mui/base/utils/resolveComponentProps.js
-function resolveComponentProps(componentProps, ownerState, slotState) {
-  if (typeof componentProps === "function") {
-    return componentProps(ownerState, slotState);
-  }
-  return componentProps;
-}
-
-// node_modules/@mui/base/utils/omitEventHandlers.js
-function omitEventHandlers(object) {
-  if (object === void 0) {
-    return {};
-  }
-  const result = {};
-  Object.keys(object).filter((prop) => !(prop.match(/^on[A-Z]/) && typeof object[prop] === "function")).forEach((prop) => {
-    result[prop] = object[prop];
-  });
-  return result;
-}
-
-// node_modules/@mui/base/utils/mergeSlotProps.js
-function mergeSlotProps(parameters) {
-  const {
-    getSlotProps,
-    additionalProps,
-    externalSlotProps,
-    externalForwardedProps,
-    className
-  } = parameters;
-  if (!getSlotProps) {
-    const joinedClasses2 = clsx_default(additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
-    const mergedStyle2 = _extends4({}, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
-    const props2 = _extends4({}, additionalProps, externalForwardedProps, externalSlotProps);
-    if (joinedClasses2.length > 0) {
-      props2.className = joinedClasses2;
-    }
-    if (Object.keys(mergedStyle2).length > 0) {
-      props2.style = mergedStyle2;
-    }
-    return {
-      props: props2,
-      internalRef: void 0
-    };
-  }
-  const eventHandlers = extractEventHandlers(_extends4({}, externalForwardedProps, externalSlotProps));
-  const componentsPropsWithoutEventHandlers = omitEventHandlers(externalSlotProps);
-  const otherPropsWithoutEventHandlers = omitEventHandlers(externalForwardedProps);
-  const internalSlotProps = getSlotProps(eventHandlers);
-  const joinedClasses = clsx_default(internalSlotProps == null ? void 0 : internalSlotProps.className, additionalProps == null ? void 0 : additionalProps.className, className, externalForwardedProps == null ? void 0 : externalForwardedProps.className, externalSlotProps == null ? void 0 : externalSlotProps.className);
-  const mergedStyle = _extends4({}, internalSlotProps == null ? void 0 : internalSlotProps.style, additionalProps == null ? void 0 : additionalProps.style, externalForwardedProps == null ? void 0 : externalForwardedProps.style, externalSlotProps == null ? void 0 : externalSlotProps.style);
-  const props = _extends4({}, internalSlotProps, additionalProps, otherPropsWithoutEventHandlers, componentsPropsWithoutEventHandlers);
-  if (joinedClasses.length > 0) {
-    props.className = joinedClasses;
-  }
-  if (Object.keys(mergedStyle).length > 0) {
-    props.style = mergedStyle;
-  }
-  return {
-    props,
-    internalRef: internalSlotProps.ref
-  };
-}
-
-// node_modules/@mui/base/utils/useSlotProps.js
-var _excluded16 = ["elementType", "externalSlotProps", "ownerState", "skipResolvingSlotProps"];
-function useSlotProps(parameters) {
-  var _parameters$additiona;
-  const {
-    elementType: elementType2,
-    externalSlotProps,
-    ownerState,
-    skipResolvingSlotProps = false
-  } = parameters, rest = _objectWithoutPropertiesLoose2(parameters, _excluded16);
-  const resolvedComponentsProps = skipResolvingSlotProps ? {} : resolveComponentProps(externalSlotProps, ownerState);
-  const {
-    props: mergedProps,
-    internalRef
-  } = mergeSlotProps(_extends4({}, rest, {
-    externalSlotProps: resolvedComponentsProps
-  }));
-  const ref = useForkRef(internalRef, resolvedComponentsProps == null ? void 0 : resolvedComponentsProps.ref, (_parameters$additiona = parameters.additionalProps) == null ? void 0 : _parameters$additiona.ref);
-  const props = appendOwnerState(elementType2, _extends4({}, mergedProps, {
-    ref
-  }), ownerState);
-  return props;
-}
 
 // node_modules/@mui/base/FocusTrap/FocusTrap.js
 var React28 = __toESM(require_react());
@@ -51500,7 +51483,7 @@ var BoardGeneratorForm = () => {
     }
   ))), /* @__PURE__ */ import_react10.default.createElement("div", { className: "button-container" }, valid ? /* @__PURE__ */ import_react10.default.createElement(Button_default, { style: { borderRadius: 25 }, fullWidth: true, variant: "contained", color: "success", onClick: () => {
     handleSubmit();
-  } }, "Generate Board") : /* @__PURE__ */ import_react10.default.createElement(Button_default, { style: { borderRadius: 25 }, disabled: true, fullWidth: true, variant: "contained" }, "Generate Board")));
+  } }, "Generate Board") : /* @__PURE__ */ import_react10.default.createElement(Button_default, { id: "data-test-id", style: { borderRadius: 25 }, disabled: true, fullWidth: true, variant: "contained" }, "Generate Board")));
 };
 var BoardGeneratorForm_default = BoardGeneratorForm;
 
@@ -51787,6 +51770,16 @@ react-is/cjs/react-is.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 
+react-is/cjs/react-is.development.js:
+  (** @license React v16.13.1
+   * react-is.development.js
+   *
+   * Copyright (c) Facebook, Inc. and its affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   *)
+
 object-assign/index.js:
   (*
   object-assign
@@ -51798,17 +51791,6 @@ react/cjs/react-jsx-runtime.development.js:
   (**
    * @license React
    * react-jsx-runtime.development.js
-   *
-   * Copyright (c) Facebook, Inc. and its affiliates.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   *)
-
-react-is/cjs/react-is.development.js:
-  (**
-   * @license React
-   * react-is.development.js
    *
    * Copyright (c) Facebook, Inc. and its affiliates.
    *
@@ -51847,7 +51829,7 @@ react-is/cjs/react-is.development.js:
 
 react-router/dist/index.js:
   (**
-   * React Router v6.21.2
+   * React Router v6.21.3
    *
    * Copyright (c) Remix Software Inc.
    *
@@ -51859,7 +51841,7 @@ react-router/dist/index.js:
 
 react-router-dom/dist/index.js:
   (**
-   * React Router DOM v6.21.2
+   * React Router DOM v6.21.3
    *
    * Copyright (c) Remix Software Inc.
    *
@@ -51871,7 +51853,7 @@ react-router-dom/dist/index.js:
 
 @mui/styled-engine/index.js:
   (**
-   * @mui/styled-engine v5.15.4
+   * @mui/styled-engine v5.15.5
    *
    * @license MIT
    * This source code is licensed under the MIT license found in the
@@ -51880,7 +51862,7 @@ react-router-dom/dist/index.js:
 
 @mui/base/index.js:
   (**
-   * @mui/base v5.0.0-beta.31
+   * @mui/base v5.0.0-beta.32
    *
    * @license MIT
    * This source code is licensed under the MIT license found in the
@@ -51889,7 +51871,7 @@ react-router-dom/dist/index.js:
 
 @mui/material/index.js:
   (**
-   * @mui/material v5.15.4
+   * @mui/material v5.15.5
    *
    * @license MIT
    * This source code is licensed under the MIT license found in the
