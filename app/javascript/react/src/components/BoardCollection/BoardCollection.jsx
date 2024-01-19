@@ -20,8 +20,7 @@ const BoardCollection = () => {
         navigate('/');
     }
 
-
-    const fetchBoards= async () => {
+    const fetchBoards = async () => {
         try {
             fetchBoardPage(1);
         } catch (error) {
@@ -39,9 +38,11 @@ const BoardCollection = () => {
 
     const fetchBoardPage = async (pageNumber) => {
         const fetchedBoards = await getAllBoardsByPage(pageNumber);
-        setBoards(fetchedBoards.boards);
-        setNumPages(fetchedBoards.total_pages)
-        setLoading(false);
+        if (fetchedBoards) {
+            setBoards(fetchedBoards.boards);
+            setNumPages(fetchedBoards.total_pages)
+            setLoading(false);
+        }
     }
 
     return (

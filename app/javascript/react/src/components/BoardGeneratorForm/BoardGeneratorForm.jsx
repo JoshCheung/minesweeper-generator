@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { createBoard } from '../../api/MinesweeperCreate';
 import { Button, TextField } from '@mui/material';
-import './BoardGeneratorForm.css';
 import { useNavigate } from 'react-router';
+import './BoardGeneratorForm.css';
 
 const BoardGeneratorForm = () => {
     const navigate = useNavigate();
@@ -111,9 +111,9 @@ const BoardGeneratorForm = () => {
             <div className="button-container">
                 {
                     valid ?
-                    <Button style={{borderRadius: 25}} fullWidth variant="contained" color="success" onClick={() => {handleSubmit()}} >Generate Board</Button>
+                    <Button style={{borderRadius: 25}} fullWidth variant="contained" color="success" onClick={() => {handleSubmit()}}>Generate Board</Button>
                     :
-                    <Button style={{borderRadius: 25}} disabled fullWidth variant="contained">Generate Board</Button>
+                    <Button id="data-test-id" style={{borderRadius: 25}} disabled fullWidth variant="contained">Generate Board</Button>
 
                 }
             </div>

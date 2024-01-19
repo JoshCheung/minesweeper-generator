@@ -2,7 +2,7 @@ import React from "react";
 import './Mine.css'
 const Mine = () => {
     return (
-        <div className="mine-shell">
+        <div className="mine-shell" data-testid="mine-cell">
             <div className="mine-reflection-container">
                 <div className="mine-reflection"></div>
             </div>

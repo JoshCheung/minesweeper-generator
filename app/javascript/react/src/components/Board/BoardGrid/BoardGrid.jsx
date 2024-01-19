@@ -5,8 +5,9 @@ import Mine from "../Mines/Mine";
 import EmptyCell from '../Cells/EmptyCell';
 
 const BoardGrid = ({grid}) => { 
-    const [gridboard, setGrid] = useState(grid);
-
+    if (!grid) {
+        return null;
+    }
     return (
         <table>
             <tbody>
