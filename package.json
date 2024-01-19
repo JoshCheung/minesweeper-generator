@@ -14,7 +14,8 @@
     "remount": "^1.0.0"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.8",
