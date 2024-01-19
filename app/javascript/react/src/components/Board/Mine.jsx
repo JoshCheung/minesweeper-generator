@@ -13,7 +13,6 @@ const Mine = () => {
             <div className="line-through-diagonal-up"></div>
             </div>
         </div>
-
     )
 }
 export default Mine;

@@ -224,6 +224,13 @@
   transform: translateY(-50%) rotate(-45deg);
 }
 
+/* app/javascript/react/src/components/Board/EmptyCell.css */
+.empty-shell {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}
+
 /* app/javascript/react/src/components/Home/Home.css */
 .home-container {
   height: 100vh;
