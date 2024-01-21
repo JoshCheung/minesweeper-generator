@@ -13,8 +13,8 @@ const App = () => {
         <Route exact path="/" element={<Home/>} />
         <Route exact path={`viewBoard/:id`} element={<Board/>} />
         <Route exact path={`boardCollection`} element={<BoardCollection/>} />
-        <Route path="/404" element={ <PageNotFound /> } />
-        <Route path="*" element={ <Navigate to="/404" replace />} />
+        <Route exact path="/page-not-found" element={ <PageNotFound /> } />
+        <Route path="/*" element={ <Navigate to="/page-not-found" replace />} />
       </Routes>
     </Router>
   )                   
