@@ -22,9 +22,12 @@ const Board = ({id}) => {
                 setBoard(board);
                 setLoading(false);
             }
-        }
-        catch (e) {
-            navigate('/page-not-found')
+            else {
+                throw new Error;
+            }
+        } catch (e) {
+            console.error('Error fetching board:', e);
+            navigate('/page-not-found');
         }
     }
 

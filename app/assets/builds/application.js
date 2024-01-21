@@ -51667,8 +51667,11 @@ var Board = ({ id }) => {
       if (board2) {
         setBoard(board2);
         setLoading(false);
+      } else {
+        throw new Error();
       }
     } catch (e) {
+      console.error("Error fetching board:", e);
       navigate("/page-not-found");
     }
   };
