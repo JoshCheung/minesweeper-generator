@@ -24,8 +24,7 @@ const Board = ({id}) => {
             }
         }
         catch (e) {
-            // navigate to page not found
-            navigate('/404')
+            navigate('/page-not-found')
         }
     }
 

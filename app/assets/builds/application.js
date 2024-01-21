@@ -51669,7 +51669,7 @@ var Board = ({ id }) => {
         setLoading(false);
       }
     } catch (e) {
-      navigate("/404");
+      navigate("/page-not-found");
     }
   };
   const navigateHome = () => {
