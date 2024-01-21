@@ -51664,12 +51664,8 @@ var Board = ({ id }) => {
   const fetchBoardDetails = async () => {
     try {
       let board2 = await getBoard(params.id);
-      if (board2) {
-        setBoard(board2);
-        setLoading(false);
-      } else {
-        throw new Error();
-      }
+      setBoard(board2);
+      setLoading(false);
     } catch (e) {
       console.error("Error fetching board:", e);
       navigate("/page-not-found");
