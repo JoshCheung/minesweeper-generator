@@ -330,6 +330,32 @@
   padding: 24px;
 }
 
+/* app/javascript/react/src/components/Pages/PageNotFound.css */
+.page-not-found-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 100vh;
+}
+.page-not-found-content {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.page-not-found-text {
+  margin: auto;
+  padding: 0px 20px 0px 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.mine-logo {
+  margin: 20px;
+}
+
 /* app/javascript/react/src/components/App.css */
 body {
   margin: 0 !important;

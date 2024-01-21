@@ -1,17 +1,20 @@
 import * as React from 'react'                          
 import Home from './Home/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
 import Board from './Board/Board';
 import BoardCollection from './BoardCollection/BoardCollection';
+import PageNotFound from './Pages/PageNotFound';
 import "./App.css";                                                         
 
 const App = () => {                                   
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path={`viewBoard/:id`} element={<Board/>} />
-        <Route path={`boardCollection`} element={<BoardCollection/>} />
+        <Route exact path="/" element={<Home/>} />
+        <Route exact path={`viewBoard/:id`} element={<Board/>} />
+        <Route exact path={`boardCollection`} element={<BoardCollection/>} />
+        <Route path="/404" element={ <PageNotFound /> } />
+        <Route path="*" element={ <Navigate to="/404" replace />} />
       </Routes>
     </Router>
   )                   
