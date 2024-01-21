@@ -18,12 +18,16 @@ const Board = ({id}) => {
     const fetchBoardDetails = async () => {
         try {
             let board = await getBoard(params.id);
-            // if (board) {
+    
+            if (board) {
                 setBoard(board);
                 setLoading(false);
-            // }
-        } catch (e) {
-            console.error('Error fetching board:', e);
+            } else {
+                console.error('Board not found or invalid response');
+                navigate('/page-not-found');
+            }
+        } catch (error) {
+            console.error('Error fetching board details:', error);
             navigate('/page-not-found');
         }
     }

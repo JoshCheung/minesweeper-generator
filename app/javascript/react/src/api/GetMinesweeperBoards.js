@@ -33,7 +33,9 @@ export async function getBoard(board_id) {
     });
 
     let board = await response.json();
-    return await board;
+    let testResponse = await board;
+    console.dir(testResponse);
+    // return await testResponse;
 }
 
 

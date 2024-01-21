@@ -51554,7 +51554,8 @@ async function getBoard(board_id) {
     headers: headers2
   });
   let board = await response.json();
-  return await board;
+  let testResponse = await board;
+  console.dir(testResponse);
 }
 
 // app/javascript/react/src/components/BoardList/ListItem.jsx
@@ -51664,10 +51665,15 @@ var Board = ({ id }) => {
   const fetchBoardDetails = async () => {
     try {
       let board2 = await getBoard(params.id);
-      setBoard(board2);
-      setLoading(false);
-    } catch (e) {
-      console.error("Error fetching board:", e);
+      if (board2) {
+        setBoard(board2);
+        setLoading(false);
+      } else {
+        console.error("Board not found or invalid response");
+        navigate("/page-not-found");
+      }
+    } catch (error2) {
+      console.error("Error fetching board details:", error2);
       navigate("/page-not-found");
     }
   };
