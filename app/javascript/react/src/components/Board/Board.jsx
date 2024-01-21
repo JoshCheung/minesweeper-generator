@@ -16,10 +16,16 @@ const Board = ({id}) => {
     }, [id]);
 
     const fetchBoardDetails = async () => {
-        let board = await getBoard(params.id);
-        if (board) {
-            setBoard(board);
-            setLoading(false);
+        try {
+            let board = await getBoard(params.id);
+            if (board) {
+                setBoard(board);
+                setLoading(false);
+            }
+        }
+        catch (e) {
+            // navigate to page not found
+            navigate('/404')
         }
     }
 

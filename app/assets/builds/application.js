@@ -2974,9 +2974,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React79 = require_react();
+        var React80 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React79.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React80.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -4581,7 +4581,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React79.Children.forEach(props.children, function(child) {
+                React80.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -13028,7 +13028,7 @@ var require_react_dom_development = __commonJS({
           }
         }
         var fakeInternalInstance = {};
-        var emptyRefsObject = new React79.Component().refs;
+        var emptyRefsObject = new React80.Component().refs;
         var didWarnAboutStateAssignmentForComponent;
         var didWarnAboutUninitializedState;
         var didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate;
@@ -25138,7 +25138,7 @@ var require_react_jsx_runtime_development = __commonJS({
     if (true) {
       (function() {
         "use strict";
-        var React79 = require_react();
+        var React80 = require_react();
         var REACT_ELEMENT_TYPE = Symbol.for("react.element");
         var REACT_PORTAL_TYPE = Symbol.for("react.portal");
         var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -25164,7 +25164,7 @@ var require_react_jsx_runtime_development = __commonJS({
           }
           return null;
         }
-        var ReactSharedInternals = React79.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React80.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         function error2(format) {
           {
             {
@@ -33893,7 +33893,7 @@ function defineReact(components = {}, options = {}) {
 }
 
 // app/javascript/react/src/components/App.jsx
-var React78 = __toESM(require_react());
+var React79 = __toESM(require_react());
 
 // app/javascript/react/src/components/Home/Home.jsx
 var import_react17 = __toESM(require_react());
@@ -35067,6 +35067,40 @@ function warningOnce(key, cond, message) {
 }
 var START_TRANSITION = "startTransition";
 var startTransitionImpl = React2[START_TRANSITION];
+function Navigate(_ref4) {
+  let {
+    to,
+    replace: replace2,
+    state,
+    relative
+  } = _ref4;
+  !useInRouterContext() ? true ? invariant(
+    false,
+    // TODO: This error is probably because they somehow have 2 versions of
+    // the router loaded. We can help them understand how to avoid that.
+    "<Navigate> may be used only in the context of a <Router> component."
+  ) : invariant(false) : void 0;
+  let {
+    future,
+    static: isStatic
+  } = React2.useContext(NavigationContext);
+  true ? warning(!isStatic, "<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.") : void 0;
+  let {
+    matches
+  } = React2.useContext(RouteContext);
+  let {
+    pathname: locationPathname
+  } = useLocation();
+  let navigate = useNavigate();
+  let path = resolveTo(to, getResolveToMatches(matches, future.v7_relativeSplatPath), locationPathname, relative === "path");
+  let jsonPath = JSON.stringify(path);
+  React2.useEffect(() => navigate(JSON.parse(jsonPath), {
+    replace: replace2,
+    state,
+    relative
+  }), [navigate, jsonPath, relative, replace2, state]);
+  return null;
+}
 function Route(_props) {
   true ? invariant(false, "A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.") : invariant(false);
 }
@@ -51628,10 +51662,14 @@ var Board = ({ id }) => {
     fetchBoardDetails();
   }, [id]);
   const fetchBoardDetails = async () => {
-    let board2 = await getBoard(params.id);
-    if (board2) {
-      setBoard(board2);
-      setLoading(false);
+    try {
+      let board2 = await getBoard(params.id);
+      if (board2) {
+        setBoard(board2);
+        setLoading(false);
+      }
+    } catch (e) {
+      navigate("/404");
     }
   };
   const navigateHome = () => {
@@ -51710,9 +51748,16 @@ var BoardCollection = () => {
 };
 var BoardCollection_default = BoardCollection;
 
+// app/javascript/react/src/components/Pages/PageNotFound.jsx
+var import_react21 = __toESM(require_react());
+var PageNotFound = () => {
+  return /* @__PURE__ */ import_react21.default.createElement("div", { className: "page-not-found-container" }, /* @__PURE__ */ import_react21.default.createElement("div", { className: "page-not-found-content" }, /* @__PURE__ */ import_react21.default.createElement(Mine_default, null), /* @__PURE__ */ import_react21.default.createElement("div", { className: "page-not-found-text" }, "Page Not Found :("), /* @__PURE__ */ import_react21.default.createElement(Mine_default, null)));
+};
+var PageNotFound_default = PageNotFound;
+
 // app/javascript/react/src/components/App.jsx
 var App = () => {
-  return /* @__PURE__ */ React78.createElement(BrowserRouter, null, /* @__PURE__ */ React78.createElement(Routes, null, /* @__PURE__ */ React78.createElement(Route, { path: "/", element: /* @__PURE__ */ React78.createElement(Home_default, null) }), /* @__PURE__ */ React78.createElement(Route, { path: `viewBoard/:id`, element: /* @__PURE__ */ React78.createElement(Board_default, null) }), /* @__PURE__ */ React78.createElement(Route, { path: `boardCollection`, element: /* @__PURE__ */ React78.createElement(BoardCollection_default, null) })));
+  return /* @__PURE__ */ React79.createElement(BrowserRouter, null, /* @__PURE__ */ React79.createElement(Routes, null, /* @__PURE__ */ React79.createElement(Route, { exact: true, path: "/", element: /* @__PURE__ */ React79.createElement(Home_default, null) }), /* @__PURE__ */ React79.createElement(Route, { exact: true, path: `viewBoard/:id`, element: /* @__PURE__ */ React79.createElement(Board_default, null) }), /* @__PURE__ */ React79.createElement(Route, { exact: true, path: `boardCollection`, element: /* @__PURE__ */ React79.createElement(BoardCollection_default, null) }), /* @__PURE__ */ React79.createElement(Route, { exact: true, path: "/page-not-found", element: /* @__PURE__ */ React79.createElement(PageNotFound_default, null) }), /* @__PURE__ */ React79.createElement(Route, { path: "/*", element: /* @__PURE__ */ React79.createElement(Navigate, { to: "/page-not-found", replace: true }) })));
 };
 var App_default = App;
 
