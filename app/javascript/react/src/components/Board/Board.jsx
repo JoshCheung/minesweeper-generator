@@ -18,8 +18,10 @@ const Board = ({id}) => {
     const fetchBoardDetails = async () => {
         try {
             let board = await getBoard(params.id);
-            setBoard(board);
-            setLoading(false);
+            if (board) {
+                setBoard(board);
+                setLoading(false);
+            }
         }
         catch (e) {
             // navigate to page not found

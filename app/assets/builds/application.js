@@ -51664,8 +51664,10 @@ var Board = ({ id }) => {
   const fetchBoardDetails = async () => {
     try {
       let board2 = await getBoard(params.id);
-      setBoard(board2);
-      setLoading(false);
+      if (board2) {
+        setBoard(board2);
+        setLoading(false);
+      }
     } catch (e) {
       navigate("/404");
     }
