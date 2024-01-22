@@ -51676,7 +51676,6 @@ var Board = ({ id }) => {
         setBoard(boardResponse);
         setLoading(false);
       } else {
-        console.error("Board not found or invalid response");
         navigate("/page-not-found");
       }
     } catch (error2) {
