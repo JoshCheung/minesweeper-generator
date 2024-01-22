@@ -27,15 +27,21 @@ export async function getAllBoardsByPage(pageNumber) {
 
 export async function getBoard(board_id) {
     const url = `/api/v1/boards/show/${board_id}`;
-    let response = await fetch(url, {
-        method: 'GET',
-        headers: headers
-    });
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: headers
+        });
 
-    let board = await response.json();
-    let testResponse = await board;
-    console.dir(testResponse);
-    // return await testResponse;
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const board = await response.json();
+        return board;
+    } catch (error) {
+        console.error('Error fetching board:', error);
+        throw error;
+    }
 }
-
 

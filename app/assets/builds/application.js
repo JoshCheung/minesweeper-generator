@@ -51549,13 +51549,20 @@ async function getAllBoardsByPage(pageNumber) {
 }
 async function getBoard(board_id) {
   const url = `/api/v1/boards/show/${board_id}`;
-  let response = await fetch(url, {
-    method: "GET",
-    headers: headers2
-  });
-  let board = await response.json();
-  let testResponse = await board;
-  console.dir(testResponse);
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: headers2
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const board = await response.json();
+    return board;
+  } catch (error2) {
+    console.error("Error fetching board:", error2);
+    throw error2;
+  }
 }
 
 // app/javascript/react/src/components/BoardList/ListItem.jsx
@@ -51664,9 +51671,9 @@ var Board = ({ id }) => {
   }, [id]);
   const fetchBoardDetails = async () => {
     try {
-      let board2 = await getBoard(params.id);
-      if (board2) {
-        setBoard(board2);
+      let boardResponse = await getBoard(params.id);
+      if (boardResponse) {
+        setBoard(boardResponse);
         setLoading(false);
       } else {
         console.error("Board not found or invalid response");

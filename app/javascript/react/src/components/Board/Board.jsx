@@ -17,10 +17,9 @@ const Board = ({id}) => {
 
     const fetchBoardDetails = async () => {
         try {
-            let board = await getBoard(params.id);
-    
-            if (board) {
-                setBoard(board);
+            let boardResponse = await getBoard(params.id);
+            if (boardResponse) {
+                setBoard(boardResponse);
                 setLoading(false);
             } else {
                 console.error('Board not found or invalid response');
