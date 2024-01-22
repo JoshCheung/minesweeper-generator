@@ -50,18 +50,21 @@ const BoardGeneratorForm = () => {
     }
 
     const validateEmail = () => {
-        if (email.match(validEmailPattern)) {
-            setEmailError(false);
-            setHelpEmailText("");
-            return true;
+        if (email != '') {
+            if (email.match(validEmailPattern)) {
+                setEmailError(false);
+                setHelpEmailText("");
+                return true;
+            }
+            setEmailError(true);
+            setHelpEmailText("Not a Valid Email.");
+            return false;
         }
-        setEmailError(true);
-        setHelpEmailText("Not a Valid Email.");
         return false;
     }
 
     const checkValidity = () => {
-        setValidity(email != '' && name != '' && checkDimensions() && checkNumberOfMines());
+        setValidity(validateEmail() && name != '' && checkDimensions() && checkNumberOfMines());
     }
     
     const checkNumberOfMines = () => {

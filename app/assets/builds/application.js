@@ -51455,17 +51455,20 @@ var BoardGeneratorForm = () => {
     setNumberOfMines(value);
   };
   const validateEmail = () => {
-    if (email.match(validEmailPattern)) {
-      setEmailError(false);
-      setHelpEmailText("");
-      return true;
+    if (email != "") {
+      if (email.match(validEmailPattern)) {
+        setEmailError(false);
+        setHelpEmailText("");
+        return true;
+      }
+      setEmailError(true);
+      setHelpEmailText("Not a Valid Email.");
+      return false;
     }
-    setEmailError(true);
-    setHelpEmailText("Not a Valid Email.");
     return false;
   };
   const checkValidity = () => {
-    setValidity(email != "" && name2 != "" && checkDimensions() && checkNumberOfMines());
+    setValidity(validateEmail() && name2 != "" && checkDimensions() && checkNumberOfMines());
   };
   const checkNumberOfMines = () => {
     return 1 <= numberOfMines && numberOfMines <= height2 * width2;
