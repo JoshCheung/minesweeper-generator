@@ -6,13 +6,23 @@ import './BoardGeneratorForm.css';
 
 const BoardGeneratorForm = () => {
     const navigate = useNavigate();
+    const validEmailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+    // had to research this pattern:
+    // ^ anchor the pattern to the beginning of the string 
+    // [a-zA-Z0-9]+ one or more occurences of letters or numbers
+    // followed by the @ symbol
+    // followed by more letters or numbers and then "."
+    // followed by [letters]
+    // $ is to anchor the end of the pattern 
 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [height, setHeight] = useState(0);
     const [width, setWidth] = useState(0);
     const [numberOfMines, setNumberOfMines] = useState(0);
+    const [emailError, setEmailError] = useState(false);
     const [valid, setValidity] = useState(false);
+    const [helperEmailText, setHelpEmailText] = useState("");
 
     useEffect(() => {
        checkValidity();
@@ -20,6 +30,7 @@ const BoardGeneratorForm = () => {
 
     const handleEmailInput = (value) => {
         setEmail(value);
+        validateEmail(email);
     }
 
     const handleNameInput = (value) => {
@@ -38,8 +49,22 @@ const BoardGeneratorForm = () => {
         setNumberOfMines(value);
     }
 
+    const validateEmail = () => {
+        if (email != '') {
+            if (email.match(validEmailPattern)) {
+                setEmailError(false);
+                setHelpEmailText("");
+                return true;
+            }
+            setEmailError(true);
+            setHelpEmailText("Not a Valid Email.");
+            return false;
+        }
+        return false;
+    }
+
     const checkValidity = () => {
-        setValidity(email != '' && name != '' && checkDimensions() && checkNumberOfMines());
+        setValidity(validateEmail() && name != '' && checkDimensions() && checkNumberOfMines());
     }
     
     const checkNumberOfMines = () => {
@@ -66,9 +91,13 @@ const BoardGeneratorForm = () => {
             <div className="input-form-container">
                 <div className="input-container">
                     <TextField
+                        error={emailError}
                         fullWidth
                         value={email}
+                        type="email"
+                        required={true}
                         onChange={(e) => handleEmailInput(e.target.value)}
+                        helperText={helperEmailText}
                         label="Email Address"
                     />
                 </div>
@@ -76,6 +105,7 @@ const BoardGeneratorForm = () => {
                     <TextField
                         fullWidth
                         value={name}
+                        required={true}
                         onChange={(e) => handleNameInput(e.target.value)}
                         label="Board Name"
                     />
@@ -84,6 +114,7 @@ const BoardGeneratorForm = () => {
                     <TextField
                         fullWidth
                         value={height}
+                        required={true}
                         onChange={(e) => handleHeightInput(e.target.value)}
                         type="number"
                         label="Board Height (Max 30)"
@@ -93,6 +124,7 @@ const BoardGeneratorForm = () => {
                     <TextField
                         fullWidth
                         value={width}
+                        required={true}
                         onChange={(e) => handleWidthInput(e.target.value)}
                         type="number"
                         label="Board Width (Max 30)"
@@ -101,6 +133,7 @@ const BoardGeneratorForm = () => {
                 <div className="input-container">
                     <TextField
                         fullWidth
+                        required={true}
                         value={numberOfMines}
                         onChange={(e) => handleMinesInput(e.target.value)}
                         type="number"
