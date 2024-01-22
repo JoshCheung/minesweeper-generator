@@ -51426,17 +51426,21 @@ var TextField_default = TextField;
 // app/javascript/react/src/components/BoardGeneratorForm/BoardGeneratorForm.jsx
 var BoardGeneratorForm = () => {
   const navigate = useNavigate();
+  const validEmailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
   const [email, setEmail] = (0, import_react10.useState)("");
   const [name2, setName] = (0, import_react10.useState)("");
   const [height2, setHeight] = (0, import_react10.useState)(0);
   const [width2, setWidth] = (0, import_react10.useState)(0);
   const [numberOfMines, setNumberOfMines] = (0, import_react10.useState)(0);
+  const [emailError, setEmailError] = (0, import_react10.useState)(false);
   const [valid, setValidity] = (0, import_react10.useState)(false);
+  const [helperEmailText, setHelpEmailText] = (0, import_react10.useState)("");
   (0, import_react10.useEffect)(() => {
     checkValidity();
   }, [email, name2, height2, width2, numberOfMines]);
   const handleEmailInput = (value) => {
     setEmail(value);
+    validateEmail(email);
   };
   const handleNameInput = (value) => {
     setName(value);
@@ -51449,6 +51453,16 @@ var BoardGeneratorForm = () => {
   };
   const handleMinesInput = (value) => {
     setNumberOfMines(value);
+  };
+  const validateEmail = () => {
+    if (email.match(validEmailPattern)) {
+      setEmailError(false);
+      setHelpEmailText("");
+      return true;
+    }
+    setEmailError(true);
+    setHelpEmailText("Not a Valid Email.");
+    return false;
   };
   const checkValidity = () => {
     setValidity(email != "" && name2 != "" && checkDimensions() && checkNumberOfMines());
@@ -51475,9 +51489,13 @@ var BoardGeneratorForm = () => {
   return /* @__PURE__ */ import_react10.default.createElement("div", { className: "form-container" }, /* @__PURE__ */ import_react10.default.createElement("h2", { className: "title" }, "Minesweeper Board Generator"), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-form-container" }, /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
     TextField_default,
     {
+      error: emailError,
       fullWidth: true,
       value: email,
+      type: "email",
+      required: true,
       onChange: (e) => handleEmailInput(e.target.value),
+      helperText: helperEmailText,
       label: "Email Address"
     }
   )), /* @__PURE__ */ import_react10.default.createElement("div", { className: "input-container" }, /* @__PURE__ */ import_react10.default.createElement(
@@ -51485,6 +51503,7 @@ var BoardGeneratorForm = () => {
     {
       fullWidth: true,
       value: name2,
+      required: true,
       onChange: (e) => handleNameInput(e.target.value),
       label: "Board Name"
     }
@@ -51493,6 +51512,7 @@ var BoardGeneratorForm = () => {
     {
       fullWidth: true,
       value: height2,
+      required: true,
       onChange: (e) => handleHeightInput(e.target.value),
       type: "number",
       label: "Board Height (Max 30)"
@@ -51502,6 +51522,7 @@ var BoardGeneratorForm = () => {
     {
       fullWidth: true,
       value: width2,
+      required: true,
       onChange: (e) => handleWidthInput(e.target.value),
       type: "number",
       label: "Board Width (Max 30)"
@@ -51510,6 +51531,7 @@ var BoardGeneratorForm = () => {
     TextField_default,
     {
       fullWidth: true,
+      required: true,
       value: numberOfMines,
       onChange: (e) => handleMinesInput(e.target.value),
       type: "number",
